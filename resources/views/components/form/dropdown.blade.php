@@ -1,5 +1,6 @@
-@props(['align' => 'right', 'width' => '73', 'contentClasses' => 'py-1 bg-white', 'dropdownClasses' => ''])
-
+@props(['align' => 'right', 'width' => '73', 'contentClasses' => 'py-1 w-full inline-flex flex-col items-center justify-center subpixel-antialiased outline-none box-border text-small bg-content1 rounded-large shadow-medium w-full p-3 min-w-[200px] p-1', 'dropdownClasses' => ''])
+<!-- w-full relative flex flex-col gap-1 p-1 -->
+<!-- z-10 inline-flex flex-col items-center justify-center subpixel-antialiased outline-none box-border text-small bg-content1 rounded-large shadow-medium w-full p-1 min-w-[200px] -->
 @php
 switch ($align) {
     case 'left':

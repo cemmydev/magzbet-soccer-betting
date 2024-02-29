@@ -1,31 +1,44 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="border-b border-gray-100">
 	<!-- Primary Navigation Menu -->
-	<div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8">
+	<!-- <div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8"> -->
+	<div class="px-6 gap-4 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">
 		<div class="flex justify-between h-16">
 			<div class="flex">
 				<!-- Logo -->
-				<div class="shrink-0 flex items-center">
-					<a href="{{ route('dashboard') }}" class="h-auto w-24">
+				<div class="shrink-0 flex items-center mr-4">
+					<a href="{{ route('dashboard') }}" class="h-auto">
 						<x-layout.application-logo class="block fill-current text-gray-800"/>
 					</a>
 				</div>
 
 				<!-- Navigation Links -->
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-navbar.link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-						{{ __('general.navbar.dashboard') }}
-					</x-navbar.link>
-				</div>
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-navbar.link :href="route('users.index')" :active="request()->routeIs('users.index')">
-						{{ __('general.navbar.users') }}
-					</x-navbar.link>
-				</div>
-				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
-						{{ __('general.navbar.records') }}
-					</x-navbar.link>
-				</div>
+				<ul class="h-full flex-row flex-nowrap items-center data-[justify=start]:justify-start data-[justify=start]:flex-grow data-[justify=start]:basis-0 data-[justify=center]:justify-center data-[justify=end]:justify-end data-[justify=end]:flex-grow data-[justify=end]:basis-0 hidden gap-4 sm:flex">
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+							{{ __('general.navbar.home') }}
+						</x-navbar.link>
+					</li>
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('users.index')" :active="request()->routeIs('users.index')">
+							{{ __('general.navbar.bets') }}
+						</x-navbar.link>
+					</li>
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+							{{ __('general.navbar.results') }}
+						</x-navbar.link>
+					</li>
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+							{{ __('general.navbar.stats') }}
+						</x-navbar.link>
+					</li>
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+							{{ __('general.navbar.contact') }}
+						</x-navbar.link>
+					</li>
+				</ul>
 			</div>
 			<!-- right menu -->
 			<div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -37,23 +50,18 @@
 				<x-form.dropdown align="right" width="48">
 					<x-slot name="trigger">
 						<button
-							class="inline-flex items-center pr-3 py-2 border border-transparent leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-							<img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}"
-								 alt="{{ Auth::user()->name }}"/>
-							<div class="ml-2">{{ Auth::user()->name }}</div>
-
-							<div class="ml-1">
-								<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-									 viewBox="0 0 20 20">
-									<path fill-rule="evenodd"
-										  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-										  clip-rule="evenodd"/>
-								</svg>
-							</div>
+							class="flex relative justify-center items-center box-border overflow-hidden align-middle outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-primary text-primary-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark ring-primary z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased transition-transform">
+							<img class="h-8 w-8 rounded-full object-cover" src="{{ asset('assets/images/logo.webp') }}" alt="{{ Auth::user()->name }}"/>
+							<!-- <div class="ml-2">{{ Auth::user()->name }}</div> -->
 						</button>
 					</x-slot>
 
 					<x-slot name="content">
+						
+						<x-form.dropdown-link :href="route('profile.index')">
+							{{ Auth::user()->name  }}
+						</x-form.dropdown-link>
+						
 						<x-form.dropdown-link :href="route('profile.index')">
 							{{ __('general.navbar.profile') }}
 						</x-form.dropdown-link>
@@ -65,7 +73,7 @@
 						@endcan
 
 						<!-- Authentication -->
-						<form method="POST" action="{{ route('logout') }}">
+						<form method="POST" action="{{ route('logout') }}" class="text-left">
 							@csrf
 
 							<x-form.dropdown-link :href="route('logout')"

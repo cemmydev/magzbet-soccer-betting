@@ -9,6 +9,11 @@ return [
 		'records' => 'Records',
 		'back_to' => 'Back to',
 		'settings' => 'Settings',
+		'home' => 'Home',
+		'bets' => 'Bets',
+		'results' => 'Results',
+		'stats' => 'Stats',
+		'contact' => 'Contact'
 	],
 	'table' => [
 		'selected_records' => ':count selected record|:count selected records',

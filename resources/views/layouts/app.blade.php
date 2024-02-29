@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 	<!-- Styles -->
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
+	<link rel="stylesheet" href="{{asset('css/bettok-1.css')}}">
+	<link rel="stylesheet" href="{{asset('css/bettok-2.css')}}">
 	@stack('styles')
 	<!-- Scripts -->
 	<script type="application/javascript" src="{{ mix('js/vendor.js') }}" defer></script>
@@ -24,15 +26,15 @@
 	<!-- Scripts -->
 	@stack('scripts')
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans antialiased dark">
 <x-notifications.toaster/>
 <!-- container -->
-<div class="min-h-screen bg-gray-100">
+<div class="min-h-screen">
 	<!-- navbar -->
 	<x-layout.navigation />
 	<!-- page heading -->
 	@if (isset($header))
-	<header class="bg-white shadow">
+	<header class="shadow">
 		<div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto py-6 px-4 sm:px-6 lg:px-8">
 			{{ $header }}
 		</div>
