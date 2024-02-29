@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="border-b border-gray-100">
+<nav x-data="{ open: false }" class="flex z-40 w-full h-auto items-center justify-center data-[menu-open=true]:border-none sticky top-0 inset-x-0 border-b border-divider backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70">
 	<!-- Primary Navigation Menu -->
 	<!-- <div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8"> -->
 	<div class="px-6 gap-4 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">

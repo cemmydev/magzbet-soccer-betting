@@ -13,12 +13,10 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/demo', function () {
-	return view('demo');
-});
+
 Route::middleware([
 	'web',
-])->group(function () {
+	])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
 	// auth routes

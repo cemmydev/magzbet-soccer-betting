@@ -33,4 +33,8 @@ class ViewController
 				array_merge(Route::current()->parameters(), ['routeName' => $this->routeName])
 			);
 	}
+
+	public function home()  {
+		return $this->viewFactory->make('dashboard.index');
+	}
 }
