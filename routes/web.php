@@ -19,6 +19,7 @@ Route::middleware([
 	])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
+	Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
@@ -85,7 +86,7 @@ Route::middleware([
 					Route::controller(ViewController::class)
 						->group(function () {
 							// dashboard
-							Route::get('/dashboard', 'builder')->name('dashboard');
+							// Route::get('/dashboard', 'builder')->name('dashboard');
 							// profile
 							Route::group([
 								'prefix' => 'profile',

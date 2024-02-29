@@ -47,15 +47,16 @@
 				<!-- Separator -->
 				<div class="w-[1px] h-8 mx-4 bg-gray-100"></div>
 				<!-- dropdown -->
-				<x-form.dropdown align="right" width="48">
-					<x-slot name="trigger">
-						<button
+				@if (Auth::check()) 
+					<x-form.dropdown align="right" width="48">
+						<x-slot name="trigger">
+							<button
 							class="flex relative justify-center items-center box-border overflow-hidden align-middle outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 w-8 h-8 text-tiny bg-primary text-primary-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark ring-primary z-10 aria-expanded:scale-[0.97] aria-expanded:opacity-70 subpixel-antialiased transition-transform">
 							<img class="h-8 w-8 rounded-full object-cover" src="{{ asset('assets/images/logo.webp') }}" alt="{{ Auth::user()->name }}"/>
 							<!-- <div class="ml-2">{{ Auth::user()->name }}</div> -->
 						</button>
 					</x-slot>
-
+					
 					<x-slot name="content">
 						
 						<x-form.dropdown-link :href="route('profile.index')">
@@ -65,25 +66,37 @@
 						<x-form.dropdown-link :href="route('profile.index')">
 							{{ __('general.navbar.profile') }}
 						</x-form.dropdown-link>
-
+						
 						@can('view_settings')
-							<x-form.dropdown-link :href="route('settings.index')">
-								{{ __('general.navbar.settings') }}
-							</x-form.dropdown-link>
+						<x-form.dropdown-link :href="route('settings.index')">
+							{{ __('general.navbar.settings') }}
+						</x-form.dropdown-link>
 						@endcan
-
+						
 						<!-- Authentication -->
-						<form method="POST" action="{{ route('logout') }}" class="text-left">
-							@csrf
-
-							<x-form.dropdown-link :href="route('logout')"
-												  onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-								{{ __('general.navbar.logout') }}
-							</x-form.dropdown-link>
-						</form>
-					</x-slot>
-				</x-form.dropdown>
+							<form method="POST" action="{{ route('logout') }}" class="text-left">
+								@csrf
+								
+								<x-form.dropdown-link :href="route('logout')"
+								onclick="event.preventDefault();
+													this.closest('form').submit();">
+									{{ __('general.navbar.logout') }}
+								</x-form.dropdown-link>
+							</form>
+						</x-slot>
+					</x-form.dropdown>
+				@else
+				<ul class="flex gap-4 h-full flex-row flex-nowrap items-center data-[justify=start]:justify-start data-[justify=start]:flex-grow data-[justify=start]:basis-0 data-[justify=center]:justify-center data-[justify=end]:justify-end data-[justify=end]:flex-grow data-[justify=end]:basis-0"
+					data-justify="end">
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold"><a
+							class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
+							role="button" tabindex="0" href="{{route('register')}}" previewlistener="true">Sign Up</a></li>
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<a
+							class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-foreground data-[hover=true]:opacity-hover"
+							type="button" href="{{route("login")}}">Login</a></li>
+				</ul>
+				@endif
 			</div>
 
 			<div class="-mr-2 flex items-center sm:hidden">
@@ -113,28 +126,32 @@
 		</div>
 
 		<!-- Responsive Settings Options -->
-		<div class="pt-4 pb-1 border-t border-gray-200">
-			<div class="px-4">
-				<div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-				<div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-			</div>
+		@if(Auth::check())
+			<div class="pt-4 pb-1 border-t border-gray-200">
+				<div class="px-4">
+					<div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+					<div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+				</div>
 
-			<div class="mt-3 space-y-1">
-				<x-responsive-nav-link :href="route('profile.index')">
-					{{ __('general.navbar.profile') }}
-				</x-responsive-nav-link>
-
-				<!-- Authentication -->
-				<form method="POST" action="{{ route('logout') }}">
-					@csrf
-
-					<x-responsive-nav-link :href="route('logout')"
-										   onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-						{{ __('general.navbar.logout') }}
+				<div class="mt-3 space-y-1">
+					<x-responsive-nav-link :href="route('profile.index')">
+						{{ __('general.navbar.profile') }}
 					</x-responsive-nav-link>
-				</form>
+
+					<!-- Authentication -->
+					<form method="POST" action="{{ route('logout') }}">
+						@csrf
+
+						<x-responsive-nav-link :href="route('logout')"
+											onclick="event.preventDefault();
+											this.closest('form').submit();">
+							{{ __('general.navbar.logout') }}
+						</x-responsive-nav-link>
+					</form>
+				</div>
 			</div>
-		</div>
+		@else 
+			<button>login</button>
+		@endif
 	</div>
 </nav>
