@@ -19,22 +19,22 @@
 						</x-navbar.link>
 					</li>
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
-						<x-navbar.link :href="route('users.index')" :active="request()->routeIs('users.index')">
+						<x-navbar.link :href="route('bets.index')" :active="request()->routeIs('bets.index')">
 							{{ __('general.navbar.bets') }}
 						</x-navbar.link>
 					</li>
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
-						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+						<x-navbar.link :href="route('bets.results')" :active="request()->routeIs('bets.results')">
 							{{ __('general.navbar.results') }}
 						</x-navbar.link>
 					</li>
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
-						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+						<x-navbar.link :href="route('stats')" :active="request()->routeIs('stats')">
 							{{ __('general.navbar.stats') }}
 						</x-navbar.link>
 					</li>
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
-						<x-navbar.link :href="route('records.index')" :active="request()->routeIs('records.index')">
+						<x-navbar.link :href="route('contact')" :active="request()->routeIs('contact')">
 							{{ __('general.navbar.contact') }}
 						</x-navbar.link>
 					</li>

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
+use App\Http\Controllers\BetsController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,22 @@ Route::middleware([
 					Route::get('confirm-password', 'show')->name('password.confirm');
 					Route::post('confirm-password', 'store');
 				});
+			//bets page route
+			Route::controller(ViewController::class)
+				->group(function () {
+					// Route::get('/bets', [BetsController::class, 'home'])->name('home');
+					Route::group([
+						'prefix' => 'bets',
+						'as' => 'bets.',
+					], function () {
+						Route::get('/', 'builder')->name('index');
+						Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+						Route::get('/results', 'builder')->name('results');
+					});
+				});
+			// stats page routes
+			Route::get('/stats', [ViewController::class, 'builder'])->name('stats');
+			Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
 			/*
 			|--------------------------------------------------------------------------
 			| Email verification routes
