@@ -4,7 +4,8 @@ use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
-use App\Http\Controllers\BetsController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use App\Http\Middleware\RedirectIfAdmin;
@@ -20,8 +21,9 @@ Route::middleware([
 	'web',
 	])->group(function () {
 	// redirect
+	Route::resource('post', PostController::class); 
 	Route::redirect('/', '/dashboard', 301)->name('home');
-	Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
+	// Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
@@ -144,6 +146,15 @@ Route::middleware([
 										Route::get('/', 'builder')->name('index');
 										Route::get('/roles', 'builder')->name('roles');
 									});
+
+									//admin routes
+
+									Route::group([
+											'prefix'=> 'admin',
+											'as' => 'admin.'
+										],function () {
+											Route::get('/', [Admin\HomeController::class, 'index'])->name('home');
+										});
 								});
 						});
 				});
