@@ -38,6 +38,13 @@
 							{{ __('general.navbar.contact') }}
 						</x-navbar.link>
 					</li>
+					@if(Auth::check() && Auth::user()->isAdmin())
+					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
+						<x-navbar.link :href="route('users.index')" :active="request()->routeIs('users.index')">
+							{{ __('general.navbar.users') }}
+						</x-navbar.link>
+					</li>
+					@endif
 				</ul>
 			</div>
 			<!-- right menu -->

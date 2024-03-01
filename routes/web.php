@@ -7,6 +7,7 @@ use App\Http\Controllers\View\ViewController;
 use App\Http\Controllers\BetsController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
+use App\Http\Middleware\RedirectIfAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -112,35 +113,38 @@ Route::middleware([
 								Route::get('/', 'builder')->name('index');
 							});
 							// users
-							Route::group([
-								'prefix' => 'users',
-								'as' => 'users.',
-							], function () {
-								Route::get('/', 'builder')->name('index');
-								Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-								Route::get('/create', 'builder')->name('store');
-								Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
-							});
-							// records
-							Route::group([
-								'prefix' => 'records',
-								'as' => 'records.',
-							], function () {
-								Route::get('/', 'builder')->name('index');
-								Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-								Route::get('/create', 'builder')->name('store');
-							});
-							// settings
-							Route::group([
-								'prefix' => 'settings',
-								'as' => 'settings.',
-								'middleware' => [
-									CanMiddleware::class . ':view_settings'
-								]
-							], function () {
-								Route::get('/', 'builder')->name('index');
-								Route::get('/roles', 'builder')->name('roles');
-							});
+							Route::middleware(RedirectIfAdmin::class)
+								->group(function () {
+									Route::group([
+										'prefix' => 'users',
+										'as' => 'users.',
+									], function () {
+										Route::get('/', 'builder')->name('index');
+										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+										Route::get('/create', 'builder')->name('store');
+										Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
+									});
+									// records
+									Route::group([
+										'prefix' => 'records',
+										'as' => 'records.',
+									], function () {
+										Route::get('/', 'builder')->name('index');
+										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+										Route::get('/create', 'builder')->name('store');
+									});
+									// settings
+									Route::group([
+										'prefix' => 'settings',
+										'as' => 'settings.',
+										'middleware' => [
+											CanMiddleware::class . ':view_settings'
+										]
+									], function () {
+										Route::get('/', 'builder')->name('index');
+										Route::get('/roles', 'builder')->name('roles');
+									});
+								});
 						});
 				});
 		});
