@@ -13,7 +13,8 @@ return [
 		'bets' => 'Bets',
 		'results' => 'Results',
 		'stats' => 'Stats',
-		'contact' => 'Contact'
+		'contact' => 'Contact',
+		'admin' => 'Admin',
 	],
 	'table' => [
 		'selected_records' => ':count selected record|:count selected records',

@@ -23,7 +23,7 @@ Route::middleware([
 	// redirect
 	Route::resource('post', PostController::class); 
 	Route::redirect('/', '/dashboard', 301)->name('home');
-	// Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
+	Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
@@ -153,7 +153,9 @@ Route::middleware([
 											'prefix'=> 'admin',
 											'as' => 'admin.'
 										],function () {
-											Route::get('/', [Admin\HomeController::class, 'index'])->name('home');
+											Route::get('/', [ViewController::class, 'builder'])->name('index');
+											Route::get('/users', [ViewController::class, 'builder'])->name('users');
+											
 										});
 								});
 						});

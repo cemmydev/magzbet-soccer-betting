@@ -39,9 +39,10 @@
 						</x-navbar.link>
 					</li>
 					@if(Auth::check() && Auth::user()->isAdmin())
+
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
-						<x-navbar.link :href="route('users.index')" :active="request()->routeIs('users.index')">
-							{{ __('general.navbar.users') }}
+						<x-navbar.link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+							{{ __('general.navbar.admin') }}
 						</x-navbar.link>
 					</li>
 					@endif
