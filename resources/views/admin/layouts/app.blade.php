@@ -13,7 +13,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
   </head>
   <body>
-    <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark}">
+    <div x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);" :class="{ 'dark': isDark }">
       <div class="flex h-screen antialiased text-gray-900 bg-gray-100 dark:bg-dark dark:text-light">
         <!-- Loading screen -->
         <div
@@ -29,7 +29,7 @@
             <!-- Sidebar links -->
             <nav aria-label="Main" class="flex-1 px-2 py-4 space-y-2 overflow-y-hidden hover:overflow-y-auto">
               <!-- Dashboards links -->
-              <div x-data="{ isActive: true, open: true}">
+              <div x-data="{ isActive: false, open: false}">
                 <!-- active & hover classes 'bg-primary-100 dark:bg-primary' -->
                 <a
                   href="{{route('dashboard')}}"
@@ -58,10 +58,42 @@
                   <span class="ml-2 text-sm"> Back to Dashboards </span>
                 </a>
               </div>
+              <div x-data="{ isActive: false, open: false }">
+                <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                
+                <a
+                  href="#"
+                  @click="$event.preventDefault(); open = !open"
+                  class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
+                  :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }"
+                  role="button"
+                  aria-haspopup="true"
+                  :aria-expanded="(open || isActive) ? 'true' : 'false'"
+                >
+                  <span aria-hidden="true">
+                      <svg
+                        class="w-5 h-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                        />
+                      </svg>
+                    </span>
+                  <span class="ml-2 text-sm"> Overview </span>
+                </a>
+              </div>
 
               <!-- Components links -->
               <div x-data="{ isActive: false, open: false }">
                 <!-- active classes 'bg-primary-100 dark:bg-primary' -->
+                
                 <a
                   href="#"
                   @click="$event.preventDefault(); open = !open"
@@ -108,7 +140,7 @@
                   <a
                     href="{{ route('admin.users') }}"
                     role="menuitem"
-                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700"
+                    class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700 "
                   >
                     Users
                   </a>

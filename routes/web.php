@@ -154,7 +154,7 @@ Route::middleware([
 											'as' => 'admin.'
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
-											Route::get('/users', [ViewController::class, 'builder'])->name('users');
+											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
 											
 										});
 								});
