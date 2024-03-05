@@ -16,15 +16,15 @@ return new class extends Migration
             $table->timestamps();
             $table->boolean("hidden");
             $table->string('event', 255);
-            $table->date('date');
-            $table->string('description');
-            $table->string('pick');
-            $table->string('image');
+            $table->date('date')->nullable();
+            $table->string('description')->nullable();
+            $table->string('pick')->nullable();
+            $table->string('image')->nullable();
             $table->foreignId('subscription_plan_id');
-            $table->float('odds');
-            $table->float('stake');
-            $table->float('gain');
-            $table->float('profit');
+            $table->float('odds')->nullable();
+            $table->float('stake')->nullable();
+            $table->float('gain')->nullable();
+            $table->float('profit')->nullable();
 
             $table->foreign('subscription_plan_id')->references('id')->on('subscription_plans')->onDelete('cascade');
         });
