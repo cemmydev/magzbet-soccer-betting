@@ -9,6 +9,7 @@ use App\Models\UserLogin;
 use App\Models\UserOption;
 use App\Models\Role;
 use App\Models\Permission;
+use App\Models\subscriptionPlan;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -82,5 +83,9 @@ trait UserRelations
 	public function options(): HasOne
 	{
 		return $this->hasOne(UserOption::class);
+	}
+
+	public function subscriptionPlans(): BelongsToMany {
+		return $this->belongsToMany(subscriptionPlan::class)->withTimestamps();
 	}
 }

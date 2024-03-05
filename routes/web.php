@@ -21,7 +21,6 @@ Route::middleware([
 	'web',
 	])->group(function () {
 	// redirect
-	Route::resource('post', PostController::class); 
 	Route::redirect('/', '/dashboard', 301)->name('home');
 	Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
 	// auth routes
