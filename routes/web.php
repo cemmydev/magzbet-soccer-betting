@@ -157,7 +157,11 @@ Route::middleware([
 											Route::get('/subscriptions', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
 											Route::group(['prefix' => 'posts'], function () {
 												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
-												Route::get('/create', [Admin\PostsController::class, 'create'])->name('create');
+												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
+												Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
+												Route::post('/create', [Admin\PostsController::class, 'store']);
+												Route::post('/{id}', [Admin\PostsController::class, 'update']);
+												Route::get('/{id}/delete', [Admin\PostsController::class,'delete']);
 											});
 										});
 								});

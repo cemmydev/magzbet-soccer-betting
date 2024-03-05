@@ -24,6 +24,9 @@
             </div>
         </div>
     </div>
+    <div class="p-4" style="text-align:right">
+        <a class= "bg-primary p-2 m-20 text-white" href="{{ route('admin.posts.create') }}">+ Create</a>
+    </div>
     <div class="overflow-auto mt-6">
 
         <table class="table border-collapse w-full">

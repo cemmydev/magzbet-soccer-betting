@@ -22,6 +22,8 @@ class Bet extends Model
         "gain",
         "profit",
         "description",
+        "pick",
+        "subscription_plan_id"
     ];
 
     public function subscriptionPlan() : BelongsTo {
