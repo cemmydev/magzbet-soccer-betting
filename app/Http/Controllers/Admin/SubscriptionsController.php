@@ -15,25 +15,28 @@ class SubscriptionsController extends Controller
     public function __construct() {
         $this->subscriptions = [];
         $this->tableheader=['Name','Cost'];
-        $this->subscription = [];
+        $this->subscription = ['name' => '', 'cost' => ''];
     }
 
     public function index() {
-        // $sub = User::find(1)->subscriptionPlans()->withPivot("updated_at")->get()->toArray();
-        //dd($sub);
+
         $this->subscriptions=subscriptionPlan::all()->toArray();
-        // dd($this->subscriptions);
+
         return view('admin.subscriptions')->with('data',$this->subscriptions)->with('tabIndex','subscriptions')->with('tableheader',$this->tableheader)->with('content','users.index');
     }
 
     public function edit(Request $request, string $id) {
 
         $this->subscription = subscriptionPlan::find($id)->toArray();
-
+        
         return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
     }
 
     public function update(Request $request, string $id) {
+        $request->validate([
+            'name'=> 'required',
+            'cost'=> 'required'
+        ]);
 
         $this->subscription = subscriptionPlan::find($id);
 
@@ -53,6 +56,23 @@ class SubscriptionsController extends Controller
         return redirect() -> route('admin.subscriptions');
     }
 
+    public function store(Request $request) {
+
+        $request->validate([
+            'name'=> 'required',
+            'cost'=> 'required'
+        ]);
+        
+
+        subscriptionPlan::create([
+            'name'=> $request->name,
+            'cost'=> $request->cost,
+        ]);
+
+        return redirect()->route('admin.subscriptions');  
+    }
+
     public function create() {
+        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
     }
 }
