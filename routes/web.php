@@ -155,7 +155,8 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
 											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
-											
+											Route::get('/posts', [Admin\PostsController::class, 'index'])->name('posts');
+											Route::get('/subscriptions', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
 										});
 								});
 						});
