@@ -153,11 +153,18 @@ Route::middleware([
 											'as' => 'admin.'
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
+
 											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
-											Route::get('/subscriptions', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
-											Route::get('/subscriptions/{id}', [Admin\SubscriptionsController::class, 'edit']);
-											Route::post('/subscriptions/{id}', [Admin\SubscriptionsController::class, 'update']);
-											Route::get('/subscriptions/{id}/delete', [Admin\SubscriptionsController::class, 'delete']);
+
+											Route::prefix('subscriptions')->group(function () {
+												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
+												Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
+												Route::post('create', [Admin\SubscriptionsController::class, 'store']);
+												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit']);
+												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
+												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete']);
+											});
+											
 											Route::group(['prefix' => 'posts'], function () {
 												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
 												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
