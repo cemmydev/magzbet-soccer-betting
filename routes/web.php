@@ -154,8 +154,11 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
 											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
-											Route::get('/posts', [Admin\PostsController::class, 'index'])->name('posts');
 											Route::get('/subscriptions', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
+											Route::group(['prefix' => 'posts'], function () {
+												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
+												Route::get('/create', [Admin\PostsController::class, 'create'])->name('create');
+											});
 										});
 								});
 						});

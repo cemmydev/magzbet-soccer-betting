@@ -23,4 +23,7 @@ class SubscriptionsController extends Controller
         dd($this->subscriptions);
         return view('admin.subscriptions');
     }
+
+    public function create() {
+    }
 }
