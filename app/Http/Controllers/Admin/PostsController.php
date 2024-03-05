@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\subscriptionPlan;
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Bet;
 
 class PostsController extends Controller
@@ -28,12 +29,13 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
+        //dd($_FILES);
         $request->validate([
             'event'=> 'required|max:255',
             'hidden'=> 'required',
             'description'=> 'max:255',
             'pick'=> 'max:255',
-            'image'=> 'max:255',
+            'image'=> 'file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
             'subscription'=> 'required|max:255',
             'odds'=> 'max:255',
             'stake'=> 'max:255',
@@ -41,8 +43,7 @@ class PostsController extends Controller
             'profit'=> 'max:255',
             'status'=>'required',
         ]);
-        
-
+        $image_url = $request->image->store('image', 'public');
         Bet::create([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
@@ -50,7 +51,7 @@ class PostsController extends Controller
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
-            'image'=>$request->image,
+            'image'=>$image_url,
             'subscription_plan_id'=>$request->subscription,
             'odds'=>$request->odds,
             'stake'=>$request->stake,
@@ -73,13 +74,15 @@ class PostsController extends Controller
             'status'=> 'required',
             'description'=> 'max:255',
             'pick'=> 'max:255',
-            'image'=> 'max:255',
+            'image'=> 'file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
             'subscription'=> 'required|max:255',
             'odds'=> 'max:255',
             'stake'=> 'max:255',
             'gain'=> 'max:255',
             'profit'=> 'max:255',
         ]);
+
+        $image_url = $request->image->store('image', 'public');
 
         Bet::find($id)->update([
             'event'=> $request->event,
@@ -88,7 +91,7 @@ class PostsController extends Controller
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
-            'image'=>$request->image,
+            'image'=>$image_url,
             'subscription_plan_id'=>$request->subscription,
             'odds'=>$request->odds,
             'stake'=>$request->stake,

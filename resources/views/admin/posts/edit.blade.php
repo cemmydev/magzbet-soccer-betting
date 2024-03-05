@@ -1,4 +1,4 @@
-<form method="post" class="p-4">
+<form enctype="multipart/form-data" method="post" class="p-4">
     @csrf
     <p class="font-bold py-4">Create Bet</p>
     <label for="bet_create_hidden">hidden</label>
@@ -15,7 +15,7 @@
     <label for="bet_create_pick">pick</label>
     <input id="bet_create_pick" type="text" class="block w-full p-2" name="pick" value="{{$post['pick']}}">
     <label for="bet_create_image">image</label>
-    <input id="bet_create_image" type="file" class="block border-2 p-2" name="image" value="{{$post['image']}}">
+    <input id="bet_create_image" type="file" class="block border-2 p-2" name="image">
     <label for="bet_create_status">status</label>
     <select id="bet_create_subscription" class="block w-full p-2" name="subscription" value="{{$post['subscription_plan_id']}}">
         @foreach ($subscriptions as $sub)

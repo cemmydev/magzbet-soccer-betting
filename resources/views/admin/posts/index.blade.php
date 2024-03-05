@@ -1,6 +1,6 @@
 <div class="bg-white pb-4 px-4 rounded-md w-full mb-2">
     <div class="flex justify-between w-full pt-6 ">
-        <p class="ml-3"> Users Table</p>
+        <p class="ml-3"> POSTS TABLE</p>
         <svg width="14" height="4" viewBox="0 0 14 4" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.4">
                 <circle cx="2.19796" cy="1.80139" r="1.38611" fill="#222222" />

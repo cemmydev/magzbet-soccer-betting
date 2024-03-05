@@ -1,4 +1,4 @@
-<form method="post" class="p-4">
+<form method="post" enctype="multipart/form-data" class="p-4">
     @csrf
     <p class="font-bold py-4">Create Bet</p>
     <label for="bet_create_hidden">hidden</label>
