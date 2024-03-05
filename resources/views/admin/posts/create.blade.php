@@ -16,6 +16,12 @@
     <input id="bet_create_pick" type="text" class="block w-full p-2" name="pick">
     <label for="bet_create_image">image</label>
     <input id="bet_create_image" type="file" class="block border-2 p-2" name="image">
+    <label for="bet_create_status">status</label>
+    <select id="bet_create_status" class="block w-full p-2" name="status">
+        <option value='pending'>PENDING</option>
+        <option value='won'>WON</option>
+        <option value='lose'>LOSE</option>
+    </select>
     <label for="bet_create_subscription">subscription</label>
     <select id="bet_create_subscription" class="block w-full p-2" name="subscription">
         @foreach ($subscriptions as $sub)

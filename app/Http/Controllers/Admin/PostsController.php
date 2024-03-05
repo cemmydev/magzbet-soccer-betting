@@ -39,12 +39,14 @@ class PostsController extends Controller
             'stake'=> 'max:255',
             'gain'=> 'max:255',
             'profit'=> 'max:255',
+            'status'=>'required',
         ]);
         
 
         Bet::create([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
+            'status'=> $request->status,
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
@@ -68,6 +70,7 @@ class PostsController extends Controller
         $request->validate([
             'event'=> 'required|max:255',
             'hidden'=> 'required',
+            'status'=> 'required',
             'description'=> 'max:255',
             'pick'=> 'max:255',
             'image'=> 'max:255',
@@ -81,6 +84,7 @@ class PostsController extends Controller
         Bet::find($id)->update([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
+            'status'=> $request->status,
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,

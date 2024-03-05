@@ -36,6 +36,7 @@
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Date</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Description</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Created at</th>
+                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Status</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Odd</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Stake</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Gain</th>
@@ -53,6 +54,7 @@
                         <td class="px-4 py-4 text-center">{{$post['date']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['description']}}</td>
                         <td class="px-4 py-4 text-center">{{date('d-m-Y', strtotime($post['created_at']))}}</td>
+                        <td class="px-4 py-4 text-center">{{$post['status']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['odds']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['stake']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['gain']}}</td>
