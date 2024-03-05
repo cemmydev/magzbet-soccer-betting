@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    Subscriptions
+    @include('admin.'.$content);    
 @endsection

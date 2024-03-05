@@ -155,6 +155,9 @@ Route::middleware([
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
 											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
 											Route::get('/subscriptions', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
+											Route::get('/subscriptions/{id}', [Admin\SubscriptionsController::class, 'edit']);
+											Route::post('/subscriptions/{id}', [Admin\SubscriptionsController::class, 'update']);
+											Route::get('/subscriptions/{id}/delete', [Admin\SubscriptionsController::class, 'delete']);
 											Route::group(['prefix' => 'posts'], function () {
 												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
 												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
