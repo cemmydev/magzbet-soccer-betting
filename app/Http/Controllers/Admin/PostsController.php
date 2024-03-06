@@ -43,15 +43,14 @@ class PostsController extends Controller
             'profit'=> 'max:255',
             'status'=>'required',
         ]);
-        $image_url = $request->image->store('image', 'public');
-        Bet::create([
+        
+        $new_bet = Bet::create([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
             'status'=> $request->status,
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
-            'image'=>$image_url,
             'subscription_plan_id'=>$request->subscription,
             'odds'=>$request->odds,
             'stake'=>$request->stake,
@@ -59,9 +58,16 @@ class PostsController extends Controller
             'profit'=>$request->profit,
         ]);
 
+        $imageName = time().'.'.$request->image->extension(); 
+        $image_url = $request->image->move('public'.'\\uploads\\bets\\'.$new_bet->id, $imageName);
+
+        $new_bet->image=$image_url;
+
+        $new_bet->save();
+        
         return redirect()->route('admin.posts');
     }
-
+    
     public function edit($id) {
         $post=Bet::find($id)->toArray();
         return view('admin.posts')->with('content','edit')->with('post', $post)->with('subscriptions', $this->subscriptions);
@@ -82,7 +88,8 @@ class PostsController extends Controller
             'profit'=> 'max:255',
         ]);
 
-        $image_url = $request->image->store('image', 'public');
+        $imageName = time().'.'.$request->image->extension(); 
+        $image_url = $request->image->move('public'."\\uploads\\bets\\".$id, $imageName);
 
         Bet::find($id)->update([
             'event'=> $request->event,
