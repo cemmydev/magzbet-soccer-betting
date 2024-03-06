@@ -20,7 +20,7 @@ class PostsController extends Controller
     }
 
     public function index() {
-        $this->posts=Bet::with('subscriptionPlan')->paginate($this->perPage)->sortByDesc('created_at')->toArray();
+        $this->posts=Bet::with('subscriptionPlan')->paginate($this->perPage)->sortByDesc('updated_at')->toArray();
         return view("admin.posts")->with('content', 'index')->with('posts', $this->posts);
     }
 
