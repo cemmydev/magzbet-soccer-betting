@@ -36,6 +36,11 @@ class ViewController
 			);
 	}
 
+	public function render_dashboard() {
+		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
+		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets]);
+	}
+
 	public function render_bets() {
 		$bets = Bet::with('subscriptionPlan')->where('status', 'pending')->paginate(10)->sortByDesc('created_at')->toArray();
 		$pagination=Bet::with('subscriptionPlan')->where('status', 'pending')->count();

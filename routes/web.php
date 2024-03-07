@@ -21,7 +21,7 @@ Route::middleware([
 	])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
-	Route::get('/dashboard', [ViewController::class, 'builder'])->name('dashboard');
+	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
