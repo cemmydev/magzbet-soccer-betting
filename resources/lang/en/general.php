@@ -3,7 +3,7 @@
 return [
 	'navbar' => [
 		'dashboard' => 'Dashboard',
-		'profile' => 'Profile',
+		'profile' => 'Account',
 		'logout' => 'Log Out',
 		'users' => 'Users',
 		'records' => 'Records',
@@ -15,6 +15,7 @@ return [
 		'stats' => 'Stats',
 		'contact' => 'Contact',
 		'admin' => 'Admin',
+		'subscriptions' => 'Subscriptions'
 	],
 	'table' => [
 		'selected_records' => ':count selected record|:count selected records',

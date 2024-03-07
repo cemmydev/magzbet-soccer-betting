@@ -71,26 +71,20 @@
 							{{ Auth::user()->name  }}
 						</x-form.dropdown-link>
 						
-						<x-form.dropdown-link :href="route('profile.index')">
+						<x-form.dropdown-link :href="route('account.index')">
 							{{ __('general.navbar.profile') }}
 						</x-form.dropdown-link>
-						
-						@can('view_settings')
-						<x-form.dropdown-link :href="route('settings.index')">
-							{{ __('general.navbar.settings') }}
+
+						<x-form.dropdown-link :href="route('account.subscriptions')">
+							{{ __('general.navbar.subscriptions') }}
 						</x-form.dropdown-link>
-						@endcan
+
+						<x-form.dropdown-link :href="route('logout')">
+							{{ __('general.navbar.logout') }}
+						</x-form.dropdown-link>
+												
 						
 						<!-- Authentication -->
-							<form method="POST" action="{{ route('logout') }}" class="text-left">
-								@csrf
-								
-								<x-form.dropdown-link :href="route('logout')"
-								onclick="event.preventDefault();
-													this.closest('form').submit();">
-									{{ __('general.navbar.logout') }}
-								</x-form.dropdown-link>
-							</form>
 						</x-slot>
 					</x-form.dropdown>
 				@else

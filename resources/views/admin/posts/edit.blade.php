@@ -1,6 +1,13 @@
 <form enctype="multipart/form-data" method="post" class="p-4">
     @csrf
     <p class="font-bold py-4">Create Bet</p>
+    @if($errors->any())
+        <ul class='text-danger-light'>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
     <label for="bet_create_hidden">hidden</label>
     <select id="bet_create_hidden" class="block w-full p-2" name="hidden" value="{{$post['hidden']}}">
         <option value='1'>true</option>

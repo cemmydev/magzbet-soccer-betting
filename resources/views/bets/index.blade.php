@@ -3,11 +3,13 @@
         <div class="mb-4">
             <div class="mt-2 md:flex md:items-center md:justify-between">
                 <div class="min-w-0 flex-1">
-                    <h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">Bets</h2>
+                    <h2 class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">Bets
+                    </h2>
                 </div>
             </div>
         </div>
         <div class="mb-6">
+            @foreach ($bets as $bet)
             <div class="mb-4">
                 <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
                     tabindex="-1">
@@ -17,12 +19,12 @@
                             <div class="flex flex-col gap-3 md:flex-row md:items-center">
                                 <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
+                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em"
+                                        height="1em" viewBox="0 0 24 24">
                                         <path fill="currentColor"
                                             d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
                                         </path>
-                                    </svg>1/3</div>
+                                    </svg>{{$bet['subscription_plan']['name']}}</div>
                             </div>
                             <div class="text-xl font-bold"></div>
                             <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
@@ -32,12 +34,13 @@
                                     <path fill="currentColor"
                                         d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
                                     </path>
-                                </svg>over 6</div>
+                                </svg>{{$bet['pick']}}</div>
                         </div>
                         <div>
                             <div
                                 class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
+                                <span class="flex-1 text-inherit font-normal px-2">{{strtoupper($bet['status'])}}</span>
+                            </div>
                         </div>
                     </div>
                     <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
@@ -45,19 +48,43 @@
                         class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
                         <div class="flex flex-row items-center gap-5 lg:basis-1/2">
                             <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
+                                <div class="text-2xl font-bold">
+                                    @if($bet['odds'] != null) {{$bet['odds']}}
+                                    @else
+                                        {{"-"}}
+                                    @endif
+                                </div>
                                 <div class="text-sm font-bold text-gray-400">Odds</div>
                             </div>
                             <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
+                                <div class="text-2xl font-bold">
+                                    @if($bet['stake'] != null)
+                                        {{$bet['stake']}}
+                                    @else
+                                        {{"-"}} 
+                                    @endif
+                                </div>
                                 <div class="text-sm font-bold text-gray-400">Stake</div>
                             </div>
                             <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
+                                <div class="text-2xl font-bold">
+                                    @if($bet['gain'] != null)
+                                        {{$bet['gain']}}
+                                    @else
+                                        {{"-"}} 
+                                    @endif
+                                </div>
                                 <div class="text-sm font-bold text-gray-400">Gain</div>
                             </div>
                             <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
+                                <div class="text-2xl font-bold">
+                                    @if($bet['profit'] != null)
+                                        {{$bet['profit']}}
+                                    @else
+                                        {{"-"}} 
+                                    @endif
+                                </div>
+
                                 <div class="text-sm font-bold text-gray-400">Profit</div>
                             </div>
                         </div>
@@ -65,559 +92,13 @@
                     <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
                     <div
                         class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/2fb5900f-c83e-46a8-a600-b072cca0750b/render"></div>
+                        @if($bet['image'] != null)
+                            <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full w-30" src="/{{$bet['image']}}">
+                        @endif
+                    </div>
                 </div>
             </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>over 1</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/297e4853-5e87-4d28-8eee-52d71ca80684/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>NBA</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/68e7daf1-459d-4d99-b94c-11c7896ca123/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>NBA</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/7dd24242-535b-47ac-8a71-4e77c028ca38/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>2/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>over</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">100</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/5ddd503a-b0cb-4e8d-b75d-b5ac9f361eb3/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>18</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/37fdb0ac-b18f-471c-9514-d23f7a98f52c/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>over</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/835f70d3-1639-49db-bf9a-053896697811/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>1/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>-5,5</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">30</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/728f763f-fb03-4b39-a94f-5d46d36f8f51/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>2/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>w1</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">100</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/59902e98-4e58-4014-a8cd-84160aa97393/render"></div>
-                </div>
-            </div>
-            <div class="mb-4">
-                <div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
-                    tabindex="-1">
-                    <div
-                        class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
-                        <div class="flex flex-1 flex-col justify-center gap-1">
-                            <div class="flex flex-col gap-3 md:flex-row md:items-center">
-                                <div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                        aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                        viewBox="0 0 24 24">
-                                        <path fill="currentColor"
-                                            d="m16.93 17.12l-.8-1.36l1.46-4.37l1.41-.47l1 .75v.14c0 .07.03.13.03.19c0 1.97-.66 3.71-1.97 5.21zM9.75 15l-1.37-4.03L12 8.43l3.62 2.54L14.25 15zM12 20.03c-.88 0-1.71-.14-2.5-.42l-.69-1.51l.66-1.1h5.11l.61 1.1l-.69 1.51c-.79.28-1.62.42-2.5.42m-6.06-2.82c-.53-.62-.99-1.45-1.38-2.46c-.39-1.02-.59-1.94-.59-2.75c0-.06.03-.12.03-.19v-.14l1-.75l1.41.47l1.46 4.37l-.8 1.36zM11 5.29v1.4L7 9.46l-1.34-.42l-.42-1.36C5.68 7 6.33 6.32 7.19 5.66s1.68-1.09 2.46-1.31zm3.35-.94c.78.22 1.6.65 2.46 1.31c.86.66 1.51 1.34 1.95 2.02l-.42 1.36l-1.34.43l-4-2.77V5.29zm-9.42.58C3 6.89 2 9.25 2 12s1 5.11 2.93 7.07S9.25 22 12 22s5.11-1 7.07-2.93S22 14.75 22 12s-1-5.11-2.93-7.07S14.75 2 12 2S6.89 3 4.93 4.93">
-                                        </path>
-                                    </svg>2/3</div>
-                            </div>
-                            <div class="text-xl font-bold"></div>
-                            <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
-                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                    aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
-                                    viewBox="0 0 24 24">
-                                    <path fill="currentColor"
-                                        d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m4.59-12.42L10 14.17l-2.59-2.58L6 13l4 4l8-8z">
-                                    </path>
-                                </svg>over</div>
-                        </div>
-                        <div>
-                            <div
-                                class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-warning/20 text-warning-600 dark:text-warning capitalize">
-                                <span class="flex-1 text-inherit font-normal px-2">PENDING</span></div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                        <div class="flex flex-row items-center gap-5 lg:basis-1/2">
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">-</div>
-                                <div class="text-sm font-bold text-gray-400">Odds</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold">100</div>
-                                <div class="text-sm font-bold text-gray-400">Stake</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Gain</div>
-                            </div>
-                            <div class="basis-1/4 text-center">
-                                <div class="text-2xl font-bold text-gray-200">-</div>
-                                <div class="text-sm font-bold text-gray-400">Profit</div>
-                            </div>
-                        </div>
-                    </div>
-                    <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">
-                    <div
-                        class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full"
-                            src="https://api.bettok.gr/v1/attachments/05dfd519-7b34-47ad-94db-cdb28f146636/render"></div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <div class="flex justify-center">
             <nav role="navigation" aria-label="pagination navigation" data-slot="base" data-controls="true"
@@ -633,50 +114,62 @@
                         class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
                         <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
                             viewBox="0 0 24 24" width="1em">
-                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="1.5"></path>
-                        </svg></li>
-                    <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
-                        data-active="true" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        1</li>
-                    <li role="button" tabindex="0" aria-label="pagination item 2" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        2</li>
-                    <li role="button" tabindex="0" aria-label="pagination item 3" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        3</li>
-                    <li role="button" tabindex="0" aria-label="pagination item 4" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        4</li>
-                    <li role="button" tabindex="0" aria-label="pagination item 5" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        5</li>
-                    <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
-                        <svg aria-hidden="true" fill="none" height="1em" shape-rendering="geometricPrecision"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                            width="1em" class="group-hover:hidden group-data-[focus-visible=true]:hidden">
-                            <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
-                            <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
-                            <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
-                        </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                            shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
-                            stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
-                            class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
-                            <path d="M13 17l5-5-5-5"></path>
-                            <path d="M6 17l5-5-5-5"></path>
-                        </svg></li>
-                    <li role="button" tabindex="0" aria-label="pagination item 49" data-slot="item"
-                        class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        49</li>
+                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                    </li>
+                    @if($pagination <= 50)
+                        @for($i=1; $i<=($pagination+9)/10; $i ++)
+                            <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
+                                data-active="true" data-slot="item"
+                                class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                                $i</li>
+                                @endfor
+                    @else
+                        <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
+                            data-active="true" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            1</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 2" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            2</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 3" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            3</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 4" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            4</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 5" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            5</li>
+                        <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                            <svg aria-hidden="true" fill="none" height="1em" shape-rendering="geometricPrecision"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="1em" class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                            </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
+                                shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
+                                <path d="M13 17l5-5-5-5"></path>
+                                <path d="M6 17l5-5-5-5"></path>
+                            </svg>
+                        </li>
+                        <li role="button" tabindex="0" aria-label="pagination item 49" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            {{($pagination+9)/10}}</li>
+                    @endif
                     <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
                         class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
                         <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
                             viewBox="0 0 24 24" width="1em" class="rotate-180">
-                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="1.5"></path>
-                        </svg></li>
+                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5"></path>
+                        </svg>
+                    </li>
                 </ul>
             </nav>
         </div>

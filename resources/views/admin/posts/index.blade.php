@@ -33,35 +33,45 @@
             <thead>
                 <tr class="rounded-lg text-sm font-medium text-gray-700 text-center" style="font-size: 0.9674rem">
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Event</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Date</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Description</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Created at</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Status</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Odd</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Stake</th>
+                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Betting</th>
+                    <!-- <th class="px-4 py-2 " style="background-color:#f8f8f8">Stake</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Gain</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Profit</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Hidden</th>
+                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Profit</th> -->\
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Subscription</th>
-                    <th class="px-4 py-2 " style="background-color:#f8f8f8">Pick</th>
                     <th class="px-4 py-2 " style="background-color:#f8f8f8">Action</th>
                 </tr>
             </thead>
             <tbody class="text-sm font-normal text-gray-700">
                 @foreach($posts as $post)
                     <tr class="hover:bg-gray-100 border-b border-gray-200 py-10">
-                        <td class="px-4 py-4 text-center">{{$post['event']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['date']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['description']}}</td>
-                        <td class="px-4 py-4 text-center">{{date('d-m-Y', strtotime($post['created_at']))}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['status']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['odds']}}</td>
+                        <td class="px-4 py-4 text-center">
+                            <div class="font-bold"><u>{{$post['event']}}</u></div>
+                            <div>{{$post['date']}}</div>
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <div>{{$post['description']}}</div>
+                            <div>Created at: {{date('d-m-Y', strtotime($post['created_at']))}}</div>
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <div>{{$post['status']}}</div>
+                            <div>Hidden: {{$post['hidden']}}</div>
+                        </td>
+                        <!-- <td class="px-4 py-4 text-center">{{$post['odds']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['stake']}}</td>
                         <td class="px-4 py-4 text-center">{{$post['gain']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['profit']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['hidden']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['subscription_plan']['name']}}</td>
-                        <td class="px-4 py-4 text-center">{{$post['pick']}}</td>
+                        <td class="px-4 py-4 text-center">{{$post['profit']}}</td> -->
+                        <td class="px-4 py-4 text-center">
+                            <div>Odds: {{$post['odds']}}</div>
+                            <div>Stake: {{$post['stake']}}</div>
+                            <div>Gain: {{$post['gain']}}</div>
+                            <div>Profit: {{$post['profit']}}</div>
+                        </td>
+                        <td class="px-4 py-4 text-center">
+                            <div>{{$post['subscription_plan']['name']}}</div>
+                            <div>Pick: {{$post['pick']}}</div>
+                        </td>
                         <td class="px-4 py-4 text-center flex justify-center">
                             <a href="{{route("admin.posts")}}/{{$post['id']}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 32 32">

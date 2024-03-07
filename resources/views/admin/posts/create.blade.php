@@ -1,6 +1,13 @@
 <form method="post" enctype="multipart/form-data" class="p-4">
     @csrf
     <p class="font-bold py-4">Create Bet</p>
+    @if($errors->any())
+        <ul class='text-danger-light'>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>
+    @endif
     <label for="bet_create_hidden">hidden</label>
     <select id="bet_create_hidden" class="block w-full p-2" name="hidden">
         <option value='1'>true</option>
@@ -20,7 +27,7 @@
     <select id="bet_create_status" class="block w-full p-2" name="status">
         <option value='pending'>PENDING</option>
         <option value='won'>WON</option>
-        <option value='lose'>LOSE</option>
+        <option value='lose'>LOST</option>
     </select>
     <label for="bet_create_subscription">subscription</label>
     <select id="bet_create_subscription" class="block w-full p-2" name="subscription">

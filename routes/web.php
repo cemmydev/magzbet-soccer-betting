@@ -4,7 +4,6 @@ use App\Http\Controllers\Auth;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
-use App\Http\Controllers\PostController;
 use App\Http\Controllers\Admin;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
@@ -69,9 +68,16 @@ Route::middleware([
 						'prefix' => 'bets',
 						'as' => 'bets.',
 					], function () {
-						Route::get('/', 'builder')->name('index');
-						Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-						Route::get('/results', 'builder')->name('results');
+						Route::get('/', 'render_bets')->name('index');
+						Route::get('/{id}', 'render_abet')->where('id', '[0-9]+');
+						Route::get('/results', 'render_results')->name('results');
+					});
+					Route::group([
+						'prefix' => 'account',
+						'as' => 'account.',
+					], function () {
+						Route::get('/', 'render_account')->name('index');
+						Route::get('/subscriptions', 'render_subscriptions')->name('subscriptions');
 					});
 				});
 			// stats page routes
@@ -154,7 +160,10 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
 
-											Route::get('/users', [Admin\UserController::class, 'index'])->name('users');
+											Route::prefix('users')->group(function () {
+												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
+												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+											});
 
 											Route::prefix('subscriptions')->group(function () {
 												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');

@@ -31,17 +31,27 @@ class PostsController extends Controller
     public function store(Request $request) {
         //dd($_FILES);
         $request->validate([
-            'event'=> 'required|max:255',
+            'event'=> 'required',
             'hidden'=> 'required',
-            'description'=> 'max:255',
-            'pick'=> 'max:255',
-            'image'=> 'file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
+            'status'=> 'required',
+            'pick'=> 'required',
+            'image'=> 'file|mimes:jpg,jpeg,bmp,png',
             'subscription'=> 'required|max:255',
-            'odds'=> 'max:255',
-            'stake'=> 'max:255',
-            'gain'=> 'max:255',
-            'profit'=> 'max:255',
-            'status'=>'required',
+            'odds'=> 'numeric|max:255',
+            'stake'=> 'numeric|max:255',
+            'gain'=> 'numeric|max:255',
+            'profit'=> 'numeric|max:255',
+        ], [
+            'event.required' => "Event is required",
+            'hidden.required' => 'Hidden is required',
+            'status.required' => 'Status is required',
+            'pick.required' => 'Pick is required',
+            'subscription.required' => 'Subscription is required',
+            'odds.float' => "Odds must be a Number",
+            'stake.float' => "Stake must be a Number",
+            'gain.float' => "Gain must be a Number",
+            'profit.float' => "Profit must be a Number",
+            'image.file|mimes:jpg,jpeg,bmp,png' => 'Image Invalid.'
         ]);
         
         $new_bet = Bet::create([
@@ -58,12 +68,15 @@ class PostsController extends Controller
             'profit'=>$request->profit,
         ]);
 
-        $imageName = time().'.'.$request->image->extension(); 
-        $image_url = $request->image->move('public'.'\\uploads\\bets\\'.$new_bet->id, $imageName);
+        if(isset($requset->image)) {
+            $imageName = time().'.'.$request->image->extension(); 
+            $image_url = $request->image->move('public'.'\\uploads\\bets\\'.$new_bet->id, $imageName);
+    
+            $new_bet->image=$image_url;
+    
+            $new_bet->save();
+        }
 
-        $new_bet->image=$image_url;
-
-        $new_bet->save();
         
         return redirect()->route('admin.posts');
     }
@@ -75,21 +88,35 @@ class PostsController extends Controller
 
     public function update(Request $request, $id) {
         $request->validate([
-            'event'=> 'required|max:255',
+            'event'=> 'required',
             'hidden'=> 'required',
             'status'=> 'required',
-            'description'=> 'max:255',
-            'pick'=> 'max:255',
-            'image'=> 'file|mimes:jpg,jpeg,bmp,png,doc,docx,csv,rtf,xlsx,xls,txt,pdf,zip',
+            'pick'=> 'required',
+            'image'=> 'file|mimes:jpg,jpeg,bmp,png',
             'subscription'=> 'required|max:255',
-            'odds'=> 'max:255',
-            'stake'=> 'max:255',
-            'gain'=> 'max:255',
-            'profit'=> 'max:255',
+            'odds'=> 'numeric|max:255',
+            'stake'=> 'numeric|max:255',
+            'gain'=> 'numeric|max:255',
+            'profit'=> 'numeric|max:255',
+        ], [
+            'event.required' => "Event is required",
+            'hidden.required' => 'Hidden is required',
+            'status.required' => 'Status is required',
+            'pick.required' => 'Pick is required',
+            'subscription.required' => 'Subscription is required',
+            'odds.float' => "Odds must be a Number",
+            'stake.float' => "Stake must be a Number",
+            'gain.float' => "Gain must be a Number",
+            'profit.float' => "Profit must be a Number",
+            'image.file|mimes:jpg,jpeg,bmp,png' => 'Image Invalid.'
         ]);
 
-        $imageName = time().'.'.$request->image->extension(); 
-        $image_url = $request->image->move('public'."\\uploads\\bets\\".$id, $imageName);
+        $image_url = "";
+
+        if(isset($request->image)) {
+            $imageName = time().'.'.$request->image->extension(); 
+            $image_url = $request->image->move('public'."\\uploads\\bets\\".$id, $imageName);
+        }
 
         Bet::find($id)->update([
             'event'=> $request->event,
