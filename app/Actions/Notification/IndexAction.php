@@ -18,10 +18,12 @@ class IndexAction extends BaseNotificationAction
 	public function execute(array $args = []): self
 	{
 		$user = Auth::user();
-
+		// dd($user);
 		$this->success = true;
-		$this->data = $this->transform($user->notifications);
-
+		$this->data = collect([]);
+		if($user) {
+			$this->data = $this->transform($user->notifications);
+		}
 		return $this;
 	}
 
