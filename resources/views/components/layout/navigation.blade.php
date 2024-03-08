@@ -2,9 +2,16 @@
 	class="flex z-40 w-full h-auto items-center justify-center data-[menu-open=true]:border-none sticky top-0 inset-x-0 border-b border-divider backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70">
 	<!-- Primary Navigation Menu -->
 	<!-- <div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8"> -->
-	<div class="px-3 sm:px-6 gap-4 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">
+	<div class="px-6 sm:px-3 gap-4 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">
 		<div class="flex justify-between h-16">
 			<div class="flex">
+				<!-- Logo -->
+				<div class="shrink-0 flex items-center mr-4">
+					<a href="{{ route('dashboard') }}" class="h-auto">
+						<x-layout.application-logo class="block fill-current text-gray-800" />
+					</a>
+				</div>
+				
 				<div class="flex items-center mr-2 sm:hidden">
 					<x-form.dropdown align="left" width="48">
 						<x-slot name="trigger">
@@ -55,13 +62,6 @@
 					</x-form.dropdown>
 
 				</div>
-				<!-- Logo -->
-				<div class="shrink-0 flex items-center mr-4">
-					<a href="{{ route('dashboard') }}" class="h-auto">
-						<x-layout.application-logo class="block fill-current text-gray-800" />
-					</a>
-				</div>
-
 				<!-- Navigation Links -->
 				<ul
 					class="h-full flex-row flex-nowrap items-center data-[justify=start]:justify-start data-[justify=start]:flex-grow data-[justify=start]:basis-0 data-[justify=center]:justify-center data-[justify=end]:justify-end data-[justify=end]:flex-grow data-[justify=end]:basis-0 hidden gap-4 sm:flex">
