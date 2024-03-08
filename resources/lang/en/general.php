@@ -15,7 +15,9 @@ return [
 		'stats' => 'Stats',
 		'contact' => 'Contact',
 		'admin' => 'Admin',
-		'subscriptions' => 'Subscriptions'
+		'subscriptions' => 'Subscriptions',
+		'login' => 'Login',
+		'signup' => 'Signup'
 	],
 	'table' => [
 		'selected_records' => ':count selected record|:count selected records',
