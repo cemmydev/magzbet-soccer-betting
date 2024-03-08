@@ -4,12 +4,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon_.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon_.png">
-	<link rel="manifest" href="/site.webmanifest">
+	<link rel="icon" href="/favicon_.ico" type="image/x-icon" sizes="16x16">
 	<meta name="msapplication-TileColor" content="#da532c">
-	<meta name="theme-color" content="#ffffff">
 
 	<title>{{ (isset($title) ? $title . ' | ' : '') . config('app.name', 'Laravel') }}</title>
 	<!-- Fonts -->

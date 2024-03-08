@@ -60,20 +60,18 @@
 			</div>
 
 			<div class="flex items-center justify-end mt-4">
+				
+				<button class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium w-full [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover font-bold" type="submit" data-hover="true">Login</button>
+			</div>
+			
+			<div class="flex items-center justify-center mt-6 gap-2">
 				@if (Route::has('password.request'))
-					<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" href="{{ route('password.request') }}">
+					<a class="underline text-sm text-gray-600 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" href="{{ route('password.request') }}">
 						{{ __('Forgot your password?') }}
 					</a>
 				@endif
-
-				<x-form.primary-button class="ml-3">
-					{{ __('Log in') }}
-				</x-form.primary-button>
-			</div>
-
-			<div class="flex items-center justify-center mt-6 gap-2">
-				<span class="text-gray-400">don't have an account?</span>
-				<a href="{{ route('register') }}" class="underline decoration-2 decoration-amber-300 text-gray-600 hover:text-black">Register</a>
+				<span class="text-gray-400">Don't have an account?</span>
+				<a href="{{ route('register') }}" class="decoration-2 decoration-amber-300 text-gray-600 hover:text-white">Register</a>
 			</div>
 		</form>
 	</x-auth-card>

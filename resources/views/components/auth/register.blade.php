@@ -93,12 +93,15 @@
 			</div>
 
 			<div class="flex items-center justify-end mt-4">
-				<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" href="{{ route('login') }}">
+				<button class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium w-full [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover font-bold" type="submit" data-hover="true">Sign Up</button>
+			</div>
+			<div class="text-center py-4">
+				<span class="text-sm text-gray-600 mr-2">
 					{{ __('Already registered?') }}
+				</span>
+				<a class="underline text-sm text-gray-600 hover:text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" href="{{ route('login') }}">
+					Login
 				</a>
-				<x-form.submit-button
-					class="ml-4"
-					:text="__('Register')" />
 			</div>
 		</form>
 	</x-auth-card>
