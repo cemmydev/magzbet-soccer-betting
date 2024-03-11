@@ -51,9 +51,9 @@ class SubscriptionsController extends Controller
     public function delete(Request $request, string $id) {
 
         $this->subscription = subscriptionPlan::find($id);
-        $this->subscription -> delete();
+        $this->subscription->delete();
 
-        return redirect() -> route('admin.subscriptions');
+        return redirect()->route('admin.subscriptions');
     }
 
     public function store(Request $request) {

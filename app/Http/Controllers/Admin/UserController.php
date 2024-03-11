@@ -35,4 +35,10 @@ class UserController extends Controller
     public function create() {
         return view('admin.users.create')->with('subscriptions', $this->subscriptions);
     }
+
+    public function delete(Request $request, $id) {
+        $user=User::find($id);
+        $user->delete();
+        return redirect()->route('admin.users');
+    }
 }
