@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class SubscriptionsController extends Controller
 {
     //
-    public $subscriptions;
+    public $subscriptions, $subscription;
 
     public function __construct() {
         $this->subscriptions = [];
@@ -40,8 +40,8 @@ class SubscriptionsController extends Controller
 
         $this->subscription = subscriptionPlan::find($id);
 
-        $this->subscription->name = $request['name'];
-        $this->subscription->cost = $request['cost'];
+        $this->subscription['name'] = $request['name'];
+        $this->subscription['cost'] = $request['cost'];
 
         $this->subscription -> save();
 
@@ -73,6 +73,6 @@ class SubscriptionsController extends Controller
     }
 
     public function create() {
-        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','edit');
+        return view('admin.subscriptions')->with('content','edit');
     }
 }
