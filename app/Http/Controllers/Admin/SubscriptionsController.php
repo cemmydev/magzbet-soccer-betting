@@ -22,14 +22,14 @@ class SubscriptionsController extends Controller
 
         $this->subscriptions=subscriptionPlan::all()->toArray();
 
-        return view('admin.subscriptions')->with('data',$this->subscriptions)->with('tabIndex','subscriptions')->with('tableheader',$this->tableheader)->with('content','users.index');
+        return view('admin.subscriptions')->with('data',$this->subscriptions)->with('content','index');
     }
 
     public function edit(Request $request, string $id) {
 
         $this->subscription = subscriptionPlan::find($id)->toArray();
         
-        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
+        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','edit');
     }
 
     public function update(Request $request, string $id) {
@@ -73,6 +73,6 @@ class SubscriptionsController extends Controller
     }
 
     public function create() {
-        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
+        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','edit');
     }
 }

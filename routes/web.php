@@ -170,9 +170,9 @@ Route::middleware([
 												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
 												Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
 												Route::post('create', [Admin\SubscriptionsController::class, 'store']);
-												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit']);
+												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
 												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete']);
+												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
 											});
 											
 											Route::group(['prefix' => 'posts'], function () {
@@ -181,7 +181,7 @@ Route::middleware([
 												Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
 												Route::post('/create', [Admin\PostsController::class, 'store']);
 												Route::post('/{id}', [Admin\PostsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\PostsController::class,'delete']);
+												Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
 											});
 										});
 								});
