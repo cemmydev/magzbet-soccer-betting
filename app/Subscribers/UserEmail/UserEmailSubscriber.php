@@ -36,7 +36,7 @@ class UserEmailSubscriber extends BaseSubscriber
 			->log();
 
 		// verification email notification
-		$user->notify(new VerifyEmailNotification($user));
+		// $user->notify(new VerifyEmailNotification($user));
 	}
 
 	public function verifiedEmail(Verified $event): void
