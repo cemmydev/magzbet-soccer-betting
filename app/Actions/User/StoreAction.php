@@ -82,7 +82,7 @@ class StoreAction extends BaseUserAction
 	{
 		if ($this->success) {
 			// event
-			event(new UserStoredEvent($user));
+			// event(new UserStoredEvent($user));
 		}
 	}
 

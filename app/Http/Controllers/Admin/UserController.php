@@ -29,10 +29,16 @@ class UserController extends Controller
         $this->usersData=User::where('name', 'like', '%'.$this->search.'%')->orwhere('email', 'like', '%'.$this->search.'%')
             ->paginate($this->perPage)
             ->sortBy($this->sortByField, $this->sortByDirection)->toArray();
-        return view("admin.users")->with("data",$this->usersData)->with('tabIndex', 'users')->with('tableheader',$this->tableheader);
+        return view("admin.users")->with("usersData", $this->usersData)->with('tabIndex', 'users');
     }
 
     public function create() {
         return view('admin.users.create')->with('subscriptions', $this->subscriptions);
+    }
+
+    public function delete(Request $request, $id) {
+        $user=User::find($id);
+        $user->delete();
+        return redirect()->route('admin.users');
     }
 }

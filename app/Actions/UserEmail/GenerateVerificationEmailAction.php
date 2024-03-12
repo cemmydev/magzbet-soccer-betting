@@ -23,12 +23,12 @@ class GenerateVerificationEmailAction extends BaseUserAction
 
 		$user = $userBuilder->first();
 
-		if ($user->hasVerifiedEmail()) {
-			return $this;
-		}
+		// if ($user->hasVerifiedEmail()) {
+		// 	return $this;
+		// }
 
 		// verify email event
-		event(new VerifyEmailEvent($user));
+		// event(new VerifyEmailEvent($user));
 
 		$this->success = true;
 
