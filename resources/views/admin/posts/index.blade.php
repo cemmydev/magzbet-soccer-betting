@@ -24,7 +24,7 @@
         @foreach($posts as $post)
         <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
           <td class="border-grey-light border hover:bg-gray-100 p-3">
-            {{$post['event']}} : Created at
+            <b>{{$post['event']}}</b> at
             {{date('d-m-Y', strtotime($post['date']))}}
           </td>
           <td class="border-grey-light border hover:bg-gray-100 p-3">{{$post['description']}}</td>
@@ -36,7 +36,10 @@
             {{$post['stake']}},
             {{$post['gain']}},
             {{$post['profit']}}
-          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$post['subscription_plan']['name']}}
+          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">
+            @foreach($post['subscription_plan'] as $sub)
+              {{$sub['name'].' '}}
+            @endforeach
           </td>
           <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
             <a href="{{route('admin.posts.edit', $post['id'])}}">Edit</a> , 

@@ -27,10 +27,10 @@
     <select id="bet_create_status" class="block w-full p-2" name="status">
         <option value='pending'>PENDING</option>
         <option value='won'>WON</option>
-        <option value='lose'>LOST</option>
+        <option value='lost'>LOST</option>
     </select>
     <label for="bet_create_subscription">subscription</label>
-    <select id="bet_create_subscription" class="block w-full p-2" name="subscription">
+    <select multiple="multiple" id="bet_create_subscription" class="block w-full p-2" name="subscription[]">
         @foreach ($subscriptions as $sub)
             <option value="{{ $sub['id'] }}">{{$sub['name']}}</option>
         @endforeach

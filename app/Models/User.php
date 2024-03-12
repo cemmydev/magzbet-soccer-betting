@@ -48,4 +48,24 @@ class User extends Authenticatable
 	{
 		return $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
 	}
+
+	public function unexpiredSubscription() {
+		$subscriptions = $this->subscriptionPlans()->get()->toArray();
+		$subscriptions = array_filter($subscriptions, function ($subscription) {
+			return strtotime('+1 months', strtotime($subscription['pivot']['updated_at'])) > strtotime(now()->toString());
+		});
+		return $subscriptions;
+	}
+
+	public function isAllow($bet_subs) {
+		$unexpired = $this->unexpiredSubscription();
+		foreach($unexpired as $subscription) {
+			foreach($bet_subs as $sub){
+				if($subscription['id'] == $sub['id']) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

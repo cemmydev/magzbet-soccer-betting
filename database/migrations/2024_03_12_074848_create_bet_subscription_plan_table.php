@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscription_plans', function (Blueprint $table) {
+        Schema::create('bet_subscription_plan', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
-            $table->float('cost');
-            $table->string('description');
+            $table->foreignId('bet_id');
+            $table->foreignId('subscription_plan_id');
+
+            $table->foreign('subscription_plan_id')->references('id')->on('subscription_plans');
+            $table->foreign('bet_id')->references('id')->on('bets');
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscription_plans');
+        Schema::dropIfExists('bet_subscription_plan');
     }
 };

@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\subscriptionPlan;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Bet extends Model
 {
@@ -26,7 +26,7 @@ class Bet extends Model
         "subscription_plan_id"
     ];
 
-    public function subscriptionPlan() : BelongsTo {
-        return $this->belongsTo(subscriptionPlan::class);
+    public function subscriptionPlan() : BelongsToMany {
+        return $this->belongsToMany(subscriptionPlan::class)->withTimestamps();;
     }
 }

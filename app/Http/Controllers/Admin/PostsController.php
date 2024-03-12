@@ -29,14 +29,13 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
-        //dd($_FILES);
         $request->validate([
             'event'=> 'required',
             'hidden'=> 'required',
             'status'=> 'required',
             'pick'=> 'required',
             'image'=> 'file|mimes:jpg,jpeg,bmp,png',
-            'subscription'=> 'required|max:255',
+            'subscription'=> 'required',
             'odds'=> 'numeric|max:255',
             'stake'=> 'numeric|max:255',
             'gain'=> 'numeric|max:255',
@@ -61,13 +60,13 @@ class PostsController extends Controller
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
-            'subscription_plan_id'=>$request->subscription,
             'odds'=>$request->odds,
             'stake'=>$request->stake,
             'gain'=>$request->gain,
             'profit'=>$request->profit,
         ]);
-
+        $new_bet->subscriptionPlan()->attach($request->subscription);
+        
         if(isset($requset->image)) {
             $imageName = time().'.'.$request->image->extension(); 
             $image_url = $request->image->move('public'.'\\uploads\\bets\\'.$new_bet->id, $imageName);
@@ -76,13 +75,12 @@ class PostsController extends Controller
     
             $new_bet->save();
         }
-
         
         return redirect()->route('admin.posts');
     }
     
     public function edit($id) {
-        $post=Bet::find($id)->toArray();
+        $post=Bet::with('subscriptionPlan')->find($id)->toArray();
         return view('admin.posts')->with('content','edit')->with('post', $post)->with('subscriptions', $this->subscriptions);
     }
 
@@ -93,7 +91,7 @@ class PostsController extends Controller
             'status'=> 'required',
             'pick'=> 'required',
             'image'=> 'file|mimes:jpg,jpeg,bmp,png',
-            'subscription'=> 'required|max:255',
+            'subscription'=> 'required',
             'odds'=> 'numeric|max:255',
             'stake'=> 'numeric|max:255',
             'gain'=> 'numeric|max:255',
@@ -126,12 +124,13 @@ class PostsController extends Controller
             'description'=>$request->description,
             'pick'=>$request->pick,
             'image'=>$image_url,
-            'subscription_plan_id'=>$request->subscription,
             'odds'=>$request->odds,
             'stake'=>$request->stake,
             'gain'=>$request->gain,
             'profit'=>$request->profit,
         ]);
+
+        Bet::find($id)->subscriptionPlan()->sync($request->subscription);
 
         return redirect()->route('admin.posts');
     }
