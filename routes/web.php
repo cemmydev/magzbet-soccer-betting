@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
@@ -108,6 +109,7 @@ Route::middleware([
 			*/
 			Route::middleware(EnsureEmailIsVerified::class)
 				->group(function () {
+					Route::get('/buy/subscription/{id}', [PaymentController::class, 'buy'])->name('pay.subscription');
 					Route::controller(ViewController::class)
 						->group(function () {
 							// dashboard

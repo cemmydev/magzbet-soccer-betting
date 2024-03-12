@@ -10,15 +10,20 @@
                                     tabindex="0" role="link" href="/account" previewlistener="true">Account</a></div>
                         </li>
                         <li>
-                            <div class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                     fill="currentColor" aria-hidden="true" data-slot="icon"
                                     class="my-2 h-5 w-5 flex-shrink-0 text-gray-500">
                                     <path fill-rule="evenodd"
                                         d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
                                         clip-rule="evenodd"></path>
-                                </svg><a
+                                </svg>
+                                <a
                                     class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 no-underline hover:opacity-80 active:opacity-disabled transition-opacity text-sm font-medium text-gray-400 hover:text-gray-200 pointer-events-none"
-                                    tabindex="0" role="link" href="" previewlistener="true">Subscriptions</a></div>
+                                    tabindex="0" role="link" href="" previewlistener="true">
+                                    Subscriptions
+                                </a>
+                            </div>
                         </li>
                     </ol>
                 </nav>
@@ -45,12 +50,15 @@
                         <p class="mt-4 text-sm leading-6 text-gray-300">This is a monthly recurring subscription for 1/3
                             bet
                             category.</p>
-                        <p class="mt-6 flex items-baseline gap-x-1"><span
-                                class="text-4xl font-bold tracking-tight text-white">€{{$subscription['cost']}}</span><span
-                                class="text-sm font-semibold leading-6 text-gray-300">/ Month</span></p><a href="#"
-                            aria-describedby="price_1OP0mOIqx9qI75cwVCvFEpUY"
-                            class="bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500 mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Buy
-                            Subscription</a>
+                        <p class="mt-6 flex items-baseline gap-x-1">
+                            <span
+                                class="text-4xl font-bold tracking-tight text-white">${{$subscription['cost']}}
+                            </span>
+                            <span class="text-sm font-semibold leading-6 text-gray-300">/ Month</span>
+                        </p>
+                        <a href="{{route('pay.subscription', $subscription['id'])}}" aria-describedby="price_1OP0mOIqx9qI75cwVCvFEpUY" class="bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500 mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
+                            Buy Subscription
+                        </a>
                     </div>
                     @endforeach
                     <!-- <div class="ring-1 ring-white/10 rounded-3xl p-10 w-full max-w-xs">
@@ -178,11 +186,11 @@
                                 </td>
                                 <td tabindex="-1" data-key="3798.2" role="gridcell"
                                     class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
-                                    <span>{{date('d-m-Y H:m:s', strtotime($singleSub['pivot']['created_at']))}}</span>
+                                    <span>{{date('d-m-Y', strtotime($singleSub['pivot']['created_at']))}}</span>
                                 </td>
                                 <td tabindex="-1" data-key="3798.3" role="gridcell"
                                     class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
-                                    <span>{{date('d-m-Y', strtotime($singleSub['pivot']['updated_at']))}}</span>
+                                    <span>{{date('d-m-Y', strtotime('+1 days', strtotime($singleSub['pivot']['updated_at'])))}}</span>
                                 </td>
                                 <td tabindex="-1" data-key="3798.4" role="gridcell"
                                     class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
@@ -191,17 +199,18 @@
                                 </td>
                                 <td tabindex="-1" data-key="3798.5" role="gridcell"
                                     class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-center">
-                                    @if(strtotime('+1 months', strtotime($singleSub['pivot']['updated_at'])) < strtotime(now()->toString()))    
+                                    @if(strtotime('+1 months', strtotime($singleSub['pivot']['updated_at'])) <
+                                        strtotime(now()->toString()))
                                         <div
                                             class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-danger/20 text-danger dark:text-danger-500 capitalize">
                                             <span class="flex-1 text-inherit font-normal px-2">EXPIRED</span>
                                         </div>
-                                    @else
+                                        @else
                                         <div
                                             class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success/20 text-success-600 dark:text-success capitalize">
                                             <span class="flex-1 text-inherit font-normal px-2">ACITVE</span>
                                         </div>
-                                    @endif
+                                        @endif
                                 </td>
                             </tr>
                             @endforeach
