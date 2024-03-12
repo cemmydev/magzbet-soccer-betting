@@ -50,11 +50,6 @@ trait ValidationTrait
 			'user.password' => [
 				'required',
 				'confirmed',
-				(new Password(8))
-					->mixedCase()
-					->numbers()
-					->letters()
-					->symbols(),
 			],
 		];
 
