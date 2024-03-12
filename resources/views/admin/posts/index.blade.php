@@ -1,6 +1,6 @@
-<div class="flex items-center justify-center dark:bg-darker text-sm">
+<div class="flex items-center justify-center dark:bg-darker">
   <div class="container">
-    <p class="ml-3 font-bold text-"> BETS TABLE</p>
+    <p class="ml-3 font-bold"> BETS TABLE</p>
     <div class="mt-4 text-right">
       <a href="{{route('admin.posts.create')}}" class="bg-primary text-white p-3"> + Create</a>
     </div>
@@ -22,7 +22,7 @@
       </thead>
       <tbody class="flex-1 sm:flex-none text-center">
         @foreach($posts as $post)
-        <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+        <tr class="flex flex-col flex-no wrap sm:table-row mb-4 sm:mb-0">
           <td class="border-grey-light border hover:bg-gray-100 p-3">
             <b>{{$post['event']}}</b> at
             {{date('d-m-Y', strtotime($post['date']))}}
