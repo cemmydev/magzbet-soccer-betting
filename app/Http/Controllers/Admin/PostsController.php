@@ -62,11 +62,12 @@ class PostsController extends Controller
             'gain'=>$request->gain,
             'profit'=>$request->profit,
         ]);
+
         $new_bet->subscriptionPlan()->attach($request->subscription);
         
         if(isset($requset->image)) {
             $imageName = time().'.'.$request->image->extension(); 
-            $image_url = $request->image->move('uploads/bets/'.$new_bet->id, $imageName);
+            $image_url = $request->image->move("uploads/bets".$new_bet->id, $imageName);
     
             $new_bet->image=$image_url;
     
