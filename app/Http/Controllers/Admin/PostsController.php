@@ -66,7 +66,7 @@ class PostsController extends Controller
         
         if(isset($requset->image)) {
             $imageName = time().'.'.$request->image->extension(); 
-            $image_url = $request->image->move('public'.'\\uploads\\bets\\'.$new_bet->id, $imageName);
+            $image_url = $request->image->move('public'.'//uploads//bets//'.$new_bet->id, $imageName);
     
             $new_bet->image=$image_url;
     
@@ -110,7 +110,7 @@ class PostsController extends Controller
 
         if(isset($request->image)) {
             $imageName = time().'.'.$request->image->extension(); 
-            $image_url = $request->image->move('public'."\\uploads\\bets\\".$id, $imageName);
+            $image_url = $request->image->move('public'."//uploads//bets//".$id, $imageName);
         }
 
         Bet::find($id)->update([
