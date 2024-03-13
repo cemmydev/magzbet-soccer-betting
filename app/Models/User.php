@@ -52,7 +52,7 @@ class User extends Authenticatable
 	public function unexpiredSubscription() {
 		$subscriptions = $this->subscriptionPlans()->get()->toArray();
 		$subscriptions = array_filter($subscriptions, function ($subscription) {
-			return strtotime('+1 months', strtotime($subscription['pivot']['updated_at'])) > strtotime(now()->toString());
+			return strtotime($subscription['pivot']['expire_at']) > strtotime(now()->toString());
 		});
 		return $subscriptions;
 	}

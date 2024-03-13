@@ -148,16 +148,15 @@
                             </td>
                             <td tabindex="-1" data-key="3798.3" role="gridcell"
                                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
-                                <span>{{date('d-m-Y', strtotime('+1 days', strtotime($singleSub['pivot']['updated_at'])))}}</span>
+                                <span>{{$singleSub['pivot']['start_at']}}</span>
                             </td>
                             <td tabindex="-1" data-key="3798.4" role="gridcell"
                                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
-                                <span>{{date('d-m-Y', strtotime('+1 months',
-                                    strtotime($singleSub['pivot']['updated_at'])))}}</span>
+                                <span>{{$singleSub['pivot']['expire_at']}}</span>
                             </td>
                             <td tabindex="-1" data-key="3798.5" role="gridcell"
                                 class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-center">
-                                {{round((strtotime('+1 months', strtotime($singleSub['pivot']['updated_at'])) - strtotime(now()->toString())) / (60 * 60 * 24))}} Days Remaining
+                                {{round((strtotime($singleSub['pivot']['expire_at']) - strtotime(now()->toString())) / (60 * 60 * 24))}} Days Remaining
                             </td>
                         </tr>
                         @endforeach
