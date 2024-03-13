@@ -16,7 +16,7 @@ class PaymentController extends Controller
                 $start_at = max($start_at, strtotime('+1 Day', strtotime($plan['pivot']['expire_at'])));
             }
         }
-        $expire_at= strtotime('+1 Month', $start_at);
+        $expire_at= strtotime('-1 Day', strtotime('+1 Month', $start_at));
         Auth::user()->subscriptionPlans()->attach([$id => ['start_at' => date('Y-m-d', $start_at), 'expire_at' => date('Y-m-d', $expire_at)]]);
         return redirect()->route('account.subscriptions');
     }

@@ -184,6 +184,8 @@ Route::middleware([
 												Route::post('/create', [Admin\PostsController::class, 'store']);
 												Route::post('/{id}', [Admin\PostsController::class, 'update']);
 												Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
+												Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
+												Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
 											});
 										});
 								});

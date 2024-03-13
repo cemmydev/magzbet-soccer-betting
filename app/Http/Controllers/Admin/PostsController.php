@@ -20,7 +20,7 @@ class PostsController extends Controller
     }
 
     public function index() {
-        $this->posts=Bet::with('subscriptionPlan')->paginate($this->perPage)->sortByDesc('updated_at')->toArray();
+        $this->posts=Bet::with('subscriptionPlan')->paginate($this->perPage)->sortByDesc('created_at')->toArray();
         return view("admin.posts")->with('content', 'index')->with('posts', $this->posts);
     }
 
@@ -32,14 +32,11 @@ class PostsController extends Controller
         $request->validate([
             'event'=> 'required',
             'hidden'=> 'required',
-            'status'=> 'required',
             'pick'=> 'required',
             'image'=> 'file|mimes:jpg,jpeg,bmp,png',
             'subscription'=> 'required',
             'odds'=> 'numeric|max:255',
             'stake'=> 'numeric|max:255',
-            'gain'=> 'numeric|max:255',
-            'profit'=> 'numeric|max:255',
         ], [
             'event.required' => "Event is required",
             'hidden.required' => 'Hidden is required',
@@ -56,7 +53,7 @@ class PostsController extends Controller
         $new_bet = Bet::create([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
-            'status'=> $request->status,
+            'status'=> 'pending',
             'date'=> $request->date,
             'description'=>$request->description,
             'pick'=>$request->pick,
@@ -126,8 +123,6 @@ class PostsController extends Controller
             'image'=>$image_url,
             'odds'=>$request->odds,
             'stake'=>$request->stake,
-            'gain'=>$request->gain,
-            'profit'=>$request->profit,
         ]);
 
         Bet::find($id)->subscriptionPlan()->sync($request->subscription);
@@ -137,6 +132,26 @@ class PostsController extends Controller
 
     public function delete($id) {
         Bet::find($id)->delete();
+        return redirect()->route('admin.posts');
+    }
+    
+    public function win($id) {
+        $bet = Bet::find($id);
+        $bet->status="won";
+        $bet->gain = $bet->odds * $bet->stake;
+        $bet->profit = $bet->gain - $bet->stake;
+        
+        $bet->save();
+        return redirect()->route('admin.posts');
+    }
+
+    public function lose($id) {
+        $bet = Bet::find($id);
+        $bet->status="lost";
+        $bet->gain=0;
+        $bet->profit=-$bet->stake;
+        
+        $bet->save();
         return redirect()->route('admin.posts');
     }
 }

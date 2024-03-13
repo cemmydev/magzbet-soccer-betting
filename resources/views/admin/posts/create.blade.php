@@ -23,12 +23,6 @@
     <input id="bet_create_pick" type="text" class="block w-full p-2" name="pick">
     <label for="bet_create_image">image</label>
     <input id="bet_create_image" type="file" class="block border-2 p-2" name="image">
-    <label for="bet_create_status">status</label>
-    <select id="bet_create_status" class="block w-full p-2" name="status">
-        <option value='pending'>PENDING</option>
-        <option value='won'>WON</option>
-        <option value='lost'>LOST</option>
-    </select>
     <label for="bet_create_subscription">subscription</label>
     <select multiple="multiple" id="bet_create_subscription" class="block w-full p-2" name="subscription[]">
         @foreach ($subscriptions as $sub)
@@ -39,9 +33,5 @@
     <input id="bet_create_odd" type="text" class="block w-full p-2" name="odds">
     <label for="bet_create_stake">stake</label>
     <input id="bet_create_stake" type="text" class="block w-full p-2" name="stake">
-    <label for="bet_create_gain">gain</label>
-    <input id="bet_create_gain" type="text" class="block w-full p-2" name="gain">
-    <label for="bet_create_profit">profit</label>
-    <input id="bet_create_profit" type="text" class="block w-full p-2" name="profit">
     <button type="submit" class="button bg-primary p-4 text-white mt-2">Submit</button>
 </form>
