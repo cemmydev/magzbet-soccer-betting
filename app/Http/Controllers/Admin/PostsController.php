@@ -91,8 +91,6 @@ class PostsController extends Controller
             'subscription'=> 'required',
             'odds'=> 'numeric|max:255',
             'stake'=> 'numeric|max:255',
-            'gain'=> 'numeric|max:255',
-            'profit'=> 'numeric|max:255',
         ], [
             'event.required' => "Event is required",
             'hidden.required' => 'Hidden is required',
@@ -102,8 +100,6 @@ class PostsController extends Controller
             'odds.float' => "Odds must be a Number",
             'stake.float' => "Stake must be a Number",
             'gain.float' => "Gain must be a Number",
-            'profit.float' => "Profit must be a Number",
-            'image.file|mimes:jpg,jpeg,bmp,png' => 'Image Invalid.'
         ]);
 
         $image_url = "";
