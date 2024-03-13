@@ -72,7 +72,7 @@ class PostsController extends Controller
     
             $new_bet->save();
         }
-        
+           
         return redirect()->route('admin.posts');
     }
     
