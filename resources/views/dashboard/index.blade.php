@@ -39,15 +39,15 @@
 		<dl class="grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-3">
 			<div class="flex flex-col bg-white/5 p-8">
 				<dt class="text-sm font-semibold uppercase leading-6 text-gray-300">Total Bets</dt>
-				<dd class="order-first text-3xl font-semibold tracking-tight text-white">1046</dd>
+				<dd class="order-first text-3xl font-semibold tracking-tight text-white">{{$total_bets}}</dd>
 			</div>
 			<div class="flex flex-col bg-white/5 p-8">
 				<dt class="text-sm font-semibold uppercase leading-6 text-gray-300">Win Ratio</dt>
-				<dd class="order-first text-3xl font-semibold tracking-tight text-white">67 %</dd>
+				<dd class="order-first text-3xl font-semibold tracking-tight text-white">{{$win_ratio}} %</dd>
 			</div>
 			<div class="flex flex-col bg-white/5 p-8">
 				<dt class="text-sm font-semibold uppercase leading-6 text-gray-300">ROI</dt>
-				<dd class="order-first text-3xl font-semibold tracking-tight text-white">39 %</dd>
+				<dd class="order-first text-3xl font-semibold tracking-tight text-white">{{$ROI}} %</dd>
 			</div>
 		</dl>
 	</div>
