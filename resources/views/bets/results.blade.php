@@ -27,7 +27,7 @@
                                         </path>
                                     </svg>
                                     @foreach($result['subscription_plan'] as $sub)
-                                        {{$sub['name'].' '}}
+                                    {{$sub['name'].' '}}
                                     @endforeach
                                 </div>
                                 <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
@@ -60,30 +60,32 @@
                             </div>
                             <div class="basis-1/5 text-center">
                                 @if($result['status'] == 'won')
-                                    <div class="text-2xl font-bold text-success">{{$result['gain']}}</div>
+                                <div class="text-2xl font-bold text-success">{{$result['gain']}}</div>
                                 @else
-                                    <div class="text-2xl font-bold text-danger">{{$result['gain']}}</div>
+                                <div class="text-2xl font-bold text-danger">{{$result['gain']}}</div>
                                 @endif
                                 <div class="text-sm font-bold text-gray-400">Gain</div>
                             </div>
                             <div class="basis-1/5 text-center">
                                 @if($result['status'] == 'won')
-                                    <div class="text-2xl font-bold text-success">{{$result['profit']}}</div>
+                                <div class="text-2xl font-bold text-success">{{$result['profit']}}</div>
                                 @else
-                                    <div class="text-2xl font-bold text-danger">{{$result['profit']}}</div>
+                                <div class="text-2xl font-bold text-danger">{{$result['profit']}}</div>
                                 @endif
                                 <div class="text-sm font-bold text-gray-400">Profit</div>
                             </div>
                             <div class="basis-1/5 text-center">
                                 @if($result['status'] == 'won')
-                                    <div
-                                        class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success/20 text-success-600 dark:text-success capitalize">
-                                        <span class="flex-1 text-inherit font-normal px-2">{{strtoupper($result['status'])}}</span>
-                                    </div>
-                                @else 
-                                    <div class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-danger/20 text-danger dark:text-danger-500 capitalize">
-                                        <span class="flex-1 text-inherit font-normal px-2">LOST</span>
-                                    </div>
+                                <div
+                                    class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-success/20 text-success-600 dark:text-success capitalize">
+                                    <span
+                                        class="flex-1 text-inherit font-normal px-2">{{strtoupper($result['status'])}}</span>
+                                </div>
+                                @else
+                                <div
+                                    class="relative max-w-fit inline-flex items-center justify-between box-border whitespace-nowrap px-1 h-7 text-small rounded-full bg-danger/20 text-danger dark:text-danger-500 capitalize">
+                                    <span class="flex-1 text-inherit font-normal px-2">LOST</span>
+                                </div>
                                 @endif
                             </div>
                         </div>
@@ -110,16 +112,65 @@
                                 stroke-linejoin="round" stroke-width="1.5"></path>
                         </svg>
                     </li>
-                    @if($pagination <= 50)
-                        @for($i=1; $i<=($pagination+9)/10; $i ++)
-                            <a href="{{'?page='.$i}}">
-                            <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
-                                data-active="true" data-slot="item"
-                                class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                                $i</li>
-                            </a>
-                            @endfor
-                    @else
+                    @if($pagination <= 50) @for($i=1; $i<=($pagination+9)/10; $i ++) <a href="{{'?page='.$i}}">
+                        <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
+                            data-active="true" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            $i</li>
+                        </a>
+                        @endfor
+                        @else
+                        @if(Request::get('page') > 5)
+
+                        <li role="button" tabindex="0" aria-label="pagination item 1" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            1</li>
+                        <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                            <svg aria-hidden="true" fill="none" height="1em" shape-rendering="geometricPrecision"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="1em" class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                            </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
+                                shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180"
+                                data-before="true">
+                                <path d="M13 17l5-5-5-5"></path>
+                                <path d="M6 17l5-5-5-5"></path>
+                            </svg>
+                        </li>
+                        <li role="button" tabindex="0" aria-label="pagination item 4" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            4</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 5 active" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
+                            style="user-select: none;" aria-current="true" data-active="true">5</li>
+                        <li role="button" tabindex="0" aria-label="pagination item 6" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            6</li>
+                        <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                            <svg aria-hidden="true" fill="none" height="1em" shape-rendering="geometricPrecision"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
+                                width="1em" class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                            </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
+                                shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
+                                <path d="M13 17l5-5-5-5"></path>
+                                <path d="M6 17l5-5-5-5"></path>
+                            </svg>
+                        </li>
+                        <li role="button" tabindex="0" aria-label="pagination item 68" data-slot="item"
+                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            68</li>
+                        @else
                         <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
                             data-active="true" data-slot="item"
                             class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
@@ -155,15 +206,16 @@
                         <li role="button" tabindex="0" aria-label="pagination item 49" data-slot="item"
                             class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
                             {{($pagination+9)/10}}</li>
-                    @endif
-                    <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
-                        class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                            viewBox="0 0 24 24" width="1em" class="rotate-180">
-                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5"></path>
-                        </svg>
-                    </li>
+                        @endif
+                        @endif
+                        <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
+                            class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
+                                viewBox="0 0 24 24" width="1em" class="rotate-180">
+                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg>
+                        </li>
                 </ul>
             </nav>
         </div>
