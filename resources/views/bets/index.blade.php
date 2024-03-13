@@ -98,7 +98,7 @@
                     <div
                         class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
                         @if($bet['image'] != null)
-                            <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full w-30" src="/{{$bet['image']}}">
+                            <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full w-30" src="{{asset($bet['image'])}}">
                         @endif
                     </div>
                 </div>
