@@ -24,19 +24,8 @@
 </head>
 <body class="font-sans antialiased dark">
 <x-notifications.toaster/>
-<!-- container -->
 <div class="min-h-screen">
-	<!-- navbar -->
 	<x-layout.navigation />
-	<!-- page heading -->
-	<!-- @if (isset($header))
-	<header class="shadow">
-		<div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto py-6 px-4 sm:px-6 lg:px-8">
-			{{ $header }}
-		</div>
-	</header>
-	@endif -->
-	<!-- page content -->
 	<main>
 		{{ $slot }}
 	</main>
