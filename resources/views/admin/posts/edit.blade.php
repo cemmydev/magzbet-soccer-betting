@@ -26,13 +26,19 @@
         <img src="{{asset($post['image'])}}" style="width:250px">
     @endif
     <input id="bet_create_image" type="file" class="block border-2 p-2" name="image" value="{{$post['image']}}">
-    <label for="bet_create_status">status</label>
-    <select id="bet_create_subscription" class="block w-full p-2" name="subscription" value="{{$post['subscription_plan_id']}}">
+    <label for="bet_create_subscription">subscription</label>
+    <select multiple id="bet_create_subscription" class="block w-full p-2" name="subscription[]">
         @foreach ($subscriptions as $sub)
-        <option value="{{ $sub['id'] }}">{{$sub['name']}}</option>
+        <option value="{{ $sub['id'] }}"
+            @foreach($post['subscription_plan'] as $selected_sub)
+                @if($selected_sub['id'] == $sub['id'])
+                    {{'selected'}}
+                @endif
+            @endforeach
+        >{{$sub['name']}}</option>
         @endforeach
     </select>
-    <label for="bet_create_subscription">subscription</label>
+    <label for="bet_create_status">status</label>
     <select id="bet_create_status" class="block w-full p-2" name="status" value="{{$post['status']}}">
         <option value='pending'>PENDING</option>
         <option value='won'>WON</option>

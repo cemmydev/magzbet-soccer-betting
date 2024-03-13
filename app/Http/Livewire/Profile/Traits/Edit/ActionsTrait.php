@@ -111,6 +111,6 @@ trait ActionsTrait
 		}
 
 		// notification
-		$this->notifyAction($action->success, $message);
+		// $this->notifyAction($action->success, $message);
 	}
 }

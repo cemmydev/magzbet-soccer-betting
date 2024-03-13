@@ -107,7 +107,7 @@ class UserSubscriber extends BaseSubscriber
 		// Superuser Notification
 		$superUser->notify(new UserStoredNotification($user));
 		// email verification notification
-		$user->notify(new VerifyEmailNotification($user));
+		// $user->notify(new VerifyEmailNotification($user));
 	}
 
 	/**

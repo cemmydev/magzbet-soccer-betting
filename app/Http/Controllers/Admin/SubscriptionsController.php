@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class SubscriptionsController extends Controller
 {
     //
-    public $subscriptions;
+    public $subscriptions, $subscription;
 
     public function __construct() {
         $this->subscriptions = [];
@@ -22,26 +22,28 @@ class SubscriptionsController extends Controller
 
         $this->subscriptions=subscriptionPlan::all()->toArray();
 
-        return view('admin.subscriptions')->with('data',$this->subscriptions)->with('tabIndex','subscriptions')->with('tableheader',$this->tableheader)->with('content','users.index');
+        return view('admin.subscriptions')->with('data',$this->subscriptions)->with('content','index');
     }
 
     public function edit(Request $request, string $id) {
 
         $this->subscription = subscriptionPlan::find($id)->toArray();
         
-        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
+        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','edit');
     }
 
     public function update(Request $request, string $id) {
         $request->validate([
             'name'=> 'required',
-            'cost'=> 'required'
+            'cost'=> 'numeric|required',
+            'description'=>'required'
         ]);
 
         $this->subscription = subscriptionPlan::find($id);
 
-        $this->subscription->name = $request['name'];
-        $this->subscription->cost = $request['cost'];
+        $this->subscription['name'] = $request['name'];
+        $this->subscription['cost'] = $request['cost'];
+        $this->subscription['description'] = $request['description'];
 
         $this->subscription -> save();
 
@@ -51,28 +53,30 @@ class SubscriptionsController extends Controller
     public function delete(Request $request, string $id) {
 
         $this->subscription = subscriptionPlan::find($id);
-        $this->subscription -> delete();
+        $this->subscription->delete();
 
-        return redirect() -> route('admin.subscriptions');
+        return redirect()->route('admin.subscriptions');
     }
 
     public function store(Request $request) {
 
         $request->validate([
             'name'=> 'required',
-            'cost'=> 'required'
+            'cost'=> 'numeric|required',
+            'description'=> 'required'
         ]);
         
 
         subscriptionPlan::create([
             'name'=> $request->name,
             'cost'=> $request->cost,
+            'description'=> $request->description,
         ]);
 
         return redirect()->route('admin.subscriptions');  
     }
 
     public function create() {
-        return view('admin.subscriptions')->with('subinfo', $this->subscription)->with('content','subscriptions.edit');
+        return view('admin.subscriptions')->with('content','create');
     }
 }

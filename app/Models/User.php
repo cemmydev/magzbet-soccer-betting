@@ -14,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
 	use HasFactory;
 	use HasPermissions;
@@ -47,5 +47,25 @@ class User extends Authenticatable implements MustVerifyEmail
 	public function setPasswordAttribute($value): string
 	{
 		return $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
+	}
+
+	public function unexpiredSubscription() {
+		$subscriptions = $this->subscriptionPlans()->get()->toArray();
+		$subscriptions = array_filter($subscriptions, function ($subscription) {
+			return strtotime($subscription['pivot']['expire_at']) > strtotime(now()->toString());
+		});
+		return $subscriptions;
+	}
+
+	public function isAllow($bet_subs) {
+		$unexpired = $this->unexpiredSubscription();
+		foreach($unexpired as $subscription) {
+			foreach($bet_subs as $sub){
+				if($subscription['id'] == $sub['id']) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

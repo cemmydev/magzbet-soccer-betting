@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\Bet;
 
 class subscriptionPlan extends Model
@@ -12,10 +12,11 @@ class subscriptionPlan extends Model
     use HasFactory;
     protected $fillable = [
         "name",
-        "cost"
+        "cost",
+        "description",
     ];
 
-    public function bets() : HasMany {
-        return $this->hasMany(Bet::class);
+    public function bets() : BelongsToMany {
+        return $this->belongsToMany(Bet::class);
     }
 }

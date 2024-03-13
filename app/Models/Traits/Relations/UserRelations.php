@@ -86,6 +86,6 @@ trait UserRelations
 	}
 
 	public function subscriptionPlans(): BelongsToMany {
-		return $this->belongsToMany(subscriptionPlan::class)->withTimestamps();
+		return $this->belongsToMany(subscriptionPlan::class)->withTimestamps()->withPivot('start_at')->withPivot('expire_at');
 	}
 }

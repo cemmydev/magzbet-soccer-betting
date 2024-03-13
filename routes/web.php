@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
@@ -108,6 +109,7 @@ Route::middleware([
 			*/
 			Route::middleware(EnsureEmailIsVerified::class)
 				->group(function () {
+					Route::get('/buy/subscription/{id}', [PaymentController::class, 'buy'])->name('pay.subscription');
 					Route::controller(ViewController::class)
 						->group(function () {
 							// dashboard
@@ -163,15 +165,16 @@ Route::middleware([
 											Route::prefix('users')->group(function () {
 												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
 												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
 											});
 
 											Route::prefix('subscriptions')->group(function () {
 												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
 												Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
 												Route::post('create', [Admin\SubscriptionsController::class, 'store']);
-												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit']);
+												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
 												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete']);
+												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
 											});
 											
 											Route::group(['prefix' => 'posts'], function () {
@@ -180,7 +183,9 @@ Route::middleware([
 												Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
 												Route::post('/create', [Admin\PostsController::class, 'store']);
 												Route::post('/{id}', [Admin\PostsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\PostsController::class,'delete']);
+												Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
+												Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
+												Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
 											});
 										});
 								});

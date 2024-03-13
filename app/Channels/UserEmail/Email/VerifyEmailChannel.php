@@ -26,7 +26,7 @@ class VerifyEmailChannel
 				/*-- email --*/
 				$mail = Mail::to($notifiable->email);
 
-				$mail->send(new VerifyEmailMail($notifiable, $verificationUrl));
+				// $mail->send(new VerifyEmailMail($notifiable, $verificationUrl));
 			} catch (TransportExceptionInterface $e) {
 				throw new TransportException($e->getMessage());
 			}

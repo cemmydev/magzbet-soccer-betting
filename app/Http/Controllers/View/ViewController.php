@@ -61,7 +61,8 @@ class ViewController
 	}
 
 	public function render_account() {
-		return $this->viewFactory->make('account.index');
+		$subscrptions = Auth::user()->unexpiredSubscription();
+		return $this->viewFactory->make('account.index', ['mySubscriptions'=> $subscrptions]);
 	}
 	public function render_subscriptions() {
 		$subscrptions=subscriptionPlan::all()->toArray();

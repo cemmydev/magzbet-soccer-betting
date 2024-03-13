@@ -1,3 +1,3 @@
-<x-guest-layout>
+<x-app-layout>
 	<livewire:auth.register />
-</x-guest-layout>
+</x-app-layout>

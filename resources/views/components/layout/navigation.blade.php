@@ -120,14 +120,10 @@
 
 					<x-slot name="content">
 
-						<x-form.dropdown-link :href="route('profile.index')">
+						<x-form.dropdown-link :href="route('account.index')">
 							{{ Auth::user()->name }}
 						</x-form.dropdown-link>
-
-						<x-form.dropdown-link :href="route('account.index')">
-							{{ __('general.navbar.profile') }}
-						</x-form.dropdown-link>
-
+	
 						<x-form.dropdown-link :href="route('account.subscriptions')">
 							{{ __('general.navbar.subscriptions') }}
 						</x-form.dropdown-link>
@@ -177,12 +173,8 @@
 					<x-slot name="content">
 						@if(Auth::check())
 
-						<x-form.dropdown-link :href="route('profile.index')">
-							{{ Auth::user()->name }}
-						</x-form.dropdown-link>
-
 						<x-form.dropdown-link :href="route('account.index')">
-							{{ __('general.navbar.profile') }}
+							{{ Auth::user()->name }}
 						</x-form.dropdown-link>
 
 						<x-form.dropdown-link :href="route('account.subscriptions')">

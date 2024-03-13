@@ -27,7 +27,7 @@ class UserStoredEmailChannel
 				// email
 				$mail = Mail::to($notifiable->email);
 
-				$mail->send(new UserStoredMail($notifiable));
+				// $mail->send(new UserStoredMail($notifiable));
 			} catch (TransportExceptionInterface $e) {
 				throw new TransportException($e->getMessage());
 			}
