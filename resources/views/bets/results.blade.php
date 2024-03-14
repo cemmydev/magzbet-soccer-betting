@@ -29,7 +29,7 @@
                                     <!-- @foreach($result['subscription_plan'] as $sub)
                                     {{$sub['name'].' '}}
                                     @endforeach -->
-                                    {{(3-count($result['subscription_plan'])).'/3'}}
+                                    {{(4-count($result['subscription_plan'])).'/3'}}
                                 </div>
                                 <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
