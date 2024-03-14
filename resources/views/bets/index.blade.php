@@ -29,7 +29,7 @@
                                     <!-- @foreach($bet['subscription_plan'] as $sub)
                                         {{$sub['name'].', '}}
                                     @endforeach     -->
-                                    {{(3-count($bet['subscription_plan'])).'/3'}}
+                                    {{(4-count($bet['subscription_plan'])).'/3'}}
                                 </div>
                             </div>
                             <div class="text-xl font-bold">{{$bet['event']}}</div>
