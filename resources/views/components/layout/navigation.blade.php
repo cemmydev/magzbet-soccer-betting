@@ -38,17 +38,13 @@
 							<x-form.dropdown-link :href="route('bets.results')" class="text-white">
 								{{ __('general.navbar.results') }}
 							</x-form.dropdown-link>
-							
+
 							<x-form.dropdown-link :href="route('stats')" class="text-white">
 								{{ __('general.navbar.stats') }}
 							</x-form.dropdown-link>
-							
+
 							<x-form.dropdown-link :href="route('contact')" class="text-white">
 								{{ __('general.navbar.contact') }}
-							</x-form.dropdown-link>
-							
-							<x-form.dropdown-link :href="route('stats')" class="text-white">
-								{{ __('general.navbar.stats') }}
 							</x-form.dropdown-link>
 
 							@if(Auth::check() && Auth::user()->isAdmin())
@@ -123,7 +119,7 @@
 						<x-form.dropdown-link :href="route('account.index')">
 							{{ Auth::user()->name }}
 						</x-form.dropdown-link>
-	
+
 						<x-form.dropdown-link :href="route('account.subscriptions')">
 							{{ __('general.navbar.subscriptions') }}
 						</x-form.dropdown-link>
