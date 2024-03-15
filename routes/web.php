@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -82,8 +83,9 @@ Route::middleware([
 					});
 				});
 			// stats page routes
-			Route::get('/stats', [ViewController::class, 'builder'])->name('stats');
+			Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 			Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
+			Route::post('/contact', [ContactController::class, 'store']);
 			/*
 			|--------------------------------------------------------------------------
 			| Email verification routes
@@ -162,6 +164,11 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'builder'])->name('index');
 
+											Route::prefix('contacts')->group(function () {
+												Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
+												Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');
+											});
+
 											Route::prefix('users')->group(function () {
 												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
 												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
@@ -176,7 +183,7 @@ Route::middleware([
 												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
 												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
 											});
-											
+
 											Route::group(['prefix' => 'posts'], function () {
 												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
 												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
