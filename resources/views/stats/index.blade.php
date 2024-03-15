@@ -28,7 +28,7 @@
                             </svg>{{$sub['name']}}</div>
                         <div class="flex flex-row gap-2">
                             <div class="text-xl font-bold text-gray-400">ROI:</div>
-                            <div class="text-xl font-bold">{{$data[$sub['name']]['roi']}}%</div>
+                            <div class="text-xl font-bold @if($data[$sub['name']]['roi'] > 50) {{"text-primary"}} @endif">{{$data[$sub['name']]['roi']}}%</div>
                         </div>
                     </div>
                     <hr class="shrink-0 bg-divider border-none w-full h-divider" role="separator">

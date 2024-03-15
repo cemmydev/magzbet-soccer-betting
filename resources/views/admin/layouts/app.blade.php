@@ -90,16 +90,20 @@
                 <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                 <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                 <a href="{{ route('admin.users') }}" role="menuitem"
-                  class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700 ">
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800 ">
                   Users
                 </a>
                 <a href="{{ route('admin.posts') }}" role="menuitem"
-                  class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800">
                   Posts
                 </a>
                 <a href="{{ route('admin.subscriptions') }}" role="menuitem"
-                  class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                   Subscription
+                </a>
+                <a href="{{ route('admin.contacts') }}" role="menuitem"
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                  Contacts
                 </a>
               </div>
             </div>
@@ -434,16 +438,20 @@
                     <!-- active & hover classes 'text-gray-700 dark:text-light' -->
                     <!-- inActive classes 'text-gray-400 dark:text-gray-400' -->
                     <a href="{{ route('admin.users') }}" role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800">
                       Users
                     </a>
                     <a href="{{ route('admin.posts')}}" role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-700">
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800">
                       Posts
                     </a>
                     <a href="{{ route('admin.subscriptions')}}" role="menuitem"
-                      class="block p-2 text-sm text-gray-400 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-700">
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                       Subsciptions
+                    </a>
+                    <a href="{{ route('admin.contacts')}}" role="menuitem"
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                      Contacts
                     </a>
                   </div>
                 </div>

@@ -49,7 +49,7 @@ class PostsController extends Controller
             'profit.float' => "Profit must be a Number",
             'image.file|mimes:jpg,jpeg,bmp,png' => 'Image Invalid.'
         ]);
-        
+
         $new_bet = Bet::create([
             'event'=> $request->event,
             'hidden'=> $request->hidden,
