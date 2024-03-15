@@ -41,6 +41,7 @@
                                     </svg>{{$result['date']}}</div>
                             </div>
                             <div class="text-xl font-bold">{{$result['event']}}</div>
+                            <div class="break-words text-sm">{{$result['description']}}</div>
                             <div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em" height="1em"
