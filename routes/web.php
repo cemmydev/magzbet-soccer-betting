@@ -82,7 +82,7 @@ Route::middleware([
 					});
 				});
 			// stats page routes
-			Route::get('/stats', [ViewController::class, 'builder'])->name('stats');
+			Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 			Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
 			/*
 			|--------------------------------------------------------------------------
