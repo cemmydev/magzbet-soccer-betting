@@ -1,4 +1,4 @@
-<p style="text-align: left; padding: 1rem 0 3rem 0;"><img src="https://admin.recoo.app/assets/images/logo.webp" width="250" height="auto" alt="Records Database"/></p>
+<p style="text-align: left; padding: 1rem 0 3rem 0;"><img src="http://magzbet.com/assets/images/logo.webp" width="250" height="auto" alt="Magz soccer betting"/></p>
 
 A Laravel application designed to maintain a database of movies.
 
@@ -25,17 +25,4 @@ A Laravel application designed to maintain a database of movies.
 - Caching with Redis when env `CACHE_ENABLED` is set to true and `CACHE_DRIVER` is set to redis.  
 - Static analysis with phpstan.  
 
-### Demo
-<a href="https://admin.recoo.app" target="_blank">RecDB demo website</a>
-
-
-<table>
-<tbody>
-<tr>
-<td><img src="https://admin.recoo.app/assets/images/tailwind.svg" width="100" height="auto" alt="Tailwind" /></td>
-<td><img src="https://admin.recoo.app/assets/images/alpinejs.svg" width="100" height="auto" alt="Alpine" /></td>
-<td><img src="https://admin.recoo.app/assets/images/laravel.svg" width="100" height="auto" alt="Laravel" /></td>
-<td><img src="https://admin.recoo.app/assets/images/livewire.svg" width="100" height="auto" alt="Livewire" /></td>
-</tr>
-</tbody>
-</table>
+<a href="http://magzbet.com" target="_blank">Magzbet</a>

@@ -884,7 +884,7 @@
           <p>Developed by<!-- --> <a
               class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity hover:text-gray-100 hover:underline"
               tabindex="0" role="link" href="https://olympusone.com" target="_blank" previewlistener="true"
-              style="user-select: none;">OlympusOne</a>.</p>
+              style="user-select: none;">Olympus222ne</a>.</p>
         </div>
         <div class="text-center"><a
             class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"

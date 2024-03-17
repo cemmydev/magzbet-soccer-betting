@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\subscriptionPlan;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Bet extends Model
 {
     use HasFactory;
-
+    use SoftDeletes;
     protected $fillable = [
         "hidden",
         "event",
@@ -26,7 +27,11 @@ class Bet extends Model
         "subscription_plan_id"
     ];
 
-    public function subscriptionPlan() : BelongsTo {
-        return $this->belongsTo(subscriptionPlan::class);
+    protected $casts = [
+        'deleted_at' => 'datetime',
+    ];
+
+    public function subscriptionPlan() : BelongsToMany {
+        return $this->belongsToMany(subscriptionPlan::class)->withTimestamps();;
     }
 }

@@ -22,8 +22,8 @@
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                         <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['name']}}</td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$item['cost']}}</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 ">{{$item['description']}}</td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y', strtotime($item['created_at']))}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">Description</td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
                             <a href="{{route('admin.subscriptions.edit', $item['id'])}}">Edit</a> ,
                             <a href="{{route('admin.subscriptions.delete', $item['id'])}}">Delete</a>

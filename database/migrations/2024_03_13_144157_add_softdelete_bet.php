@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subscription_plans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string('name');
-            $table->float('cost');
-            $table->string('description');
+        Schema::table('bets', function (Blueprint $table) {
+            //
+            $table->softDeletes();
         });
     }
 
@@ -25,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('subscription_plans');
+        Schema::table('bets', function (Blueprint $table) {
+            //
+        });
     }
 };

@@ -35,13 +35,15 @@ class SubscriptionsController extends Controller
     public function update(Request $request, string $id) {
         $request->validate([
             'name'=> 'required',
-            'cost'=> 'required'
+            'cost'=> 'numeric|required',
+            'description'=>'required'
         ]);
 
         $this->subscription = subscriptionPlan::find($id);
 
         $this->subscription['name'] = $request['name'];
         $this->subscription['cost'] = $request['cost'];
+        $this->subscription['description'] = $request['description'];
 
         $this->subscription -> save();
 
@@ -60,19 +62,21 @@ class SubscriptionsController extends Controller
 
         $request->validate([
             'name'=> 'required',
-            'cost'=> 'required'
+            'cost'=> 'numeric|required',
+            'description'=> 'required'
         ]);
         
 
         subscriptionPlan::create([
             'name'=> $request->name,
             'cost'=> $request->cost,
+            'description'=> $request->description,
         ]);
 
         return redirect()->route('admin.subscriptions');  
     }
 
     public function create() {
-        return view('admin.subscriptions')->with('content','edit');
+        return view('admin.subscriptions')->with('content','create');
     }
 }

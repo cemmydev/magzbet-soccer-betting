@@ -52,33 +52,6 @@
                     </div>
                 </div>
                 <div class="lg:basis-3/4">
-                    <div data-slot="base" class="inline-flex" aria-label="Options">
-                        <div data-slot="tabList"
-                            class="flex p-1 h-fit gap-2 items-center flex-nowrap overflow-x-scroll scrollbar-hide bg-default-100 rounded-medium"
-                            id="react-aria9028004585-:rs:" aria-label="Options" role="tablist"
-                            aria-orientation="horizontal"><button data-slot="tab" tabindex="0" data-key="Account"
-                                id="react-aria9028004585-:rs:-tab-Account" aria-selected="true" role="tab"
-                                class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small"
-                                type="button" data-selected="true"
-                                aria-controls="react-aria9028004585-:rs:-tabpanel-Account"><span
-                                    class="absolute z-0 inset-0 rounded-small bg-background dark:bg-default shadow-small"
-                                    data-slot="cursor" style="opacity: 1;"></span>
-                                <div class="relative z-10 whitespace-nowrap transition-colors text-default-500 group-data-[selected=true]:text-default-foreground"
-                                    data-slot="tabContent">Account</div>
-                            </button><button data-slot="tab" tabindex="-1" data-key="Security"
-                                id="react-aria9028004585-:rs:-tab-Security" aria-selected="false" role="tab"
-                                class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small"
-                                type="button">
-                                <div class="relative z-10 whitespace-nowrap transition-colors text-default-500 group-data-[selected=true]:text-default-foreground"
-                                    data-slot="tabContent">Security</div>
-                            </button><button data-slot="tab" tabindex="-1" data-key="Deactivate"
-                                id="react-aria9028004585-:rs:-tab-Deactivate" aria-selected="false" role="tab"
-                                class="z-0 w-full px-3 py-1 flex group relative justify-center items-center cursor-pointer transition-opacity tap-highlight-transparent data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-30 data-[hover-unselected=true]:opacity-disabled outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 h-8 text-small rounded-small"
-                                type="button">
-                                <div class="relative z-10 whitespace-nowrap transition-colors text-default-500 group-data-[selected=true]:text-default-foreground"
-                                    data-slot="tabContent">Deactivate Account</div>
-                            </button></div>
-                    </div>
                     <div data-focus="false" data-focus-visible="false" id="react-aria9028004585-:rs:-tabpanel-Account"
                         aria-labelledby="react-aria9028004585-:rs:-tab-Account" role="tabpanel"
                         class="py-3 px-1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
@@ -139,6 +112,58 @@
                     </div>
                 </div>
             </div>
+            <div class="flex flex-col relative gap-4 w-full mb-4">
+            <div
+                class="p-4 z-0 flex flex-col relative justify-between gap-4 bg-content1 overflow-auto rounded-large shadow-small w-full">
+                <table aria-label="Subscriptions Table" id="react-aria4728753573-:rq:" role="grid" tabindex="0"
+                    aria-describedby="" class="min-w-full h-auto table-auto w-full">
+                    <thead class="[&amp;>tr]:first:rounded-lg" role="rowgroup">
+                        <tr role="row"
+                            class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 cursor-default">
+                            <th data-key="$.0" role="columnheader" tabindex="-1" id="react-aria4728753573-:rq:-$.0"
+                                class="group px-3 h-10 text-left align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-l-lg last:rounded-r-lg data-[sortable=true]:transition-colors data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2">
+                                PRODUCT</th>
+                            <th data-key="$.3" role="columnheader" tabindex="-1" id="react-aria4728753573-:rq:-$.3"
+                                class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-l-lg last:rounded-r-lg data-[sortable=true]:transition-colors data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-end"
+                                width="150">START DATE</th>
+                            <th data-key="$.4" role="columnheader" tabindex="-1" id="react-aria4728753573-:rq:-$.4"
+                                class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-l-lg last:rounded-r-lg data-[sortable=true]:transition-colors data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-end"
+                                width="150">END DATE</th>
+                            <th data-key="$.5" role="columnheader" tabindex="-1" id="react-aria4728753573-:rq:-$.5"
+                                class="group px-3 h-10 align-middle bg-default-100 whitespace-nowrap text-foreground-500 text-tiny font-semibold first:rounded-l-lg last:rounded-r-lg data-[sortable=true]:transition-colors data-[sortable=true]:cursor-pointer data-[hover=true]:text-foreground-400 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-center"
+                                width="200">STATUS</th>
+                        </tr>
+                        <tr tabindex="-1" aria-hidden="true" class="w-px h-px block"
+                            style="margin-left: 0.25rem; margin-top: 0.25rem;"></tr>
+                    </thead>
+                    <tbody role="rowgroup">
+                        @foreach($mySubscriptions as $singleSub)
+                        <tr data-first="true" role="row" aria-selected="false" tabindex="-1" data-key="3798"
+                            aria-labelledby="react-aria4728753573-:rq:-3798-$.0"
+                            class="group outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 cursor-default">
+                            <td tabindex="-1" data-key="3798.0" role="rowheader"
+                                id="react-aria4728753573-:rq:-3798-$.0"
+                                class="py-2 px-3 relative align-middle text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg">
+                                <span>{{$singleSub['name']}}</span>
+                            </td>
+                            <td tabindex="-1" data-key="3798.3" role="gridcell"
+                                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
+                                <span>{{$singleSub['pivot']['start_at']}}</span>
+                            </td>
+                            <td tabindex="-1" data-key="3798.4" role="gridcell"
+                                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-end">
+                                <span>{{$singleSub['pivot']['expire_at']}}</span>
+                            </td>
+                            <td tabindex="-1" data-key="3798.5" role="gridcell"
+                                class="py-2 px-3 relative align-middle whitespace-normal text-small font-normal [&amp;>*]:z-1 [&amp;>*]:relative outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 before:content-[''] before:absolute before:z-0 before:inset-0 before:opacity-0 data-[selected=true]:before:opacity-100 group-data-[disabled=true]:text-foreground-300 before:bg-default/40 data-[selected=true]:text-default-foreground group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100 group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70 first:before:rounded-l-lg last:before:rounded-r-lg text-center">
+                                {{round((strtotime($singleSub['pivot']['expire_at']) - strtotime(now()->toString())) / (60 * 60 * 24))}} Days Remaining
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
         </div>
     </main>
 </x-app-layout>

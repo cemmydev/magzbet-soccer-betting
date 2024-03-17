@@ -11,7 +11,7 @@
                         </div>
                     </div>
                 </div>
-                <form>
+                <form method="Post">
                     @csrf
 
                     <!-- Email Address -->
@@ -26,12 +26,13 @@
                     <div class="mt-4">
                         <x-form.label for="subject" value="Subject" />
                         <x-form.input id="subject" class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 text-small" type="text" name="subject"/>
-                        <!-- <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
+                        <x-input-error :messages="$errors->get('subject')" class="mt-2" />
                     </div>
 
                     <div class="mt-4 mb-4">
                         <x-form.label for="message" value="Message" />
                         <textarea name="message" id="message" rows="5" class="p-3 w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 text-small resize-none data-[hide-scroll=true]:scrollbar-hide h-full transition-height !duration-100 motion-reduce:transition-none"></textarea>
+                        <x-input-error :messages="$errors->get('message')" class="mt-2" />
                     </div>
                     <button
                         class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover mx-auto"
