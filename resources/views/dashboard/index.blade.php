@@ -4,30 +4,13 @@
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
 				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]"><img
 				class="mx-auto h-32 sm:h-48" src="{{ asset('assets/images/logo.webp') }}" alt="Logo">
-			<div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-3">
-				<div class="text-center lg:text-end">
-					<a class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
-						tabindex="0" role="link" target="_blank"
-						href="https://play.google.com/store/apps/details?id=gr.bettok.bettok" previewlistener="true">
-						<img src="{{ asset('assets/images/appstore/google-play.png') }}" alt="GooglePlay"
-							class="h-12 lg:h-16">
-					</a>
-				</div>
-				<div class="text-center lg:text-start">
-					<a class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
-						tabindex="0" role="link" target="_blank"
-						href="https://apps.apple.com/gr/app/bettok/id6470156990" previewlistener="true">
-						<img src="{{ asset('assets/images/appstore/appstore.png') }}" alt="AppStore"
-							class="h-12 lg:h-16">
-					</a>
-				</div>
-			</div>
+			
 			<div class="flex justify-center gap-4">
-				<a target="_blank" class="hover:opacity-90" href="https://instagram.com/bettok__"
+				<a target="_blank" class="hover:opacity-90" href="https://www.instagram.com/magzbet/"
 					previewlistener="true">
 					<img src="{{ asset('assets/images/social/instagram.png') }}" alt="instagram" class="h-12 shadow-xl">
 				</a>
-				<a target="_blank" class="hover:opacity-90" href="https://t.me/+UFiXHtDTggAyZDM0"
+				<a target="_blank" class="hover:opacity-90" href="https://t.me/magzbet"
 					previewlistener="true">
 					<img src="{{ asset('assets/images/social/telegram.png') }}" alt="telegram" class="h-12 shadow-xl">
 				</a>
