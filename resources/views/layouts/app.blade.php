@@ -34,7 +34,7 @@
 			<div class="flex flex-col justify-center text-sm md:flex-row md:gap-4">
 				<div class="flex basis-full flex-col items-center md:basis-1/2 md:items-end"><a
 						class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
-						tabindex="0" role="link" href="/about-us" previewlistener="true">About Us</a><a
+						tabindex="0" role="link" href="/aboutus" previewlistener="true">About Us</a><a
 						class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
 						tabindex="0" role="link" href="/contact" previewlistener="true">Contact</a></div>
 				<div class="flex basis-full flex-col items-center md:basis-1/2 md:items-start"><a

@@ -24,6 +24,9 @@ Route::middleware([
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
 	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
+	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
+	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
+	Route::get('/privacy', [ViewController::class, 'builder'])->name('privacy');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
