@@ -99,9 +99,11 @@
 			<!-- right menu -->
 			<div class="hidden sm:flex sm:items-center sm:ml-6">
 				<!-- notifications -->
+				@if(Auth::check() && Auth::user()->isAdmin())
 				<livewire:notifications />
-				<!-- Separator -->
 				<div class="w-[1px] h-8 mx-4 bg-gray-100"></div>
+				@endif
+				<!-- Separator -->
 				<!-- dropdown -->
 				@if (Auth::check())
 				<x-form.dropdown align="right" width="48">
@@ -149,8 +151,10 @@
 
 			<div class="-mr-2 flex items-center sm:hidden">
 				<!-- notifications -->
+				@if(Auth::check() && Auth::user()->isAdmin())
 				<livewire:notifications />
 				<div class="w-[1px] h-8 mx-4 bg-gray-100"></div>
+				@endif
 				<!-- Hamburger -->
 				<x-form.dropdown align="right" width="48">
 					<x-slot name="trigger">

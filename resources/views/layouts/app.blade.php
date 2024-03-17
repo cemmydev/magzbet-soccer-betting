@@ -22,7 +22,7 @@
 	<!-- Scripts -->
 	@stack('scripts')
 </head>
-<body class="font-sans antialiased dark">
+<body class="font-sans antialiased">
 <x-notifications.toaster/>
 <div class="min-h-screen">
 	<x-layout.navigation />
