@@ -20,6 +20,7 @@ class PayPalController extends Controller
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
+        $cost = $request->cost;
   
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
@@ -31,7 +32,7 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => "100.00"
+                        "value" => $cost
                     ]
                 ]
             ]
