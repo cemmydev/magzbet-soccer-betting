@@ -1,4 +1,5 @@
 <x-app-layout>
+@if(isset($sub))
 <div class="pb-26 container py-20">
     <div class="mx-auto max-w-lg">
         <div class="col-10 offset-1 mt-5">
@@ -43,4 +44,7 @@
         </div>
     </div>
 </div>
+@else
+OOPS!
+@endif
 </x-app-layout>

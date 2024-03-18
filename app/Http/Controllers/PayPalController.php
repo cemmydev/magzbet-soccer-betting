@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\subscriptionPlan;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
 
 class PayPalController extends Controller
 {
     //
-    public function index()
-    {
-        return view('paypal');
-    }
-  
+
     /**
      * Write code on Method
      *
@@ -68,7 +65,7 @@ class PayPalController extends Controller
     public function paymentCancel()
     {
         return redirect()
-              ->route('paypal')
+              ->route('account.subscription')
               ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
   
@@ -86,11 +83,11 @@ class PayPalController extends Controller
   
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
-                ->route('paypal')
+                ->route('accout.subscription')
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
-                ->route('paypal')
+                ->route('account.subscription')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
