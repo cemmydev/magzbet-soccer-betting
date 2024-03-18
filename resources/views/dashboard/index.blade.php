@@ -4,7 +4,7 @@
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
 				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]"><img
 				class="mx-auto h-32 sm:h-48" src="{{ asset('assets/images/logo.webp') }}" alt="Logo">
-			
+
 			<div class="flex justify-center gap-4">
 				<a target="_blank" class="hover:opacity-90" href="https://www.instagram.com/magzbet/"
 					previewlistener="true">
@@ -36,7 +36,6 @@
 	</div>
 	<section class="container py-10">
 		<h2 class="mb-6 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Latest Bets</h2>
-		
 		@if(!Auth::check())
 		@foreach($latest_bets as $bet)
 		<div class="mb-4 mx-auto max-w-4xl">
