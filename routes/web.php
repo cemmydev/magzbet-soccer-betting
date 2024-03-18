@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
@@ -115,6 +116,10 @@ Route::middleware([
 			Route::middleware(EnsureEmailIsVerified::class)
 				->group(function () {
 					Route::get('/buy/subscription/{id}', [PaymentController::class, 'buy'])->name('pay.subscription');
+					Route::get('paypal', [PayPalController::class, 'index'])->name('paypal');
+					Route::get('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
+					Route::get('paypal/payment/success', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
+					Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
 					Route::controller(ViewController::class)
 						->group(function () {
 							// dashboard
