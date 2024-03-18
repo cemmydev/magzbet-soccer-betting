@@ -20,12 +20,13 @@ class PayPalController extends Controller
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
-        $cost = $request->cost;
+        $id = $request->id;
+        $cost=subscriptionPlan::find($id)->cost;
   
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
             "application_context" => [
-                "return_url" => route('paypal.payment.success'),
+                "return_url" => route('paypal.payment.success', $id),
                 "cancel_url" => route('paypal.payment/cancel'),
             ],
             "purchase_units" => [
@@ -75,7 +76,7 @@ class PayPalController extends Controller
      *
      * @return response()
      */
-    public function paymentSuccess(Request $request)
+    public function paymentSuccess(Request $request, $id)
     {
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
@@ -84,7 +85,7 @@ class PayPalController extends Controller
   
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             return redirect()
-                ->route('accout.subscription')
+                ->route('subscript', $id)
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()

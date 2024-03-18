@@ -12,6 +12,9 @@ class PaymentController extends Controller
     public function buy(Request $request, $id){
         $sub = subscriptionPlan::find($id)->toArray();
         return  view('paypal')->with('sub', $sub);
+    }
+    
+    public function subscript(Request $request, $id){
         $start_at = strtotime(now()->toString());
         $unexpired_plans=Auth::user()->unexpiredSubscription();
         foreach($unexpired_plans as $plan) {
