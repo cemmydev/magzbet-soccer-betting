@@ -3,14 +3,14 @@
         <div class="container py-6">
             <div class="flex flex-col gap-4 lg:flex-row">
                 <div class="lg:basis-1/4">
-                    <div class="flex flex-col relative overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-large transition-transform-background motion-reduce:transition-none" tabindex="-1">
+                    <div class="mb-2 flex flex-col relative overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-large transition-transform-background motion-reduce:transition-none" tabindex="-1">
                         <div
                             class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
                             <div class="mb-5 flex flex-col items-center">
                                 <span tabindex="-1"
                                     class="flex relative justify-center items-center box-border overflow-hidden align-middle z-0 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-tiny bg-primary text-primary-foreground rounded-full ring-2 ring-offset-2 ring-offset-background dark:ring-offset-background-dark ring-primary h-24 w-24">
                                     <img
-                                        src="/images/logo.webp"
+                                        src="{{asset('assets/images/logo.webp')}}"
                                         class="flex object-cover w-full h-full transition-opacity !duration-500 opacity-0 data-[loaded=true]:opacity-100"
                                         alt="avatar" data-loaded="true">
                                 </span>
@@ -51,19 +51,25 @@
                         </div>
                     </div>
                 </div>
-                <div class="lg:basis-3/4">
+                <div class="lg:basis-3/4 mb-2">
                     <div data-focus="false" data-focus-visible="false" id="react-aria9028004585-:rs:-tabpanel-Account"
-                        aria-labelledby="react-aria9028004585-:rs:-tab-Account" role="tabpanel"
-                        class="py-3 px-1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
+                    aria-labelledby="react-aria9028004585-:rs:-tab-Account" role="tabpanel"
+                    class="py-1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2"
                         data-slot="panel">
                         <div class="flex flex-col relative overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-none rounded-large transition-transform-background motion-reduce:transition-none"
                             tabindex="-1">
                             <div
-                                class="flex p-3 z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large">
-                                Account Details</div>
+                            class="flex p-3 z-10 w-full justify-start items-center shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large">
+                            Account Details</div>
+                            @if($errors->any())
+                                @foreach($errors->all() as $error)
+                                    <span class="px-3 text-danger">{{$error}}</span>
+                                @endforeach
+                            @endif
                             <div
                                 class="relative flex w-full p-3 flex-auto flex-col place-content-inherit align-items-inherit h-auto break-words text-left overflow-y-auto subpixel-antialiased">
-                                <form novalidate="">
+                                <form method='post'>
+                                    @csrf
                                     <div class="group flex flex-col w-full mb-4 is-filled" data-slot="base"
                                         data-has-elements="true" data-has-label="true" data-has-value="true"
                                         data-filled="true" data-filled-within="true">
@@ -80,6 +86,7 @@
                                                     aria-label="Email" id="react-aria9028004585-:r11:"
                                                     aria-labelledby="react-aria9028004585-:r11: react-aria9028004585-:r12:"
                                                     type="text" value="{{Auth::user()->email}}" data-filled="true"
+                                                    name='email'
                                                     data-filled-within="true">
                                             </div>
                                         </div>
@@ -98,12 +105,14 @@
                                                 <input data-slot="input"
                                                     class="w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none data-[has-start-content=true]:ps-1.5 data-[has-end-content=true]:pe-1.5 text-small is-filled"
                                                     aria-label="Username" id="react-aria9028004585-:r16:"
+                                                    name='name'
                                                     aria-labelledby="react-aria9028004585-:r16: react-aria9028004585-:r17:"
                                                     type="text" value="{{Auth::user()->name}}" data-filled="true"
                                                     data-filled-within="true">
                                             </div>
                                         </div>
-                                    </div><button
+                                    </div>
+                                    <button
                                         class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover mx-auto"
                                         type="submit">Save</button>
                                 </form>

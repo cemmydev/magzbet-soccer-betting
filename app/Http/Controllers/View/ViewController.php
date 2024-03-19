@@ -8,6 +8,7 @@ use Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\Http\Request;
 class ViewController
 {
 	private ViewFactory $viewFactory;
@@ -96,4 +97,18 @@ class ViewController
 
 		return $this->viewFactory->make('stats.index', ['subscriptions'=>$subscrptions, 'data' => $data]);
 	}
-}
+
+	public function profile(Request $request){
+		$request->validate([
+			'email' => 'required|email',
+			'name'=>'required',
+		]);
+
+		Auth::user()->update([
+			'email'=> $request->email,
+			'name'=> $request->name,
+		]);
+
+		return redirect()->route('account.index');
+	}
+ }

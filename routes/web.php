@@ -83,6 +83,7 @@ Route::middleware([
 						'as' => 'account.',
 					], function () {
 						Route::get('/', 'render_account')->name('index');
+						Route::post('/', 'profile')->name('profile');
 						Route::get('/subscriptions', 'render_subscriptions')->name('subscriptions');
 					});
 				});
