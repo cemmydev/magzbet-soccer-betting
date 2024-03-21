@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\subscriptionPlan;
 use Auth;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
@@ -24,6 +25,7 @@ class PaymentController extends Controller
         }
         $expire_at= strtotime('-1 Day', strtotime('+1 Month', $start_at));
         Auth::user()->subscriptionPlans()->attach([$id => ['start_at' => date('Y-m-d', $start_at), 'expire_at' => date('Y-m-d', $expire_at)]]);
+        Toastr::success("You have successfully purchased Subscription.", "Conguratulation");
         return redirect()->route('account.subscriptions');
     }
 }
