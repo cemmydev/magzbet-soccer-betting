@@ -12,6 +12,52 @@
 
 namespace App\Models{
 /**
+ * App\Models\Bet
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property int $hidden
+ * @property string $event
+ * @property string|null $date
+ * @property string|null $description
+ * @property string|null $pick
+ * @property string|null $image
+ * @property float|null $odds
+ * @property float|null $stake
+ * @property float|null $gain
+ * @property float|null $profit
+ * @property string $status
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\subscriptionPlan> $subscriptionPlan
+ * @property-read int|null $subscription_plan_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereEvent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereGain($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereHidden($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereImage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereOdds($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet wherePick($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereProfit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereStake($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Bet withoutTrashed()
+ */
+	class Bet extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Channel
  *
  * @property int $id
@@ -40,6 +86,29 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Channel whereUserId($value)
  */
 	class Channel extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Contact
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $email
+ * @property string $subject
+ * @property string $message
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereSubject($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Contact whereUpdatedAt($value)
+ */
+	class Contact extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -163,12 +232,43 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Post
+ *
+ * @property int $id
+ * @property string|null $title
+ * @property string|null $description
+ * @property string|null $imageUrl
+ * @property string|null $odd
+ * @property string|null $stake
+ * @property string|null $gain
+ * @property string|null $profit
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereGain($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereImageUrl($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereOdd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereProfit($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereStake($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
+ */
+	class Post extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Record
  *
  * @property int $id
  * @property string $title
- * @property string|null $imdb_id
- * @property array|null $params
+ * @property string $imdb_id
+ * @property array $params
  * @property int|null $user_id
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -294,6 +394,8 @@ namespace App\Models{
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Role> $roles
  * @property-read int|null $roles_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\subscriptionPlan> $subscriptionPlans
+ * @property-read int|null $subscription_plans_count
  * @method static \Illuminate\Database\Eloquent\Builder|User active()
  * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static \Illuminate\Database\Eloquent\Builder|User newModelQuery()
@@ -315,7 +417,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User withTrashed()
  * @method static \Illuminate\Database\Eloquent\Builder|User withoutTrashed()
  */
-	class User extends \Eloquent implements \Illuminate\Contracts\Auth\MustVerifyEmail {}
+	class User extends \Eloquent {}
 }
 
 namespace App\Models{
@@ -358,5 +460,35 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|UserOption whereUserId($value)
  */
 	class UserOption extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\subscriptionPlan
+ *
+ * @property int $id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string $name
+ * @property float $cost
+ * @property string $description
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Bet> $bets
+ * @property-read int|null $bets_count
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan query()
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereCost($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan withTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|subscriptionPlan withoutTrashed()
+ */
+	class subscriptionPlan extends \Eloquent {}
 }
 
