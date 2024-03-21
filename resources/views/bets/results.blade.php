@@ -95,7 +95,7 @@
         </div>
         <div class="flex justify-center">
             <nav role="navigation" aria-label="pagination navigation" data-slot="base" data-controls="true"
-                data-dots-jump="5" data-total="105" data-active-page="1"
+                data-dots-jump="5" data-total="105" data-active-page="{{$results['current_page']}}"
                 class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
                 <ul data-slot="wrapper"
                     class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
