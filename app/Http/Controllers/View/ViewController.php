@@ -58,6 +58,7 @@ class ViewController
 	public function render_results() {
 		$pagination=Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->count();
 		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
+		dd($results);
 		return $this->viewFactory->make('bets.results', ['results' => $results,'pagination'=> $pagination]);
 	}
 
