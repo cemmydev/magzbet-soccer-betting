@@ -94,9 +94,7 @@
             @endforeach
         </div>
         <div class="flex justify-center">
-            <nav role="navigation" aria-label="pagination navigation" data-slot="base" data-controls="true"
-                data-dots-jump="5" data-total="{{$results['total']}}" data-active-page="{{$results['current_page']}}"
-                class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
+            <nav role="navigation" class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
                 <ul data-slot="wrapper"
                     class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
                     <span aria-hidden="true" data-slot="cursor"
@@ -112,9 +110,7 @@
                         </svg>
                     </li>
                     @if($results['last_page'] < 5) @for($i=1; $i<=$results['last_page']; $i ++) <a href="{{'?page='.$i}}">
-                        <li role="button" tabindex="0" aria-label="pagination item 1" aria-current={{$results['current_page'] == $i ? "true" : "false"}}
-                            data-active={{$results['current_page'] == $i ? "true" : "false"}} data-slot="item" active={{$results['current_page'] == $i ? "true" : "false"}}
-                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                        <li class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100  min-w-9 w-9 h-9 text-small rounded-medium">
                             {{$i}}</li>
                         </a>
                         @endfor
