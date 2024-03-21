@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="mb-6">
-            @foreach($results as $result)
+            @foreach($results['data'] as $result)
             <a class="flex flex-col relative overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none mb-4"
                 tabindex="-1" href="{{route('bets.index')}}/{{$result['id']}}" previewlistener="true">
                 <div
