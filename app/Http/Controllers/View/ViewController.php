@@ -42,8 +42,10 @@ class ViewController
 		$win_num = Bet::where('status', 'won')->count();
 		$total_profit=Bet::where('status', 'won')->sum('profit');
 		$total_stake=Bet::where('status', '!=', 'pending')->sum('stake');
+		$win_ratio = $total_num == 0 ? 0 : round($win_num * 100 / $total_num);
+		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
 		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
-		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => round($win_num * 100 / $total_num), 'ROI' => round($total_profit * 100 / $total_stake)]);
+		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI]);
 	}
 
 	public function render_bets() {
