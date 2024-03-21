@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 	<link rel="stylesheet" href="{{asset('css/bettok-1.css')}}">
 	<link rel="stylesheet" href="{{asset('css/bettok-2.css')}}">
+	<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 	@stack('styles')
 	<!-- Scripts -->
 	<script type="application/javascript" src="{{ mix('js/vendor.js') }}" defer></script>
@@ -70,6 +71,9 @@
 		</div>
 	</footer>
 </div>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 @livewireScripts
 </body>
 </html>

@@ -125,8 +125,8 @@
                     complete control over your subscription preferences.</p>
                 <div class="mb-2"><a
                         class="tap-highlight-transparent no-underline hover:opacity-80 active:opacity-disabled transition-opacity z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
-                        tabindex="0" role="button" href="https://pay.bettok.gr/p/login/6oE6oz3G14BZ0h2cMM"
-                        target="_blank" previewlistener="true">Manage My Subscription<svg aria-hidden="true" fill="none"
+                        tabindex="0" role="button" href="#"
+                        target="_blank" previewlistener="true">Disable renew subscription<svg aria-hidden="true" fill="none"
                             focusable="false" height="1em" shape-rendering="geometricPrecision" stroke="currentColor"
                             stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
                             width="1em" class="flex mx-1 text-current self-center">

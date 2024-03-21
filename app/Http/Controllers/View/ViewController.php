@@ -8,7 +8,6 @@ use Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Http\Request;
 class ViewController
 {
 	private ViewFactory $viewFactory;

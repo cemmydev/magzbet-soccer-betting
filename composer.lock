@@ -4,8 +4,70 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "35963674e9fbf437dbc44a5b48d246f3",
+    "content-hash": "21ca3cb156d1799bdb06a24e249e9a54",
     "packages": [
+        {
+            "name": "brian2694/laravel-toastr",
+            "version": "5.59",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/brian2694/laravel-toastr.git",
+                "reference": "60f90a7b25973549c3992b3dc5965d4f0e27838c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/brian2694/laravel-toastr/zipball/60f90a7b25973549c3992b3dc5965d4f0e27838c",
+                "reference": "60f90a7b25973549c3992b3dc5965d4f0e27838c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/session": ">=5.2.7",
+                "illuminate/support": ">=5.2.7",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Brian2694\\Toastr\\ToastrServiceProvider"
+                    ],
+                    "aliases": {
+                        "Toastr": "Brian2694\\Toastr\\Facades\\Toastr"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helper.php"
+                ],
+                "psr-4": {
+                    "Brian2694\\Toastr\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "brian2694",
+                    "email": "briansanchez2694@gmail.com"
+                }
+            ],
+            "description": "toastr.js for Laravel",
+            "homepage": "https://github.com/brian2694/laravel-toastr",
+            "keywords": [
+                "laravel",
+                "notification",
+                "php",
+                "toastr"
+            ],
+            "support": {
+                "issues": "https://github.com/brian2694/laravel-toastr/issues",
+                "source": "https://github.com/brian2694/laravel-toastr/tree/5.59"
+            },
+            "time": "2024-01-02T16:03:28+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
