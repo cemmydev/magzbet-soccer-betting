@@ -59,15 +59,12 @@
 							fill="currentColor"></path>
 					</svg></a></div>
 			<div class="text-center text-sm text-gray-300">
-				<p class="pb-1">Copyright © <!-- -->2024<!-- --> - All right reserved by BetTok.</p>
-				<p>Developed by<!-- --> <a
-						class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity hover:text-gray-100 hover:underline"
-						tabindex="0" role="link" href="https://docs.google.com/document/d/1eB-c3q7OmPyQu6K4NWVyS8bZZ7PESkLaBSEqAqO2Ab4/edit?usp=drive_link" target="_blank"
-						previewlistener="true">Olek Stehnei</a>.</p>
+				<p class="pb-1">Copyright © <!-- -->2024<!-- --> - All right reserved by MagzBet.</p>
+				
 			</div>
 			<div class="text-center"><a
 					class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
-					tabindex="0" role="link" href="https://certifications.gamingcommission.gov.gr/sitepages/home.aspx"
+					tabindex="0" role="link" href="https://www.gambleaware.nsw.gov.au/"
 					previewlistener="true"><img class="h-[60px]" alt="gamingcommission" src="{{ asset('assets/images/eeep_footer.svg') }}"></a>
 			</div>
 		</div>
