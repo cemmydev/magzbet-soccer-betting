@@ -111,15 +111,15 @@
                                 stroke-linejoin="round" stroke-width="1.5"></path>
                         </svg>
                     </li>
-                    @if($pagination <= 50) @for($i=1; $i<=($pagination+9)/10; $i ++) <a href="{{'?page='.$i}}">
+                    @if($result['last_page']) @for($i=1; $i<=$result['last_page']; $i ++) <a href="{{'?page='.$i}}">
                         <li role="button" tabindex="0" aria-label="pagination item 1" aria-current="true"
-                            data-active={{Request::get('page') == $i ? "true" : "false"}} data-slot="item" active={{Request::get('page') == $i ? "true" : "false"}}
+                            data-active={{$resut['current_page'] == $i ? "true" : "false"}} data-slot="item" active={{$result['current_page'] == $i ? "true" : "false"}}
                             class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
                             {{$i}}</li>
                         </a>
                         @endfor
                         @else
-                        @if(Request::get('page') > 5)
+                        @if($result['current_page'] > 5)
 
                         <li role="button" tabindex="0" aria-label="pagination item 1" data-slot="item"
                             class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
@@ -204,7 +204,7 @@
                         </li>
                         <li role="button" tabindex="0" aria-label="pagination item 49" data-slot="item"
                             class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            {{($pagination+9)/10}}</li>
+                            {{$result['last_page']}}</li>
                         @endif
                         @endif
                         <li role="button" tabindex="0" aria-label="next page button" data-slot="next"

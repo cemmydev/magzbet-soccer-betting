@@ -51,15 +51,12 @@ class ViewController
 
 	public function render_bets() {
 		$bets = Bet::with('subscriptionPlan')->where('status', 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
-		$pagination=Bet::with('subscriptionPlan')->where('status', 'pending')->count();
-		return $this->viewFactory->make('bets.index', ['bets' => $bets, 'pagination' => $pagination]);
+		return $this->viewFactory->make('bets.index', ['bets' => $bets]);
 	}
 
 	public function render_results() {
-		$pagination=Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->count();
 		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
-		dd($results);
-		return $this->viewFactory->make('bets.results', ['results' => $results,'pagination'=> $pagination]);
+		return $this->viewFactory->make('bets.results', ['results' => $results]);
 	}
 
 	public function render_abet($id) {
