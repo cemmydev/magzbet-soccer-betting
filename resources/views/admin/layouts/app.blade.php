@@ -8,6 +8,7 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
     rel="stylesheet" /> -->
   <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
+	<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css" />
   <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
@@ -885,6 +886,9 @@
   </div>
 
   <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
+  <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {!! Toastr::message() !!}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
   <script src="{{asset('js/script.js')}}"></script>
   <script>
