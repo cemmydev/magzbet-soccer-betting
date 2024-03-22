@@ -28,6 +28,10 @@ Route::middleware([
 	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
 	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
 	Route::get('/privacy', [ViewController::class, 'builder'])->name('privacy');
+	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
+	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
+	Route::post('/contact', [ContactController::class, 'store']);
+	Route::get('bets/results', [ViewController::class, 'render_results'])->name('bets.results');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
@@ -76,7 +80,6 @@ Route::middleware([
 					], function () {
 						Route::get('/', 'render_bets')->name('index');
 						Route::get('/{id}', 'render_abet')->where('id', '[0-9]+');
-						Route::get('/results', 'render_results')->name('results');
 					});
 					Route::group([
 						'prefix' => 'account',
@@ -88,9 +91,6 @@ Route::middleware([
 					});
 				});
 			// stats page routes
-			Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
-			Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
-			Route::post('/contact', [ContactController::class, 'store']);
 			/*
 			|--------------------------------------------------------------------------
 			| Email verification routes
