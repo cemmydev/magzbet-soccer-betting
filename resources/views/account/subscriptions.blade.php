@@ -47,9 +47,7 @@
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 class="text-lg font-semibold leading-8 text-white">{{$subscription['name']}}</h3>
                         </div>
-                        <p class="mt-4 text-sm leading-6 text-gray-300">This is a monthly recurring subscription for 1/3
-                            bet
-                            category.</p>
+                        <p class="mt-4 text-sm leading-6 text-gray-300">{{$subscription['description']}}</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
                             <span
                                 class="text-4xl font-bold tracking-tight text-white">${{$subscription['cost']}}
