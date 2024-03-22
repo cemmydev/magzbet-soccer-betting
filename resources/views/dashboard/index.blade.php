@@ -110,7 +110,7 @@
 							<div
 								class="flex p-3 w-full justify-start shrink-0 overflow-inherit color-inherit subpixel-antialiased rounded-t-large z-auto flex-col items-start gap-4 md:flex-row md:items-center">
 								<div class="flex flex-1 flex-col justify-center gap-1">
-									<div class="flex flex-col gap-3 md:flex-row md:items-center">
+									{{-- <div class="flex flex-col gap-3 md:flex-row md:items-center">
 										<div class="flex flex-row items-center gap-1 font-bold text-primary"><svg
 												xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 												aria-hidden="true" role="img" class="iconify iconify--mdi" width="1em"
@@ -121,7 +121,7 @@
 											</svg>
 											{{(4-count($bet['subscription_plan'])).'/3'}}
 										</div>
-									</div>
+									</div> --}}
 										<div class="text-xl font-bold mr-2 break-words">{{$bet['event']}}</div>
 										<div class="break-words text-sm">{{$bet['description']}}</div>
 									<div class="text-md flex flex-row items-center gap-1 text-sm text-gray-400"><svg
