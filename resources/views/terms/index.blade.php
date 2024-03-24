@@ -11,9 +11,9 @@
         </div>
         <div>
             <p class="mb-2"><strong>General information</strong></p>
-            <p class="mb-2">The website <a href="https://bettok.gr/" previewlistener="true">www.bettok.gr</a>
+            <p class="mb-2">The website <a href="https://magzbet.com/" previewlistener="true">www.magzbet.com</a>
                 (hereinafter referred to as "website") is
-                owned by BETTOK P P.C., with its registered office in Greece, Katsantoni 2A
+                owned by MAGZBET P P.C., with its registered office in Greece, Katsantoni 2A
                 Street, 56334, Thessaloniki, Greece and VAT No. 802304392 (hereinafter referred to as the "holder") and
                 is its
                 intellectual
@@ -25,7 +25,7 @@
                 services is not illegal act. Use of the website implies express acceptance of the terms of use.</p>
             <p class="mb-2"><strong>Intellectual property rights</strong></p>
             <p class="mb-2">
-                The entire content is the intellectual property of bettok.gr and is protected by the copyright law.
+                The entire content is the intellectual property of magzbet.com and is protected by the copyright law.
                 Reproduction and
                 republication of the free of charge content is allowed provided that there is a reference to the source
                 with
@@ -37,7 +37,7 @@
             </p>
             <p class="mb-2"><strong>Disclaimer of Liability-Content</strong></p>
             <p class="mb-2">
-                The content of bettok.gr cannot be considered as a suggestion or advice to induce or guide to gambling.
+                The content of magzbet.com cannot be considered as a suggestion or advice to induce or guide to gambling.
                 The
                 content is purely informative in nature. All information, news, articles, advertisements, etc., are of
                 an advisory,
@@ -47,7 +47,7 @@
                 the information, estimates and news, the owner is not responsible for the choices of any visitor and for
                 any
                 financial losses that may have suffered.
-                Also, bettok.gr is not responsible for services provided by companies advertised on the website.
+                Also, magzbet.com is not responsible for services provided by companies advertised on the website.
             </p>
             <p class="mb-2"><strong>Technical Issues-Maintenance</strong></p>
             <p class="mb-2">
@@ -61,12 +61,12 @@
             </p>
             <p class="mb-2"><strong>Registration of members</strong></p>
             <p class="mb-2">
-                Access to bettok.gr does not necessarily require a visitor to register as a member of the website. For
+                Access to magzbet.com does not necessarily require a visitor to register as a member of the website. For
                 the use
                 of some services, it is necessary to register as a member. The information requested is username
                 and your email. You must also accept the terms of use, that you are over 21 years old and declare if you
                 want to
-                receive emails with offers for the services of bettok.gr or third parties partner companies. In order to
+                receive emails with offers for the services of magzbet.com or third parties partner companies. In order to
                 be
                 considered a
                 member, you must have clicked on the link in the confirmation email you will receive after registration.
@@ -111,16 +111,16 @@
             <p class="mb-2">
                 The personal data of users are subject to the personal data legislation. You can read in detail the
                 policy
-                for the protection of your personal data <a href="https://bettok.gr/privacy"
+                for the protection of your personal data <a href="https://magzbet.com/privacy"
                     previewlistener="true">here</a>. If you have any questions
                 about your personal information or your personal data, you can contact us at
-                <a href="mailto:support@bettok.gr">support@bettok.gr</a> with a subject of "Personal Data" and we will
+                <a href="mailto:magzbet7@gmail.com">magzbet7@gmail</a> with a subject of "Personal Data" and we will
                 assist you as soon as possible.
             </p>
             <p class="mb-2"><strong>Cookies</strong></p>
             <p class="mb-2">
                 For the proper functioning of the website, we use cookies. You can read the cookies policy
-                <a href="https://bettok.gr/privacy/" previewlistener="true">here</a>.
+                <a href="https://magzbet.com/privacy/" previewlistener="true">here</a>.
             </p>
             <p class="mb-2"><strong>Change in terms of use</strong></p>
             <p class="mb-2">
@@ -133,7 +133,7 @@
             </p>
             <p class="mb-2"><strong>Applicable law</strong></p>
             <p class="mb-2">
-                The above terms of use of bettok.gr, as well as any future modification are governed by the law of
+                The above terms of use of magzbet.com, as well as any future modification are governed by the law of
                 Greece and
                 the European Union. In the event that a term ceases to be valid due to legislation or regulation, this
                 does not
