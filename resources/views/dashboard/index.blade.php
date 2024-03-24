@@ -36,7 +36,9 @@
 	</div>
 	<section class="container py-10">
 		<h2 class="mb-6 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Latest Bets</h2>
-		@if(!Auth::check())
+		@if (!$latest_bets) 
+			<p class="font-bold text-center">There are no bets new. Please come back later.</p>
+		@elseif(!Auth::check())
 		@foreach($latest_bets as $bet)
 		<div class="mb-4 mx-auto max-w-4xl">
 			<div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
