@@ -4,12 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<link rel="icon" href="/favicon-16x16.png" sizes="16x16">
-	<link rel="icon" href="/favicon-32x32.png" sizes="32x32">
-	<link rel="icon" href="/favicon.ico" sizes="48x48">
-	<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
-	<link rel="manifest" href="/site.webmanifest">
-
+	<link rel="icon" href="/favicon_.ico" type="image/x-icon" sizes="16x16">
 	<meta name="msapplication-TileColor" content="#da532c">
 
 	<title>{{ (isset($title) ? $title . ' | ' : '') . config('app.name', 'Laravel') }}</title>
@@ -19,7 +14,6 @@
 	<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 	<link rel="stylesheet" href="{{asset('css/bettok-1.css')}}">
 	<link rel="stylesheet" href="{{asset('css/bettok-2.css')}}">
-	<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 	@stack('styles')
 	<!-- Scripts -->
 	<script type="application/javascript" src="{{ mix('js/vendor.js') }}" defer></script>
@@ -71,14 +65,11 @@
 			<div class="text-center"><a
 					class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
 					tabindex="0" role="link" href="https://www.gambleaware.nsw.gov.au/"
-					previewlistener="true"><img class="h-[60px]" alt="gamingcommission" src="{{ asset('assets/images/eeep_footer.svg') }}"></a>
+					previewlistener="true"><img class="h-[60px]" alt="gamingcommission" src="{{ asset('assets/images/eeep_footer.png') }}"></a>
 			</div>
 		</div>
 	</footer>
 </div>
-<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
-{!! Toastr::message() !!}
 @livewireScripts
 </body>
 </html>
