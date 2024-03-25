@@ -23,15 +23,15 @@
       <tbody class="flex-1 sm:flex-none text-center">
         @foreach($posts as $post)
         <tr class="flex flex-col flex-no wrap sm:table-row mb-4 sm:mb-0">
-          <td class="border-grey-light border hover:bg-gray-100 p-3">
+          <td class="border-grey-light border p-3">
             <b>{{$post['event']}}</b> at
             {{date('d-m-Y', strtotime($post['date']))}}
           </td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3">{{$post['description']}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y',
+          <td class="border-grey-light border p-3">{{$post['description']}}</td>
+          <td class="border-grey-light border p-3 truncate">{{date('d-m-Y',
             strtotime($post['created_at']))}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$post['status']}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3" title="Odds, Stake, Gain, Profit">
+          <td class="border-grey-light border p-3 truncate">{{$post['status']}}</td>
+          <td class="border-grey-light border p-3" title="Odds, Stake, Gain, Profit">
             {{$post['odds']}},
             {{$post['stake']}},
             {{$post['gain']}},

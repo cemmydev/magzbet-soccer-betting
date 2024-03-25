@@ -17,10 +17,10 @@
 			<tbody class="flex-1 sm:flex-none">
                 @foreach($usersData as $user)
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                        <td class="border-grey-light border hover:bg-gray-100 p-3">{{$user['name']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$user['email']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y', strtotime($user['email_verified_at']))}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">
+                        <td class="border-grey-light border p-3">{{$user['name']}}</td>
+                        <td class="border-grey-light border p-3 truncate">{{$user['email']}}</td>
+                        <td class="border-grey-light border p-3 truncate">{{date('d-m-Y', strtotime($user['email_verified_at']))}}</td>
+                        <td class="border-grey-light border p-3 truncate">
                           @if(!$user->subscriptionPlans()) {{'not paid'}}
                           @elseif(!$user->unexpiredSubscription()) {{'expired'}}
                           @else {{'paid'}}

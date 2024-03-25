@@ -17,11 +17,11 @@
 			<tbody class="flex-1 sm:flex-none">
                 @foreach($data as $item)
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['email']}}</td>
-                            <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['subject']}}</td>
-                            <td class="border-grey-light border hover:bg-gray-100 p-3 ">{{strlen($item['message']) < 20 ? $item['message'] : $item['message'] = substr($item['message'], 0, 20).'.....'}}</td>
-                            <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y', strtotime($item['created_at']))}}</td>
-                            <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">
+                            <td class="border-grey-light border p-3">{{$item['email']}}</td>
+                            <td class="border-grey-light border p-3">{{$item['subject']}}</td>
+                            <td class="border-grey-light border p-3 ">{{strlen($item['message']) < 20 ? $item['message'] : $item['message'] = substr($item['message'], 0, 20).'.....'}}</td>
+                            <td class="border-grey-light border p-3 truncate">{{date('d-m-Y', strtotime($item['created_at']))}}</td>
+                            <td class="border-grey-light border p-3 truncate">
                                 <a href="{{route('admin.singlecontact', $item['id'])}}">
                                     View
                                 </a>

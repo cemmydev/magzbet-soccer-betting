@@ -30,11 +30,11 @@
         <tbody class="flex-1 sm:flex-none">
             @foreach($user->unexpiredSubscription() as $item)
                 <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['name']}}</td>
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['cost']}}</td>
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['pivot']['start_at']}}</td>
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">{{$item['pivot']['expire_at']}}</td>
-                    <td class="border-grey-light border hover:bg-gray-100 p-3">
+                    <td class="border-grey-light border p-3">{{$item['name']}}</td>
+                    <td class="border-grey-light border p-3">{{$item['cost']}}</td>
+                    <td class="border-grey-light border p-3">{{$item['pivot']['start_at']}}</td>
+                    <td class="border-grey-light border p-3">{{$item['pivot']['expire_at']}}</td>
+                    <td class="border-grey-light border p-3">
                         <a href="" class='text-red-600'>force expire</a>
                     </td>
                 </tr>
