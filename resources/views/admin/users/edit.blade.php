@@ -35,7 +35,6 @@
                 <p class="font-bold">NONE</p>
             @else
                 @foreach ($user->unexpiredSubscription() as $item)
-                    @dd($item);
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                         <td class="border-grey-light border p-3">{{ $item['name'] }}</td>
                         <td class="border-grey-light border p-3">{{ $item['cost'] }}</td>
