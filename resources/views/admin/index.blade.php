@@ -8,8 +8,6 @@
         View on github
     </a>
 </div>
-@dd($income);
-
 <!-- Content -->
 <div class="mt-2">
     <!-- State cards -->
@@ -168,8 +166,9 @@
         <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
             <!-- Card header -->
             <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Line Chart</h4>
+                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Transaction History</h4>
                 <div class="flex items-center">
+                  <p class="text-md mr-2">Last Month</p>
                     <button class="relative focus:outline-none" x-cloak
                         @click="isOn = !isOn; $parent.updateLineChart()">
                         <div
