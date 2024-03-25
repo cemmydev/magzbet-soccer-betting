@@ -8,6 +8,7 @@
         View on github
     </a>
 </div>
+@dd($income);
 
 <!-- Content -->
 <div class="mt-2">
