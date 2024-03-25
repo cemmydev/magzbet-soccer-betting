@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\subscriptionPlan;
 use App\Models\User;
+use Brian2694\Toastr\Facades\Toastr;
 use DB;
 use Illuminate\Http\Request;
 
@@ -59,6 +60,7 @@ class UserController extends Controller
 
     public function expire(Request $request, $id, $sid) {
         DB::table('subscription_plan_user')->where('id', $sid)->update(['expire_at' => date('Y-m-d')]);
+        Toastr::success('User'.$id."'s subscription is expired successfully", "Success!");
         return redirect()->route('admin.users.edit', $id);
     }
 
