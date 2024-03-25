@@ -44,6 +44,7 @@ class ViewController
 
 	public function render_admin() {
 		$to=date('Y-m-d');
+		$yest = date('Y-m-d', strtotime('-1 Days'));
 		$from = date('Y-m-d', strtotime('-15 Days'));
 		$logins = UserLogin::with('user')->where('created_at', '>=', $from)->get()->groupBy(function($item) {
 			return Carbon::parse($item->created_at)->format('Y-m-d');
@@ -53,7 +54,7 @@ class ViewController
 			array_push($latest_logins, count($item));
 		}
 		$today_login_count = UserLogin::with('user')->where('created_at', '>=', $to)->get()->count();
-		$yesterday_login_count = UserLogin::with('user')->where('created_at', '>=', $from)->get()->count() - $today_login_count;
+		$yesterday_login_count = UserLogin::with('user')->where('created_at', '>=', $yest)->get()->count() - $today_login_count;
 		$total_users = User::all()->count();
 		$registered_users = User::where('created_at', '>=', $to)->get()->count();
 		$orders_count = DB::table('subscription_plan_user')->select('*')->count();
