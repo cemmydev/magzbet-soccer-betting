@@ -432,15 +432,16 @@ let randomUserCount = 0
 const usersCount = document.getElementById('usersCount')
 
 const fakeUsersCount = async (item) => {
-  randomUserCount = item
-  activeUsersChart.data.datasets[0].data.push(randomUserCount)
+  randomUserCount = await fetch('/activeUsers', {method: 'GET'})
+  randomUserCount = await randomUserCount.json()
+  activeUsersChart.data.datasets[0].data.push(randomUserCount.active)
   activeUsersChart.data.datasets[0].data.splice(0, 1)
   activeUsersChart.update()
-  usersCount.innerText = randomUserCount
+  usersCount.innerText = randomUserCount.active
 }
 
 setInterval(() => {
-  fakeUsersCount({!!DB::table('sessions')->whereNotNull('user_id')->count()!!})
+  fakeUsersCount();
 }, 1000)
 
 </script>

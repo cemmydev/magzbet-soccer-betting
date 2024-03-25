@@ -43,7 +43,7 @@ class UserController extends Controller
     }
 
     public function getActiveUsers() {
-        $active_users = DB::table('session')->whereNotNull('user_id')->count();
-        return response()->json(['active'=> $active_users]);
+        $active_users = DB::table('sessions')->whereNotNull('user_id')->count();
+        return response()->json(['active'=> $active_users], 200);
     }
 }
