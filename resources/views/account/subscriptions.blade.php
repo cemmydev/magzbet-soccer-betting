@@ -149,40 +149,6 @@
                     </table>
                 </div>
             </div>
-            <div class="flex justify-center">
-                <nav role="navigation" aria-label="pagination navigation" data-slot="base" data-controls="true"
-                    data-dots-jump="5" data-total="1" data-active-page="1"
-                    class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
-                    <ul data-slot="wrapper"
-                        class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
-                        <span aria-hidden="true" data-slot="cursor"
-                            class="absolute flex overflow-visible items-center justify-center origin-center left-0 select-none touch-none pointer-events-none z-20 data-[moving=true]:transition-transform !data-[moving=true]:duration-300 opacity-0 data-[moving]:opacity-100 shadow-primary/40 bg-primary text-primary-foreground shadow-md min-w-9 w-9 h-9 text-small rounded-medium"
-                            data-moving="false" style="transform: translateX(36px) scale(1);">1</span>
-                        <li role="button" tabindex="-1" aria-label="previous page button" aria-disabled="true"
-                            data-disabled="true" data-slot="prev"
-                            class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                                viewBox="0 0 24 24" width="1em">
-                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"></path>
-                            </svg>
-                        </li>
-                        <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
-                            data-active="true" data-slot="item"
-                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            1</li>
-                        <li role="button" tabindex="-1" aria-label="next page button" aria-disabled="true"
-                            data-disabled="true" data-slot="next"
-                            class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                                viewBox="0 0 24 24" width="1em" class="rotate-180">
-                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"></path>
-                            </svg>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
         </div>
     </main>
 </x-app-layout>
