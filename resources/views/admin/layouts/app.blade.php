@@ -660,8 +660,6 @@
   <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
   <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
   {!! Toastr::message() !!}
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-  <script src="{{asset('js/script.js')}}"></script>
   <script>
     const setup = () => {
       const getTheme = () => {

@@ -22,7 +22,6 @@ const randomData = () => {
 }
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-const latest7days = ['-6', '-5', '-4', '-3', '-2', '-1', 'Today']
 
 const cssColors = (color) => {
   return getComputedStyle(document.documentElement).getPropertyValue(color)
@@ -41,6 +40,7 @@ const colors = {
 }
 
 // const latest_login_data = JOSN.parse({{!!json_encode($latest_logins)!!}});
+const latest7days = ['-6', '-5', '-4', '-3', '-2', '-1', 'Today']
 
 const barChart = new Chart(document.getElementById('barChart'), {
   type: 'bar',
@@ -48,7 +48,7 @@ const barChart = new Chart(document.getElementById('barChart'), {
     labels: latest7days,
     datasets: [
       {
-        data: latest7days,
+        data:  JSON.parse(@json_encode($latest_logins)),
         backgroundColor: colors.primary,
         hoverBackgroundColor: colors.primaryDark,
       },
@@ -90,6 +90,7 @@ const barChart = new Chart(document.getElementById('barChart'), {
     },
   },
 })
+
 
 const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
   type: 'doughnut',

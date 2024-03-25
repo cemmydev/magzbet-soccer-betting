@@ -47,13 +47,17 @@ class ViewController
 		$logins = UserLogin::with('user')->where('created_at', '>=', $from)->get()->groupBy(function($item) {
 			return Carbon::parse($item->created_at)->format('Y-m-d');
 		})->toArray();
+		$latest_logins=[];
+		foreach($logins as $item) {
+			array_push($latest_logins, count($item));
+		}
 		$today_login_count = UserLogin::with('user')->where('created_at', '>=', $to)->get()->count();
 		$yesterday_login_count = UserLogin::with('user')->where('created_at', '>=', $from)->get()->count() - $today_login_count;
 		$total_users = User::all()->count();
 		$registered_users = User::where('created_at', '>=', $to)->get()->count();
 		$orders_count = DB::table('subscription_plan_user')->select('*')->count();
 		$orders_today_count = DB::table('subscription_plan_user')->where('created_at', '>=', $to)->count();
-		return $this->viewFactory->make('admin.index', ['latest_logins' => $logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users, 'total_orders' => $orders_count, 'orders_today' => $orders_today_count]);
+		return $this->viewFactory->make('admin.index', ['latest_logins' => $latest_logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users, 'total_orders' => $orders_count, 'orders_today' => $orders_today_count]);
 	}
 
 	public function render_dashboard() {
