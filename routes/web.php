@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/activeUsers', [Admin\UserController::class, 'getActiveUsers']);
 
 Route::middleware([
 	'web',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\subscriptionPlan;
 use App\Models\User;
+use DB;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -19,7 +20,6 @@ class UserController extends Controller
         $this->sortByDirection='desc';
         $this->perPage=15;
         $this->search= '';
-        $this->tableheader=['Name','Email','Email verified at','Status'];
         $this->subscriptions=subscriptionPlan::all()->toArray();
     }
     public function index(Request $request) {
@@ -40,5 +40,10 @@ class UserController extends Controller
         $user=User::find($id);
         $user->delete();
         return redirect()->route('admin.users');
+    }
+
+    public function getActiveUsers() {
+        $active_users = DB::table('session')->whereNotNull('user_id')->count();
+        return response()->json(['active'=> $active_users]);
     }
 }

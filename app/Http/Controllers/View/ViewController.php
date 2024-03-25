@@ -12,6 +12,7 @@ use DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Factory as ViewFactory;
+use Illuminate\Session\SessionManager;
 
 class ViewController
 {
