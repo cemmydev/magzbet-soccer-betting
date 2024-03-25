@@ -431,8 +431,8 @@ let randomUserCount = 0
 
 const usersCount = document.getElementById('usersCount')
 
-const fakeUsersCount = async () => {
-  randomUserCount = {!!DB::table('sessions')->whereNotNull('user_id')->count()!!}
+const fakeUsersCount = async (item) => {
+  randomUserCount = item
   activeUsersChart.data.datasets[0].data.push(randomUserCount)
   activeUsersChart.data.datasets[0].data.splice(0, 1)
   activeUsersChart.update()
@@ -440,7 +440,7 @@ const fakeUsersCount = async () => {
 }
 
 setInterval(() => {
-  fakeUsersCount()
+  fakeUsersCount({!!DB::table('sessions')->whereNotNull('user_id')->count()!!})
 }, 1000)
 
 </script>
