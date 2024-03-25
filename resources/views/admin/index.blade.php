@@ -22,7 +22,7 @@
                 </h6>
                 <span class="text-xl font-semibold">{{$today_logged}}</span>
                 <span class="inline-block px-2 py-px ml-2 text-xs @if($today_logged - $yesterday_logged < 0) text-red-600 bg-red-100 @else text-green-500 bg-green-100 @endif rounded-md">
-                    {{($today_logged - $yesterday_logged) >= 0 ? '+'.($today_logged - $yesterday_logged) : ($today_logged - $yesterday_logged)}} users
+                    {{($today_logged - $yesterday_logged) >= 0 ? '+'.($today_logged - $yesterday_logged) : ($today_logged - $yesterday_logged)}} logins
                 </span>
             </div>
             <div>
@@ -66,9 +66,9 @@
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                     Orders
                 </h6>
-                <span class="text-xl font-semibold">45,021</span>
+                <span class="text-xl font-semibold">{{$total_orders}}</span>
                 <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +3.1%
+                    +{{$orders_today}}
                 </span>
             </div>
             <div>
@@ -87,11 +87,11 @@
             <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                    Tickets
+                    Income
                 </h6>
-                <span class="text-xl font-semibold">20,516</span>
+                <span class="text-xl font-semibold">{{$total_orders * 45}} $</span>
                 <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +3.1%
+                    +{{$orders_today * 45}} $
                 </span>
             </div>
             <div>

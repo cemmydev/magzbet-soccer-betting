@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\UserLogin;
 use Auth;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Factory as ViewFactory;
@@ -50,8 +51,9 @@ class ViewController
 		$yesterday_login_count = UserLogin::with('user')->where('created_at', '>=', $from)->get()->count() - $today_login_count;
 		$total_users = User::all()->count();
 		$registered_users = User::where('created_at', '>=', $to)->get()->count();
-		// dd($total_users, $registered_users);
-		return $this->viewFactory->make('admin.index', ['latest_logins' => $logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users]);
+		$orders_count = DB::table('subscription_plan_user')->select('*')->count();
+		$orders_today_count = DB::table('subscription_plan_user')->where('created_at', '>=', $to)->count();
+		return $this->viewFactory->make('admin.index', ['latest_logins' => $logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users, 'total_orders' => $orders_count, 'orders_today' => $orders_today_count]);
 	}
 
 	public function render_dashboard() {
