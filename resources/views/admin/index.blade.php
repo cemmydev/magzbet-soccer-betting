@@ -244,7 +244,7 @@ const colors = {
 }
 
 // const latest_login_data = JOSN.parse({{!!json_encode($latest_logins)!!}});
-const latest7days = ['-6 days', '-5 days', '-4 days', '-3 days', '-2 days', '-1 days', 'Today']
+const latest7days = ['-14 days', '-13 days','-12 days', '-11 days','-10 days','-8 days','-7 days','-6 days', '-5 days', '-4 days', '-3 days', '-2 days', '-1 days', 'Today']
 var latestLogins = {!! json_encode($latest_logins) !!}
 
 const barChart = new Chart(document.getElementById('barChart'), {
