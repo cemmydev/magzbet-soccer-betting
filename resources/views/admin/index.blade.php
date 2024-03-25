@@ -331,7 +331,7 @@ const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
 const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
   type: 'bar',
   data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     datasets: [
       {
         data: [...randomData()],
