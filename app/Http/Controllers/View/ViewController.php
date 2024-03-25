@@ -42,7 +42,7 @@ class ViewController
 	public function render_admin() {
 		$to=date('Y-m-d');
 		$from = date('Y-m-d', strtotime('-7 Days'));
-		$logins = UserLogin::with('user')->where('created_at', '<=', $to)->where('created_at', '>=', $from)->get()->groupBy(function($item) {
+		$logins = UserLogin::with('user')->where('created_at', '>=', $from)->get()->groupBy(function($item) {
 			return Carbon::parse($item->created_at)->format('Y-m-d');
 		})->toArray();
 		dd($logins);
