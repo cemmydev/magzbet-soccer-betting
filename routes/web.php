@@ -182,6 +182,7 @@ Route::middleware([
 											Route::prefix('users')->group(function () {
 												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
 												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+												Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
 												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
 											});
 

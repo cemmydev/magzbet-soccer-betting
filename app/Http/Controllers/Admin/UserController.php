@@ -26,10 +26,8 @@ class UserController extends Controller
         $this->sortByField= $request->sortByField;
         $this->sortByDirection=$request->sortByDirection;
         $this->perPage=$request->perPage;
-        $this->usersData=User::where('name', 'like', '%'.$this->search.'%')->orwhere('email', 'like', '%'.$this->search.'%')
-            ->paginate($this->perPage)
-            ->sortBy($this->sortByField, $this->sortByDirection)->toArray();
-        return view("admin.users")->with("usersData", $this->usersData)->with('tabIndex', 'users');
+        $this->usersData=User::with('subscriptionPlans')->get()->sortBy($this->sortByField, $this->sortByDirection);
+        return view("admin.users")->with('index', 'index')->with("usersData", $this->usersData)->with('tabIndex', 'users');
     }
 
     public function create() {
@@ -40,6 +38,11 @@ class UserController extends Controller
         $user=User::find($id);
         $user->delete();
         return redirect()->route('admin.users');
+    }
+
+    public function edit(Request $request, $id) {
+        $user = User::find($id);
+        return view('admin.users')->with('index', 'edit')->with('user', $user);
     }
 
     public function getActiveUsers() {

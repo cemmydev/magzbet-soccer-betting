@@ -20,8 +20,16 @@
                         <td class="border-grey-light border hover:bg-gray-100 p-3">{{$user['name']}}</td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$user['email']}}</td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y', strtotime($user['email_verified_at']))}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$user['status']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Delete</td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">
+                          @if(!$user->subscriptionPlans()) {{'not paid'}}
+                          @elseif(!$user->unexpiredSubscription()) {{'expired'}}
+                          @else {{'paid'}}
+                          @endif
+                        </td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+                          <a href="{{route('admin.users.edit', $user->id)}}">edit</a>
+                          <a href="#">delete</a>
+                        </td>
                     </tr>
                 @endforeach
 			</tbody>
