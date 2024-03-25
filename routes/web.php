@@ -171,7 +171,7 @@ Route::middleware([
 											'prefix'=> 'admin',
 											'as' => 'admin.'
 										],function () {
-											Route::get('/', [ViewController::class, 'builder'])->name('index');
+											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
 
 											Route::prefix('contacts')->group(function () {
 												Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');

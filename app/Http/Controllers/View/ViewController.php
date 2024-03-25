@@ -4,7 +4,9 @@ namespace App\Http\Controllers\View;
 
 use App\Models\Bet;
 use App\Models\subscriptionPlan;
+use App\Models\UserLogin;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Factory as ViewFactory;
@@ -35,6 +37,15 @@ class ViewController
 				$dottedPath,
 				array_merge(Route::current()->parameters(), ['routeName' => $this->routeName])
 			);
+	}
+
+	public function render_admin() {
+		$to=date('Y-m-d');
+		$from = date('Y-m-d', strtotime('-7 Days'));
+		$logins = UserLogin::with('user')->where('created_at', '<=', $to)->where('created_at', '>=', $from)->get()->groupBy(function($item) {
+			return Carbon::parse($item->created_at)->format('Y-m-d');
+		})->toArray();
+		dd($logins);
 	}
 
 	public function render_dashboard() {
