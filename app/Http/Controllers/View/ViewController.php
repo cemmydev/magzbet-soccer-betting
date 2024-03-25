@@ -68,8 +68,7 @@ class ViewController
 			return false;
 		})->count();
 		$unpaid_users = User::all()->count() - $paid_users;
-		dd($paid_users, $unpaid_users);
-		return $this->viewFactory->make('admin.index', ['latest_logins' => $latest_logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users, 'total_orders' => $orders_count, 'orders_today' => $orders_today_count, 'income' => $income]);
+		return $this->viewFactory->make('admin.index', ['latest_logins' => $latest_logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users, 'total_orders' => $orders_count, 'orders_today' => $orders_today_count, 'income' => $income, 'paid' => $paid_users, 'unpaid' => $unpaid_users ]);
 	}
 
 	public function render_dashboard() {

@@ -695,36 +695,6 @@
         //
       }
 
-      const updateBarChart = (on) => {
-        const data = {
-          data: randomData(),
-          backgroundColor: 'rgb(207, 250, 254)',
-        }
-        if (on) {
-          barChart.data.datasets.push(data)
-          barChart.update()
-        } else {
-          barChart.data.datasets.splice(1)
-          barChart.update()
-        }
-      }
-
-      const updateDoughnutChart = (on) => {
-        const data = random()
-        const color = 'rgb(207, 250, 254)'
-        if (on) {
-          doughnutChart.data.labels.unshift('Seb')
-          doughnutChart.data.datasets[0].data.unshift(data)
-          doughnutChart.data.datasets[0].backgroundColor.unshift(color)
-          doughnutChart.update()
-        } else {
-          doughnutChart.data.labels.splice(0, 1)
-          doughnutChart.data.datasets[0].data.splice(0, 1)
-          doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
-          doughnutChart.update()
-        }
-      }
-
       const updateLineChart = () => {
         lineChart.data.datasets[0].data.reverse()
         lineChart.update()
@@ -786,8 +756,6 @@
             this.$refs.mobileMainMenu.focus()
           })
         },
-        updateBarChart,
-        updateDoughnutChart,
         updateLineChart,
       }
     }
