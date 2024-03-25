@@ -331,10 +331,10 @@ const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
 const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
   type: 'bar',
   data: {
-    labels: [...randomData(), ...randomData()],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     datasets: [
       {
-        data: [...randomData(), ...randomData()],
+        data: [...randomData()],
         backgroundColor: colors.primary,
         borderWidth: 0,
         categoryPercentage: 1,
@@ -442,7 +442,7 @@ const fakeUsersCount = async (item) => {
 
 setInterval(() => {
   fakeUsersCount();
-}, 1000)
+}, 2000)
 
 </script>
 
