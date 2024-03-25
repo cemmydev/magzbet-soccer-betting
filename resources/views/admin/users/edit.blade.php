@@ -1,4 +1,4 @@
-<form enctype="multipart/form-data" method="post" class="p-4">
+<form method="post" class="p-4">
     @csrf
     <p class="font-bold py-4">Edit User</p>
     @if ($errors->any())
@@ -9,12 +9,11 @@
         </ul>
     @endif
     <label for="user_edit_username">username</label>
-    <input id="user_edit_username" class="block w-full p-2 dark:bg-darker" name="username" value="{{ $user['name'] }}" />
+    <input id="user_edit_username" class="block w-full p-2 dark:bg-darker" name="name" value="{{ $user['name'] }}" required />
     <label for="user_edit_event">email</label>
-    <input id="user_edit_event" type="text" class="block w-full p-2 dark:bg-darker" name="event"
-        value="{{ $user['email'] }}">
+    <input id="user_edit_event" type="text" class="block w-full p-2 dark:bg-darker" name="email" value="{{ $user['email'] }}" required>
     <label for="user_edit_date">email_verified_at</label>
-    <input id="user_edit_date" type="date" class="block w-full p-2 dark:bg-darker" name="date"
+    <input id="user_edit_date" type="date" class="block w-full p-2 dark:bg-darker" name="email_verified_at"
         value="{{ date('Y-m-d', strtotime($user['email_verified_at'])) }}">
     <p>available subscriptions</p>
     <table
@@ -42,7 +41,7 @@
                         <td class="border-grey-light border p-3">{{ $item['pivot']['start_at'] }}</td>
                         <td class="border-grey-light border p-3">{{ $item['pivot']['expire_at'] }}</td>
                         <td class="border-grey-light border p-3">
-                            <a href="" class='text-red-600'>force expire</a>
+                            <a href="{{route('admin.users.expire', [$user['id'], $item['pivot']['id']])}}" class='text-red-600'>force expire</a>
                         </td>
                     </tr>
                 @endforeach

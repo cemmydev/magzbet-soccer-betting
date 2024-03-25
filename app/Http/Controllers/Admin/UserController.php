@@ -45,6 +45,23 @@ class UserController extends Controller
         return view('admin.users')->with('index', 'edit')->with('user', $user);
     }
 
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+        ]);
+        $user = User::find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->save();
+        return redirect()->route('admin.users');
+    }
+
+    public function expire(Request $request, $id, $sid) {
+        DB::table('subscription_plan_user')->where('id', $sid)->update(['expire_at' => date('Y-m-d')]);
+        return redirect()->route('admin.users.edit', $id);
+    }
+
     public function getActiveUsers() {
         $active_users = DB::table('sessions')->whereNotNull('user_id')->count();
         return response()->json(['active'=> $active_users], 200);

@@ -183,6 +183,8 @@ Route::middleware([
 												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
 												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
 												Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
+												Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
+												Route::post('/{id}', [Admin\UserController::class, 'update']);
 												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
 											});
 
