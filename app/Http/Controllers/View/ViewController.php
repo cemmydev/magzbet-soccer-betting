@@ -4,6 +4,7 @@ namespace App\Http\Controllers\View;
 
 use App\Models\Bet;
 use App\Models\subscriptionPlan;
+use App\Models\User;
 use App\Models\UserLogin;
 use Auth;
 use Carbon\Carbon;
@@ -45,7 +46,12 @@ class ViewController
 		$logins = UserLogin::with('user')->where('created_at', '>=', $from)->get()->groupBy(function($item) {
 			return Carbon::parse($item->created_at)->format('Y-m-d');
 		})->toArray();
-		dd($logins);
+		$today_login_count = UserLogin::with('user')->where('created_at', '>=', $to)->get()->count();
+		$yesterday_login_count = UserLogin::with('user')->where('created_at', '>=', $from)->get()->count() - $today_login_count;
+		$total_users = User::all()->count();
+		$registered_users = User::where('created_at', '>=', $to)->get()->count();
+		// dd($total_users, $registered_users);
+		return $this->viewFactory->make('admin.index', ['latest_logins' => $logins, 'today_logged' => $today_login_count, 'yesterday_logged' => $yesterday_login_count, 'total_users' => $total_users, 'registered_users' => $registered_users]);
 	}
 
 	public function render_dashboard() {

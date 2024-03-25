@@ -22,6 +22,7 @@ const randomData = () => {
 }
 
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+const latest7days = ['-6', '-5', '-4', '-3', '-2', '-1', 'Today']
 
 const cssColors = (color) => {
   return getComputedStyle(document.documentElement).getPropertyValue(color)
@@ -39,13 +40,15 @@ const colors = {
   primaryDarker: cssColors(`--color-${getColor()}-darker`),
 }
 
+// const latest_login_data = JOSN.parse({{!!json_encode($latest_logins)!!}});
+
 const barChart = new Chart(document.getElementById('barChart'), {
   type: 'bar',
   data: {
-    labels: months,
+    labels: latest7days,
     datasets: [
       {
-        data: randomData(),
+        data: latest7days,
         backgroundColor: colors.primary,
         hoverBackgroundColor: colors.primaryDark,
       },
