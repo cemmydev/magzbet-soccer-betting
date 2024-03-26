@@ -148,11 +148,23 @@
 										<div class="text-sm font-bold text-gray-400">Stake</div>
 									</div>
 									<div class="basis-1/4 text-center">
-										<div class="text-2xl font-bold text-gray-200">{{$bet['gain']}}</div>
+										<div class="text-2xl font-bold text-gray-200">
+											@if($bet['gain'] != null)
+                                            	{{$bet['gain']}}
+											@else
+												{{"-"}} 
+											@endif
+										</div>
 										<div class="text-sm font-bold text-gray-400">Gain</div>
 									</div>
 									<div class="basis-1/4 text-center">
-										<div class="text-2xl font-bold text-gray-200">{{$bet['profit']}}</div>
+										<div class="text-2xl font-bold text-gray-200">
+											@if($bet['profit'] != null)
+                                            	{{$bet['profit']}}
+											@else
+												{{"-"}} 
+											@endif
+										</div>
 										<div class="text-sm font-bold text-gray-400">Profit</div>
 									</div>
 								</div>
