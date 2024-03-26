@@ -96,7 +96,7 @@
                                         </x-secondary-button>
                                     @endif
                                     <x-modal name="{{$bet['image']}}" maxWidth="4xl">
-                                        <img alt="bet-receipt" class="h-auto sm:w-full w-max-4xl" src="{{ asset($bet['image']) }}">
+                                        <img alt="bet-receipt" class="h-auto max-w-3xl w-full" src="{{ asset($bet['image']) }}">
                                     </x-modal>
                                 </div>
                             </div>
