@@ -21,6 +21,9 @@
 			</div>
 		</div>
 	</div>
+	@if(!Auth::check() && $text)
+		<p class="font-bold text-center text-md py-5 ">{{$text}}</p>
+	@endif
 
 	<div class="container py-12">
 		<h2 class="mb-6 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Stats</h2>
@@ -41,7 +44,7 @@
 	</div>
 	<section class="container py-10">
 		<h2 class="mb-6 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Latest Bets</h2>
-		@if (!$latest_bets) 
+		@if (!$latest_bets && Auth::check()) 
 			<p class="font-bold text-center">There are no bets new. Please come back later.</p>
 		@elseif(!Auth::check())
 		@foreach($latest_bets as $bet)

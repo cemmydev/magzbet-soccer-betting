@@ -24,7 +24,7 @@
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
                         <td class="border-grey-light border p-3">{{ $item['name'] }}</td>
                         <td class="border-grey-light border p-3 truncate">{{ $item['cost'] }}</td>
-                        <td class="border-grey-light border p-3 ">{{ $item['description'] }}</td>
+                        <td class="border-grey-light border p-3 ">{{ Str::of($item['description'])->limit(30) }}</td>
                         <td class="border-grey-light border p-3 truncate">
                             {{ date('d-m-Y', strtotime($item['created_at'])) }}</td>
                         <td

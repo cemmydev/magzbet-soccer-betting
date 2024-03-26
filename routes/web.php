@@ -174,6 +174,10 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
 
+											Route::prefix('texts')->group(function () {
+												Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
+											});
+
 											Route::prefix('contacts')->group(function () {
 												Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
 												Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');

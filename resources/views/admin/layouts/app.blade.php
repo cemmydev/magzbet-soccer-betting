@@ -106,6 +106,10 @@
                   class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                   Contacts
                 </a>
+                <a href="{{ route('admin.texts') }}" role="menuitem"
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                  User Defined Text
+                </a>
               </div>
             </div>
 

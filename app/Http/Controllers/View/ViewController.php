@@ -4,6 +4,7 @@ namespace App\Http\Controllers\View;
 
 use App\Models\Bet;
 use App\Models\subscriptionPlan;
+use App\Models\UDText;
 use App\Models\User;
 use App\Models\UserLogin;
 use Auth;
@@ -80,7 +81,8 @@ class ViewController
 		$win_ratio = $total_num == 0 ? 0 : round($win_num * 100 / $total_num);
 		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
 		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
-		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI]);
+		$text = UDText::select('text')->where('field', 'dashboard')->get()->first()->text;
+		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
 	}
 
 	public function render_bets() {

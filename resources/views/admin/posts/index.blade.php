@@ -27,7 +27,7 @@
             <b>{{$post['event']}}</b> at
             {{date('d-m-Y', strtotime($post['date']))}}
           </td>
-          <td class="border-grey-light border p-3">{{$post['description']}}</td>
+          <td class="border-grey-light border p-3">{{Str::of($post['description'])->limit(30)}}</td>
           <td class="border-grey-light border p-3 truncate">{{date('d-m-Y',
             strtotime($post['created_at']))}}</td>
           <td class="border-grey-light border p-3 truncate">{{$post['status']}}</td>
