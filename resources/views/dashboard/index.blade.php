@@ -22,7 +22,7 @@
 		</div>
 	</div>
 	@if(!Auth::check() && $text)
-		<p class="font-bold text-center text-md py-5 ">{{$text}}</p>
+		<h3 class="font-bold text-center text-md py-5 ">{{$text}}</h3>
 	@endif
 
 	<div class="container py-12">

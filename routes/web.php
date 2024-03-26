@@ -176,6 +176,8 @@ Route::middleware([
 
 											Route::prefix('texts')->group(function () {
 												Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
+												Route::get('/{id}', [Admin\TextController::class, 'edit'])->name('texts.edit');
+												Route::post('/{id}', [Admin\TextController::class, 'update']);
 											});
 
 											Route::prefix('contacts')->group(function () {

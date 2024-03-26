@@ -7,6 +7,7 @@
                     class="bg-teal-400 flex flex-col flex-no wrap sm:table-row rounded-l-lg sm:rounded-none mb-2 sm:mb-0">
                     <th class="p-3 text-left w-30">field</th>
                     <th class="p-3 text-center">text</th>
+                    <th class="p-3 text-center w-21">Actions</th>
                 </tr>
             @endforeach
         </thead>
@@ -15,12 +16,13 @@
                 <p class="font-bold">NONE</p>
             @else
                 @foreach ($texts as $item)
-                    <form action="">
-                        <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                            <td class="border-grey-light border p-3">{{ $item['field'] }}</td>
-                            <td class="border-grey-light border p-3">{{ Str::of($item['text'])->limit(30) }}</td>
-                        </tr>
-                    </form>
+                    <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
+                        <td class="border-grey-light border p-3">{{ $item['field'] }}</td>
+                        <td class="border-grey-light border p-3">{{ Str::of($item['text'])->limit(30) }}</td>
+                        <td class="border-grey-light border p-3 flex justify-around">
+                            <a href="{{route('admin.texts.edit', $item['id'])}}" class="text-red-400">Edit</a>
+                        </td>
+                    </tr>
                 @endforeach
             @endif
         </tbody>
