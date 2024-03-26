@@ -65,7 +65,7 @@ $maxWidth = [
 
     <div
         x-show="show"
-        class="bg-transparent rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full {{ $maxWidth }} mx-auto flex justify-center"
+        class="bg-transparent rounded-lg overflow-hidden shadow-xl transform transition-all {{ $maxWidth }} mx-auto flex justify-center"
         x-transition:enter="ease-out duration-300"
         x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100"
