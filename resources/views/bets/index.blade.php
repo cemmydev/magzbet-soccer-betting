@@ -91,13 +91,13 @@
                                 <div
                                     class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
                                     @if ($bet['image'] != null)
-                                        <x-secondary-button x-data="" type="button" x-on:click="$dispatch('open-modal', 'imageModal')">
+                                        <x-secondary-button x-data="" type="button" x-on:click="$dispatch('open-modal', '{{$bet['image']}}')">
                                             <img loading="lazy" alt="bet-receipt" class="h-auto sm:max-w-xl" src="{{ asset($bet['image']) }}">
                                         </x-secondary-button>
-                                        <x-modal name="imageModal" maxWidth="4xl">
-                                            <img alt="bet-receipt" class="h-auto sm:w-full w-max-4xl" src="{{ asset($bet['image']) }}">
-                                        </x-modal>
                                     @endif
+                                    <x-modal name="{{$bet['image']}}" maxWidth="4xl">
+                                        <img alt="bet-receipt" class="h-auto sm:w-full w-max-4xl" src="{{ asset($bet['image']) }}">
+                                    </x-modal>
                                 </div>
                             </div>
                         </div>
