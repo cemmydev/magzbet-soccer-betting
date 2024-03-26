@@ -98,7 +98,7 @@
                             <img loading="lazy" alt="bet-receipt" class="h-auto sm:max-w-xl" src="{{ asset($bet['image']) }}">
                         </x-secondary-button>
                         <x-modal name="{{$bet['image']}}" maxWidth="4xl">
-                            <img alt="bet-receipt" class="h-auto max-w-3xl w-full" src="{{ asset($bet['image']) }}">
+                            <img alt="bet-receipt" class="h-auto max-w-3xl w-full max-h-full" src="{{ asset($bet['image']) }}">
                         </x-modal>
                     @endif
             </div>
