@@ -91,15 +91,15 @@
                 class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
                 <ul data-slot="wrapper"
                     class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
-                    <li role="button" tabindex="-1" aria-label="previous page button" aria-disabled="true"
-                        data-disabled="true" data-slot="prev"
-                        class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                            viewBox="0 0 24 24" width="1em">
-                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5"></path>
-                        </svg>
-                    </li>
+                    <a href="@if ($results['current_page'] != 1) {{ '?page=' . ($results['current_page'] + 1) }} @endif">
+                        <li role="button" tabindex="0" aria-label="previous page button" data-slot="prev"
+                            class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
+                            data-hover="true"><svg aria-hidden="true" fill="none" focusable="false" height="1em"
+                                role="presentation" viewBox="0 0 24 24" width="1em">
+                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg></li>
+                    </a>
                     @if ($results['last_page'] <= 5)
                         @for ($i = 1; $i <= $results['last_page']; $i++)
                             <a href="{{ '?page=' . $i }}">
@@ -123,28 +123,17 @@
                                         {{ $i }}</li>
                                 </a>
                             @endfor
-                            <a href="{{ '?page=' . ($results['current_page'] - 1) }}">
-
-                                <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
-                                    class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
-                                    <svg aria-hidden="true" fill="none" height="1em"
-                                        shape-rendering="geometricPrecision" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                        width="1em"
-                                        class="group-hover:hidden group-data-[focus-visible=true]:hidden">
-                                        <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
-                                    </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em"
-                                        role="presentation" shape-rendering="geometricPrecision"
-                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" viewBox="0 0 24 24" width="1em"
-                                        class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
-                                        <path d="M13 17l5-5-5-5"></path>
-                                        <path d="M6 17l5-5-5-5"></path>
-                                    </svg>
-                                </li>
-                            </a>
+                            <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                                class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                                <svg aria-hidden="true" fill="none" height="1em"
+                                    shape-rendering="geometricPrecision" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                    class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                    <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                                </svg>
+                            </li>
                             <a href="{{ '?page=' . $results['current_page'] }}">
                                 <li role="button" tabindex="0" aria-label="pagination item 1" data-slot="item"
                                     active='true'
@@ -152,28 +141,17 @@
                                     {{ $results['current_page'] }}
                                 </li>
                             </a>
-                            <a href="{{ '?page=' . ($results['current_page'] + 1) }}">
-
-                                <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
-                                    class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
-                                    <svg aria-hidden="true" fill="none" height="1em"
-                                        shape-rendering="geometricPrecision" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                        width="1em"
-                                        class="group-hover:hidden group-data-[focus-visible=true]:hidden">
-                                        <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
-                                    </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em"
-                                        role="presentation" shape-rendering="geometricPrecision"
-                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" viewBox="0 0 24 24" width="1em"
-                                        class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
-                                        <path d="M13 17l5-5-5-5"></path>
-                                        <path d="M6 17l5-5-5-5"></path>
-                                    </svg>
-                                </li>
-                            </a>
+                            <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                                class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                                <svg aria-hidden="true" fill="none" height="1em"
+                                    shape-rendering="geometricPrecision" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                    class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                    <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                                </svg>
+                            </li>
                             <a href="{{ '?page=' . $results['last_page'] }}">
                                 <li role="button" tabindex="0" aria-label="pagination item 1"
                                     aria-current={{ $results['current_page'] == $results['last_page'] ? 'true' : 'false' }}
@@ -194,27 +172,17 @@
                                         {{ $i }}</li>
                                 </a>
                             @endfor
-                            <a href="{{ '?page=' . ($results['current_page'] - 1) }}">
-                                <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
-                                    class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
-                                    <svg aria-hidden="true" fill="none" height="1em"
-                                        shape-rendering="geometricPrecision" stroke-linecap="round"
-                                        stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                                        width="1em"
-                                        class="group-hover:hidden group-data-[focus-visible=true]:hidden">
-                                        <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
-                                        <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
-                                    </svg><svg aria-hidden="true" fill="none" focusable="false" height="1em"
-                                        role="presentation" shape-rendering="geometricPrecision"
-                                        stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="1.5" viewBox="0 0 24 24" width="1em"
-                                        class="hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180">
-                                        <path d="M13 17l5-5-5-5"></path>
-                                        <path d="M6 17l5-5-5-5"></path>
-                                    </svg>
-                                </li>
-                            </a>
+                            <li role="button" tabindex="0" aria-label="dots element" data-slot="item"
+                                class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium group">
+                                <svg aria-hidden="true" fill="none" height="1em"
+                                    shape-rendering="geometricPrecision" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="1em"
+                                    class="group-hover:hidden group-data-[focus-visible=true]:hidden">
+                                    <circle cx="12" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="19" cy="12" fill="currentColor" r="1"></circle>
+                                    <circle cx="5" cy="12" fill="currentColor" r="1"></circle>
+                                </svg>
+                            </li>
                             <a href="{{ '?page=' . $results['last_page'] }}">
                                 <li role="button" tabindex="0" aria-label="pagination item 49" data-slot="item"
                                     class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium @if ($results['current_page'] == $results['last_page']) {{ 'bg-primary' }} @endif">
@@ -222,14 +190,16 @@
                             </a>
                         @endif
                     @endif
-                    <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
-                        class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                        <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                            viewBox="0 0 24 24" width="1em" class="rotate-180">
-                            <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                stroke-linejoin="round" stroke-width="1.5"></path>
-                        </svg>
-                    </li>
+                    <a
+                        href="@if ($results['current_page'] != $results['last_page']) {{ '?page=' . ($results['current_page'] - 1) }} @endif">
+                        <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
+                            class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
+                            <svg aria-hidden="true" fill="none" focusable="false" height="1em"
+                                role="presentation" viewBox="0 0 24 24" width="1em" class="rotate-180">
+                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
+                                    stroke-linejoin="round" stroke-width="1.5"></path>
+                            </svg></li>
+                    </a>
                 </ul>
             </nav>
         </div>
