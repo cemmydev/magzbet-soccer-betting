@@ -48,7 +48,8 @@ class UserController extends Controller
     public function edit(Request $request, $id)
     {
         $user = User::find($id);
-        return view('admin.users')->with('index', 'edit')->with('user', $user);
+        $subscriptions = subscriptionPlan::all();
+        return view('admin.users')->with('index', 'edit')->with('user', $user)->with('subscriptions', $subscriptions);
     }
 
     public function update(Request $request, $id)
@@ -75,5 +76,26 @@ class UserController extends Controller
     {
         $active_users = DB::table('sessions')->whereNotNull('user_id')->count();
         return response()->json(['active' => $active_users], 200);
+    }
+
+    public function addsubscription(Request $request, $id)
+    {
+        $request->validate([
+            'subscription_plan' => 'required',
+            'days' => 'required',
+        ]);
+
+        $start_at = strtotime(now()->toString());
+        $user = User::find($id);
+        $unexpired_plans=$user->unexpiredSubscription();
+        foreach($unexpired_plans as $plan) {
+            if($plan['id'] == $id) {
+                $start_at = max($start_at, strtotime('+1 Day', strtotime($plan['pivot']['expire_at'])));
+            }
+        }
+        $expire_at= strtotime('-1 Day', strtotime('+'.($request->days).' Day', $start_at));
+        $user->subscriptionPlans()->attach([$request->subscription_plan => ['start_at' => date('Y-m-d', $start_at), 'expire_at' => date('Y-m-d', $expire_at)]]);
+        Toastr::success("You have successfully added Subscription.", "Conguratulation");
+        return redirect()->route('admin.users.edit', $id);
     }
 }

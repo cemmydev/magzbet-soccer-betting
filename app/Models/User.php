@@ -54,6 +54,9 @@ class User extends Authenticatable
 		$subscriptions = array_filter($subscriptions, function ($subscription) {
 			return strtotime($subscription['pivot']['expire_at']) > strtotime(now()->toString());
 		});
+		usort($subscriptions, function($a, $b) {
+			return $a['pivot']['expire_at'] < $b['pivot']['expire_at'];
+		});
 		return $subscriptions;
 	}
 

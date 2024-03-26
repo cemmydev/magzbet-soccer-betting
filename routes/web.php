@@ -186,6 +186,7 @@ Route::middleware([
 												Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
 												Route::post('/{id}', [Admin\UserController::class, 'update']);
 												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
+												Route::post('/{id}/addsubscription', [Admin\UserController::class, 'addsubscription'])->name('users.add');
 											});
 
 											Route::prefix('subscriptions')->group(function () {

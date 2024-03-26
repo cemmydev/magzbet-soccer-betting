@@ -323,7 +323,7 @@ const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), 
     labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
     datasets: [
       {
-        data: [...randomData()],
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         backgroundColor: colors.primary,
         borderWidth: 0,
         categoryPercentage: 1,
@@ -335,7 +335,7 @@ const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), 
       yAxes: [
         {
           display: false,
-          gridLines: false,
+          gridLines: true,
         },
       ],
       xAxes: [
@@ -420,13 +420,18 @@ let randomUserCount = 0
 
 const usersCount = document.getElementById('usersCount')
 
-const fakeUsersCount = async (item) => {
-  randomUserCount = await fetch('/activeUsers', {method: 'GET'})
-  randomUserCount = await randomUserCount.json()
-  activeUsersChart.data.datasets[0].data.push(randomUserCount.active)
-  activeUsersChart.data.datasets[0].data.splice(0, 1)
-  activeUsersChart.update()
-  usersCount.innerText = randomUserCount.active
+const fakeUsersCount = async () => {
+  try{
+    randomUserCount = await fetch('/activeUsers')
+    randomUserCount = await randomUserCount.json()
+    activeUsers = randomUserCount.active
+    activeUsersChart.data.datasets[0].data.splice(0, 1)
+    activeUsersChart.data.datasets[0].data.push(activeUsers)
+    activeUsersChart.update()
+    usersCount.innerText = activeUsers
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 setInterval(() => {
