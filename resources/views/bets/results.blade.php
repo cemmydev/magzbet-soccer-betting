@@ -91,7 +91,7 @@
                 class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
                 <ul data-slot="wrapper"
                     class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
-                    <a href="@if ($results['current_page'] != 1) {{ '?page=' . ($results['current_page'] + 1) }} @endif">
+                    <a href="@if ($results['current_page'] != 1) {{ '?page=' . ($results['current_page'] - 1) }} @endif">
                         <li role="button" tabindex="0" aria-label="previous page button" data-slot="prev"
                             class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium"
                             data-hover="true"><svg aria-hidden="true" fill="none" focusable="false" height="1em"
@@ -191,7 +191,7 @@
                         @endif
                     @endif
                     <a
-                        href="@if ($results['current_page'] != $results['last_page']) {{ '?page=' . ($results['current_page'] - 1) }} @endif">
+                        href="@if ($results['current_page'] != $results['last_page']) {{ '?page=' . ($results['current_page'] + 1) }} @endif">
                         <li role="button" tabindex="0" aria-label="next page button" data-slot="next"
                             class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
                             <svg aria-hidden="true" fill="none" focusable="false" height="1em"
