@@ -23,6 +23,7 @@
 	<!-- Scripts -->
 	<script type="application/javascript" src="{{ mix('js/vendor.js') }}" defer></script>
 	<script type="application/javascript" src="{{ mix('js/index.js') }}" defer></script>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	@livewireStyles
 	<!-- Scripts -->
 	@stack('scripts')
@@ -75,7 +76,6 @@
 		</div>
 	</footer>
 </div>
-<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 @livewireScripts

@@ -94,7 +94,7 @@
                 <div
                     class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
                     @if($bet['image'])
-                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-full" src="/{{$bet['image']}}"></div>
+                        <img loading="lazy" alt="bet-receipt" class="h-auto max-w-xl" src="/{{$bet['image']}}"></div>
                     @endif
             </div>
         </div>
