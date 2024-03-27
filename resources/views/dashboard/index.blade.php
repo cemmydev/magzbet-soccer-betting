@@ -32,6 +32,10 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		padding-right: 3rem;
 	}
 
+	.slide-text h1,h2,h3,h4 {
+		line-height:  2rem;
+	}
+
 	@media only screen and (max-width: 640px) {
 		.slide-text {
 			font-size: .9rem;
