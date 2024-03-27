@@ -34,15 +34,15 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 				<div x-data="imageSlider" class="relative mx-auto w-full overflow-hidden rounded-md bg-tranparent p-2 sm:p-4">
 					{{-- <div class="absolute right-5 top-5 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">
 						<span x-text="currentIndex"></span>/<span x-text="images.length"></span>
-					</div>
+					</div> --}}
 			
-					<button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+					<button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
 						<i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
 					</button>
 			
-					<button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+					<button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
 						<i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
-					</button> --}}
+					</button>
 			
 					<div class="relative flex w-full justify-center items-center" style="height: 12rem">
 						<template x-for="(image, index) in images">
@@ -311,20 +311,20 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 			currentIndex: 1,
 			images: [
 			  '{!!asset('assets/images/logo.webp')!!}',
-			  '{!!asset('assets/images/logo.webp')!!}',
+			  '{!!asset('assets/images/logo1.webp')!!}',
 			],
 			previous() {
-			  if (this.currentIndex > 1) {
-				this.currentIndex = this.currentIndex - 1;
-			  }
+				this.currentIndex = (this.currentIndex - 2) % this.images.length + 1;
 			},
 			forward() {
-			  if (this.currentIndex < this.images.length) {
-				this.currentIndex = this.currentIndex + 1;
-			  }
+				this.currentIndex = this.currentIndex % this.images.length + 1;
 			},
+			init() {
+				setInterval(() => {
+				  this.forward();
+				}, 2000);;
+			}
 		  }));
 		});
-		console.log(Alpine);
 	  </script>
 </x-app-layout>
