@@ -1,4 +1,30 @@
 <x-app-layout>
+	<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7LM06TSS2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y7LM06TSS2');
+</script>
+	<!-- Default Statcounter code for MagzBet
+https://www.magzbet.com -->
+<script type="text/javascript">
+var sc_project=12981998; 
+var sc_invisible=1; 
+var sc_security="6f01b1fb"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12981998/0/6f01b1fb/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 	<div class="isolate bg-gray-900">
 		<div class="relative flex min-h-[400px] flex-col justify-center gap-6 overflow-hidden p-16 sm:min-h-[500px]">
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
