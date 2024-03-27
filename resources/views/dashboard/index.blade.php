@@ -31,7 +31,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
 				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]">
 				
-				<div x-data="imageSlider" class="relative mx-auto w-full overflow-hidden rounded-md bg-tranparent p-2 sm:p-4">
+				<div x-data="imageSlider" class="relative mx-auto w-full overflow-hidden rounded-md bg-tranparent p-2 sm:p-4 flex justify-center items-center">
 					{{-- <div class="absolute right-5 top-5 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">
 						<span x-text="currentIndex"></span>/<span x-text="images.length"></span>
 					</div> --}}
