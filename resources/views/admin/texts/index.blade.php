@@ -1,4 +1,7 @@
 <div>
+    <div class="mt-4 text-right">
+        <a href="{{ route('admin.texts.create') }}" class="bg-primary text-white p-3"> + Create</a>
+    </div>
     <table
         class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden my-2 sm:shadow-lg dark:bg-darker font-small">
         <thead>

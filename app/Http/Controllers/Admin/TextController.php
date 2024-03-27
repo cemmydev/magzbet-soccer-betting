@@ -30,4 +30,18 @@ class TextController extends Controller
         $text->save();
         return redirect()->route('admin.texts');
     }
+
+    public function create() {
+        return view('admin.texts')->with('index', 'create');
+    }
+
+    public function store(Request $request) {
+        $request->validate([
+            'field' => 'required',
+        ]);
+        
+        UDText::create($request->all());
+
+        return redirect() -> route('admin.texts');
+    }
 }

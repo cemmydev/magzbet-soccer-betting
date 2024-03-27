@@ -81,7 +81,7 @@ class ViewController
 		$win_ratio = $total_num == 0 ? 0 : round($win_num * 100 / $total_num);
 		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
 		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
-		$text = UDText::select('text')->where('field', 'dashboard')->get()->first()->text;
+		$text = UDText::select('text')->where('field', 'dashboard')->get();
 		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
 	}
 

@@ -48,7 +48,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 						<template x-for="(image, index) in images">
 							<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0">
 								{{-- <img :src="image" alt="image" class="mx-auto h-32 sm:h-48" /> --}}
-								<span x-html="image"></span>
+								<div x-html="image" class="sm:text-sm text-lg max-w-3xl align-middle"></div>
 							</div>
 						</template>
 					</div>
@@ -71,11 +71,13 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		</div>
 	</div>
 	@if(!Auth::check() && $text)
-		<div>
-			<div class='w-[80%] mx-auto my-2 space-y-3' style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'">
-				{!!$text!!}
+		@foreach($text as $parag)
+			<div class="hidden sm:block">
+				<div class='w-[80%] mx-auto my-2 space-y-3'>
+					{!!$parag->text!!}
+				</div>
 			</div>
-		</div>
+		@endforeach
 	@endif
 
 	<div class="container py-12">
@@ -308,11 +310,14 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 	</section>
 	<script>
 		document.addEventListener("alpine:init", () => {
+			var texts = {!!json_encode($text)!!}
+			var text = []
+			texts.forEach(item => text.push(item.text))
 		  Alpine.data("imageSlider", () => ({
 			currentIndex: 1,
 			images: [
 				"<img src='{{asset('assets/images/logo.webp')}}' alt='image' class='mx-auto h-32 sm:h-48'>",
-				{!! json_encode($text) !!},
+				...text
 			],
 			previous() {
 				this.currentIndex = (this.currentIndex - 2 + this.images.length) % this.images.length + 1;
@@ -323,7 +328,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 			init() {
 				setInterval(() => {
 				  this.forward();
-				}, 2000);;
+				}, 4000);;
 			}
 		  }));
 		});
