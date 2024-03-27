@@ -24,12 +24,34 @@ target="_blank"><img class="statcounter"
 src="https://c.statcounter.com/12981998/0/6f01b1fb/1/"
 alt="Web Analytics Made Easy - Statcounter"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <!-- End of Statcounter Code -->
 	<div class="isolate bg-gray-900">
 		<div class="relative flex min-h-[400px] flex-col justify-center gap-6 overflow-hidden p-16 sm:min-h-[500px]">
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
-				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]"><img
-				class="mx-auto h-32 sm:h-48" src="{{ asset('assets/images/logo.webp') }}" alt="Logo">
+				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]">
+				
+				<div x-data="imageSlider" class="relative mx-auto w-full overflow-hidden rounded-md bg-tranparent p-2 sm:p-4">
+					{{-- <div class="absolute right-5 top-5 z-10 rounded-full bg-gray-600 px-2 text-center text-sm text-white">
+						<span x-text="currentIndex"></span>/<span x-text="images.length"></span>
+					</div>
+			
+					<button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+						<i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
+					</button>
+			
+					<button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-gray-100 shadow-md">
+						<i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
+					</button> --}}
+			
+					<div class="relative flex w-full justify-center items-center" style="height: 12rem">
+						<template x-for="(image, index) in images">
+							<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0">
+								<img :src="image" alt="image" class="mx-auto h-32 sm:h-48" />
+							</div>
+						</template>
+					</div>
+				</div>
 
 			<div class="flex justify-center gap-4">
 				<a target="_blank" class="hover:opacity-90" href="https://www.instagram.com/magzbet/"
@@ -48,8 +70,10 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		</div>
 	</div>
 	@if(!Auth::check() && $text)
-		<div class='font-bold w-[80%] mx-auto my-2 space-y-3'>
-			{!!$text!!}
+		<div>
+			<div class='w-[80%] mx-auto my-2 space-y-3' style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'">
+				{!!$text!!}
+			</div>
 		</div>
 	@endif
 
@@ -281,4 +305,26 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 			@endforeach
 		@endif
 	</section>
+	<script>
+		document.addEventListener("alpine:init", () => {
+		  Alpine.data("imageSlider", () => ({
+			currentIndex: 1,
+			images: [
+			  '{!!asset('assets/images/logo.webp')!!}',
+			  '{!!asset('assets/images/logo.webp')!!}',
+			],
+			previous() {
+			  if (this.currentIndex > 1) {
+				this.currentIndex = this.currentIndex - 1;
+			  }
+			},
+			forward() {
+			  if (this.currentIndex < this.images.length) {
+				this.currentIndex = this.currentIndex + 1;
+			  }
+			},
+		  }));
+		});
+		console.log(Alpine);
+	  </script>
 </x-app-layout>
