@@ -48,7 +48,9 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		</div>
 	</div>
 	@if(!Auth::check() && $text)
-		<h3 class="font-bold text-center text-md py-5 ">{{$text}}</h3>
+		<div class='font-bold w-[80%] mx-auto'>
+			{!!$text!!}
+		</div>
 	@endif
 
 	<div class="container py-12">
