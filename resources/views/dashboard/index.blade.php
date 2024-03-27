@@ -47,7 +47,8 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 					<div class="relative flex w-full justify-center items-center" style="height: 12rem">
 						<template x-for="(image, index) in images">
 							<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0">
-								<img :src="image" alt="image" class="mx-auto h-32 sm:h-48" />
+								{{-- <img :src="image" alt="image" class="mx-auto h-32 sm:h-48" /> --}}
+								<span x-html="image"></span>
 							</div>
 						</template>
 					</div>
@@ -310,11 +311,11 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		  Alpine.data("imageSlider", () => ({
 			currentIndex: 1,
 			images: [
-			  '{!!asset('assets/images/logo.webp')!!}',
-			  '{!!asset('assets/images/logo1.webp')!!}',
+				"<img src='{{asset('assets/images/logo.webp')}}' alt='image' class='mx-auto h-32 sm:h-48'>",
+				{!! json_encode($text) !!},
 			],
 			previous() {
-				this.currentIndex = (this.currentIndex - 2) % this.images.length + 1;
+				this.currentIndex = (this.currentIndex - 2 + this.images.length) % this.images.length + 1;
 			},
 			forward() {
 				this.currentIndex = this.currentIndex % this.images.length + 1;
