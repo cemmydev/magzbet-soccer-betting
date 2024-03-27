@@ -367,6 +367,27 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\UDText
+ *
+ * @property int $id
+ * @property string $field
+ * @property string|null $text
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText whereField($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText whereText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UDText whereUpdatedAt($value)
+ */
+	class UDText extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\User
  *
  * @property int $id
@@ -429,6 +450,7 @@ namespace App\Models{
  * @property array|null $params
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Eloquent\Builder|UserLogin newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|UserLogin newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|UserLogin query()

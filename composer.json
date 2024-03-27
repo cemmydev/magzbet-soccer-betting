@@ -9,6 +9,7 @@
         "brian2694/laravel-toastr": "^5.59",
         "guzzlehttp/guzzle": "^7.2",
         "intervention/image": "^2.7",
+        "irazasyed/telegram-bot-sdk": "^3.11",
         "laravel/framework": "^10.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",

@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 	    \Torann\GeoIP\GeoIPServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        Telegram\Bot\Laravel\TelegramServiceProvider::class
     ],
 
     /*
