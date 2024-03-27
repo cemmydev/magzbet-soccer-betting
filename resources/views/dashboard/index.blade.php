@@ -36,13 +36,13 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 						<span x-text="currentIndex"></span>/<span x-text="images.length"></span>
 					</div> --}}
 			
-					<button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
+					{{-- <button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
 						<i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
 					</button>
 			
 					<button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
 						<i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
-					</button>
+					</button> --}}
 			
 					<div class="relative flex w-full justify-center items-center" style="height: 12rem">
 						<template x-for="(image, index) in images">
