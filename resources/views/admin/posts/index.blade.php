@@ -42,6 +42,7 @@
             @endforeach
           </td>
           <td class="border-grey-light border hover:bg-gray-100 p-3 flex sm:block justify-around items-center">
+            <a href="{{route('td.subscribe', $post['id'])}}">subscribe</a>
             <div class="flex justify-around">
               <a class="text-red-400 hover:text-red-600 cursor-pointer block mx-2" href="{{route('admin.posts.edit', $post['id'])}}">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50"

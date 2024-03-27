@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\TelegramController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use App\Http\Middleware\RedirectIfAdmin;
@@ -19,6 +20,10 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 Route::get('/activeUsers', [Admin\UserController::class, 'getActiveUsers']);
+
+Route::get('/td/new/{id}', [TelegramController::class, 'subscribe'])->name('td.subscribe');
+
+Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.getupdate');
 
 Route::middleware([
 	'web',
