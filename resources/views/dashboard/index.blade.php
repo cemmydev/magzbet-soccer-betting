@@ -27,6 +27,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <style>
 	.slide-text {
 		font-size: 1.25rem;
+		line-height: 1.5rem;
 		padding-left: 3rem;
 		padding-right: 3rem;
 	}
