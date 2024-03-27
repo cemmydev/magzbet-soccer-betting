@@ -48,7 +48,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		</div>
 	</div>
 	@if(!Auth::check() && $text)
-		<div class='font-bold w-[80%] mx-auto'>
+		<div class='font-bold w-[80%] mx-auto my-2 space-y-3'>
 			{!!$text!!}
 		</div>
 	@endif
