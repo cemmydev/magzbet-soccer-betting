@@ -10,7 +10,7 @@
     <form action="" method="post">
         @csrf
         <label for="admin_text_edit_field">field</label>
-        <input class="block w-full p-2 dark:bg-darker" id="admin_text_edit_field" type="text" name="field"
+        <input class="block w-full p-2 dark:bg-darker" id="admin_text_edit_field" readonly type="text" name="field"
             value="{{ $text->field }}">
         <label for="admin_text_edit_text">text</label>
         <textarea name="text" cols="30" rows="4" id="admin_text_edit_text"

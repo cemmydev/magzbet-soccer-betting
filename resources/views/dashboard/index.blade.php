@@ -73,7 +73,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		@if (!$latest_bets && Auth::check()) 
 			<p class="font-bold text-center">There are no bets new. Please come back later.</p>
 		@elseif(!Auth::check())
-		@foreach($latest_bets as $bet)
 		<div class="mb-4 mx-auto max-w-4xl">
 			<div class="flex flex-col overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none relative"
 				tabindex="-1"><a
@@ -135,7 +134,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 				</div>
 			</div>
 		</div>
-		@endforeach
 		@else
 			@foreach($latest_bets as $bet)
 				@if($bet['subscription_plan'] == '' || Auth::user()->isAllow($bet['subscription_plan']))
