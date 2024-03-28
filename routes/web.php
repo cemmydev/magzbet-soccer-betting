@@ -179,6 +179,9 @@ Route::middleware([
 										],function () {
 											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
 
+											Route::get('/telegram', [TelegramController::class, 'index'])->name('telegram');
+											Route::post('/telegram', [TelegramController::class, 'update']);
+
 											Route::prefix('texts')->group(function () {
 												Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
 												Route::get('/new', [Admin\TextController::class, 'create'])->name('texts.create');

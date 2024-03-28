@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 			Partials\RolePermissionSeeder::class,
 			Partials\UserOptionSeeder::class,
 			Partials\TextSeeder::class,
+			Partials\TelOptionSeeder::class,
 		]);
 	}
 }
