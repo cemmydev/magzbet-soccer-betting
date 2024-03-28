@@ -42,6 +42,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        Toastr::success("User deleted successfully.", "Success");
         return redirect()->route('admin.users');
     }
 
