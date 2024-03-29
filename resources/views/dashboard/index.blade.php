@@ -40,14 +40,15 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 		.slide-text {
 			font-size: .9rem;
 			line-height: 1.2rem;
-			padding: 0;
+			padding-left: 2rem;
+			padding-right: 2rem;
 		}
 	}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <!-- End of Statcounter Code -->
 	<div class="isolate bg-gray-900">
-		<div class="relative flex min-h-[400px] flex-col justify-center gap-6 overflow-hidden p-8 sm:min-h-[500px]">
+		<div class="relative flex min-h-[400px] flex-col justify-center gap-6 overflow-hidden py-8 sm:min-h-[500px]">
 			<img src="{{ asset('assets/images/hero.webp') }}" alt="Hero"
 				class="absolute inset-0 -z-10 h-full w-full object-cover brightness-[0.5]">
 				
@@ -56,17 +57,17 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 						<span x-text="currentIndex"></span>/<span x-text="images.length"></span>
 					</div> --}}
 			
-					{{-- <button @click="previous()" class="absolute left-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
+					<button @click="previous()" class="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md border">
 						<i class="fas fa-chevron-left text-2xl font-bold text-gray-500"></i>
 					</button>
 			
-					<button @click="forward()" class="absolute right-5 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md">
+					<button @click="forward()" class="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-transparent shadow-md border">
 						<i class="fas fa-chevron-right text-2xl font-bold text-gray-500"></i>
-					</button> --}}
+					</button>
 			
 					<div class="relative flex w-full justify-center items-center" style="height: 12rem">
 						<template x-for="(image, index) in images">
-							<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0">
+							<div x-show="currentIndex == index + 1" x-transition:enter="transition transform duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition transform duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="absolute top-0 p-4">
 								{{-- <img :src="image" alt="image" class="mx-auto h-32 sm:h-48" /> --}}
 								<div x-html="image" class="align-middle slide-text text-sm sm:text-lg"></div>
 							</div>
@@ -90,15 +91,6 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 			</div>
 		</div>
 	</div>
-	@if(!Auth::check() && $text)
-		@foreach($text as $parag)
-			<div class="">
-				<div class='w-[80%] mx-auto my-2 space-y-3 hidden max-sm:block'>
-					{!!$parag->text!!}
-				</div>
-			</div>
-		@endforeach
-	@endif
 
 	<div class="container py-12">
 		<h2 class="mb-6 text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">Our Stats</h2>
