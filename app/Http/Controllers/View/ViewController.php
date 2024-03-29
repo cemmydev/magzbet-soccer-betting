@@ -114,10 +114,16 @@ class ViewController
 
 	public function render_stats(){
 		$stats=Bet::with('subscriptionPlan')->where('status', '!=', 'pending')->get()->groupBy('subscriptionPlan.*.name')->toArray();
+		$stats30=Bet::with('subscriptionPlan')->where('status', '!=', 'pending')->where('created_at', '>=', date('Y-m-d', strtotime('-30 Day')))->get()->groupBy('subscriptionPlan.*.name')->toArray();
+		$stats7=Bet::with('subscriptionPlan')->where('status', '!=', 'pending')->where('created_at', '>=', date('Y-m-d', strtotime('-7 Day')))->get()->groupBy('subscriptionPlan.*.name')->toArray();
 		$subscrptions=subscriptionPlan::all()->toArray();
 		foreach($subscrptions as $sub){
 			if(!isset($stats[$sub['name']])) $single_stat = [];
 			else $single_stat = $stats[$sub['name']];
+			if(!isset($stats30[$sub['name']])) $single_stat30 = [];
+			else $single_stat30 = $stats30[$sub['name']];
+			if(!isset($stats7[$sub['name']])) $single_stat7 = [];
+			else $single_stat7 = $stats7[$sub['name']];
 			$data[$sub['name']] = [
 				'total' => count($single_stat),
 				'won' => count(array_filter($single_stat, function($stat) { return $stat['status'] == 'won'; })),
@@ -125,13 +131,31 @@ class ViewController
 				'stake' => array_sum(array_column($single_stat, 'stake')),
 				'profit' => array_sum(array_column($single_stat, 'profit')),
 			];
+			$data30[$sub['name']] = [
+				'total' => count($single_stat30),
+				'won' => count(array_filter($single_stat30, function($stat) { return $stat['status'] == 'won'; })),
+				'lost' => count(array_filter($single_stat30, function($stat) { return $stat['status'] == 'lost'; })),
+				'stake' => array_sum(array_column($single_stat30, 'stake')),
+				'profit' => array_sum(array_column($single_stat30, 'profit')),
+			];
+			$data7[$sub['name']] = [
+				'total' => count($single_stat7),
+				'won' => count(array_filter($single_stat7, function($stat) { return $stat['status'] == 'won'; })),
+				'lost' => count(array_filter($single_stat7, function($stat) { return $stat['status'] == 'lost'; })),
+				'stake' => array_sum(array_column($single_stat7, 'stake')),
+				'profit' => array_sum(array_column($single_stat7, 'profit')),
+			];
 		}
 		foreach($subscrptions as $sub) {
 			if(!$data[$sub['name']]['stake']) $data[$sub['name']]['roi'] = 0;
 			else $data[$sub['name']]['roi'] = round($data[$sub['name']]['profit'] * 100 / $data[$sub['name']]['stake']);
+			if(!$data30[$sub['name']]['stake']) $data30[$sub['name']]['roi'] = 0;
+			else $data30[$sub['name']]['roi'] = round($data30[$sub['name']]['profit'] * 100 / $data30[$sub['name']]['stake']);
+			if(!$data7[$sub['name']]['stake']) $data7[$sub['name']]['roi'] = 0;
+			else $data7[$sub['name']]['roi'] = round($data7[$sub['name']]['profit'] * 100 / $data7[$sub['name']]['stake']);
 		}
 
-		return $this->viewFactory->make('stats.index', ['subscriptions'=>$subscrptions, 'data' => $data]);
+		return $this->viewFactory->make('stats.index', ['subscriptions'=>$subscrptions, 'data' => $data, 'data30' => $data30, 'data7' => $data7]);
 	}
 
 	public function profile(Request $request){
