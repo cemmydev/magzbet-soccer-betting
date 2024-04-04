@@ -63,20 +63,10 @@
             </div>
             <hr class="shrink-0 bg-divider border-none w-full h-divider mb-10" role="separator">
             <div class="mb-5">
-                <h2 class="mb-4 text-2xl">Manage Your Subscription with Ease</h2>
-                <p><strong>Looking to Update, Renew, or Cancel Your Subscription?</strong></p>
+                <h2 class="mb-4 text-2xl">Here you can see your subscription's name/category, Starting Day and Ending Day. </h2>
+                <p><strong>You can buy more than one time a subscription and the days will add up. Down bellow you can see each subscription's remaining days.</strong></p>
             </div>
-            <div class="mb-5">
-                <p>We've made managing your subscription hassle-free! Simply visit our <a href="#">Stripe Customer
-                        Portal</a>, where you can effortlessly:</p>
-                <ul class="list-disc pl-5">
-                    <li><strong>Renew</strong> your subscription for continued access to our amazing services.</li>
-                    <li><strong>Change</strong> your subscription plan to better suit your needs.</li>
-                    <li><strong>Cancel</strong> your subscription, if you ever need to (though we'd hate to see you
-                        go!).
-                    </li>
-                </ul>
-            </div>
+            
             <div class="mb-5">
                 <h2 class="mb-4 text-2xl">My Subscriptions</h2>
             </div>
