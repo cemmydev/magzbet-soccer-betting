@@ -1,4 +1,6 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
+
 <main><!--$-->
     <div class="container my-6">
         <div class="mb-4">

@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
     <div class="container py-6" style="">
         <div class="mb-4">
             <div class="mt-2 md:flex md:items-center md:justify-between">

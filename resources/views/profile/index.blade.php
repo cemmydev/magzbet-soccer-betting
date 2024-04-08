@@ -1,4 +1,6 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
+
 	<x-slot name="header">
 		<div class="flex items-center justify-between w-full">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">

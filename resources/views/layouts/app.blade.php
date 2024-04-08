@@ -10,8 +10,9 @@
 	<link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
 	<link rel="manifest" href="/site.webmanifest">
 	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name='description' content='{{$attributes['description']}}'>
 
-	<title>{{ (isset($title) ? $title . ' | ' : '') . config('app.name', 'Laravel') }}</title>
+	<title>{{ (isset($attributes['title']) ? $attributes['title'] . ' | ' : '') . config('app.name', 'Laravel') }}</title>
 	<!-- Fonts -->
 	<link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 	<!-- Styles -->

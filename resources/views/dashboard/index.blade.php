@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-app-layout title="Online Betting Platform | Live Soccer Bets Alerts" description='Experience the thrill of online betting with MagzBet. Join our Telegram group for instant alerts on winning bets and stay ahead in the game!'>
+<link rel="canonical" href="https://magzbet.com/dashboard" />
 	<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7LM06TSS2"></script>
 <script>

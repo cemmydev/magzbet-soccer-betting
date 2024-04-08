@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
     <main>
         <div class="container py-6">
             <div class="flex flex-col gap-4 lg:flex-row">
