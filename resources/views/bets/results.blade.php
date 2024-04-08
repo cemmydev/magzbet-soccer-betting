@@ -113,8 +113,8 @@
                             </a>
                         @endfor
                     @else
-                        @if ($results['current_page'] >= 5 && $results['current_page'] < $results['last_page'])
-                            @for ($i = 1; $i < 5; $i++)
+                        @if ($results['current_page'] > 5 && $results['current_page'] < $results['last_page'])
+                            @for ($i = 1; $i <= 5; $i++)
                                 <a href="{{ '?page=' . $i }}">
                                     <li role="button" tabindex="0" aria-label="pagination item 1"
                                         aria-current={{ $results['current_page'] == $i ? 'true' : 'false' }}
