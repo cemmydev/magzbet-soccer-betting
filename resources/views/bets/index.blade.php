@@ -93,10 +93,10 @@
                                     class="h-auto w-full items-center overflow-hidden color-inherit subpixel-antialiased rounded-b-large flex justify-center p-6">
                                     @if ($bet['image'] != null)
                                         <x-secondary-button x-data="" type="button" x-on:click="$dispatch('open-modal', '{{$bet['image']}}')">
-                                            <img loading="lazy" alt="bet-receipt" class="h-auto sm:max-w-xl" src="{{ asset($bet['image']) }}">
+                                            <img loading="lazy" alt="bet-receipt" class="h-auto sm:max-w-xl" src="{{ asset($bet['image']) }}" alt='soccer betting'>
                                         </x-secondary-button>
                                         <x-modal name="{{$bet['image']}}" maxWidth="4xl">
-                                            <img alt="bet-receipt" class="h-auto max-w-3xl w-full" src="{{ asset($bet['image']) }}">
+                                            <img alt="bet-receipt" class="h-auto max-w-3xl w-full" src="{{ asset($bet['image']) }}" alt='soccer betting'>
                                         </x-modal>
                                     @endif
                                 </div>

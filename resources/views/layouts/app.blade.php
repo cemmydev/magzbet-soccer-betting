@@ -71,7 +71,7 @@
 			<div class="text-center"><a
 					class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity"
 					tabindex="0" role="link" href="https://www.gambleaware.nsw.gov.au/"
-					previewlistener="true"><img class="h-[60px]" alt="gamingcommission" src="{{ asset('assets/images/eeep_footer.png') }}"></a>
+					previewlistener="true"><img class="h-[60px]" alt="gamingcommission" src="{{ asset('assets/images/eeep_footer.png') }}" alt='magzbet soccer betting'></a>
 				</div>
 			</div>
 		</footer>
