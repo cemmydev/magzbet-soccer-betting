@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\TelegramController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
@@ -19,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/mail/welcome', [MailController::class, 'sendWelcomeEmail']);
 Route::get('/activeUsers', [Admin\UserController::class, 'getActiveUsers']);
 
 Route::get('/td/new/{id}', [TelegramController::class, 'subscribe'])->name('td.subscribe');
@@ -28,11 +30,11 @@ Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.
 Route::middleware([
 	'web',
 	])->group(function () {
-	// redirect
-	Route::redirect('/', '/dashboard', 301)->name('home');
-	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
-	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
-	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
+		// redirect
+		Route::redirect('/', '/dashboard', 301)->name('home');
+		Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
+		Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
+		Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
 	Route::get('/privacy', [ViewController::class, 'builder'])->name('privacy');
 	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
