@@ -10,7 +10,6 @@ class MailController extends Controller
 {
     //
     public function sendWelcomeEmail() {
-        ini_set('max_execution_time', 300);
         $title = 'Welcome to Magzbet.com';
         $body = 'Thank you for participating';
 
