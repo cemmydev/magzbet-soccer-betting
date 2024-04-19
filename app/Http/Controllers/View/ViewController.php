@@ -12,8 +12,8 @@ use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 use Illuminate\View\Factory as ViewFactory;
-use Illuminate\Session\SessionManager;
 
 class ViewController
 {
@@ -170,5 +170,9 @@ class ViewController
 		]);
 
 		return redirect()->route('account.index');
+	}
+
+	public function render_fake() {
+		return $this->viewFactory->make('admin.fake');
 	}
  }

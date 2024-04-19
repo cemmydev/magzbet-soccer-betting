@@ -27,14 +27,12 @@ Route::get('/td/new/{id}', [TelegramController::class, 'subscribe'])->name('td.s
 
 Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.getupdate');
 
-Route::middleware([
-	'web',
-	])->group(function () {
-		// redirect
-		Route::redirect('/', '/dashboard', 301)->name('home');
-		Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
-		Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
-		Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
+Route::middleware(['web',])->group(function () {
+	// redirect
+	Route::redirect('/', '/dashboard', 301)->name('home');
+	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
+	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
+	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
 	Route::get('/privacy', [ViewController::class, 'builder'])->name('privacy');
 	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
@@ -180,6 +178,8 @@ Route::middleware([
 											'as' => 'admin.'
 										],function () {
 											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
+
+											Route::get('/fake', [ViewController::class, 'render_fake'])->name('fake');
 
 											Route::get('/telegram', [TelegramController::class, 'index'])->name('telegram');
 											Route::post('/telegram', [TelegramController::class, 'update']);
