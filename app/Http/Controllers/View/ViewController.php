@@ -172,7 +172,20 @@ class ViewController
 		return redirect()->route('account.index');
 	}
 
-	public function render_fake() {
-		return $this->viewFactory->make('admin.fake');
+	public function render_set_fake() {
+		return $this->viewFactory->make('admin.setfake');
+	}
+
+	public function set_fake(Request $request) {
+		$request->validate([
+			'title' => 'required',
+			'team1' => 'required',
+			'team2' => 'required',
+			'match_type' => 'required',
+			'pay_type' => 'required',
+			'match_date' => 'required',
+			'gain' => 'required',
+		]);
+		return $this->viewFactory->make('admin.fake', $request->all());
 	}
  }

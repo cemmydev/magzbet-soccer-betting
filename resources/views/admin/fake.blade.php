@@ -35113,7 +35113,8 @@
             font-size: 11px
           }
         </style>
-      </head><body class="g5-Application widthState1 viewState1 allow-hover " style="--gutter: 30px;">
+      </head>
+      <body class="g5-Application widthState1 viewState1 allow-hover " style="--gutter: 30px;">
         <div>
           <div class="wc-WebConsoleModule ">
             <div role="link" aria-label="Enable accessibility" tabindex="0" class="wcl-AccessibilityAnchor "></div>
@@ -35336,8 +35337,9 @@
                                 <div class="mbl-OpenBetItem mbl-OpenBetItem_DefaultOpen ">
                                   <div class="mbl-OpenBetItem_Header mbl-OpenBetItem_HeaderTitle ">
                                     <div class="mbl-OpenBetItem_HeaderTextContainer ">
-                                      <div class="mbl-OpenBetItem_StakeDesc ">$1.00</div>
-                                      <div class="mbl-OpenBetItem_HeaderText ">Doubles</div>
+                                      <div class="mbl-OpenBetItem_StakeDesc ">{{$title}}</div>
+                                      {{-- <div class="mbl-OpenBetItem_StakeDesc ">$1.00</div>
+                                      <div class="mbl-OpenBetItem_HeaderText ">Doubles</div> --}}
                                       <div class="mbl-OpenBetItem_SubHeaderText "></div>
                                     </div>
                                     <div class="mbl-OpenBetItem_HeaderControlsWrapper "></div>
@@ -35364,7 +35366,7 @@
                                             <div class="mbl-BetParticipant_LeftContainer ">
                                               <div class="mbl-BetParticipant_HeaderTitle mbl-OpenBetParticipant_HeaderTitle ">
                                                 <div class="mbl-WinLossIndicator mbl-WinLossIndicator-torun "></div>
-                                                <div class="mbl-BetParticipant_HeaderText "><span class="mbl-BetParticipant_ParticipantSpan ">Nice<div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
+                                                <div class="mbl-BetParticipant_HeaderText "><span class="mbl-BetParticipant_ParticipantSpan ">{{$team1}}<div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
                                                       <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
                                                         <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
                                                         </div>
@@ -35375,11 +35377,12 @@
                                                     </div></span></div>
                                               </div>
                                               <div class="mbl-OpenBetParticipant_MarketDescriptionContainer ">
-                                                <div class="mbl-BetParticipant_MarketDescription ">Full Time Result</div>
+                                                <div class="mbl-BetParticipant_MarketDescription ">{{$match_type}}</div>
                                               </div>
                                               <div class="mbl-BetParticipant_FixtureContainer ">
                                                 <div class="mbl-BetParticipant_FixtureDescription mbl-OpenBetParticipant_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
-                                                  <div class="mbl-BetParticipant_FixtureName ">Nice v Lorient</div><span class="mbl-OpenBetParticipant_FixtureStartTime "> Sat 20 Apr 05:00</span>
+                                                  <div class="mbl-BetParticipant_FixtureName ">{{$team1}} v {{$team2}}</div>
+                                                  <span class="mbl-OpenBetParticipant_FixtureStartTime "> {{$match_date}}</span>
                                                 </div>
                                               </div>
                                               <div class="mbo-OfferBadgesContainer mbo-OfferBadgesContainer-legacy mbo-OfferBadgesContainer-betitemmode mbo-OfferBadgesContainer-inmybetsmultiple mbo-OfferBadgesContainer-wide ">
@@ -35392,7 +35395,7 @@
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="mbl-BetParticipant_HeaderOdds ">1.53</div>
+                                            <div class="mbl-BetParticipant_HeaderOdds ">{{$gain}}</div>
                                           </div>
                                         </div>
                                         <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_PreGame ">
@@ -35403,7 +35406,7 @@
                                           <div class="mbl-OpenBetParticipantBetBuilder_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
                                             <div class="mbl-OpenBetParticipantBetBuilder_FixtureName ">Besiktas v Ankaragucu
                                             </div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime ">Sat 20 Apr 03:00
+                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime">Sat 20 Apr 03:00
                                             </div>
                                           </div>
                                           <div></div>
@@ -35743,270 +35746,12 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <div class="pl-PodLoaderModule_Pod-46 ">
-                                      <div class="onf-OffersAndFeaturesModule onf-OffersAndFeaturesModule-last onf-OffersAndFeaturesModule-mybetspage onf-OffersAndFeaturesModule-wide onf-OffersAndFeaturesModule-2 ">
-                                        <div class="onf-Header ">
-                                          <div class="onf-Header_Label ">Features</div>
-                                          <div class="onf-Header_ShowMore ">Show More</div>
-                                        </div>
-                                        <div class="onf-OffersAndFeaturesScroller onf-OffersAndFeaturesScroller-mousemode onf-OffersAndFeaturesScroller-col3 ">
-                                          <div class="onf-OffersAndFeaturesScroller_LeftArrow scr-NavBarScroller_Hidden onf-OffersAndFeaturesScroller_Dis ">
-                                          </div>
-                                          <div class="onf-OffersAndFeaturesScroller_HScroll ">
-                                            <div class="onf-OffersAndFeaturesScroller_ScrollContent " style="left: 0px;">
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Features/pbb_Feature-Each-Way-Extra-Racing_aus.webp)" class="onf-FeaturesPod ">
-                                                <div class="onf-FeaturesPod_Wrapper ">
-                                                  <div class="onf-FeaturesPod_IconContainer ">
-                                                    <div style="background-image: url(/home/images/Home/imgs/V9Icons/Each_Way_Extra.svg)" class="onf-FeaturesPod_Icon"></div>
-                                                  </div>
-                                                  <div class="onf-FeaturesPod_SubHeader ">EACH WAY EXTRA</div>
-                                                  <div class="onf-FeaturesPod_Header ">Choose your own place terms</div>
-                                                </div>
-                                              </div>
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Features/pbb_Feature-Edit-Bet_aus.webp)" class="onf-FeaturesPod ">
-                                                <div class="onf-FeaturesPod_Wrapper ">
-                                                  <div class="onf-FeaturesPod_IconContainer ">
-                                                    <div style="background-image: url(/home/images/Home/imgs/V9Icons/Edit_Bet.svg)" class="onf-FeaturesPod_Icon"></div>
-                                                  </div>
-                                                  <div class="onf-FeaturesPod_SubHeader ">EDIT BET</div>
-                                                  <div class="onf-FeaturesPod_Header ">Add, swap or remove selections from
-                                                    your bet</div>
-                                                </div>
-                                              </div>
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Features/pbb_Feature-Cash-Out_aus.webp)" class="onf-FeaturesPod ">
-                                                <div class="onf-FeaturesPod_Wrapper ">
-                                                  <div class="onf-FeaturesPod_IconContainer "></div>
-                                                  <div class="onf-FeaturesPod_SubHeader ">CASH OUT</div>
-                                                  <div class="onf-FeaturesPod_Header ">Take a return before an event has
-                                                    finished</div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="onf-OffersAndFeaturesScroller_RightArrow onf-OffersAndFeaturesScroller_Dis scr-NavBarScroller_Hidden ">
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
+                                    
                                   </div>
                                 </div>
                               </div>
                             </div>
-                            <div>
-                              <div class="wc-WebConsoleModule_GamesPod "></div>
-                              <div>
-                                <div class="fm-FooterModule ">
-                                  <div class="fm-FooterGrid fm-FooterGrid_WidthState2 gl-MarketGrid "><!---->
-                                    <div style="--fm-mg-padding-wide: 0 20px 30px 0;--fm-mg-padding-narrow: 15px 0 15px 0;--fm-m-padding-wide: 0 20px;--fm-m-padding-narrow: 0 10px 10px;" class="fm-MarketGroup ">
-                                      <div class="fm-MarketGroupContainer fm-Container fm-LinksContainer ">
-                                        <div class="fm-LinksContainer_Column ">
-                                          <div style="--fm-m-height: 100%;--fm-m-padding-narrow: 10px;" class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Help</div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Deposits</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Withdrawals</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Contact Us</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>bet365 FAQ</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>bet365 Mastercard</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Terms and Conditions</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Responsible Gambling</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Technical Issues</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Privacy Policy</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Cookies Policy</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Complaints Procedure</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Rules</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="fm-LinksContainer_Column ">
-                                          <div style="--fm-m-height: 100%;" class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Form &amp; Stats</div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Sports &amp; Betting News</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Soccer Stats</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Sports Stats</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Australian Sports Stats</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Horse Search</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Horse Form</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="fm-LinksContainer_Column ">
-                                          <div class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Settings</div>
-                                            <div class="fm-DropdownLabel fm-Participant ">
-                                              <div class="fm-DropdownLabel-label ">Odds Display</div>
-                                              <div class="fm-DropdownLabel_Chevron ">
-                                                <div class="fm-SVGComponent_Wrapper "><svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 12 7">
-                                                    <path class="fm-SVGComponent_Chevron" fill="#b5b5b5" fill-rule="evenodd" d="M12 .784L11.243 0 6 5.431.757 0 0 .784l5.243 5.432L6 7l.757-.784z">
-                                                    </path>
-                                                  </svg></div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Scores &amp; Results</div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Live Scores</div>
-                                            </div>
-                                            <div class="fm-Participant fm-Text fm-Text_Link ">
-                                              <div>Results</div>
-                                            </div>
-                                          </div>
-                                          <div class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Promotions</div>
-                                            <div class="fm-PromotionLink fm-Participant ">
-                                              <div>Current Offers</div>
-                                            </div>
-                                          </div>
-                                          <div class="fm-Column fm-Market fm-Market_Variables ">
-                                            <div class="fm-MarketColumnHeader ">Audio</div>
-                                            <div class="fm-AudioMenuItem fm-Participant ">
-                                              <div>Horse Racing</div>
-                                            </div>
-                                            <div class="fm-AudioMenuItem fm-Participant ">
-                                              <div>Greyhounds</div>
-                                            </div>
-                                            <div class="fm-AudioMenuItem fm-Participant ">
-                                              <div>Soccer</div>
-                                            </div>
-                                            <div class="fm-AudioMenuItem fm-Participant ">
-                                              <div>Cricket</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div style="--fm-mg-padding-narrow: 30px 10px 30px;--fm-mg-padding-wide: 30px 20px 10px;--fm-m-max-width: 800px;--fm-mg-border-top: 1px solid #545454;" class="fm-MarketGroup ">
-                                      <div class="fm-MarketGroupContainer fm-Container ">
-                                        <div style="--fm-p-padding-narrow: 0 30px 30px 0;" class="fm-Column fm-Market fm-Market_Variables ">
-                                          <div class="fm-Image_Link fm-Participant "><img src="./bet365 - Online Sports Betting_files/gambling_help.svg"></div>
-                                          <div class="fm-Image_Link fm-Participant "><img src="./bet365 - Online Sports Betting_files/northernterritorygvmnt.svg"></div>
-                                          <div class="fm-Image fm-Participant "><img src="./bet365 - Online Sports Betting_files/18.svg"></div>
-                                          <div class="fm-Image_Link fm-Participant "><img src="./bet365 - Online Sports Betting_files/responsiblewageringaustralia.svg">
-                                          </div>
-                                          <div style="--fm-p-width-narrow: 100%;" class="fm-Image_Link fm-Participant "><img src="./bet365 - Online Sports Betting_files/betstop.svg"></div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div style="--fm-mg-padding-wide: 0 0 0 20px;--fm-mg-padding-narrow: 0 10px;" class="fm-MarketGroup ">
-                                      <div class="fm-MarketGroupContainer fm-Container fm-NoWrapWideContainer ">
-                                        <div style="--fm-m-padding-wide: 0 70px 0 0;--fm-p-width-narrow: 100%;--fm-p-line-height: 17px;--fm-p-padding-narrow: 0 0 15px;" class="fm-Column fm-Market fm-Market_Variables ">
-                                          <div class="fm-FooterLogo fm-Participant "><img src="./bet365 - Online Sports Betting_files/bet365-logo.svg"></div>
-                                          <div style="--fm-p-padding-narrow: 0 0 17px;--fm-p-padding-wide: 0px 0px 17px;--fm-p-font-size: 11px;" class="fm-Participant fm-Text ">
-                                            <div><span>bet365 offers pre-commitment and is governed by the </span><span class="fm-InlineSection fm-InlineSection_Link ">NT &amp; SA Codes of
-                                                Practice</span><span></span></div>
-                                          </div>
-                                          <div style="--fm-p-padding-narrow: 10px 10px 5px;--fm-p-font-size: 13px;--fm-p-line-height: 13px;--fm-p-color: #000;--fm-p-font-weight: 700;--fm-p-flex-justify: center;--fm-p-text-align: center;--fm-p-background-color: #fff;" class="fm-Participant fm-Text ">
-                                            <div>CHANCES ARE YOU'RE ABOUT TO LOSE.</div>
-                                          </div>
-                                          <div style="--fm-p-padding-narrow: 0 10px 10px;--fm-p-font-size: 11px;--fm-p-line-height: 13px;--fm-p-color: #000;--fm-p-flex-justify: center;--fm-p-text-align: center;--fm-p-background-color: #fff;--fm-link-hover-decoration: underline;--fm-link-hover-color: #000;--fm-link-color: #000;" class="fm-Participant fm-Text ">
-                                            <div><span>For free and confidential support call 1800 858 858 or visit
-                                              </span><span class="fm-InlineSection fm-InlineSection_Link ">gamblinghelponline.org.au</span><span></span>
-                                            </div>
-                                          </div>
-                                          <div style="--fm-p-padding-narrow: 15px 0;--fm-p-font-size: 13px;" class="fm-Participant fm-Text ">
-                                            <div><span>Visit </span><span class="fm-InlineSection fm-InlineSection_Link ">www.gambleaware.nsw.gov.au</span><span>
-                                                or contact Gambling Help Online on 1800 858 858 or </span><span class="fm-InlineSection fm-InlineSection_Link ">www.gamblinghelponline.org.au</span><span>.
-                                              </span></div>
-                                          </div>
-                                          <div style="--fm-p-padding-wide: 0px 0px 35px;" class="fm-Participant fm-Text ">
-                                            <div>Licensed and regulated by the Northern Territory Racing Commission.</div>
-                                          </div>
-                                          <div class="fm-Participant fm-Text ">
-                                            <div>© 2001-2024 bet365. All rights reserved.</div>
-                                          </div>
-                                          <div style="--fm-p-padding-wide: 0 0 20px;--fm-p-font-weight: bold;" class="fm-Participant ">
-                                            <div class="fm-ServerTime_ServerTimeCell ">
-                                              <div class="fm-ServerTime_ServerTime ">Server Time 15:24:08 GMT+10</div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div style="--fm-p-padding-narrow: 0 10px 35px;--fm-p-padding-wide: 0 20px 35px;" class="fm-MarketGroup ">
-                                      <div class="fm-MarketGroupContainer fm-Container ">
-                                        <div style="--fm-p-line-height: 17px;" class="fm-Column fm-Market fm-Market_Variables ">
-                                          <div style="--fm-link-font-weight: 700;" class="fm-Participant fm-Text ">
-                                            <div><span>By accessing, continuing to use or navigating throughout this site you
-                                                accept that we will use certain browser cookies to improve your customer
-                                                experience with us. bet365 only uses cookies which will improve your
-                                                experience with us and will not interfere with your privacy. Please refer to
-                                                our </span><span class="fm-InlineSection fm-InlineSection_Link ">Cookies
-                                                Policy</span><span> for further information on our use of cookies and how you
-                                                can disable or manage their use should you wish.</span></div>
-                                          </div>
-                                          <div class="fm-Participant fm-Text ">
-                                            <div><span>This site is protected by reCAPTCHA and the Google </span><span class="fm-InlineSection fm-InlineSection_Link ">Privacy Policy</span><span>
-                                                and </span><span class="fm-InlineSection fm-InlineSection_Link ">Terms of
-                                                Service</span><span> apply.</span></div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    <div style="--fm-mg-padding-narrow: 20px 10px 0;--fm-mg-padding-wide: 20px 20px 0;--fm-mg-border-top: 1px solid #545454;--fm-m-width-narrow: none;" class="fm-MarketGroup ">
-                                      <div class="fm-MarketGroupContainer fm-Container fm-SpaceBetweenContainer ">
-                                        <div style="--fm-p-font-size: 15px;--fm-p-font-family: FuturaPTWebMedium;--fm-p-padding-narrow: 2px 45px 0 0;" class="fm-Column fm-Market fm-Market_Variables ">
-                                          <div class="fm-Participant fm-Text fm-Text_Link ">
-                                            <div>Careers</div>
-                                          </div>
-                                          <div class="fm-Participant fm-Text fm-Text_Link ">
-                                            <div>Partners</div>
-                                          </div>
-                                        </div>
-                                        <div class="fm-Column fm-Market fm-Market_Variables ">
-                                          <div role="link" tabindex="0" style="--fm-p-padding-narrow: 0 20px 0 0;" class="fm-Participant ">
-                                            <div class="fm-SVGComponent_Wrapper "> <svg width="23px" height="21px" viewBox="0 0 23 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                                <g id="Twitter----Grey" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                  <path class="fm-SVGComponent_SocialPath" d="M8.92184578,11.5703628 L9.84377343,12.7782455 L2.03854867,21 L0,21 L8.92184578,11.5703628 Z M6.91054895,0.0412259771 L23,21 L16.1191832,21 L0.122030279,0.0412259771 L6.91054895,0.0412259771 Z M6.16175193,1.50588101 L3.10921258,1.50588101 L16.8705231,19.5353267 L20.0024647,19.5353267 L6.16175193,1.50588101 Z M21.9747746,0 L13.6282087,8.79191222 L12.6976199,7.57968133 L19.869187,0 L21.9747746,0 Z" id="Shape" fill="#999999"></path>
-                                                </g>
-                                              </svg></div>
-                                          </div>
-                                          <div role="link" tabindex="0" class="fm-Participant ">
-                                            <div class="fm-SVGComponent_Wrapper "><svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
-                                                <path class="fm-SVGComponent_SocialPath" fill="#A7A7A7" fill-rule="evenodd" d="M21,10.5641691 C21,4.72973531 16.2989941,0 10.5,0 C4.70100586,0 0,4.72973531 0,10.5641691 C0,15.8370512 3.83969824,20.207481 8.859375,21 L8.859375,13.6178742 L6.19335938,13.6178742 L6.19335938,10.5641691 L8.859375,10.5641691 L8.859375,8.23675057 C8.859375,5.5891057 10.4269512,4.12662854 12.8253809,4.12662854 C13.974167,4.12662854 15.1757812,4.33295997 15.1757812,4.33295997 L15.1757812,6.93273595 L13.8517559,6.93273595 C12.5473975,6.93273595 12.140625,7.7470642 12.140625,8.58250015 L12.140625,10.5641691 L15.0527344,10.5641691 L14.587207,13.6178742 L12.140625,13.6178742 L12.140625,21 C17.1603018,20.207481 21,15.8370512 21,10.5641691">
-                                                </path>
-                                              </svg></div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                            
                           </div>
                         </div>
                       </div>
@@ -36018,17 +35763,6 @@
             <div></div>
           </div>
         </div><span id="warning-container"><i data-reactroot=""></i></span>
-        <style type="text/css">
-          body {
-            background-color: #282828;
-          }
-        </style>
-      
-      
-      
-        <div></div>
-      
-      
       </body>
 
 </html>
