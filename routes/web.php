@@ -179,6 +179,7 @@ Route::middleware(['web',])->group(function () {
 										],function () {
 											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
 
+											Route::get('/fake', [ViewController::class, 'render_fake']);
 											Route::get('/fake/set', [ViewController::class, 'render_set_fake'])->name('set.fake');
 											Route::post('/fake/set', [ViewController::class, 'set_fake']);
 

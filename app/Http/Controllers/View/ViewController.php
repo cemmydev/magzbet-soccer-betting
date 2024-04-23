@@ -188,4 +188,8 @@ class ViewController
 		]);
 		return $this->viewFactory->make('admin.fake', $request->all());
 	}
+
+	public function render_fake() {
+		return $this->viewFactory->make('admin.fake');
+	}
  }

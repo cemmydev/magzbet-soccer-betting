@@ -35112,6 +35112,16 @@
           .mbl-MyBets-wide .mbl-WinningsBoostBadge_BoostLabel {
             font-size: 11px
           }
+
+          .editable_input_text {
+            background: transparent;
+            color: inherit;
+            border:none;
+            outline: none;
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+          }
         </style>
       </head>
       <body class="g5-Application widthState1 viewState1 allow-hover " style="--gutter: 30px;">
@@ -35337,9 +35347,9 @@
                                 <div class="mbl-OpenBetItem mbl-OpenBetItem_DefaultOpen ">
                                   <div class="mbl-OpenBetItem_Header mbl-OpenBetItem_HeaderTitle ">
                                     <div class="mbl-OpenBetItem_HeaderTextContainer ">
-                                      <div class="mbl-OpenBetItem_StakeDesc ">{{$title}}</div>
-                                      {{-- <div class="mbl-OpenBetItem_StakeDesc ">$1.00</div>
-                                      <div class="mbl-OpenBetItem_HeaderText ">Doubles</div> --}}
+                                      {{-- <div class="mbl-OpenBetItem_StakeDesc ">{{$title}}</div> --}}
+                                      <div class="mbl-OpenBetItem_StakeDesc "><span class="editable_input_text" contenteditable="true">$ 1.00</span></div>
+                                      <div class="mbl-OpenBetItem_HeaderText "><span class="editable_input_text" contenteditable="true">Doubles</span></div>
                                       <div class="mbl-OpenBetItem_SubHeaderText "></div>
                                     </div>
                                     <div class="mbl-OpenBetItem_HeaderControlsWrapper "></div>
@@ -35366,7 +35376,7 @@
                                             <div class="mbl-BetParticipant_LeftContainer ">
                                               <div class="mbl-BetParticipant_HeaderTitle mbl-OpenBetParticipant_HeaderTitle ">
                                                 <div class="mbl-WinLossIndicator mbl-WinLossIndicator-torun "></div>
-                                                <div class="mbl-BetParticipant_HeaderText "><span class="mbl-BetParticipant_ParticipantSpan ">{{$team1}}<div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
+                                                <div class="mbl-BetParticipant_HeaderText "><span class="mbl-BetParticipant_ParticipantSpan "><span class="editable_input_text" contenteditable="true">Nice</span><div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
                                                       <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
                                                         <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
                                                         </div>
@@ -35377,44 +35387,44 @@
                                                     </div></span></div>
                                               </div>
                                               <div class="mbl-OpenBetParticipant_MarketDescriptionContainer ">
-                                                <div class="mbl-BetParticipant_MarketDescription ">{{$match_type}}</div>
+                                                <div class="mbl-BetParticipant_MarketDescription "><span class="editable_input_text" contenteditable="true">Full time result</span></div>
                                               </div>
                                               <div class="mbl-BetParticipant_FixtureContainer ">
                                                 <div class="mbl-BetParticipant_FixtureDescription mbl-OpenBetParticipant_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
-                                                  <div class="mbl-BetParticipant_FixtureName ">{{$team1}} v {{$team2}}</div>
-                                                  <span class="mbl-OpenBetParticipant_FixtureStartTime "> {{$match_date}}</span>
+                                                  <div class="mbl-BetParticipant_FixtureName "><span class="editable_input_text" contenteditable="true">Nice v Lorient</span></div>
+                                                  <span class="mbl-OpenBetParticipant_FixtureStartTime "><span class="editable_input_text" contenteditable="true"> Sat 20 Apr 03:00</span></span>
                                                 </div>
                                               </div>
                                               <div class="mbo-OfferBadgesContainer mbo-OfferBadgesContainer-legacy mbo-OfferBadgesContainer-betitemmode mbo-OfferBadgesContainer-inmybetsmultiple mbo-OfferBadgesContainer-wide ">
                                                 <div class="mbo-OfferBadgesContainer_BadgeContainer ">
                                                   <div class="mbo-OfferBadgesContainer_BadgeContainerInner ">
                                                     <div class="mbo-OfferBadgeStandard ">
-                                                      <div class="mbo-OfferBadgeStandard_Badge "> Early Payout</div>
+                                                      <div class="mbo-OfferBadgeStandard_Badge "><span class="editable_input_text" contenteditable="true"> Early Payout</span></div>
                                                     </div>
                                                   </div>
                                                 </div>
                                               </div>
                                             </div>
-                                            <div class="mbl-BetParticipant_HeaderOdds ">{{$gain}}</div>
+                                            <div class="mbl-BetParticipant_HeaderOdds "><span class="editable_input_text" contenteditable="true">1.53</span></div>
                                           </div>
                                         </div>
                                         <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_PreGame ">
                                           <div class="mbl-OpenBetParticipantBetBuilder_Header ">
-                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderTitle ">Same Game Multi</div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderOdds ">2.00</div>
+                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderTitle "><span class="editable_input_text" contenteditable="true">Same Game Multi</span></div>
+                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderOdds "><span class="editable_input_text" contenteditable="true">2.00</span></div>
                                           </div>
                                           <div class="mbl-OpenBetParticipantBetBuilder_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
-                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureName ">Besiktas v Ankaragucu
-                                            </div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime">Sat 20 Apr 03:00
-                                            </div>
+                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureName "><span class="editable_input_text" contenteditable="true">Besiktas v Ankaragucu
+                                            </span></div>
+                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime"><span class="editable_input_text" contenteditable="true">Sat 20 Apr 03:00
+                                            </span></div>
                                           </div>
                                           <div></div>
                                           <div></div>
                                           <div class="mbl-OpenBetParticipantBetBuilder_SelectionsContainer ">
                                             <div class="mbl-OpenBetBetBuilderSelection ">
                                               <div class="mbl-SelectionWinLossIndicator "></div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText ">Over 1 Goals</span>
+                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Over 1 Goals</span></span>
                                                 <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
                                                   <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
                                                     <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
@@ -35425,12 +35435,12 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc ">Total Goals</div>
+                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Total Goals</span></div>
                                             </div>
                                             <div class="mbl-OpenBetBetBuilderSelection ">
                                               <div class="mbl-SelectionWinLossIndicator "></div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText ">Match result will be
-                                                  Besiktas</span>
+                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Match result will be
+                                                  Besiktas</span></span>
                                                 <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
                                                   <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
                                                     <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
@@ -35441,12 +35451,12 @@
                                                   </div>
                                                 </div>
                                               </div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc ">Full Time Result</div>
+                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Full Time Result</span></div>
                                               <div class="mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode mbo-OfferBadgesContainer-betbuilder mbo-OfferBadgesContainer-wide ">
                                                 <div class="mbo-OfferBadgesContainer_BadgeContainer ">
                                                   <div class="mbo-OfferBadgesContainer_BadgeContainerInner mbo-OfferBadgesContainer_BadgeContainerInner-betbuilder ">
                                                     <div class="mbo-OfferBadgeStandard ">
-                                                      <div class="mbo-OfferBadgeStandard_Badge "> Early Payout</div>
+                                                      <div class="mbo-OfferBadgeStandard_Badge "><span class="editable_input_text" contenteditable="true"> Early Payout</span></div>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -35492,7 +35502,7 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="mbl-OpenBetItem mbl-OpenBetItem_DefaultOpen ">
+                                {{-- <div class="mbl-OpenBetItem mbl-OpenBetItem_DefaultOpen ">
                                   <div class="mbl-OpenBetItem_Header mbl-OpenBetItem_HeaderTitle ">
                                     <div class="mbl-OpenBetItem_HeaderTextContainer ">
                                       <div class="mbl-OpenBetItem_StakeDesc ">$1.00</div>
@@ -35694,7 +35704,7 @@
                                       </div>
                                     </div>
                                   </div>
-                                </div>
+                                </div> --}}
                               </div>
                             </div>
                             <div>
