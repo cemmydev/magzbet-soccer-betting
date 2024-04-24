@@ -9,13 +9,13 @@
     @endif
     <form action="" method='post' class="generate-fake-page-form">
         @csrf
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Title" name="title">
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Title" name="title">
         <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 1" name="team1">
         <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 2" name="team2">
         <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Type" name="match_type">
         <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Date" name="match_date">
         <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Pay Type" name="pay_type">
-        <input type="number" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Odd" name="odd">
+        <input type="number" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Odd" name="odd"> --}}
         <div id = "extra_games"></div>
         <button type="button" class="button bg-primary p-4 text-white mt-2" id="add_game_button">Add Game</button>
         <button type="submit" class="button bg-primary p-4 text-white mt-2">Generate</button>
@@ -30,13 +30,25 @@
         let newGame = document.createElement('div');
         newGame.append(`extra game ${num_games}`);
         newGame.setAttribute('id', `extra_game${num_games}`);
+        let newTitleInput = document.createElement('input');
+        newTitleInput.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
+        newTitleInput.setAttribute('placeholder', 'Title');
+        newTitleInput.setAttribute('name', `game[${num_games}][title]`);
+        newGame.appendChild(newTitleInput);
+        let newDateInput = document.createElement('input');
+        newDateInput.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
+        newDateInput.setAttribute('placeholder', 'Match Date');
+        newDateInput.setAttribute('name', `game[${num_games}][date]`);
+        newGame.appendChild(newDateInput);
         let newteam1Input = document.createElement('input');
         newteam1Input.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
         newteam1Input.setAttribute('placeholder', 'Team 1');
+        newteam1Input.setAttribute('name', `game[${num_games}][team1]`);
         newGame.appendChild(newteam1Input);
         let newteam2Input = document.createElement('input');
         newteam2Input.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
         newteam2Input.setAttribute('placeholder', 'Team 2');
+        newteam2Input.setAttribute('name', `game[${num_games}][team2]`);
         newGame.appendChild(newteam2Input);
         let addOptionButton = document.createElement('button');
         addOptionButton.setAttribute('type', 'button');
@@ -44,10 +56,16 @@
         addOptionButton.append('AddOption');
         addOptionButton.addEventListener('click', function() {
             num_options[num_games] ++;
-            let newOption = document.createElement('input');
-            newOption.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
-            newOption.setAttribute('placeholder', `NewOption ${num_options[num_games]}`);
-            newGame.appendChild(newOption);
+            let newOptionTitle = document.createElement('input');
+            newOptionTitle.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
+            newOptionTitle.setAttribute('placeholder', `Option Title ${num_options[num_games]}`);
+            newOptionTitle.setAttribute('name', `game[${num_games}][option][${num_options[num_games]}][title]`);
+            newGame.appendChild(newOptionTitle);
+            let newOptionContent = document.createElement('input');
+            newOptionContent.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
+            newOptionContent.setAttribute('placeholder', `Option Content ${num_options[num_games]}`);
+            newOptionContent.setAttribute('name', `game[${num_games}][option][${num_options[num_games]}][content]`);
+            newGame.appendChild(newOptionContent);
         });
         newGame.appendChild(addOptionButton);
         return newGame;

@@ -177,6 +177,7 @@ class ViewController
 	}
 
 	public function set_fake(Request $request) {
+		dd($request->all());
 		$request->validate([
 			'title' => 'required',
 			'team1' => 'required',
@@ -184,7 +185,6 @@ class ViewController
 			'match_type' => 'required',
 			'pay_type' => 'required',
 			'match_date' => 'required',
-			'gain' => 'required',
 		]);
 		return $this->viewFactory->make('admin.fake', $request->all());
 	}
