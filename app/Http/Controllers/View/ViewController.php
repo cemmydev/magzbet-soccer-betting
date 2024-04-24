@@ -177,16 +177,10 @@ class ViewController
 	}
 
 	public function set_fake(Request $request) {
-		dd($request->all());
-		$request->validate([
-			'title' => 'required',
-			'team1' => 'required',
-			'team2' => 'required',
-			'match_type' => 'required',
-			'pay_type' => 'required',
-			'match_date' => 'required',
-		]);
-		return $this->viewFactory->make('admin.fake', $request->all());
+		$games = $request->game;
+		$cash = (float) $request->stake;
+		if($games) foreach($games as $game) $cash = $cash * (float) $game['odd'];
+		return $this->viewFactory->make('admin.fake', [...$request->all(), 'cash' => $cash]);
 	}
 
 	public function render_fake() {

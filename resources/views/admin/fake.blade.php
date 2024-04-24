@@ -1,5 +1,5 @@
 <html>
-    <head>
+  <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <meta name="format-detection" content="telephone=no">
@@ -7,7 +7,7 @@
         <link rel="shortcut icon" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-16x16.png" type="image/png">
         <link rel="apple-touch-icon" sizes="" "167x167"="" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-167x167.png" type="image/png">
         <link rel="apple-touch-icon" sizes="" "180x180"="" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-180x180.png" type="image/png">
-        <link rel="icon" sizes="" "48x48"="" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-48x48.png" type="image/png">
+        <link rel="icon" sizes="" "48x48" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-48x48.png" type="image/png">
         <link rel="icon" sizes="" "192x192"="" href="https://www.bet365.com.au/sportsbook-static/favicons/favicon-192x192.png" type="image/png">
         <link rel="icon" sizes="" href="https://www.bet365.com.au/sportsbook-static/favicons/icon.svg" type="image/svg+html">
       
@@ -35348,8 +35348,8 @@
                                   <div class="mbl-OpenBetItem_Header mbl-OpenBetItem_HeaderTitle ">
                                     <div class="mbl-OpenBetItem_HeaderTextContainer ">
                                       {{-- <div class="mbl-OpenBetItem_StakeDesc ">{{$title}}</div> --}}
-                                      <div class="mbl-OpenBetItem_StakeDesc "><span class="editable_input_text" contenteditable="true">$ 1.00</span></div>
-                                      <div class="mbl-OpenBetItem_HeaderText "><span class="editable_input_text" contenteditable="true">Doubles</span></div>
+                                      <div class="mbl-OpenBetItem_StakeDesc "><span class="editable_input_text" contenteditable="true">$ {{$stake}}</span></div>
+                                      <div class="mbl-OpenBetItem_HeaderText "><span class="editable_input_text" contenteditable="true">{{$title}}</span></div>
                                       <div class="mbl-OpenBetItem_SubHeaderText "></div>
                                     </div>
                                     <div class="mbl-OpenBetItem_HeaderControlsWrapper "></div>
@@ -35359,7 +35359,7 @@
                                             <div class="mbl-CloseBetButtonBase_Centre ">
                                               <div class="mbl-CloseBetButtonBase_TextReturnWrapper">
                                                 <div class="mbl-CloseBetButtonBase_Text ">Cash Out</div>
-                                                <div class="mbl-CloseBetButtonBase_Return ">$1.00</div>
+                                                <div class="mbl-CloseBetButtonBase_Return ">${{$stake}}</div>
                                               </div>
                                             </div>
                                             <div class="mbl-CloseBetButtonBase_Spacer Hidden "></div>
@@ -35371,7 +35371,7 @@
                                   <div class="mbl-OpenBetItemInnerView ">
                                     <div class="mbl-OpenBetItemInnerView_Details ">
                                       <div class="mbl-OpenBetItemInnerView_ParticipantContainer ">
-                                        <div class="mbl-BetParticipant mbl-OpenBetParticipant mbl-BetParticipant-offerbadgeinmultiple ">
+                                        {{-- <div class="mbl-BetParticipant mbl-OpenBetParticipant mbl-BetParticipant-offerbadgeinmultiple ">
                                           <div class="mbl-BetParticipant_TopContainer ">
                                             <div class="mbl-BetParticipant_LeftContainer ">
                                               <div class="mbl-BetParticipant_HeaderTitle mbl-OpenBetParticipant_HeaderTitle ">
@@ -35407,63 +35407,82 @@
                                             </div>
                                             <div class="mbl-BetParticipant_HeaderOdds "><span class="editable_input_text" contenteditable="true">1.53</span></div>
                                           </div>
-                                        </div>
-                                        <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_PreGame ">
-                                          <div class="mbl-OpenBetParticipantBetBuilder_Header ">
-                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderTitle "><span class="editable_input_text" contenteditable="true">Same Game Multi</span></div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_HeaderOdds "><span class="editable_input_text" contenteditable="true">2.00</span></div>
-                                          </div>
-                                          <div class="mbl-OpenBetParticipantBetBuilder_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
-                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureName "><span class="editable_input_text" contenteditable="true">Besiktas v Ankaragucu
-                                            </span></div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime"><span class="editable_input_text" contenteditable="true">Sat 20 Apr 03:00
-                                            </span></div>
-                                          </div>
-                                          <div></div>
-                                          <div></div>
-                                          <div class="mbl-OpenBetParticipantBetBuilder_SelectionsContainer ">
-                                            <div class="mbl-OpenBetBetBuilderSelection ">
-                                              <div class="mbl-SelectionWinLossIndicator "></div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Over 1 Goals</span></span>
-                                                <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
-                                                  <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
-                                                    <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
-                                                    </div>
-                                                    <div class="mbl-HalfAndHalfPill_Slash"></div>
-                                                    <div class="mbl-HalfAndHalfPill_TextStatusRHS mbl-HalfAndHalfPill_TextStatusRHS-0 ">
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Total Goals</span></div>
+                                        </div> --}}
+                                        @if(isset($game)) @foreach ($game as $agame)
+                                          <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_PreGame ">
+                                            <div class="mbl-OpenBetParticipantBetBuilder_Header ">
+                                              <div class="mbl-OpenBetParticipantBetBuilder_HeaderTitle "><span class="editable_input_text" contenteditable="true">{{$agame['title']}}</span></div>
+                                              <div class="mbl-OpenBetParticipantBetBuilder_HeaderOdds "><span class="editable_input_text" contenteditable="true">{{$agame['odd']}}</span></div>
                                             </div>
-                                            <div class="mbl-OpenBetBetBuilderSelection ">
-                                              <div class="mbl-SelectionWinLossIndicator "></div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Match result will be
-                                                  Besiktas</span></span>
-                                                <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
-                                                  <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
-                                                    <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
+                                            <div class="mbl-OpenBetParticipantBetBuilder_FixtureDescription mbl-OpenBetParticipant_FixtureDescription-linkactive ">
+                                              <div class="mbl-OpenBetParticipantBetBuilder_FixtureName "><span class="editable_input_text" contenteditable="true">{{$agame['team1']}} v {{$agame['team2']}}
+                                              </span></div>
+                                              <div class="mbl-OpenBetParticipantBetBuilder_FixtureStartTime"><span class="editable_input_text" contenteditable="true">{{$agame['date']}}
+                                              </span></div>
+                                            </div>
+                                            <div></div>
+                                            <div></div>
+                                            <div class="mbl-OpenBetParticipantBetBuilder_SelectionsContainer ">
+                                              @if(isset($agame['option'])) @foreach($agame['option'] as $aoption)
+                                                <div class="mbl-OpenBetBetBuilderSelection ">
+                                                  <div class="mbl-SelectionWinLossIndicator "></div>
+                                                  <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">{{$aoption['title']}}</span></span>
+                                                    <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
+                                                      <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
+                                                        <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
+                                                        </div>
+                                                        <div class="mbl-HalfAndHalfPill_Slash"></div>
+                                                        <div class="mbl-HalfAndHalfPill_TextStatusRHS mbl-HalfAndHalfPill_TextStatusRHS-0 ">
+                                                        </div>
+                                                      </div>
                                                     </div>
-                                                    <div class="mbl-HalfAndHalfPill_Slash"></div>
-                                                    <div class="mbl-HalfAndHalfPill_TextStatusRHS mbl-HalfAndHalfPill_TextStatusRHS-0 ">
+                                                  </div>
+                                                  <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">{{$aoption['content']}}</span></div>
+                                                </div>
+                                              @endforeach @endif
+                                              {{-- <div class="mbl-OpenBetBetBuilderSelection ">
+                                                <div class="mbl-SelectionWinLossIndicator "></div>
+                                                <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Over 1 Goals</span></span>
+                                                  <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
+                                                    <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
+                                                      <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
+                                                      </div>
+                                                      <div class="mbl-HalfAndHalfPill_Slash"></div>
+                                                      <div class="mbl-HalfAndHalfPill_TextStatusRHS mbl-HalfAndHalfPill_TextStatusRHS-0 ">
+                                                      </div>
                                                     </div>
                                                   </div>
                                                 </div>
+                                                <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Total Goals</span></div>
                                               </div>
-                                              <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Full Time Result</span></div>
-                                              <div class="mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode mbo-OfferBadgesContainer-betbuilder mbo-OfferBadgesContainer-wide ">
-                                                <div class="mbo-OfferBadgesContainer_BadgeContainer ">
-                                                  <div class="mbo-OfferBadgesContainer_BadgeContainerInner mbo-OfferBadgesContainer_BadgeContainerInner-betbuilder ">
-                                                    <div class="mbo-OfferBadgeStandard ">
-                                                      <div class="mbo-OfferBadgeStandard_Badge "><span class="editable_input_text" contenteditable="true"> Early Payout</span></div>
+                                              <div class="mbl-OpenBetBetBuilderSelection ">
+                                                <div class="mbl-SelectionWinLossIndicator "></div>
+                                                <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">Match result will be
+                                                    Besiktas</span></span>
+                                                  <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
+                                                    <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
+                                                      <div class="mbl-HalfAndHalfPill_TextStatusLHS mbl-HalfAndHalfPill_TextStatusLHS-0 ">
+                                                      </div>
+                                                      <div class="mbl-HalfAndHalfPill_Slash"></div>
+                                                      <div class="mbl-HalfAndHalfPill_TextStatusRHS mbl-HalfAndHalfPill_TextStatusRHS-0 ">
+                                                      </div>
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </div>
+                                                <div class="mbl-OpenBetBetBuilderSelection_MarketDesc "><span class="editable_input_text" contenteditable="true">Full Time Result</span></div>
+                                                <div class="mbo-OfferBadgesContainer mbo-OfferBadgesContainer-betitemmode mbo-OfferBadgesContainer-betbuilder mbo-OfferBadgesContainer-wide ">
+                                                  <div class="mbo-OfferBadgesContainer_BadgeContainer ">
+                                                    <div class="mbo-OfferBadgesContainer_BadgeContainerInner mbo-OfferBadgesContainer_BadgeContainerInner-betbuilder ">
+                                                      <div class="mbo-OfferBadgeStandard ">
+                                                        <div class="mbo-OfferBadgeStandard_Badge "><span class="editable_input_text" contenteditable="true"> Early Payout</span></div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div> --}}
                                             </div>
                                           </div>
-                                        </div>
+                                        @endforeach @endif
                                       </div>
                                     </div>
                                     <div class="mbl-OpenBetItemInnerView_BadgeContainer ">
@@ -35477,12 +35496,12 @@
                                       <div class="mbl-OpenBetItemInnerView_BetInformation ">
                                         <div class="mbl-OpenBetItemInnerView_StakeInformationWrapper lyd-StakeDisplay lyd-StakeDisplay-wide ">
                                           <div class="lyd-StakeDisplay_Title">Stake</div>
-                                          <div class="lyd-StakeDisplay_StakeWrapper">$1.00</div>
+                                          <div class="lyd-StakeDisplay_StakeWrapper">${{$stake}}</div>
                                         </div>
                                         <div class="mbl-OpenBetItemInnerView_BetInformationWrapper ">
                                           <div class="mbl-OpenBetItemInnerView_BetInformationLabel ">Potential Returns</div>
                                           <div class="mbl-OpenBetItemInnerView_ReturnTextWrapper ">
-                                            <div class="mbl-OpenBetItemInnerView_BetInformationText ">$3.06</div>
+                                            <div class="mbl-OpenBetItemInnerView_BetInformationText ">${{$cash}}</div>
                                           </div>
                                         </div>
                                       </div>
@@ -35492,7 +35511,7 @@
                                               <div class="mbl-CloseBetButtonBase_Centre ">
                                                 <div class="mbl-CloseBetButtonBase_TextReturnWrapper">
                                                   <div class="mbl-CloseBetButtonBase_Text ">Cash Out</div>
-                                                  <div class="mbl-CloseBetButtonBase_Return ">$1.00</div>
+                                                  <div class="mbl-CloseBetButtonBase_Return ">${{$stake}}</div>
                                                 </div>
                                               </div>
                                               <div class="mbl-CloseBetButtonBase_Spacer Hidden "></div>

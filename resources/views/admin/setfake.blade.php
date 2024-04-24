@@ -9,13 +9,13 @@
     @endif
     <form action="" method='post' class="generate-fake-page-form">
         @csrf
-        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Title" name="title">
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 1" name="team1">
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 2" name="team2">
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Type" name="match_type">
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Date" name="match_date">
-        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Pay Type" name="pay_type">
-        <input type="number" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Odd" name="odd"> --}}
+        <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Title" name="title">
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 1" name="team1"> --}}
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Team 2" name="team2"> --}}
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Type" name="match_type"> --}}
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Match Date" name="match_date"> --}}
+        {{-- <input type="text" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Pay Type" name="pay_type"> --}}
+        <input type="number" class="block w-full p-2 dark:bg-darker mb-3" placeholder="Stake" name="stake" required>
         <div id = "extra_games"></div>
         <button type="button" class="button bg-primary p-4 text-white mt-2" id="add_game_button">Add Game</button>
         <button type="submit" class="button bg-primary p-4 text-white mt-2">Generate</button>
@@ -54,6 +54,12 @@
         newteam2Input.setAttribute('required', 'true');
         newteam2Input.setAttribute('name', `game[${num_games}][team2]`);
         newGame.appendChild(newteam2Input);
+        let newOdd = document.createElement('input');
+        newOdd.setAttribute('class', 'block w-full p-2 dark:bg-darker mb-3');
+        newOdd.setAttribute('placeholder', 'Odd');
+        newOdd.setAttribute('required', 'true');
+        newOdd.setAttribute('name', `game[${num_games}][odd]`);
+        newGame.appendChild(newOdd);
         let addOptionButton = document.createElement('button');
         addOptionButton.setAttribute('type', 'button');
         addOptionButton.setAttribute('class', 'button bg-primary p-4 text-white mt-2');
