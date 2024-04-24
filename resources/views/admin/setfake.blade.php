@@ -53,7 +53,7 @@
         let addOptionButton = document.createElement('button');
         addOptionButton.setAttribute('type', 'button');
         addOptionButton.setAttribute('class', 'button bg-primary p-4 text-white mt-2');
-        addOptionButton.append('AddOption');
+        addOptionButton.append(`AddOption for Game ${num_games}`);
         addOptionButton.addEventListener('click', function() {
             num_options[num_games] ++;
             let newOptionTitle = document.createElement('input');
