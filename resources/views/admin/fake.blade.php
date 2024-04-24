@@ -35345,31 +35345,25 @@
                             <div class="mbl-MyBets_Container " style="min-height: calc(-150px + 100vh);">
                               <div class="mbl-BetItemsContainer_BetItemsContainer ">
                                 <div class="mbl-OpenBetItem mbl-OpenBetItem_DefaultOpen ">
-                                  <div class="mbl-OpenBetItem_Header mbl-OpenBetItem_HeaderTitle ">
-                                    <div class="mbl-OpenBetItem_HeaderTextContainer ">
-                                      {{-- <div class="mbl-OpenBetItem_StakeDesc ">{{$title}}</div> --}}
-                                      <div class="mbl-OpenBetItem_StakeDesc "><span class="editable_input_text" contenteditable="true">$ {{$stake}}</span></div>
-                                      <div class="mbl-OpenBetItem_HeaderText "><span class="editable_input_text" contenteditable="true">{{$title}}</span></div>
-                                      <div class="mbl-OpenBetItem_SubHeaderText "></div>
+                                  <div class="mbl-SettledBetItemHeader ">
+                                    <div class="mbl-SettledBetItemHeader_HeaderTextContainer ">
+                                      <div class="mbl-SettledBetItemHeader_Title ">
+                                        <div class="mbl-SettledBetItemHeader_Text ">${{$stake}} {{$title}}</div>
+                                      </div>
+                                      <div class="mbl-SettledBetItemHeader_SubHeaderText "></div>
                                     </div>
-                                    <div class="mbl-OpenBetItem_HeaderControlsWrapper "></div>
-                                    <div class="mbl-CloseBetButtonBase mbl-CloseBetButtonSummaryBar ">
-                                      <div class="mbl-CloseBetButtonBase_Wrapper ">
-                                        <div class="mbl-CloseBetButtonBase_WrapperInner ">
-                                          <span class="mbl-CloseBetButtonBase_Button mbl-CloseBetButtonBase-cashout ">
-                                            <div class="mbl-CloseBetButtonBase_Centre ">
-                                              <div class="mbl-CloseBetButtonBase_TextReturnWrapper">
-                                                <div class="mbl-CloseBetButtonBase_Text ">Cash Out</div>
-                                                <div class="mbl-CloseBetButtonBase_Return ">${{$stake}}</div>
-                                              </div>
-                                            </div>
-                                            <div class="mbl-CloseBetButtonBase_Spacer Hidden "></div>
-                                          </span>
+                                    <div class="mbl-SettledBetItem_BetStateContainer ">
+                                      <div class="mbl-OpenBetItem_BetStateWrapper">
+                                        <div class="mbl-SettledBetItem_BetReturnLabel ">
+                                          ${{$stake}}
+                                        </div>
+                                        <div class="mbl-SettledBetItem_BetStateLabel ">
+                                          Returned
                                         </div>
                                       </div>
                                     </div>
                                   </div>
-                                  <div class="Hidden mbl-MessageSubHeader ">Edit Bet is no longer available</div>
+                                  {{-- <div class="Hidden mbl-MessageSubHeader ">Edit Bet is no longer available</div> --}}
                                   <div class="mbl-OpenBetItemInnerView ">
                                     <div class="mbl-OpenBetItemInnerView_Details ">
                                       <div class="mbl-OpenBetItemInnerView_ParticipantContainer ">
