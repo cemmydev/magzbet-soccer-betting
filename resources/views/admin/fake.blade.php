@@ -35355,7 +35355,8 @@
                                     <div class="mbl-OpenBetItem_HeaderControlsWrapper "></div>
                                     <div class="mbl-CloseBetButtonBase mbl-CloseBetButtonSummaryBar ">
                                       <div class="mbl-CloseBetButtonBase_Wrapper ">
-                                        <div class="mbl-CloseBetButtonBase_WrapperInner "><span class="mbl-CloseBetButtonBase_Button mbl-CloseBetButtonBase-cashout ">
+                                        <div class="mbl-CloseBetButtonBase_WrapperInner ">
+                                          <span class="mbl-CloseBetButtonBase_Button mbl-CloseBetButtonBase-cashout ">
                                             <div class="mbl-CloseBetButtonBase_Centre ">
                                               <div class="mbl-CloseBetButtonBase_TextReturnWrapper">
                                                 <div class="mbl-CloseBetButtonBase_Text ">Cash Out</div>
@@ -35363,7 +35364,8 @@
                                               </div>
                                             </div>
                                             <div class="mbl-CloseBetButtonBase_Spacer Hidden "></div>
-                                          </span></div>
+                                          </span>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
@@ -35409,7 +35411,7 @@
                                           </div>
                                         </div> --}}
                                         @if(isset($game)) @foreach ($game as $agame)
-                                          <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_PreGame ">
+                                          <div class="mbl-OpenBetParticipantBetBuilder mbl-OpenBetParticipantBetBuilder_Win ">
                                             <div class="mbl-OpenBetParticipantBetBuilder_Header ">
                                               <div class="mbl-OpenBetParticipantBetBuilder_HeaderTitle "><span class="editable_input_text" contenteditable="true">{{$agame['title']}}</span></div>
                                               <div class="mbl-OpenBetParticipantBetBuilder_HeaderOdds "><span class="editable_input_text" contenteditable="true">{{$agame['odd']}}</span></div>
@@ -35422,10 +35424,10 @@
                                             </div>
                                             <div></div>
                                             <div></div>
-                                            <div class="mbl-OpenBetParticipantBetBuilder_SelectionsContainer ">
+                                            <div class="mbl-OpenBetParticipantBetBuilder_SelectionsContainer mbl-OpenBetBetBuilderSelection-won">
                                               @if(isset($agame['option'])) @foreach($agame['option'] as $aoption)
                                                 <div class="mbl-OpenBetBetBuilderSelection ">
-                                                  <div class="mbl-SelectionWinLossIndicator "></div>
+                                                  <div class="mbl-SelectionWinLossIndicator"> </div>
                                                   <div class="mbl-OpenBetBetBuilderSelection_Sentence "><span class="mbl-OpenBetBetBuilderSelection_SentenceText "><span class="editable_input_text" contenteditable="true">{{$aoption['title']}}</span></span>
                                                     <div class="mbl-HalfAndHalfPill mbl-HalfAndHalfPill_Status-0 ">
                                                       <div class="mbl-HalfAndHalfPill_TextStatus mbl-HalfAndHalfPill_TextStatus-0 ">
@@ -35499,13 +35501,13 @@
                                           <div class="lyd-StakeDisplay_StakeWrapper">${{$stake}}</div>
                                         </div>
                                         <div class="mbl-OpenBetItemInnerView_BetInformationWrapper ">
-                                          <div class="mbl-OpenBetItemInnerView_BetInformationLabel ">Potential Returns</div>
+                                          <div class="mbl-OpenBetItemInnerView_BetInformationLabel ">Returns</div>
                                           <div class="mbl-OpenBetItemInnerView_ReturnTextWrapper ">
                                             <div class="mbl-OpenBetItemInnerView_BetInformationText ">${{$cash}}</div>
                                           </div>
                                         </div>
                                       </div>
-                                      <div class="mbl-CloseBetButtonBase mbl-CloseBetButtonWithSlider ">
+                                      {{-- <div class="mbl-CloseBetButtonBase mbl-CloseBetButtonWithSlider ">
                                         <div class="mbl-CloseBetButtonBase_Wrapper ">
                                           <div class="mbl-CloseBetButtonBase_WrapperInner "><span class="mbl-CloseBetButtonBase_Button mbl-CloseBetButtonBase-cashout ">
                                               <div class="mbl-CloseBetButtonBase_Centre ">
@@ -35517,7 +35519,7 @@
                                               <div class="mbl-CloseBetButtonBase_Spacer Hidden "></div>
                                             </span></div>
                                         </div>
-                                      </div>
+                                      </div> --}}
                                     </div>
                                   </div>
                                 </div>
@@ -35724,60 +35726,6 @@
                                     </div>
                                   </div>
                                 </div> --}}
-                              </div>
-                            </div>
-                            <div>
-                              <div class="wc-MyBetsPageResponsive_OffersContainer ">
-                                <div>
-                                  <div class="pl-PodLoaderModule ">
-                                    <div class="pl-PodLoaderModule_Pod-45 scr-NavBarScroller_RightArrowVisible ">
-                                      <div class="onf-OffersAndFeaturesModule onf-OffersAndFeaturesModule-first onf-OffersAndFeaturesModule-mybetspage onf-OffersAndFeaturesModule-wide onf-OffersAndFeaturesModule-2 ">
-                                        <div class="onf-Header ">
-                                          <div class="onf-Header_Label ">Offers</div>
-                                          <div class="onf-Header_ShowMore ">Show More</div>
-                                        </div>
-                                        <div class="onf-OffersAndFeaturesScroller onf-OffersAndFeaturesScroller-mousemode onf-OffersAndFeaturesScroller-col3 ">
-                                          <div class="onf-OffersAndFeaturesScroller_LeftArrow scr-NavBarScroller_Hidden onf-OffersAndFeaturesScroller_Dis ">
-                                          </div>
-                                          <div class="onf-OffersAndFeaturesScroller_HScroll ">
-                                            <div class="onf-OffersAndFeaturesScroller_ScrollContent " style="left: 0px;">
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Offers/pbb_Horses-365TopTote+.webp)" class="onf-OffersPod ">
-                                                <div class="onf-OffersPod_IconContainer ">
-                                                  <div style="background-image: url(/home/images/Home/imgs/V9Icons/365_Top_Tote+.svg)" class="onf-OffersPod_Icon"></div>
-                                                </div>
-                                                <div class="onf-OffersPod_Header ">365 Top Tote+</div>
-                                                <div class="onf-OffersPod_Terms ">Eligible customers only. T&amp;Cs apply.
-                                                </div>
-                                              </div>
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Offers/pbb_AFL_EPO_ENG_1000x500.jpg)" class="onf-OffersPod ">
-                                                <div class="onf-OffersPod_IconContainer "></div>
-                                                <div class="onf-OffersPod_Header ">AFL Early Payout</div>
-                                                <div class="onf-OffersPod_Terms ">Eligible customers only. T&amp;Cs apply.
-                                                </div>
-                                              </div>
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Offers/pbb_AFL_MultiBetBonus_1000x500_FeatureRibbon.jpg)" class="onf-OffersPod ">
-                                                <div class="onf-OffersPod_IconContainer ">
-                                                  <div style="background-image: url(/home/images/Home/imgs/V9Icons/Accumulator_Bonus_65_percent.svg)" class="onf-OffersPod_Icon"></div>
-                                                </div>
-                                                <div class="onf-OffersPod_Header ">Footy Multi Bet</div>
-                                                <div class="onf-OffersPod_Terms ">Eligible customers only. T&amp;Cs apply.
-                                                </div>
-                                              </div>
-                                              <div style="background-image: url(/home/images/Home/imgs/V9Offers/pbb_NRL_EPO_1000x500_eng.jpg)" class="onf-OffersPod ">
-                                                <div class="onf-OffersPod_IconContainer "></div>
-                                                <div class="onf-OffersPod_Header ">NRL Early Payout</div>
-                                                <div class="onf-OffersPod_Terms ">Eligible customers only. T&amp;Cs apply.
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                          <div class="onf-OffersAndFeaturesScroller_RightArrow "></div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                    
-                                  </div>
-                                </div>
                               </div>
                             </div>
                             
