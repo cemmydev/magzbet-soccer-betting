@@ -49,13 +49,13 @@ class PayPalController extends Controller
             }
             Toastr::error('Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('subscript', $id)
+                ->route('pay.subscription', $id)
                 ->with('error', 'Something went wrong.');
 
         } else {
             Toastr::error($response['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('subscript', $id)
+                ->route('pay.subscription', $id)
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
 
