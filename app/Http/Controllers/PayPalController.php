@@ -21,6 +21,7 @@ class PayPalController extends Controller
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
+        $provider->setAccessToken($paypalToken);
         $id = $request->id;
         $cost=subscriptionPlan::find($id)->cost;
 
@@ -31,16 +32,10 @@ class PayPalController extends Controller
                 "cancel_url" => route('paypal.payment.cancel'),
             ],
             "purchase_units" => [
-                0 => [
+                [
                     "amount" => [
                         "currency_code" => "USD",
                         "value" => $cost,
-                        "breakdown" => [
-                            "item_total"=> [
-                                "currency_code" => "USD",
-                                "value" => $cost,
-                            ],
-                        ],
                     ]
                 ]
             ]
