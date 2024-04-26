@@ -28,7 +28,7 @@ class PayPalController extends Controller
             "intent" => "CAPTURE",
             "application_context" => [
                 "return_url" => route('paypal.payment.success', $id),
-                "cancel_url" => route('paypal.payment/cancel'),
+                "cancel_url" => route('paypal.payment.cancel'),
             ],
             "purchase_units" => [
                 0 => [
@@ -46,8 +46,6 @@ class PayPalController extends Controller
             ]
         ]);
 
-        dd($response);
-
         if (isset($response['id']) && $response['id'] != null) {
 
             foreach ($response['links'] as $links) {
@@ -55,13 +53,13 @@ class PayPalController extends Controller
                     return redirect()->away($links['href']);
                 }
             }
-            Toastr::error($response['message'] ?? 'Something went wrong.', 'Paypal Error');
+            Toastr::error($response['error']['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
                 ->route('pay.subscription', $id)
                 ->with('error', 'Something went wrong.');
 
         } else {
-            Toastr::error($response['message'] ?? 'Something went wrong.', 'Paypal Error');
+            Toastr::error($response['error']['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
                 ->route('pay.subscription', $id)
                 ->with('error', $response['message'] ?? 'Something went wrong.');
