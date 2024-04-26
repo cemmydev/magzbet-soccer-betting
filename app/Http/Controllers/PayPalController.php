@@ -46,6 +46,8 @@ class PayPalController extends Controller
             ]
         ]);
 
+        dd($response);
+
         if (isset($response['id']) && $response['id'] != null) {
 
             foreach ($response['links'] as $links) {
@@ -53,7 +55,7 @@ class PayPalController extends Controller
                     return redirect()->away($links['href']);
                 }
             }
-            Toastr::error('Something went wrong.', 'Paypal Error');
+            Toastr::error($response['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
                 ->route('pay.subscription', $id)
                 ->with('error', 'Something went wrong.');
