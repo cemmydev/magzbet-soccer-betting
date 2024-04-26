@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\subscriptionPlan;
+use Brian2694\Toastr\Facades\Toastr;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
 
@@ -46,14 +47,15 @@ class PayPalController extends Controller
                     return redirect()->away($links['href']);
                 }
             }
-
+            Toastr::error('Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('cancel.payment')
+                ->route('subscript', $id)
                 ->with('error', 'Something went wrong.');
 
         } else {
+            Toastr::error($response['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('create.payment')
+                ->route('subscript', $id)
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
 

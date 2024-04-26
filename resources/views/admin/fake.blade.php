@@ -35348,14 +35348,14 @@
                                   <div class="mbl-SettledBetItemHeader ">
                                     <div class="mbl-SettledBetItemHeader_HeaderTextContainer ">
                                       <div class="mbl-SettledBetItemHeader_Title ">
-                                        <div class="mbl-SettledBetItemHeader_Text ">${{$stake}} {{$title}}</div>
+                                        <div class="mbl-SettledBetItemHeader_Text ">${{number_format($stake, 2)}} {{$title}}</div>
                                       </div>
                                       <div class="mbl-SettledBetItemHeader_SubHeaderText "></div>
                                     </div>
                                     <div class="mbl-SettledBetItem_BetStateContainer ">
                                       <div class="mbl-OpenBetItem_BetStateWrapper">
                                         <div class="mbl-SettledBetItem_BetReturnLabel ">
-                                          ${{$stake}}
+                                          ${{number_format($cash, 2)}}
                                         </div>
                                         <div class="mbl-SettledBetItem_BetStateLabel ">
                                           Returned
@@ -35492,12 +35492,12 @@
                                       <div class="mbl-OpenBetItemInnerView_BetInformation ">
                                         <div class="mbl-OpenBetItemInnerView_StakeInformationWrapper lyd-StakeDisplay lyd-StakeDisplay-wide ">
                                           <div class="lyd-StakeDisplay_Title">Stake</div>
-                                          <div class="lyd-StakeDisplay_StakeWrapper">${{$stake}}</div>
+                                          <div class="lyd-StakeDisplay_StakeWrapper">${{number_format($stake, 2)}}</div>
                                         </div>
                                         <div class="mbl-OpenBetItemInnerView_BetInformationWrapper ">
                                           <div class="mbl-OpenBetItemInnerView_BetInformationLabel ">Returns</div>
                                           <div class="mbl-OpenBetItemInnerView_ReturnTextWrapper ">
-                                            <div class="mbl-OpenBetItemInnerView_BetInformationText ">${{$cash}}</div>
+                                            <div class="mbl-OpenBetItemInnerView_BetInformationText ">${{number_format($cash, 2)}}</div>
                                           </div>
                                         </div>
                                       </div>

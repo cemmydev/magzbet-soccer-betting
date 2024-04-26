@@ -13,6 +13,7 @@ use App\Http\Controllers\TelegramController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use App\Http\Middleware\RedirectIfAdmin;
+use App\Http\Middleware\RedirectIfSuperAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
