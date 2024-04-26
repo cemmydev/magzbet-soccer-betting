@@ -34,7 +34,13 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => $cost
+                        "value" => $cost,
+                        "breakdown" => [
+                            "item_total"=> [
+                                "currency_code" => "USD",
+                                "value" => $cost,
+                            ],
+                        ],
                     ]
                 ]
             ]
