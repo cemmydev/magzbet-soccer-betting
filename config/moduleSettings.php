@@ -14,7 +14,7 @@ return [
 				'default' => 0,
 			],
 			[
-				'name' => 'editor',
+				'name' => 'user',
 				'locked' => 1,
 				'default' => 1,
 			],

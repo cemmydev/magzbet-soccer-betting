@@ -142,35 +142,35 @@ Route::middleware(['web',])->group(function () {
 							// users
 							Route::middleware(RedirectIfAdmin::class)
 								->group(function () {
-									Route::group([
-										'prefix' => 'users',
-										'as' => 'users.',
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-										Route::get('/create', 'builder')->name('store');
-										Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
-									});
-									// records
-									Route::group([
-										'prefix' => 'records',
-										'as' => 'records.',
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-										Route::get('/create', 'builder')->name('store');
-									});
-									// settings
-									Route::group([
-										'prefix' => 'settings',
-										'as' => 'settings.',
-										'middleware' => [
-											CanMiddleware::class . ':view_settings'
-										]
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/roles', 'builder')->name('roles');
-									});
+									// Route::group([
+									// 	'prefix' => 'users',
+									// 	'as' => 'users.',
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+									// 	Route::get('/create', 'builder')->name('store');
+									// 	Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
+									// });
+									// // records
+									// Route::group([
+									// 	'prefix' => 'records',
+									// 	'as' => 'records.',
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+									// 	Route::get('/create', 'builder')->name('store');
+									// });
+									// // settings
+									// Route::group([
+									// 	'prefix' => 'settings',
+									// 	'as' => 'settings.',
+									// 	'middleware' => [
+									// 		CanMiddleware::class . ':view_settings'
+									// 	]
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/roles', 'builder')->name('roles');
+									// });
 
 									//admin routes
 
@@ -186,48 +186,50 @@ Route::middleware(['web',])->group(function () {
 
 											Route::get('/telegram', [TelegramController::class, 'index'])->name('telegram');
 											Route::post('/telegram', [TelegramController::class, 'update']);
+											Route::middleware(RedirectIfSuperAdmin::class)
+											->group(function () {
+												Route::prefix('texts')->group(function () {
+													Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
+													Route::get('/new', [Admin\TextController::class, 'create'])->name('texts.create');
+													Route::post('/new', [Admin\TextController::class, 'store']);
+													Route::get('/{id}', [Admin\TextController::class, 'edit'])->name('texts.edit');
+													Route::post('/{id}', [Admin\TextController::class, 'update']);
+												});
 
-											Route::prefix('texts')->group(function () {
-												Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
-												Route::get('/new', [Admin\TextController::class, 'create'])->name('texts.create');
-												Route::post('/new', [Admin\TextController::class, 'store']);
-												Route::get('/{id}', [Admin\TextController::class, 'edit'])->name('texts.edit');
-												Route::post('/{id}', [Admin\TextController::class, 'update']);
-											});
+												Route::prefix('contacts')->group(function () {
+													Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
+													Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');
+												});
 
-											Route::prefix('contacts')->group(function () {
-												Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
-												Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');
-											});
+												Route::prefix('users')->group(function () {
+													Route::get('/', [Admin\UserController::class, 'index'])->name('users');
+													Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+													Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
+													Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
+													Route::post('/{id}', [Admin\UserController::class, 'update']);
+													Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
+													Route::post('/{id}/addsubscription', [Admin\UserController::class, 'addsubscription'])->name('users.add');
+												});
 
-											Route::prefix('users')->group(function () {
-												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
-												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
-												Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
-												Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
-												Route::post('/{id}', [Admin\UserController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
-												Route::post('/{id}/addsubscription', [Admin\UserController::class, 'addsubscription'])->name('users.add');
-											});
+												Route::prefix('subscriptions')->group(function () {
+													Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
+													Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
+													Route::post('create', [Admin\SubscriptionsController::class, 'store']);
+													Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
+													Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
+													Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
+												});
 
-											Route::prefix('subscriptions')->group(function () {
-												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
-												Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
-												Route::post('create', [Admin\SubscriptionsController::class, 'store']);
-												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
-												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
-											});
-
-											Route::group(['prefix' => 'posts'], function () {
-												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
-												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
-												Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
-												Route::post('/create', [Admin\PostsController::class, 'store']);
-												Route::post('/{id}', [Admin\PostsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
-												Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
-												Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
+												Route::group(['prefix' => 'posts'], function () {
+													Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
+													Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
+													Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
+													Route::post('/create', [Admin\PostsController::class, 'store']);
+													Route::post('/{id}', [Admin\PostsController::class, 'update']);
+													Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
+													Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
+													Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
+												});
 											});
 										});
 								});

@@ -29,7 +29,7 @@ class UserController extends Controller
         $this->sortByField = $request->sortByField;
         $this->sortByDirection = $request->sortByDirection;
         $this->perPage = $request->perPage;
-        $this->usersData = User::with('subscriptionPlans')->get()->sortBy($this->sortByField, $this->sortByDirection);
+        $this->usersData = User::with('subscriptionPlans')->with('roles')->get()->sortBy($this->sortByField, $this->sortByDirection);
         return view("admin.users")->with('index', 'index')->with("usersData", $this->usersData)->with('tabIndex', 'users');
     }
 

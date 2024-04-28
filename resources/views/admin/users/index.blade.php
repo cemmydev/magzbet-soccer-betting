@@ -9,6 +9,7 @@
                         <th class="p-3 text-left">Email</th>
                         <th class="p-3 text-left truncate">Email Verified</th>
                         <th class="p-3 text-left truncate">Status</th>
+                        <th class="p-3 text-left truncate">Role</th>
                         <th class="p-3 text-left" width="110px">Actions</th>
                     </tr>
                 @endforeach
@@ -25,6 +26,11 @@
                           @elseif(!$user->unexpiredSubscription()) {{'expired'}}
                           @else {{'paid'}}
                           @endif
+                        </td>
+                        <td class="border-grey-light border p-3 truncate">
+                          @foreach($user->roles as $role)
+                            {{$role->name}}
+                          @endforeach
                         </td>
                         <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
                           <a href="{{route('admin.users.edit', $user->id)}}">edit</a>
