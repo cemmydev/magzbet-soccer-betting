@@ -17,6 +17,14 @@
     <label for="user_edit_date">email_verified_at</label>
     <input id="user_edit_date" type="date" class="block w-full p-2 dark:bg-darker" name="email_verified_at"
         value="{{ date('Y-m-d', strtotime($user['email_verified_at'])) }}">
+    @if(Auth::user()->isSuperAdmin())
+    <label for="user_edit_role">roles</label>
+    <select id="user_edit_role" class="block w-full p-2 dark:bg-darker" name="role">
+        @foreach($roles as $role)
+            <option value="{{$role->id}}" @if($user->hasRole($role->name)){{"selected"}}@endif>{{$role->name}}</option>
+        @endforeach
+    </select>
+    @endif
     <button type="submit" class="button bg-primary p-4 text-white mt-2">Submit</button>
 </form>
 <p>available subscriptions</p>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\subscriptionPlan;
 use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
@@ -50,7 +51,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $subscriptions = subscriptionPlan::all();
-        return view('admin.users')->with('index', 'edit')->with('user', $user)->with('subscriptions', $subscriptions);
+        $roles = Role::all();
+        return view('admin.users')->with('index', 'edit')->with('user', $user)->with('subscriptions', $subscriptions)->with('roles', $roles);
     }
 
     public function update(Request $request, $id)
@@ -62,6 +64,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->syncRoles([Role::find($request->role)]);
         $user->save();
         return redirect()->route('admin.users');
     }
