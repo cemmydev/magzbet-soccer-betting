@@ -204,11 +204,11 @@ Route::middleware(['web',])->group(function () {
 												Route::prefix('users')->group(function () {
 													Route::get('/', [Admin\UserController::class, 'index'])->name('users');
 													Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+													Route::get('/delete/{id}', [Admin\UserController::class, 'delete'])->name('users.delete');
 													Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
-													Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
 													Route::post('/{id}', [Admin\UserController::class, 'update']);
-													Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
 													Route::post('/{id}/addsubscription', [Admin\UserController::class, 'addsubscription'])->name('users.add');
+													Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
 												});
 
 												Route::prefix('subscriptions')->group(function () {
