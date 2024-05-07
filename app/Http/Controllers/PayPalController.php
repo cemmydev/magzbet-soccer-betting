@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\subscriptionPlan;
+use Brian2694\Toastr\Facades\Toastr;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,7 @@ class PayPalController extends Controller
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
+        $provider->setAccessToken($paypalToken);
         $id = $request->id;
         $cost=subscriptionPlan::find($id)->cost;
 
@@ -27,13 +29,13 @@ class PayPalController extends Controller
             "intent" => "CAPTURE",
             "application_context" => [
                 "return_url" => route('paypal.payment.success', $id),
-                "cancel_url" => route('paypal.payment/cancel'),
+                "cancel_url" => route('paypal.payment.cancel'),
             ],
             "purchase_units" => [
-                0 => [
+                [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => $cost
+                        "value" => $cost,
                     ]
                 ]
             ]
@@ -46,14 +48,15 @@ class PayPalController extends Controller
                     return redirect()->away($links['href']);
                 }
             }
-
+            Toastr::error($response['error']['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('cancel.payment')
+                ->route('pay.subscription', $id)
                 ->with('error', 'Something went wrong.');
 
         } else {
+            Toastr::error($response['error']['message'] ?? 'Something went wrong.', 'Paypal Error');
             return redirect()
-                ->route('create.payment')
+                ->route('pay.subscription', $id)
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
 

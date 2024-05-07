@@ -9,6 +9,7 @@
                         <th class="p-3 text-left">Email</th>
                         <th class="p-3 text-left truncate">Email Verified</th>
                         <th class="p-3 text-left truncate">Status</th>
+                        <th class="p-3 text-left truncate">Role</th>
                         <th class="p-3 text-left" width="110px">Actions</th>
                     </tr>
                 @endforeach
@@ -17,11 +18,24 @@
 			<tbody class="flex-1 sm:flex-none">
                 @foreach($usersData as $user)
                     <tr class="flex flex-col flex-no wrap sm:table-row mb-2 sm:mb-0">
-                        <td class="border-grey-light border hover:bg-gray-100 p-3">{{$user['name']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$user['email']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y', strtotime($user['email_verified_at']))}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$user['status']}}</td>
-                        <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">Delete</td>
+                        <td class="border-grey-light border p-3">{{$user['name']}}</td>
+                        <td class="border-grey-light border p-3 truncate">{{$user['email']}}</td>
+                        <td class="border-grey-light border p-3 truncate">{{date('d-m-Y', strtotime($user['email_verified_at']))}}</td>
+                        <td class="border-grey-light border p-3 truncate">
+                          @if(!$user->subscriptionPlans()) {{'not paid'}}
+                          @elseif(!$user->unexpiredSubscription()) {{'expired'}}
+                          @else {{'paid'}}
+                          @endif
+                        </td>
+                        <td class="border-grey-light border p-3 truncate">
+                          @foreach($user->roles as $role)
+                            {{$role->name}}
+                          @endforeach
+                        </td>
+                        <td class="border-grey-light border hover:bg-gray-100 p-3 text-red-400 hover:text-red-600 hover:font-medium cursor-pointer">
+                          <a href="{{route('admin.users.edit', $user->id)}}">edit</a>
+                          <a href="{{route('admin.users.delete', $user->id)}}">delete</a>
+                        </td>
                     </tr>
                 @endforeach
 			</tbody>

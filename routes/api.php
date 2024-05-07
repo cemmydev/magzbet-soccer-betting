@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Webhook\WebhookController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 /*
 |--------------------------------------------------------------------------
 | API Routes
 |--------------------------------------------------------------------------
 */
-Route::post('/ci', [WebhookController::class, 'webhook'])->name('webhook');

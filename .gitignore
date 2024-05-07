@@ -5,7 +5,6 @@
 /public/demo.mov
 /storage/*.key
 /vendor
-/node_modules
 .env
 .env.backup
 .phpunit.result.cache

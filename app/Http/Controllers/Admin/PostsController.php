@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\subscriptionPlan;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Bet;
+use Brian2694\Toastr\Facades\Toastr;
 
 class PostsController extends Controller
 {
@@ -15,12 +15,11 @@ class PostsController extends Controller
 
     public function __construct() {
         $this->posts = [];
-        $this->perPage = 15;
         $this->subscriptions = subscriptionPlan::all()->toArray();
     }
 
     public function index() {
-        $this->posts=Bet::with('subscriptionPlan')->paginate($this->perPage)->sortByDesc('created_at')->toArray();
+        $this->posts=Bet::with('subscriptionPlan')->get()->sortByDesc('created_at')->toArray();
         return view("admin.posts")->with('content', 'index')->with('posts', $this->posts);
     }
 
@@ -129,6 +128,7 @@ class PostsController extends Controller
 
     public function delete($id) {
         Bet::find($id)->delete();
+        Toastr::success("Bet deleted successfully :)", "Success!");
         return redirect()->route('admin.posts');
     }
     
@@ -139,9 +139,10 @@ class PostsController extends Controller
         $bet->profit = $bet->gain - $bet->stake;
         
         $bet->save();
+        Toastr::success("Bet".$id." staus changed into WON.", "Success!");
         return redirect()->route('admin.posts');
     }
-
+    
     public function lose($id) {
         $bet = Bet::find($id);
         $bet->status="lost";
@@ -149,6 +150,7 @@ class PostsController extends Controller
         $bet->profit=-$bet->stake;
         
         $bet->save();
+        Toastr::success("Bet".$id." staus changed into LOST.", "Success!");
         return redirect()->route('admin.posts');
     }
 }

@@ -1,3 +1,3 @@
-<button {{ $attributes->merge(['type' => 'button', 'class' => 'form__btn_transparent']) }}>
+<button {{ $attributes->merge(['type' => 'button']) }}>
     {{ $slot }}
 </button>

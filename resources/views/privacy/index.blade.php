@@ -1,4 +1,6 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
+
 <main><!--$-->
     <div class="container my-6">
         <div class="mb-4">
@@ -12,13 +14,13 @@
         <div>
             <p class="mb-2">
                 The privacy policy presents the conditions for the collection and processing of personal data of the
-                users/members of the website <a href="https://www.bettok.gr/" previewlistener="true">www.bettok.gr</a>
+                users/members of the website <a href="https://www.magzbet.com/" previewlistener="true">www.magzbet.com</a>
                 (hereinafter referred to as the
-                website), owned by BETTOK P P.C. (hereinafter referred to as the company, we, us).
+                website), owned by MAGZBET P P.C. (hereinafter referred to as the company, we, us).
             </p>
             <p class="mb-2"><strong>Introduction</strong></p>
             <p class="mb-2">
-                A bettok.gr user can read opinions and betting predictions for sports events, view live scores and
+                A magzbet.com user can read opinions and betting predictions for sports events, view live scores and
                 statistics
                 for the matches of interest and be informed about the offers of betting companies from the press
                 releases posted on
@@ -26,14 +28,14 @@
                 information.
             </p>
             <p class="mb-2">
-                The privacy policy is important so that you know how the data you share with bettok.gr are collected,
+                The privacy policy is important so that you know how the data you share with magzbet.com are collected,
                 used
                 and processed. Personal data, is information with which is possible to identify you. This privacy
                 policy,
-                concerns the collection, management and processing of information that you share with bettok.gr and not
+                concerns the collection, management and processing of information that you share with magzbet.com and not
                 with
-                third parties, regardless of whether they belong to the company or a third party. bettok.gr is owned by
-                BETTOK P
+                third parties, regardless of whether they belong to the company or a third party. magzbet.com is owned by
+                MAGZBET P
                 P.C.,
                 with its registered office in Greece, Katsantoni 2A Street, 56334, Greece, Thessaloniki.
             </p>
@@ -54,7 +56,7 @@
             </p>
             <p class="mb-2"><strong>Data we process</strong></p>
             <p class="mb-2">
-                By creating a user account on bettok.gr, we can process your email address, the username you choose, the
+                By creating a user account on magzbet.com, we can process your email address, the username you choose, the
                 name you
                 choose to be visible in your public profile as well as an identifier user id that is automatically
                 generated
@@ -102,7 +104,7 @@
             </p>
             <p class="mb-2">
                 More information about the cookies we use can be found in our
-                <a href="https://bettok.gr/cookies/" previewlistener="true">cookies policy</a>.
+                <a href="https://magzbet.com/cookies/" previewlistener="true">cookies policy</a>.
             </p>
             <p class="mb-2"><strong>How we protect your personal information</strong></p>
             <p class="mb-2">
@@ -122,12 +124,12 @@
                 assigned
                 task. Finally, we do not sell or share your personal data with third parties, except what is
                 automatically
-                collected by third party cookies,as described in our <a href="https://bettok.gr/cookies/"
+                collected by third party cookies,as described in our <a href="https://magzbet.com/cookies/"
                     previewlistener="true">cookies policy</a>.
             </p>
             <p class="mb-2"><strong>For how long we keep your personal data</strong></p>
             <p class="mb-2">Your personal data will remain in our possession for as long as your account is maintained
-                on bettok.gr
+                on magzbet.com
                 .</p>
             <p class="mb-2"><strong>Who we share your personal information with</strong></p>
             <p class="mb-2">
@@ -144,7 +146,7 @@
 
             <p class="mb-2"><strong>Account Deactivation Policy</strong></p>
             <p class="mb-2">
-                At BetTok, we provide our users with the option to deactivate their accounts, ensuring that you have
+                At MagzBet, we provide our users with the option to deactivate their accounts, ensuring that you have
                 control over your online presence and data. If you decide to deactivate your account, please be aware of
                 the
                 following key points:
@@ -176,7 +178,7 @@
             <p class="mb-2"><strong>Queries and Support</strong></p>
             <p class="mb-2">
                 If you have questions or need assistance with the deactivation process, please contact our support team
-                at <a href="mailto:support@bettok.gr">support@bettok.gr</a>.
+                at <a href="mailto:magzbet7@gmail.com">@magzbet7@gmail.com</a>.
             </p>
 
             <p class="mb-2">

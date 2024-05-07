@@ -3,12 +3,11 @@
 @section('content')
 <div class="flex items-center justify-between px-4 py-4 border-b lg:py-6 dark:border-primary-darker">
     <h1 class="text-2xl font-semibold">Dashboard</h1>
-    <a href="https://github.com/Kamona-WD/kwd-dashboard" target="_blank"
+    <a href="https://github.com/oleksandr010419/BetTok-soccer_betting" target="_blank"
         class="px-4 py-2 text-sm text-white rounded-md bg-primary hover:bg-primary-dark focus:outline-none focus:ring focus:ring-primary focus:ring-offset-1 focus:ring-offset-white dark:focus:ring-offset-dark">
         View on github
     </a>
 </div>
-
 <!-- Content -->
 <div class="mt-2">
     <!-- State cards -->
@@ -18,11 +17,11 @@
             <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                    Value
+                    User Logged
                 </h6>
-                <span class="text-xl font-semibold">$30,000</span>
-                <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +4.4%
+                <span class="text-xl font-semibold">{{$today_logged}}</span>
+                <span class="inline-block px-2 py-px ml-2 text-xs @if($today_logged - $yesterday_logged < 0) text-red-600 bg-red-100 @else text-green-500 bg-green-100 @endif rounded-md">
+                    {{($today_logged - $yesterday_logged) >= 0 ? '+'.($today_logged - $yesterday_logged) : ($today_logged - $yesterday_logged)}} logins
                 </span>
             </div>
             <div>
@@ -30,7 +29,7 @@
                     <svg class="w-12 h-12 text-gray-300 dark:text-primary-dark" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                 </span>
             </div>
@@ -41,11 +40,11 @@
             <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                    Users
+                    Total Users
                 </h6>
-                <span class="text-xl font-semibold">50,021</span>
-                <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +2.6%
+                <span class="text-xl font-semibold">{{$total_users}}</span>
+                <span class="inline-block px-2 py-px ml-2 text-xs @if($registered_users < 0) text-red-600 bg-red-100 @else text-green-500 bg-green-100 @endif rounded-md">
+                    {{$registered_users >= 0 ? '+'.$registered_users : $registered_users}} users
                 </span>
             </div>
             <div>
@@ -66,9 +65,9 @@
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
                     Orders
                 </h6>
-                <span class="text-xl font-semibold">45,021</span>
+                <span class="text-xl font-semibold">{{$total_orders}}</span>
                 <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +3.1%
+                    +{{$orders_today}}
                 </span>
             </div>
             <div>
@@ -87,11 +86,11 @@
             <div>
                 <h6
                     class="text-xs font-medium leading-none tracking-wider text-gray-500 uppercase dark:text-primary-light">
-                    Tickets
+                    Income this/last Month
                 </h6>
-                <span class="text-xl font-semibold">20,516</span>
+                <span class="text-xl font-semibold">{{$income[0] * 45}} / {{($income[1]-$income[0]) * 45}} $</span>
                 <span class="inline-block px-2 py-px ml-2 text-xs text-green-500 bg-green-100 rounded-md">
-                    +3.1%
+                    +{{($income[1] - 2 * $income[0]) * 45}} $
                 </span>
             </div>
             <div>
@@ -112,8 +111,8 @@
         <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
             <!-- Card header -->
             <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Bar Chart</h4>
-                <div class="flex items-center space-x-2">
+                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Latest Login Stats</h4>
+                {{-- <div class="flex items-center space-x-2">
                     <span class="text-sm text-gray-500 dark:text-light">Last year</span>
                     <button class="relative focus:outline-none" x-cloak
                         @click="isOn = !isOn; $parent.updateBarChart(isOn)">
@@ -124,7 +123,7 @@
                             :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
                         </div>
                     </button>
-                </div>
+                </div> --}}
             </div>
             <!-- Chart -->
             <div class="relative p-4 h-72">
@@ -136,18 +135,7 @@
         <div class="bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
             <!-- Card header -->
             <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Doughnut Chart</h4>
-                <div class="flex items-center">
-                    <button class="relative focus:outline-none" x-cloak
-                        @click="isOn = !isOn; $parent.updateDoughnutChart(isOn)">
-                        <div
-                            class="w-12 h-6 transition rounded-full outline-none bg-primary-100 dark:bg-primary-darker">
-                        </div>
-                        <div class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 ease-in-out transform scale-110 rounded-full shadow-sm"
-                            :class="{ 'translate-x-0  bg-white dark:bg-primary-100': !isOn, 'translate-x-6 bg-primary-light dark:bg-primary': isOn }">
-                        </div>
-                    </button>
-                </div>
+                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Paid Stats</h4>
             </div>
             <!-- Chart -->
             <div class="relative p-4 h-72">
@@ -178,8 +166,9 @@
         <div class="col-span-2 bg-white rounded-md dark:bg-darker" x-data="{ isOn: false }">
             <!-- Card header -->
             <div class="flex items-center justify-between p-4 border-b dark:border-primary">
-                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Line Chart</h4>
+                <h4 class="text-lg font-semibold text-gray-500 dark:text-light">Transaction History</h4>
                 <div class="flex items-center">
+                  <p class="text-md mr-2">Last Month</p>
                     <button class="relative focus:outline-none" x-cloak
                         @click="isOn = !isOn; $parent.updateLineChart()">
                         <div
@@ -198,4 +187,257 @@
         </div>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+
+<script>
+    // All javascript code in this project for now is just for demo DON'T RELY ON IT
+
+const random = (max = 100) => {
+  return Math.round(Math.random() * max) + 20
+}
+
+const randomData = () => {
+  return [
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+    random(),
+  ]
+}
+
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+const cssColors = (color) => {
+  return getComputedStyle(document.documentElement).getPropertyValue(color)
+}
+
+const getColor = () => {
+  return window.localStorage.getItem('color') ?? 'cyan'
+}
+
+const colors = {
+  primary: cssColors(`--color-${getColor()}`),
+  primaryLight: cssColors(`--color-${getColor()}-light`),
+  primaryLighter: cssColors(`--color-${getColor()}-lighter`),
+  primaryDark: cssColors(`--color-${getColor()}-dark`),
+  primaryDarker: cssColors(`--color-${getColor()}-darker`),
+}
+
+// const latest_login_data = JOSN.parse({{!!json_encode($latest_logins)!!}});
+const latest7days = ['-14 days', '-13 days','-12 days', '-11 days','-10 days','-8 days','-7 days','-6 days', '-5 days', '-4 days', '-3 days', '-2 days', '-1 days', 'Today']
+var latestLogins = {!! json_encode($latest_logins) !!}
+
+const barChart = new Chart(document.getElementById('barChart'), {
+  type: 'bar',
+  data: {
+    labels: latest7days,
+    datasets: [
+      {
+        data: latestLogins,
+        backgroundColor: colors.primary,
+        hoverBackgroundColor: colors.primaryDark,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: true,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 10,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 5,
+          },
+          categoryPercentage: 0.5,
+          maxBarThickness: '10',
+        },
+      ],
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+  },
+})
+
+
+const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Paid User', 'Unpaid User'],
+    datasets: [
+      {
+        data: [{{$paid}}, {{$unpaid}}],
+        backgroundColor: [colors.primary, colors.primaryLighter, colors.primaryLight],
+        hoverBackgroundColor: colors.primaryDark,
+        borderWidth: 0,
+        weight: 0.5,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      position: 'bottom',
+    },
+
+    title: {
+      display: false,
+    },
+    animation: {
+      animateScale: true,
+      animateRotate: true,
+    },
+  },
+})
+
+const activeUsersChart = new Chart(document.getElementById('activeUsersChart'), {
+  type: 'bar',
+  data: {
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    datasets: [
+      {
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: colors.primary,
+        borderWidth: 0,
+        categoryPercentage: 1,
+      },
+    ],
+  },
+  options: {
+    scales: {
+      yAxes: [
+        {
+          display: false,
+          gridLines: true,
+        },
+      ],
+      xAxes: [
+        {
+          display: false,
+          gridLines: false,
+        },
+      ],
+      ticks: {
+        padding: 10,
+      },
+    },
+    cornerRadius: 2,
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      prefix: 'Users',
+      bodySpacing: 4,
+      footerSpacing: 4,
+      hasIndicator: true,
+      mode: 'index',
+      intersect: true,
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: true,
+    },
+  },
+})
+
+const lineChart = new Chart(document.getElementById('lineChart'), {
+  type: 'line',
+  data: {
+    labels: months,
+    datasets: [
+      {
+        data: randomData(),
+        fill: false,
+        borderColor: colors.primary,
+        borderWidth: 2,
+        pointRadius: 0,
+        pointHoverRadius: 0,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    scales: {
+      yAxes: [
+        {
+          gridLines: false,
+          ticks: {
+            beginAtZero: false,
+            stepSize: 50,
+            fontSize: 12,
+            fontColor: '#97a4af',
+            fontFamily: 'Open Sans, sans-serif',
+            padding: 20,
+          },
+        },
+      ],
+      xAxes: [
+        {
+          gridLines: false,
+        },
+      ],
+    },
+    maintainAspectRatio: false,
+    legend: {
+      display: false,
+    },
+    tooltips: {
+      hasIndicator: true,
+      intersect: false,
+    },
+  },
+})
+
+let randomUserCount = 0
+
+const usersCount = document.getElementById('usersCount')
+
+const fakeUsersCount = async () => {
+  try{
+    randomUserCount = await fetch('/activeUsers')
+    randomUserCount = await randomUserCount.json()
+    activeUsers = randomUserCount.active
+    activeUsersChart.data.datasets[0].data.splice(0, 1)
+    activeUsersChart.data.datasets[0].data.push(activeUsers)
+    activeUsersChart.update()
+    usersCount.innerText = activeUsers
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+setInterval(() => {
+  fakeUsersCount();
+}, 2000)
+
+</script>
+
 @endsection

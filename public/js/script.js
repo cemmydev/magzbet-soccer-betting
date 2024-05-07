@@ -39,13 +39,16 @@ const colors = {
   primaryDarker: cssColors(`--color-${getColor()}-darker`),
 }
 
+// const latest_login_data = JOSN.parse({{!!json_encode($latest_logins)!!}});
+const latest7days = ['-6', '-5', '-4', '-3', '-2', '-1', 'Today']
+
 const barChart = new Chart(document.getElementById('barChart'), {
   type: 'bar',
   data: {
-    labels: months,
+    labels: latest7days,
     datasets: [
       {
-        data: randomData(),
+        data:  JSON.parse(@json_encode($latest_logins)),
         backgroundColor: colors.primary,
         hoverBackgroundColor: colors.primaryDark,
       },
@@ -87,6 +90,7 @@ const barChart = new Chart(document.getElementById('barChart'), {
     },
   },
 })
+
 
 const doughnutChart = new Chart(document.getElementById('doughnutChart'), {
   type: 'doughnut',

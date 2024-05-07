@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
     <main>
         <div class="pb-26 container py-20">
             <div class="mx-auto max-w-lg">

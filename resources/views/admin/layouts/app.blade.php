@@ -4,10 +4,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <title>Admin</title>
+  <title>Magzbet | Admin</title>
   <!-- <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
     rel="stylesheet" /> -->
   <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}" />
+	<link rel="stylesheet" href="https://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
   <link rel="stylesheet" href="	https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css" />
   <script src="https://cdn.jsdelivr.net/gh/alpine-collective/alpine-magic-helpers@0.5.x/dist/component.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
@@ -46,7 +47,7 @@
             </div>
             <div x-data="{ isActive: false, open: false }">
               <!-- active classes 'bg-primary-100 dark:bg-primary' -->
-
+              
               <a href="{{route('admin.index')}}"
                 class="flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary"
                 :class="{ 'bg-primary-100 dark:bg-primary': isActive || open }" role="button" aria-haspopup="true"
@@ -61,7 +62,8 @@
                 <span class="ml-2 text-sm"> Overview </span>
               </a>
             </div>
-
+            
+            @if(Auth::user()->isSuperAdmin())
             <!-- Components links -->
             <div x-data="{ isActive: false, open: false }">
               <!-- active classes 'bg-primary-100 dark:bg-primary' -->
@@ -105,10 +107,33 @@
                   class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                   Contacts
                 </a>
+                <a href="{{ route('admin.texts') }}" role="menuitem"
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                  User Defined Text
+                </a>
               </div>
             </div>
 
             <!-- Pages links -->
+            <div class='flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary'>
+              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 25 2 C 12.309288 2 2 12.309297 2 25 C 2 37.690703 12.309288 48 25 48 C 37.690712 48 48 37.690703 48 25 C 48 12.309297 37.690712 2 25 2 z M 25 4 C 36.609833 4 46 13.390175 46 25 C 46 36.609825 36.609833 46 25 46 C 13.390167 46 4 36.609825 4 25 C 4 13.390175 13.390167 4 25 4 z M 34.087891 14.035156 C 33.403891 14.035156 32.635328 14.193578 31.736328 14.517578 C 30.340328 15.020578 13.920734 21.992156 12.052734 22.785156 C 10.984734 23.239156 8.9960938 24.083656 8.9960938 26.097656 C 8.9960938 27.432656 9.7783594 28.3875 11.318359 28.9375 C 12.146359 29.2325 14.112906 29.828578 15.253906 30.142578 C 15.737906 30.275578 16.25225 30.34375 16.78125 30.34375 C 17.81625 30.34375 18.857828 30.085859 19.673828 29.630859 C 19.666828 29.798859 19.671406 29.968672 19.691406 30.138672 C 19.814406 31.188672 20.461875 32.17625 21.421875 32.78125 C 22.049875 33.17725 27.179312 36.614156 27.945312 37.160156 C 29.021313 37.929156 30.210813 38.335938 31.382812 38.335938 C 33.622813 38.335938 34.374328 36.023109 34.736328 34.912109 C 35.261328 33.299109 37.227219 20.182141 37.449219 17.869141 C 37.600219 16.284141 36.939641 14.978953 35.681641 14.376953 C 35.210641 14.149953 34.672891 14.035156 34.087891 14.035156 z M 34.087891 16.035156 C 34.362891 16.035156 34.608406 16.080641 34.816406 16.181641 C 35.289406 16.408641 35.530031 16.914688 35.457031 17.679688 C 35.215031 20.202687 33.253938 33.008969 32.835938 34.292969 C 32.477938 35.390969 32.100813 36.335938 31.382812 36.335938 C 30.664813 36.335938 29.880422 36.08425 29.107422 35.53125 C 28.334422 34.97925 23.201281 31.536891 22.488281 31.087891 C 21.863281 30.693891 21.201813 29.711719 22.132812 28.761719 C 22.899812 27.979719 28.717844 22.332938 29.214844 21.835938 C 29.584844 21.464938 29.411828 21.017578 29.048828 21.017578 C 28.923828 21.017578 28.774141 21.070266 28.619141 21.197266 C 28.011141 21.694266 19.534781 27.366266 18.800781 27.822266 C 18.314781 28.124266 17.56225 28.341797 16.78125 28.341797 C 16.44825 28.341797 16.111109 28.301891 15.787109 28.212891 C 14.659109 27.901891 12.750187 27.322734 11.992188 27.052734 C 11.263188 26.792734 10.998047 26.543656 10.998047 26.097656 C 10.998047 25.463656 11.892938 25.026 12.835938 24.625 C 13.831938 24.202 31.066062 16.883437 32.414062 16.398438 C 33.038062 16.172438 33.608891 16.035156 34.087891 16.035156 z"></path>
+                </svg>
+              <a href="{{ route('admin.telegram') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800 ">
+                    Telegram Option
+              </a>
+            </div>
+            @endif
+            <div class='flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary'>
+              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                <path d="M 25 2 C 12.309288 2 2 12.309297 2 25 C 2 37.690703 12.309288 48 25 48 C 37.690712 48 48 37.690703 48 25 C 48 12.309297 37.690712 2 25 2 z M 25 4 C 36.609833 4 46 13.390175 46 25 C 46 36.609825 36.609833 46 25 46 C 13.390167 46 4 36.609825 4 25 C 4 13.390175 13.390167 4 25 4 z M 34.087891 14.035156 C 33.403891 14.035156 32.635328 14.193578 31.736328 14.517578 C 30.340328 15.020578 13.920734 21.992156 12.052734 22.785156 C 10.984734 23.239156 8.9960938 24.083656 8.9960938 26.097656 C 8.9960938 27.432656 9.7783594 28.3875 11.318359 28.9375 C 12.146359 29.2325 14.112906 29.828578 15.253906 30.142578 C 15.737906 30.275578 16.25225 30.34375 16.78125 30.34375 C 17.81625 30.34375 18.857828 30.085859 19.673828 29.630859 C 19.666828 29.798859 19.671406 29.968672 19.691406 30.138672 C 19.814406 31.188672 20.461875 32.17625 21.421875 32.78125 C 22.049875 33.17725 27.179312 36.614156 27.945312 37.160156 C 29.021313 37.929156 30.210813 38.335938 31.382812 38.335938 C 33.622813 38.335938 34.374328 36.023109 34.736328 34.912109 C 35.261328 33.299109 37.227219 20.182141 37.449219 17.869141 C 37.600219 16.284141 36.939641 14.978953 35.681641 14.376953 C 35.210641 14.149953 34.672891 14.035156 34.087891 14.035156 z M 34.087891 16.035156 C 34.362891 16.035156 34.608406 16.080641 34.816406 16.181641 C 35.289406 16.408641 35.530031 16.914688 35.457031 17.679688 C 35.215031 20.202687 33.253938 33.008969 32.835938 34.292969 C 32.477938 35.390969 32.100813 36.335938 31.382812 36.335938 C 30.664813 36.335938 29.880422 36.08425 29.107422 35.53125 C 28.334422 34.97925 23.201281 31.536891 22.488281 31.087891 C 21.863281 30.693891 21.201813 29.711719 22.132812 28.761719 C 22.899812 27.979719 28.717844 22.332938 29.214844 21.835938 C 29.584844 21.464938 29.411828 21.017578 29.048828 21.017578 C 28.923828 21.017578 28.774141 21.070266 28.619141 21.197266 C 28.011141 21.694266 19.534781 27.366266 18.800781 27.822266 C 18.314781 28.124266 17.56225 28.341797 16.78125 28.341797 C 16.44825 28.341797 16.111109 28.301891 15.787109 28.212891 C 14.659109 27.901891 12.750187 27.322734 11.992188 27.052734 C 11.263188 26.792734 10.998047 26.543656 10.998047 26.097656 C 10.998047 25.463656 11.892938 25.026 12.835938 24.625 C 13.831938 24.202 31.066062 16.883437 32.414062 16.398438 C 33.038062 16.172438 33.608891 16.035156 34.087891 16.035156 z"></path>
+                </svg>
+              <a href="{{ route('admin.set.fake') }}" role="menuitem"
+                    class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800 ">
+                    Generate fake page
+              </a>
+            </div>
 
             <!-- Authentication links -->
 
@@ -231,7 +256,7 @@
                   aria-haspopup="true" :aria-expanded="open ? 'true' : 'false'"
                   class="transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
                   <span class="sr-only">User menu</span>
-                  <img class="w-10 h-10 rounded-full" src="{{asset(" assets/images/logo.webp")}}" alt="Ahmed Kamel" />
+                  <img class="w-10 h-10 rounded-full" src="{{asset("assets/images/logo.webp")}}" alt="Magdalinos" />
                 </button>
 
                 <!-- User dropdown menu -->
@@ -332,7 +357,7 @@
                   :aria-expanded="open ? 'true' : 'false'"
                   class="block transition-opacity duration-200 rounded-full dark:opacity-75 dark:hover:opacity-100 focus:outline-none focus:ring dark:focus:opacity-100">
                   <span class="sr-only">User menu</span>
-                  <img class="w-10 h-10 rounded-full" src="build/images/avatar.jpg" alt="Ahmed Kamel" />
+                  <img class="w-10 h-10 rounded-full" src="{{asset('assets/images/logo.webp')}}" alt="Magdalinos" />
                 </button>
 
                 <!-- User dropdown menu -->
@@ -410,7 +435,7 @@
                     </span>
                   </a>
                 </div>
-
+                @if(Auth::user()->isSuperAdmin())
                 <!-- Components links -->
                 <div x-data="{ isActive: false, open: false }">
                   <!-- active classes 'bg-primary-100 dark:bg-primary' -->
@@ -453,11 +478,33 @@
                       class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                       Contacts
                     </a>
+                    <a href="{{ route('admin.texts') }}" role="menuitem"
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                      User Defined Text
+                    </a>
                   </div>
                 </div>
 
                 <!-- Pages links -->
-
+                <div class='flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary'>
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                    <path d="M 25 2 C 12.309288 2 2 12.309297 2 25 C 2 37.690703 12.309288 48 25 48 C 37.690712 48 48 37.690703 48 25 C 48 12.309297 37.690712 2 25 2 z M 25 4 C 36.609833 4 46 13.390175 46 25 C 46 36.609825 36.609833 46 25 46 C 13.390167 46 4 36.609825 4 25 C 4 13.390175 13.390167 4 25 4 z M 34.087891 14.035156 C 33.403891 14.035156 32.635328 14.193578 31.736328 14.517578 C 30.340328 15.020578 13.920734 21.992156 12.052734 22.785156 C 10.984734 23.239156 8.9960938 24.083656 8.9960938 26.097656 C 8.9960938 27.432656 9.7783594 28.3875 11.318359 28.9375 C 12.146359 29.2325 14.112906 29.828578 15.253906 30.142578 C 15.737906 30.275578 16.25225 30.34375 16.78125 30.34375 C 17.81625 30.34375 18.857828 30.085859 19.673828 29.630859 C 19.666828 29.798859 19.671406 29.968672 19.691406 30.138672 C 19.814406 31.188672 20.461875 32.17625 21.421875 32.78125 C 22.049875 33.17725 27.179312 36.614156 27.945312 37.160156 C 29.021313 37.929156 30.210813 38.335938 31.382812 38.335938 C 33.622813 38.335938 34.374328 36.023109 34.736328 34.912109 C 35.261328 33.299109 37.227219 20.182141 37.449219 17.869141 C 37.600219 16.284141 36.939641 14.978953 35.681641 14.376953 C 35.210641 14.149953 34.672891 14.035156 34.087891 14.035156 z M 34.087891 16.035156 C 34.362891 16.035156 34.608406 16.080641 34.816406 16.181641 C 35.289406 16.408641 35.530031 16.914688 35.457031 17.679688 C 35.215031 20.202687 33.253938 33.008969 32.835938 34.292969 C 32.477938 35.390969 32.100813 36.335938 31.382812 36.335938 C 30.664813 36.335938 29.880422 36.08425 29.107422 35.53125 C 28.334422 34.97925 23.201281 31.536891 22.488281 31.087891 C 21.863281 30.693891 21.201813 29.711719 22.132812 28.761719 C 22.899812 27.979719 28.717844 22.332938 29.214844 21.835938 C 29.584844 21.464938 29.411828 21.017578 29.048828 21.017578 C 28.923828 21.017578 28.774141 21.070266 28.619141 21.197266 C 28.011141 21.694266 19.534781 27.366266 18.800781 27.822266 C 18.314781 28.124266 17.56225 28.341797 16.78125 28.341797 C 16.44825 28.341797 16.111109 28.301891 15.787109 28.212891 C 14.659109 27.901891 12.750187 27.322734 11.992188 27.052734 C 11.263188 26.792734 10.998047 26.543656 10.998047 26.097656 C 10.998047 25.463656 11.892938 25.026 12.835938 24.625 C 13.831938 24.202 31.066062 16.883437 32.414062 16.398438 C 33.038062 16.172438 33.608891 16.035156 34.087891 16.035156 z"></path>
+                    </svg>
+                  <a href="{{ route('admin.telegram') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800 ">
+                        Telegram Option
+                  </a>
+                </div>
+                @endif
+                <div class='flex items-center p-2 text-gray-500 transition-colors rounded-md dark:text-light hover:bg-primary-100 dark:hover:bg-primary'>
+                  <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+                    <path d="M 25 2 C 12.309288 2 2 12.309297 2 25 C 2 37.690703 12.309288 48 25 48 C 37.690712 48 48 37.690703 48 25 C 48 12.309297 37.690712 2 25 2 z M 25 4 C 36.609833 4 46 13.390175 46 25 C 46 36.609825 36.609833 46 25 46 C 13.390167 46 4 36.609825 4 25 C 4 13.390175 13.390167 4 25 4 z M 34.087891 14.035156 C 33.403891 14.035156 32.635328 14.193578 31.736328 14.517578 C 30.340328 15.020578 13.920734 21.992156 12.052734 22.785156 C 10.984734 23.239156 8.9960938 24.083656 8.9960938 26.097656 C 8.9960938 27.432656 9.7783594 28.3875 11.318359 28.9375 C 12.146359 29.2325 14.112906 29.828578 15.253906 30.142578 C 15.737906 30.275578 16.25225 30.34375 16.78125 30.34375 C 17.81625 30.34375 18.857828 30.085859 19.673828 29.630859 C 19.666828 29.798859 19.671406 29.968672 19.691406 30.138672 C 19.814406 31.188672 20.461875 32.17625 21.421875 32.78125 C 22.049875 33.17725 27.179312 36.614156 27.945312 37.160156 C 29.021313 37.929156 30.210813 38.335938 31.382812 38.335938 C 33.622813 38.335938 34.374328 36.023109 34.736328 34.912109 C 35.261328 33.299109 37.227219 20.182141 37.449219 17.869141 C 37.600219 16.284141 36.939641 14.978953 35.681641 14.376953 C 35.210641 14.149953 34.672891 14.035156 34.087891 14.035156 z M 34.087891 16.035156 C 34.362891 16.035156 34.608406 16.080641 34.816406 16.181641 C 35.289406 16.408641 35.530031 16.914688 35.457031 17.679688 C 35.215031 20.202687 33.253938 33.008969 32.835938 34.292969 C 32.477938 35.390969 32.100813 36.335938 31.382812 36.335938 C 30.664813 36.335938 29.880422 36.08425 29.107422 35.53125 C 28.334422 34.97925 23.201281 31.536891 22.488281 31.087891 C 21.863281 30.693891 21.201813 29.711719 22.132812 28.761719 C 22.899812 27.979719 28.717844 22.332938 29.214844 21.835938 C 29.584844 21.464938 29.411828 21.017578 29.048828 21.017578 C 28.923828 21.017578 28.774141 21.070266 28.619141 21.197266 C 28.011141 21.694266 19.534781 27.366266 18.800781 27.822266 C 18.314781 28.124266 17.56225 28.341797 16.78125 28.341797 C 16.44825 28.341797 16.111109 28.301891 15.787109 28.212891 C 14.659109 27.901891 12.750187 27.322734 11.992188 27.052734 C 11.263188 26.792734 10.998047 26.543656 10.998047 26.097656 C 10.998047 25.463656 11.892938 25.026 12.835938 24.625 C 13.831938 24.202 31.066062 16.883437 32.414062 16.398438 C 33.038062 16.172438 33.608891 16.035156 34.087891 16.035156 z"></path>
+                    </svg>
+                  <a href="{{ route('admin.set.fake') }}" role="menuitem"
+                        class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:text-gray-400 dark:hover:text-light hover:text-gray-800 ">
+                        Generate fake page
+                  </a>
+                </div>
                 <!-- Authentication links -->
 
             </nav>
@@ -473,10 +520,10 @@
         <!-- Main footer -->
         <footer
           class="flex items-center justify-between p-4 bg-white border-t dark:bg-darker dark:border-primary-darker">
-          <div>K-WD &copy; 2021</div>
+          <div>Magzbet Admin Panel &copy; 2024</div>
           <div>
             Made by
-            <a href="https://github.com/Kamona-WD" target="_blank" class="text-blue-500 hover:underline">Ahmed Kamel</a>
+            <a href="https://github.com/oleksandr010419" target="_blank" class="text-blue-500 hover:underline">Oleksandr</a>
           </div>
         </footer>
       </div>
@@ -625,161 +672,6 @@
           </div>
 
           <!-- Panel content (tabs) -->
-          <div class="flex-1 pt-4 overflow-y-hidden hover:overflow-y-auto">
-            <!-- Action tab -->
-            <div class="space-y-4" x-show.transition.in="activeTabe == 'action'">
-              <a href="#" class="block">
-                <div class="flex px-4 space-x-4">
-                  <div class="relative flex-shrink-0">
-                    <span
-                      class="z-10 inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
-                      <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                      </svg>
-                    </span>
-                    <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
-                      New project "KWD Dashboard" created
-                    </h5>
-                    <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                      Looks like there might be a new theme soon
-                    </p>
-                    <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 9h ago </span>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="block">
-                <div class="flex px-4 space-x-4">
-                  <div class="relative flex-shrink-0">
-                    <span
-                      class="inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
-                      <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                      </svg>
-                    </span>
-                    <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
-                      KWD Dashboard v0.0.2 was released
-                    </h5>
-                    <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                      Successful new version was released
-                    </p>
-                    <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 2d ago </span>
-                  </div>
-                </div>
-              </a>
-              <template x-for="i in 20" x-key="i">
-                <a href="#" class="block">
-                  <div class="flex px-4 space-x-4">
-                    <div class="relative flex-shrink-0">
-                      <span
-                        class="inline-block p-2 overflow-visible rounded-full bg-primary-50 text-primary-light dark:bg-primary-darker">
-                        <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                          stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg>
-                      </span>
-                      <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                    </div>
-                    <div class="flex-1 overflow-hidden">
-                      <h5 class="text-sm font-semibold text-gray-600 dark:text-light">
-                        New project "KWD Dashboard" created
-                      </h5>
-                      <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                        Looks like there might be a new theme soon
-                      </p>
-                      <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 9h ago </span>
-                    </div>
-                  </div>
-                </a>
-              </template>
-            </div>
-
-            <!-- User tab -->
-            <div class="space-y-4" x-show.transition.in="activeTabe == 'user'">
-              <a href="#" class="block">
-                <div class="flex px-4 space-x-4">
-                  <div class="relative flex-shrink-0">
-                    <span class="relative z-10 inline-block overflow-visible rounded-ful">
-                      <img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg" alt="Ahmed kamel" />
-                    </span>
-                    <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h5 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h5>
-                    <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                      Shared new project "K-WD Dashboard"
-                    </p>
-                    <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 1d ago </span>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="block">
-                <div class="flex px-4 space-x-4">
-                  <div class="relative flex-shrink-0">
-                    <span class="relative z-10 inline-block overflow-visible rounded-ful">
-                      <img class="object-cover rounded-full w-9 h-9" src="build/images/avatar-1.jpg"
-                        alt="Ahmed kamel" />
-                    </span>
-                    <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h5 class="text-sm font-semibold text-gray-600 dark:text-light">John</h5>
-                    <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                      Commit new changes to K-WD Dashboard project.
-                    </p>
-                    <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 10h ago </span>
-                  </div>
-                </div>
-              </a>
-              <a href="#" class="block">
-                <div class="flex px-4 space-x-4">
-                  <div class="relative flex-shrink-0">
-                    <span class="relative z-10 inline-block overflow-visible rounded-ful">
-                      <img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg" alt="Ahmed kamel" />
-                    </span>
-                    <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                  </div>
-                  <div class="flex-1 overflow-hidden">
-                    <h5 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h5>
-                    <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                      Release new version "K-WD Dashboard"
-                    </p>
-                    <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 20d ago </span>
-                  </div>
-                </div>
-              </a>
-              <template x-for="i in 10" x-key="i">
-                <a href="#" class="block">
-                  <div class="flex px-4 space-x-4">
-                    <div class="relative flex-shrink-0">
-                      <span class="relative z-10 inline-block overflow-visible rounded-ful">
-                        <img class="object-cover rounded-full w-9 h-9" src="build/images/avatar.jpg"
-                          alt="Ahmed kamel" />
-                      </span>
-                      <div class="absolute h-24 p-px -mt-3 -ml-px bg-primary-50 left-1/2 dark:bg-primary-darker"></div>
-                    </div>
-                    <div class="flex-1 overflow-hidden">
-                      <h5 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h5>
-                      <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                        Release new version "K-WD Dashboard"
-                      </p>
-                      <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> 20d ago </span>
-                    </div>
-                  </div>
-                </a>
-              </template>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -806,87 +698,14 @@
             </svg>
           </button>
         </div>
-
-        <h2 class="sr-only">Search panel</h2>
-        <!-- Panel content -->
-        <div class="flex flex-col h-screen">
-          <!-- Panel header (Search input) -->
-          <div
-            class="relative flex-shrink-0 px-4 py-8 text-gray-400 border-b dark:border-primary-darker dark:focus-within:text-light focus-within:text-gray-700">
-            <span class="absolute inset-y-0 inline-flex items-center px-4">
-              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </span>
-            <input x-ref="searchInput" type="text"
-              class="w-full py-2 pl-10 pr-4 border rounded-full dark:bg-dark dark:border-transparent dark:text-light focus:outline-none focus:ring"
-              placeholder="Search..." />
-          </div>
-
-          <!-- Panel content (Search result) -->
-          <div class="flex-1 px-4 pb-4 space-y-4 overflow-y-hidden h hover:overflow-y-auto">
-            <h3 class="py-2 text-sm font-semibold text-gray-600 dark:text-light">History</h3>
-            <a href="#" class="flex space-x-4">
-              <div class="flex-shrink-0">
-                <img class="w-10 h-10 rounded-lg" src="build/images/cover.jpg" alt="Post cover" />
-              </div>
-              <div class="flex-1 max-w-xs overflow-hidden">
-                <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Header</h4>
-                <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                  Lorem ipsum dolor, sit amet consectetur.
-                </p>
-                <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Post </span>
-              </div>
-            </a>
-            <a href="#" class="flex space-x-4">
-              <div class="flex-shrink-0">
-                <img class="w-10 h-10 rounded-lg" src="build/images/avatar.jpg" alt="Ahmed Kamel" />
-              </div>
-              <div class="flex-1 max-w-xs overflow-hidden">
-                <h4 class="text-sm font-semibold text-gray-600 dark:text-light">Ahmed Kamel</h4>
-                <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                  Last activity 3h ago.
-                </p>
-                <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Offline </span>
-              </div>
-            </a>
-            <a href="#" class="flex space-x-4">
-              <div class="flex-shrink-0">
-                <img class="w-10 h-10 rounded-lg" src="build/images/cover-2.jpg" alt="K-WD Dashboard" />
-              </div>
-              <div class="flex-1 max-w-xs overflow-hidden">
-                <h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>
-                <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                </p>
-                <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Updated 3h ago. </span>
-              </div>
-            </a>
-            <template x-for="i in 10" x-key="i">
-              <a href="#" class="flex space-x-4">
-                <div class="flex-shrink-0">
-                  <img class="w-10 h-10 rounded-lg" src="build/images/cover-3.jpg" alt="K-WD Dashboard" />
-                </div>
-                <div class="flex-1 max-w-xs overflow-hidden">
-                  <h4 class="text-sm font-semibold text-gray-600 dark:text-light">K-WD Dashboard</h4>
-                  <p class="text-sm font-normal text-gray-400 truncate dark:text-primary-lighter">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  </p>
-                  <span class="text-sm font-normal text-gray-400 dark:text-primary-light"> Updated 3h ago. </span>
-                </div>
-              </a>
-            </template>
-          </div>
-        </div>
       </section>
     </div>
   </div>
 
   <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
-  <script src="{{asset('js/script.js')}}"></script>
+  <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+  {!! Toastr::message() !!}
   <script>
     const setup = () => {
       const getTheme = () => {
@@ -920,36 +739,6 @@
         this.selectedColor = color
         window.localStorage.setItem('color', color)
         //
-      }
-
-      const updateBarChart = (on) => {
-        const data = {
-          data: randomData(),
-          backgroundColor: 'rgb(207, 250, 254)',
-        }
-        if (on) {
-          barChart.data.datasets.push(data)
-          barChart.update()
-        } else {
-          barChart.data.datasets.splice(1)
-          barChart.update()
-        }
-      }
-
-      const updateDoughnutChart = (on) => {
-        const data = random()
-        const color = 'rgb(207, 250, 254)'
-        if (on) {
-          doughnutChart.data.labels.unshift('Seb')
-          doughnutChart.data.datasets[0].data.unshift(data)
-          doughnutChart.data.datasets[0].backgroundColor.unshift(color)
-          doughnutChart.update()
-        } else {
-          doughnutChart.data.labels.splice(0, 1)
-          doughnutChart.data.datasets[0].data.splice(0, 1)
-          doughnutChart.data.datasets[0].backgroundColor.splice(0, 1)
-          doughnutChart.update()
-        }
       }
 
       const updateLineChart = () => {
@@ -1013,8 +802,6 @@
             this.$refs.mobileMainMenu.focus()
           })
         },
-        updateBarChart,
-        updateDoughnutChart,
         updateLineChart,
       }
     }

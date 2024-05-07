@@ -1,4 +1,6 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
+
 @if(isset($sub))
 <div class="pb-26 container py-20">
     <div class="mx-auto max-w-lg">
@@ -30,7 +32,7 @@
 
                     @if ($message = Session::get('error'))
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          <strong>{{ $message }}</strong>
+                          <strong class='text-red' >{{ $message }}</strong>
                           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @endif

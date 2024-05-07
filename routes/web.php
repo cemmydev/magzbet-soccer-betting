@@ -8,9 +8,12 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\View\ViewController;
 use App\Http\Controllers\Admin;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\TelegramController;
 use App\Http\Middleware\CanMiddleware;
 use App\Http\Middleware\EnsureEmailIsVerified;
 use App\Http\Middleware\RedirectIfAdmin;
+use App\Http\Middleware\RedirectIfSuperAdmin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,16 +21,24 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
+Route::get('/mail/welcome', [MailController::class, 'sendWelcomeEmail']);
+Route::get('/activeUsers', [Admin\UserController::class, 'getActiveUsers']);
 
-Route::middleware([
-	'web',
-	])->group(function () {
+Route::get('/td/new/{id}', [TelegramController::class, 'subscribe'])->name('td.subscribe');
+
+Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.getupdate');
+
+Route::middleware(['web',])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
 	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
 	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
 	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
 	Route::get('/privacy', [ViewController::class, 'builder'])->name('privacy');
+	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
+	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
+	Route::post('/contact', [ContactController::class, 'store']);
+	Route::get('bets/results', [ViewController::class, 'render_results'])->name('bets.results');
 	// auth routes
 	Route::controller(Auth\AuthController::class)
 		->group(function () {
@@ -76,7 +87,6 @@ Route::middleware([
 					], function () {
 						Route::get('/', 'render_bets')->name('index');
 						Route::get('/{id}', 'render_abet')->where('id', '[0-9]+');
-						Route::get('/results', 'render_results')->name('results');
 					});
 					Route::group([
 						'prefix' => 'account',
@@ -88,9 +98,6 @@ Route::middleware([
 					});
 				});
 			// stats page routes
-			Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
-			Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
-			Route::post('/contact', [ContactController::class, 'store']);
 			/*
 			|--------------------------------------------------------------------------
 			| Email verification routes
@@ -120,7 +127,7 @@ Route::middleware([
 					Route::get('/subscript/{id}', [PaymentController::class, 'subscript'])->name('subscript');
 					Route::post('paypal/payment', [PayPalController::class, 'payment'])->name('paypal.payment');
 					Route::get('paypal/payment/success/{id}', [PayPalController::class, 'paymentSuccess'])->name('paypal.payment.success');
-					Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment/cancel');
+					Route::get('paypal/payment/cancel', [PayPalController::class, 'paymentCancel'])->name('paypal.payment.cancel');
 					Route::controller(ViewController::class)
 						->group(function () {
 							// dashboard
@@ -135,35 +142,35 @@ Route::middleware([
 							// users
 							Route::middleware(RedirectIfAdmin::class)
 								->group(function () {
-									Route::group([
-										'prefix' => 'users',
-										'as' => 'users.',
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-										Route::get('/create', 'builder')->name('store');
-										Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
-									});
-									// records
-									Route::group([
-										'prefix' => 'records',
-										'as' => 'records.',
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
-										Route::get('/create', 'builder')->name('store');
-									});
-									// settings
-									Route::group([
-										'prefix' => 'settings',
-										'as' => 'settings.',
-										'middleware' => [
-											CanMiddleware::class . ':view_settings'
-										]
-									], function () {
-										Route::get('/', 'builder')->name('index');
-										Route::get('/roles', 'builder')->name('roles');
-									});
+									// Route::group([
+									// 	'prefix' => 'users',
+									// 	'as' => 'users.',
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+									// 	Route::get('/create', 'builder')->name('store');
+									// 	Route::get('/options', 'builder')->name('options')->middleware(CanMiddleware::class . ':view_options_users');
+									// });
+									// // records
+									// Route::group([
+									// 	'prefix' => 'records',
+									// 	'as' => 'records.',
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/{id}', 'builder')->where('id', '[0-9]+')->name('edit');
+									// 	Route::get('/create', 'builder')->name('store');
+									// });
+									// // settings
+									// Route::group([
+									// 	'prefix' => 'settings',
+									// 	'as' => 'settings.',
+									// 	'middleware' => [
+									// 		CanMiddleware::class . ':view_settings'
+									// 	]
+									// ], function () {
+									// 	Route::get('/', 'builder')->name('index');
+									// 	Route::get('/roles', 'builder')->name('roles');
+									// });
 
 									//admin routes
 
@@ -171,37 +178,58 @@ Route::middleware([
 											'prefix'=> 'admin',
 											'as' => 'admin.'
 										],function () {
-											Route::get('/', [ViewController::class, 'builder'])->name('index');
+											Route::get('/', [ViewController::class, 'render_admin'])->name('index');
 
-											Route::prefix('contacts')->group(function () {
-												Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
-												Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');
-											});
+											Route::get('/fake', [ViewController::class, 'render_fake']);
+											Route::get('/fake/set', [ViewController::class, 'render_set_fake'])->name('set.fake');
+											Route::post('/fake/set', [ViewController::class, 'set_fake']);
 
-											Route::prefix('users')->group(function () {
-												Route::get('/', [Admin\UserController::class, 'index'])->name('users');
-												Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
-												Route::get('/{id}/delete', [Admin\UserController::class, 'delete'])->name('users.delete');
-											});
+											Route::get('/telegram', [TelegramController::class, 'index'])->name('telegram');
+											Route::post('/telegram', [TelegramController::class, 'update']);
+											Route::middleware(RedirectIfSuperAdmin::class)
+											->group(function () {
+												Route::prefix('texts')->group(function () {
+													Route::get('/', [Admin\TextController::class, 'index'])->name('texts');
+													Route::get('/new', [Admin\TextController::class, 'create'])->name('texts.create');
+													Route::post('/new', [Admin\TextController::class, 'store']);
+													Route::get('/{id}', [Admin\TextController::class, 'edit'])->name('texts.edit');
+													Route::post('/{id}', [Admin\TextController::class, 'update']);
+												});
 
-											Route::prefix('subscriptions')->group(function () {
-												Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
-												Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
-												Route::post('create', [Admin\SubscriptionsController::class, 'store']);
-												Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
-												Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
-											});
+												Route::prefix('contacts')->group(function () {
+													Route::get('/', [Admin\ContactController::class,'index'])->name('contacts');
+													Route::get('/{id}', [Admin\ContactController::class,'contact'])->name('singlecontact');
+												});
 
-											Route::group(['prefix' => 'posts'], function () {
-												Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
-												Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
-												Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
-												Route::post('/create', [Admin\PostsController::class, 'store']);
-												Route::post('/{id}', [Admin\PostsController::class, 'update']);
-												Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
-												Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
-												Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
+												Route::prefix('users')->group(function () {
+													Route::get('/', [Admin\UserController::class, 'index'])->name('users');
+													Route::get('/create', [Admin\UserController::class, 'create'])->name('users.create');
+													Route::get('/delete/{id}', [Admin\UserController::class, 'delete'])->name('users.delete');
+													Route::get('/{id}', [Admin\UserController::class, 'edit'])->name('users.edit');
+													Route::post('/{id}', [Admin\UserController::class, 'update']);
+													Route::post('/{id}/addsubscription', [Admin\UserController::class, 'addsubscription'])->name('users.add');
+													Route::get('/{id}/{sid}', [Admin\UserController::class, 'expire'])->name('users.expire');
+												});
+
+												Route::prefix('subscriptions')->group(function () {
+													Route::get('/', [Admin\SubscriptionsController::class, 'index'])->name('subscriptions');
+													Route::get('/create', [Admin\SubscriptionsController::class, 'create'])->name('subscriptions.create');
+													Route::post('create', [Admin\SubscriptionsController::class, 'store']);
+													Route::get('/{id}', [Admin\SubscriptionsController::class, 'edit'])->name('subscriptions.edit');
+													Route::post('/{id}', [Admin\SubscriptionsController::class, 'update']);
+													Route::get('/{id}/delete', [Admin\SubscriptionsController::class, 'delete'])->name('subscriptions.delete');
+												});
+
+												Route::group(['prefix' => 'posts'], function () {
+													Route::get('/', [Admin\PostsController::class, 'index'])->name('posts');
+													Route::get('/create', [Admin\PostsController::class, 'create'])->name('posts.create');
+													Route::get('/{id}', [Admin\PostsController::class, 'edit'])->name('posts.edit');
+													Route::post('/create', [Admin\PostsController::class, 'store']);
+													Route::post('/{id}', [Admin\PostsController::class, 'update']);
+													Route::get('/{id}/delete', [Admin\PostsController::class,'delete'])->name('posts.delete');
+													Route::get('/{id}/win', [Admin\PostsController::class,'win'])->name('posts.win');
+													Route::get('/{id}/lose', [Admin\PostsController::class,'lose'])->name('posts.lose');
+												});
 											});
 										});
 								});

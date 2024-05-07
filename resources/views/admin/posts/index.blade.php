@@ -23,15 +23,15 @@
       <tbody class="flex-1 sm:flex-none text-center">
         @foreach($posts as $post)
         <tr class="flex flex-col flex-no wrap sm:table-row mb-4 sm:mb-0">
-          <td class="border-grey-light border hover:bg-gray-100 p-3">
+          <td class="border-grey-light border p-3">
             <b>{{$post['event']}}</b> at
             {{date('d-m-Y', strtotime($post['date']))}}
           </td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3">{{$post['description']}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{date('d-m-Y',
+          <td class="border-grey-light border p-3">{{Str::of($post['description'])->limit(30)}}</td>
+          <td class="border-grey-light border p-3 truncate">{{date('d-m-Y',
             strtotime($post['created_at']))}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3 truncate">{{$post['status']}}</td>
-          <td class="border-grey-light border hover:bg-gray-100 p-3" title="Odds, Stake, Gain, Profit">
+          <td class="border-grey-light border p-3 truncate">{{$post['status']}}</td>
+          <td class="border-grey-light border p-3" title="Odds, Stake, Gain, Profit">
             {{$post['odds']}},
             {{$post['stake']}},
             {{$post['gain']}},
@@ -42,6 +42,7 @@
             @endforeach
           </td>
           <td class="border-grey-light border hover:bg-gray-100 p-3 flex sm:block justify-around items-center">
+            <a href="{{route('td.subscribe', $post['id'])}}">subscribe</a>
             <div class="flex justify-around">
               <a class="text-red-400 hover:text-red-600 cursor-pointer block mx-2" href="{{route('admin.posts.edit', $post['id'])}}">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0 0 50 50"

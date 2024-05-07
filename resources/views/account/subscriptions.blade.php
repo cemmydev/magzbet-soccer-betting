@@ -1,4 +1,5 @@
 <x-app-layout>
+    <link rel="canonical" href="https://magzbet.com/dashboard" />
     <main>
         <div class="container py-6">
             <div class="mb-4">
@@ -47,9 +48,7 @@
                         <div class="flex items-center justify-between gap-x-4">
                             <h3 class="text-lg font-semibold leading-8 text-white">{{$subscription['name']}}</h3>
                         </div>
-                        <p class="mt-4 text-sm leading-6 text-gray-300">This is a monthly recurring subscription for 1/3
-                            bet
-                            category.</p>
+                        <p class="mt-4 text-sm leading-6 text-gray-300">{{$subscription['description']}}</p>
                         <p class="mt-6 flex items-baseline gap-x-1">
                             <span
                                 class="text-4xl font-bold tracking-tight text-white">${{$subscription['cost']}}
@@ -61,81 +60,14 @@
                         </a>
                     </div>
                     @endforeach
-                    <!-- <div class="ring-1 ring-white/10 rounded-3xl p-10 w-full max-w-xs">
-                    <div class="flex items-center justify-between gap-x-4">
-                        <h3 class="text-lg font-semibold leading-8 text-white">1/3</h3>
-                    </div>
-                    <p class="mt-4 text-sm leading-6 text-gray-300">This is a monthly recurring subscription for 1/3 bet
-                        category.</p>
-                    <p class="mt-6 flex items-baseline gap-x-1"><span
-                            class="text-4xl font-bold tracking-tight text-white">€50.00</span><span
-                            class="text-sm font-semibold leading-6 text-gray-300">/ Month</span></p><a href="#"
-                        aria-describedby="price_1OP0mOIqx9qI75cwVCvFEpUY"
-                        class="bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500 mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Buy
-                        Subscription</a>
-                </div>
-                <div class="bg-white/5 ring-2 ring-green-500 rounded-3xl p-10 w-full max-w-xs">
-                    <div class="flex items-center justify-between gap-x-4">
-                        <h3 class="text-lg font-semibold leading-8 text-white">Giveaway Offer</h3>
-                        <p
-                            class="rounded-full bg-green-600/10 px-2.5 py-1 text-xs font-semibold leading-5 text-green-600">
-                            Offer</p>
-                    </div>
-                    <p class="mt-4 text-sm leading-6 text-gray-300">This giveaway subscription gives you access to all
-                        bet categories and bots. Duration of the subscription is one (1) month.</p>
-                    <p class="mt-6 flex items-baseline gap-x-1"><span
-                            class="text-4xl font-bold tracking-tight text-white">€100.00</span></p><a href="#"
-                        aria-describedby="price_1OdeGYIqx9qI75cwd5s7vsDI"
-                        class="bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500 mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Buy
-                        Subscription</a>
-                </div>
-                <div class="ring-1 ring-white/10 rounded-3xl p-10 w-full max-w-xs">
-                    <div class="flex items-center justify-between gap-x-4">
-                        <h3 class="text-lg font-semibold leading-8 text-white">1/3 + 2/3 + 3/3</h3>
-                    </div>
-                    <p class="mt-4 text-sm leading-6 text-gray-300">This is a monthly recurring subscription for all bet
-                        categories.</p>
-                    <p class="mt-6 flex items-baseline gap-x-1"><span
-                            class="text-4xl font-bold tracking-tight text-white">€140.00</span><span
-                            class="text-sm font-semibold leading-6 text-gray-300">/ Month</span></p><a href="#"
-                        aria-describedby="price_1OdeFVIqx9qI75cwJwKrHMYU"
-                        class="bg-green-500 text-white shadow-sm hover:bg-green-400 focus-visible:outline-green-500 mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">Buy
-                        Subscription</a>
-                </div> -->
                 </div>
             </div>
             <hr class="shrink-0 bg-divider border-none w-full h-divider mb-10" role="separator">
             <div class="mb-5">
-                <h2 class="mb-4 text-2xl">Manage Your Subscription with Ease</h2>
-                <p><strong>Looking to Update, Renew, or Cancel Your Subscription?</strong></p>
+                <h2 class="mb-4 text-2xl">Here you can see your subscription's name/category, Starting Day and Ending Day. </h2>
+                <p><strong>You can buy more than one time a subscription and the days will add up. Down bellow you can see each subscription's remaining days.</strong></p>
             </div>
-            <div class="mb-5">
-                <p>We've made managing your subscription hassle-free! Simply visit our <a href="#">Stripe Customer
-                        Portal</a>, where you can effortlessly:</p>
-                <ul class="list-disc pl-5">
-                    <li><strong>Renew</strong> your subscription for continued access to our amazing services.</li>
-                    <li><strong>Change</strong> your subscription plan to better suit your needs.</li>
-                    <li><strong>Cancel</strong> your subscription, if you ever need to (though we'd hate to see you
-                        go!).
-                    </li>
-                </ul>
-            </div>
-            <div class="mb-8">
-                <p class="mb-2">The Stripe Customer Portal offers a secure, user-friendly interface, ensuring you have
-                    complete control over your subscription preferences.</p>
-                <div class="mb-2"><a
-                        class="tap-highlight-transparent no-underline hover:opacity-80 active:opacity-disabled transition-opacity z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
-                        tabindex="0" role="button" href="#"
-                        target="_blank" previewlistener="true">Disable renew subscription<svg aria-hidden="true" fill="none"
-                            focusable="false" height="1em" shape-rendering="geometricPrecision" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24"
-                            width="1em" class="flex mx-1 text-current self-center">
-                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
-                            <path d="M15 3h6v6"></path>
-                            <path d="M10 14L21 3"></path>
-                        </svg></a></div>
-                <p><small>(Clicking this link will redirect you to the Stripe Customer Portal.)</small></p>
-            </div>
+            
             <div class="mb-5">
                 <h2 class="mb-4 text-2xl">My Subscriptions</h2>
             </div>
@@ -207,40 +139,6 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
-            <div class="flex justify-center">
-                <nav role="navigation" aria-label="pagination navigation" data-slot="base" data-controls="true"
-                    data-dots-jump="5" data-total="1" data-active-page="1"
-                    class="p-2.5 -m-2.5 overflow-x-scroll scrollbar-hide">
-                    <ul data-slot="wrapper"
-                        class="flex flex-nowrap h-fit max-w-fit relative items-center overflow-visible gap-0 shadow-sm rounded-medium">
-                        <span aria-hidden="true" data-slot="cursor"
-                            class="absolute flex overflow-visible items-center justify-center origin-center left-0 select-none touch-none pointer-events-none z-20 data-[moving=true]:transition-transform !data-[moving=true]:duration-300 opacity-0 data-[moving]:opacity-100 shadow-primary/40 bg-primary text-primary-foreground shadow-md min-w-9 w-9 h-9 text-small rounded-medium"
-                            data-moving="false" style="transform: translateX(36px) scale(1);">1</span>
-                        <li role="button" tabindex="-1" aria-label="previous page button" aria-disabled="true"
-                            data-disabled="true" data-slot="prev"
-                            class="!rounded-r-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                                viewBox="0 0 24 24" width="1em">
-                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"></path>
-                            </svg>
-                        </li>
-                        <li role="button" tabindex="0" aria-label="pagination item 1 active" aria-current="true"
-                            data-active="true" data-slot="item"
-                            class="tap-highlight-transparent select-none touch-none first-of-type:rounded-r-none last-of-type:rounded-l-none [&amp;:not(:first-of-type):not(:last-of-type)]:rounded-none data-[pressed=true]:scale-[0.97] transition-transform-background flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            1</li>
-                        <li role="button" tabindex="-1" aria-label="next page button" aria-disabled="true"
-                            data-disabled="true" data-slot="next"
-                            class="!rounded-l-none flex flex-wrap truncate box-border items-center justify-center text-default-foreground outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 data-[disabled=true]:text-default-300 data-[disabled=true]:pointer-events-none shadow-sm bg-default-100 [&amp;[data-hover=true]:not([data-active=true])]:bg-default-200 active:bg-default-300 min-w-9 w-9 h-9 text-small rounded-medium">
-                            <svg aria-hidden="true" fill="none" focusable="false" height="1em" role="presentation"
-                                viewBox="0 0 24 24" width="1em" class="rotate-180">
-                                <path d="M15.5 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="1.5"></path>
-                            </svg>
-                        </li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </main>
