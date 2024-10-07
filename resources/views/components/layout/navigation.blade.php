@@ -1,10 +1,10 @@
 <nav x-data="{ open: false }"
-	class="flex z-40 w-full h-auto items-center justify-center data-[menu-open=true]:border-none sticky top-0 inset-x-0 border-b border-divider backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70">
+	class="flex z-40 w-full h-24 items-center justify-center data-[menu-open=true]:border-none sticky top-0 inset-x-0 border-b border-divider backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl backdrop-saturate-150 bg-background/70">
 	<!-- Primary Navigation Menu -->
 	<!-- <div class="w-full lg:max-w-[90%] xl:max-w-[80%] mx-auto px-4 sm:px-6 lg:px-8"> -->
-	<div class="px-6 sm:px-3 gap-4 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">
-		<div class="flex justify-between h-16">
-			<div class="flex">
+	<div class="px-6 sm:px-3 gap-2 w-full relative flex-nowrap items-center h-[var(--navbar-height)] max-w-[1280px]">
+		<div class="flex justify-between h-16 font-bold">
+			<div class="flex w-full sm:justify-between">
 				<!-- Logo -->
 				<div class="shrink-0 flex items-center mr-4">
 					<a href="{{ route('dashboard') }}" class="h-auto">
@@ -12,7 +12,7 @@
 					</a>
 				</div>
 				
-				<div class="flex items-center mr-2 sm:hidden">
+				<div class="flex items-center mr-2 sm:hidden w-auto">
 					<x-form.dropdown align="left" width="48">
 						<x-slot name="trigger">
 							<button
@@ -60,7 +60,7 @@
 				</div>
 				<!-- Navigation Links -->
 				<ul
-					class="h-full flex-row flex-nowrap items-center data-[justify=start]:justify-start data-[justify=start]:flex-grow data-[justify=start]:basis-0 data-[justify=center]:justify-center data-[justify=end]:justify-end data-[justify=end]:flex-grow data-[justify=end]:basis-0 hidden gap-4 sm:flex">
+					class="h-full flex-row flex-nowrap items-center data-[justify=start]:justify-start data-[justify=start]:flex-grow data-[justify=start]:basis-0 data-[justify=center]:justify-center data-[justify=end]:justify-end data-[justify=end]:flex-grow data-[justify=end]:basis-0 hidden gap-8 md:flex">
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
 						<x-navbar.link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
 							{{ __('general.navbar.home') }}
@@ -95,6 +95,7 @@
 					</li>
 					@endif
 				</ul>
+				<div></div>
 			</div>
 			<!-- right menu -->
 			<div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -139,7 +140,7 @@
 					data-justify="end">
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold"><a
 							class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-primary text-primary-foreground data-[hover=true]:opacity-hover"
-							role="button" tabindex="0" href="{{route('register')}}" previewlistener="true">Sign Up</a>
+							role="button" tabindex="0" href="{{route('register')}}" previewlistener="true">Start 3 Day Trial</a>
 					</li>
 					<li class="text-medium whitespace-nowrap box-border list-none data-[active=true]:font-semibold">
 						<a class="z-0 group relative inline-flex items-center justify-center box-border appearance-none select-none whitespace-nowrap font-normal subpixel-antialiased overflow-hidden tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium [&amp;>svg]:max-w-[theme(spacing.unit-8)] data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none bg-default/40 text-default-foreground data-[hover=true]:opacity-hover"

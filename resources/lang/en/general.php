@@ -12,7 +12,7 @@ return [
 		'home' => 'Home',
 		'bets' => 'Bets',
 		'results' => 'Results',
-		'stats' => 'Stats',
+		'stats' => 'My Stats',
 		'contact' => 'Contact',
 		'admin' => 'Admin',
 		'subscriptions' => 'Subscriptions',

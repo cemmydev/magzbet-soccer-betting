@@ -1,1 +1,1 @@
-<img src="{{ asset('assets/images/logo.webp') }}"class="h-10" alt='magdalinos logo'/>
+<img src="{{ asset('assets/images/logo.webp') }}"class="h-20 m-2" alt='magdalinos logo'/>
