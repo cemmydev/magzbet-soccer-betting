@@ -1,5 +1,5 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 124.2 40" style="enable-background:new 0 0 124.2 40;" xml:space="preserve">
+	 viewBox="0 0 124.2 40" style="enable-background:new 0 0 124.2 40; width: 100px" xml:space="preserve">
 	<style type="text/css">
 		.st0{fill:none;}
 		.st1{fill:#FF0000;}

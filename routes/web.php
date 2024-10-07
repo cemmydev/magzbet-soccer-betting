@@ -31,6 +31,7 @@ Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.
 Route::middleware(['web',])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
+	Route::get('/dashboardtest', function(){ return view('dashboard.index_'); });
 	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
 	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
 	Route::get('/aboutus', [ViewController::class, 'builder'])->name('aboutus');
