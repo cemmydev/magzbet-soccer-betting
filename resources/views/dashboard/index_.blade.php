@@ -25,15 +25,15 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7COswald:400,700%7CDroid+Sans:400,700%7CRoboto:400,700%7CLato:400,700%7CPT+Sans:400,700%7CSource+Sans+Pro:400,600,700%7CNoto+Sans:400,700%7CPT+Sans:400,700%7CUbuntu:400,700%7CBitter:400,700%7CPT+Serif:400,700%7CRokkitt:400,700%7CDroid+Serif:400,700%7CRaleway:400,700%7CInconsolata:400,700"
         rel="stylesheet" type="text/css">
     <meta property="cf:funnel_id"
-        content="NVFwb0F0L1dtM0tIYzZDdFdQOE00dz09LS1iVkN5UUNzRU5nWkhIRzl5ZGduSUJRPT0=--eb98bc9856f631710214158ac9800301fa3f78cf">
+        content="UitJU1M0VjFDYlpsaWVGSVVGQWtDdz09LS1zczhQeFEvU3lqOU5UOXB1SVdEMXd3PT0=--7c0cc7ec4c101bd41974ac3dbbd2e0274d9951c8">
     <meta property="cf:page_id"
-        content="ZXhLUWw0bmFidW1DQkVuSWVmVWJkZz09LS1jdTJVNlRsSmpUbTFuMmtRS0ZzejVnPT0=--cd067f24ef123628203039481d2ca157b32fdbb4">
+        content="YzYwQ2VKeWwrWDlKdU1EOGhWTzRLQT09LS1razhtSm1qZmx6enE0YWI2NmpkU1lRPT0=--6f18b3f72fbbae49e61418336a2f82612f8cfecf">
     <meta property="cf:funnel_step_id"
-        content="NEhEaElqRjJOK3lneVBLU3BnNmNCUT09LS1yS0d6NkNpaFl2VVAyY25zSyszbHpBPT0=--33a6610b3742b1f7abe356685a05bcce9689ebd4">
+        content="VWJwTGs2K2NPTmQ3RTd6cDJPTlFudz09LS1vMjhPcnl3NGo0YUJPZFJTYjNGZ1BnPT0=--c61f983b0c4f701f376e685e3d09e7595530d2f5">
     <meta property="cf:user_id"
-        content="NHpCcjFVeHovdStpVzRhdjdBNTNxUT09LS1tSGZiWk15SmpYUGswc1VIL3BLeTdBPT0=--dab9e7ccff10567c70dd6d2f21f2b66bbc827078">
+        content="a2hyN1B4UEYxVUpYMTR4NjhpNjNidz09LS04MzBmbzNyaXc4eWNtem52UytzWTZBPT0=--7c3c41c4bea525acb7c1e8f730ccb980adda0949">
     <meta property="cf:account_id"
-        content="bjdUVmU3MWRzS1hVSTFPVElKazRqdz09LS1BWTd2WVZEL1ZLM3pTYjdxKzNISG1nPT0=--981cf8c6cafab7c46178e2f56458f67616ff3687">
+        content="YXJQdVZxNnVJUnJhS012M0x0YncrQT09LS1SYjVSNkovODRFOVp5cVBndzNta2NBPT0=--b42bd5e3a0a034a3b742c3180f6ad5d6af5aa55d">
     <meta property="cf:page_code" content="NjIzMjUxNzI=">
     <meta property="cf:mode_id" content="1">
     <meta property="cf:time_zone" content="Eastern Time (US &amp; Canada)">
@@ -62,147 +62,183 @@
     }
     window.addEventListener("load", init);
     </script>
-    <style id="mttstyle">
-    #mttContainer {
-        left: 0 !important;
-        top: 0 !important;
-        width: 1000px !important;
-        margin: 0px !important;
-        margin-left: -500px !important;
-        position: fixed !important;
-        z-index: 100000200 !important;
-        background: none !important;
-        pointer-events: none !important;
-        display: inline-block !important;
-        visibility: visible !important;
-        white-space: pre-line;
+    <style type="text/css">
+    .addthisevent {
+        visibility: hidden;
     }
 
-    .tippy-box[data-theme~="custom"],
-    .tippy-content * {
-        font-size: 18px !important;
-        text-align: center !important;
-        overflow-wrap: break-word !important;
-        color: #ffffffff !important;
-        font-family:
-            -apple-system, BlinkMacSystemFont,
-            "Segoe UI", "Roboto", "Oxygen",
-            "Ubuntu", "Cantarell", "Fira Sans",
-            "Droid Sans", "Helvetica Neue", sans-serif !important;
-        white-space: pre-line;
-    }
-
-    .tippy-box[data-theme~="custom"] {
-        max-width: 200px !important;
-        backdrop-filter: blur(4px) !important;
-        background-color: #000000b8 !important;
-        border: 1px solid #ffffff00;
-    }
-
-    [data-tippy-root] {
-        display: inline-block !important;
-        visibility: visible !important;
-        position: absolute !important;
-    }
-
-    .tippy-box[data-theme~='custom'][data-placement^='top']>.tippy-arrow::before {
-        border-top-color: #000000b8 !important;
-    }
-
-    .tippy-box[data-theme~='custom'][data-placement^='bottom']>.tippy-arrow::before {
-        border-bottom-color: #000000b8 !important;
-    }
-
-    .tippy-box[data-theme~='custom'][data-placement^='left']>.tippy-arrow::before {
-        border-left-color: #000000b8 !important;
-    }
-
-    .tippy-box[data-theme~='custom'][data-placement^='right']>.tippy-arrow::before {
-        border-right-color: #000000b8 !important;
-    }
-
-    .mtt-highlight {
-        background-color: #21dc6d40 !important;
-        position: absolute !important;
-        z-index: 100000100 !important;
-        pointer-events: none !important;
-        display: inline !important;
-        border-radius: 3px !important;
-    }
-
-    .mtt-image {
-        width: 180px !important;
-        border-radius: 3px !important;
-    }
-
-    .ocr_text_div {
-        position: absolute;
-        opacity: 0.5;
-        color: transparent !important;
-        border: 2px solid CornflowerBlue;
-        background: none !important;
-        border-radius: 3px !important;
+    .addthisevent-drop ._url,
+    .addthisevent-drop ._start,
+    .addthisevent-drop ._end,
+    .addthisevent-drop ._zonecode,
+    .addthisevent-drop ._summary,
+    .addthisevent-drop ._description,
+    .addthisevent-drop ._location,
+    .addthisevent-drop ._organizer,
+    .addthisevent-drop ._organizer_email,
+    .addthisevent-drop ._attendees,
+    .addthisevent-drop ._facebook_event,
+    .addthisevent-drop ._all_day_event {
+        display: none !important;
     }
     </style>
-    <style id="mttstyleSubtitle">
-    #ytp-caption-window-container .ytp-caption-segment {
-        cursor: text !important;
-        user-select: text !important;
-        font-family:
-            -apple-system, BlinkMacSystemFont,
-            "Segoe UI", "Roboto", "Oxygen",
-            "Ubuntu", "Cantarell", "Fira Sans",
-            "Droid Sans", "Helvetica Neue", sans-serif !important;
-    }
-
-    .caption-visual-line {
-        display: flex !important;
-        align-items: stretch !important;
-    }
-
-    .captions-text .caption-visual-line:first-of-type:after {
-        content: '⣿⣿';
-        background-color: #000000b8;
+    <style type="text/css" id="ate_css">
+    .addthisevent-drop {
         display: inline-block;
-        vertical-align: top;
-        opacity: 0;
-        transition: opacity 0.7s ease-in-out;
+        position: relative;
+        font-family: arial;
+        color: #333 !important;
+        background: #f4f4f4 url(https://addthisevent.com/gfx/icon-calendar-t1.png) no-repeat 9px 50%;
+        text-decoration: none !important;
+        border: 1px solid #d9d9d9;
+        color: #555;
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none;
+        padding: 9px 12px 8px 35px;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 
-    .captions-text:hover .caption-visual-line:first-of-type:after {
-        opacity: 1;
+    .addthisevent-drop:hover {
+        border: 1px solid #aab9d4;
+        color: #555;
+        font-weight: bold;
+        font-size: 14px;
+        text-decoration: none !important;
     }
 
-    .ytp-pause-overlay {
+    .addthisevent-drop:active {
+        top: 1px;
+    }
+
+    .addthisevent-selected {
+        background-color: #f7f7f7;
+    }
+
+    .addthisevent_dropdown {
+        width: 200px;
+        position: absolute;
+        z-index: 99999;
+        padding: 6px 0px 0px 0px;
+        background: #fff;
+        text-align: left;
+        display: none;
+        margin-top: -2px;
+        margin-left: -1px;
+        border-top: 1px solid #c8c8c8;
+        border-right: 1px solid #bebebe;
+        border-bottom: 1px solid #a8a8a8;
+        border-left: 1px solid #bebebe;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -webkit-box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
+        box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .addthisevent_dropdown span {
+        display: block;
+        cursor: pointer;
+        line-height: 110%;
+        background: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        color: #6d84b4;
+        padding: 8px 10px 9px 15px;
+    }
+
+    .addthisevent_dropdown span:hover {
+        background: #f4f4f4;
+        color: #6d84b4;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .addthisevent span {
         display: none !important;
     }
 
-    .ytp-expand-pause-overlay .caption-window {
-        display: block !important;
+    .addthisevent-drop ._url,
+    .addthisevent-drop ._start,
+    .addthisevent-drop ._end,
+    .addthisevent-drop ._zonecode,
+    .addthisevent-drop ._summary,
+    .addthisevent-drop ._description,
+    .addthisevent-drop ._location,
+    .addthisevent-drop ._organizer,
+    .addthisevent-drop ._organizer_email,
+    .addthisevent-drop ._facebook_event,
+    .addthisevent-drop ._all_day_event {
+        display: none !important;
+    }
+
+    .addthisevent_dropdown .copyx {
+        width: 200px;
+        height: 21px;
+        display: block;
+        position: relative;
+        cursor: default;
+    }
+
+    .addthisevent_dropdown .brx {
+        width: 180px;
+        height: 1px;
+        overflow: hidden;
+        background: #e0e0e0;
+        position: absolute;
+        z-index: 100;
+        left: 10px;
+        top: 9px;
+    }
+
+    .addthisevent_dropdown .frs {
+        position: absolute;
+        top: 5px;
+        cursor: pointer;
+        right: 10px;
+        padding-left: 10px;
+        font-style: normal;
+        font-weight: normal;
+        text-align: right;
+        z-index: 101;
+        line-height: 110%;
+        background: #fff;
+        text-decoration: none;
+        font-size: 9px;
+        color: #cacaca;
+    }
+
+    .addthisevent_dropdown .frs:hover {
+        color: #999 !important;
     }
     </style>
-    <style id="monica-reading-highlight-style">
-    .monica-reading-highlight {
-        animation: fadeInOut 1.5s ease-in-out;
+    <style id="fit-vids-style">
+    .fluid-width-video-wrapper {
+        width: 100%;
+        position: relative;
+        padding: 0;
     }
 
-    @keyframes fadeInOut {
-
-        0%,
-        100% {
-            background-color: transparent;
-        }
-
-        30%,
-        70% {
-            background-color: rgba(2, 118, 255, 0.20);
-        }
+    .fluid-width-video-wrapper iframe,
+    .fluid-width-video-wrapper object,
+    .fluid-width-video-wrapper embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     </style>
 </head>
 
-<body data-affiliate-param="affiliate_id" data-show-progress="true" monica-id="ofpnmcalabcbjgholdjcjblkibolbppb"
-    monica-version="6.4.1">
+<body data-affiliate-param="affiliate_id" data-show-progress="true">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none !important">
         <filter id="grayscale">
             <feColorMatrix type="matrix"
@@ -302,7 +338,7 @@
                 </div>
             </div>
         </div>
-        <div class="container fullContainer noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection border1px noBorder sticky"
+        <div class="container fullContainer noTopMargin padding20-top padding20-bottom padding40H borderSolid cornersAll radius0 shadow0 bgNoRepeat emptySection border1px noBorder"
             id="section--76029" data-title="Section" data-block-color="0074C7"
             style="padding-top: 10px; padding-bottom: 10px; outline: none; background-color: rgb(0, 0, 0); border-color: rgb(39, 39, 39);"
             data-trigger="none" data-animate="fade" data-delay="500" data-hide-on="desktop">
@@ -320,7 +356,7 @@
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
-                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false">
+                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -336,18 +372,18 @@
                                 <nav class="nodoNav elLinkBold elLinkSize1 slide elLinks5">
                                     <ul>
                                         <li class="nav1 nodoNavItem"><a href="#scroll-results"
-                                                class="nav1link nodoNavLink" target="_self"
+                                                class="nav1link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);">My Stats</a></li>
                                         <li class="nav2 nodoNavItem"><a href="#scroll-aboutme"
-                                                class="nav2link nodoNavLink" target="_self"
+                                                class="nav2link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);">About Me</a></li>
                                         <li class="nav3 nodoNavItem"><a href="#scroll-testimonials"
-                                                class="nav3link nodoNavLink" target="_self"
+                                                class="nav3link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);">Testimonials</a></li>
                                         <li class="nav4 nodoNavItem"><a href="#scroll-faqs" class="nav4link nodoNavLink"
-                                                target="_self" style="color: rgb(255, 255, 255);">FAQ's</a></li>
+                                                target="_parent" style="color: rgb(255, 255, 255);">FAQ's</a></li>
                                         <li class="nav5 nodoNavItem"><a href="#scroll-liveresults"
-                                                class="nav5link nodoNavLink" target="_self"
+                                                class="nav5link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);">LIVE results</a></li>
                                     </ul>
                                 </nav>
@@ -384,10 +420,10 @@
                                 data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 5px; outline: none; cursor: pointer;" aria-disabled="false"
                                 data-element-theme="customized" data-elbuttontype="1">
-                                <a href="https://www.magzbet.com/login"
+                                <a href="/login"
                                     class="elButton elButtonSize1 elButtonColor1 elButtonPadding2 elBtnVP_10 elButtonTxtColor1 elBTN_b_none elButtonShadowFlatHighlight elBtnVP_15 elBTNone elButtonBlock elButtonCorner5 mfs_16 elButtonFluid elBtnHP_30"
                                     style="color: rgb(255, 255, 255);background: rgb(199, 0, 0);font-size: 12px;font-family: Montserrat, sans-serif;text-transform: uppercase;text-shadow: rgba(0, 0, 0, 0.2) 1px 1px 2px;background: #212121 !important;!i;"
-                                    rel="noopener noreferrer" id="undefined-522-262-720-929-1189" target="_blank">
+                                    rel="noopener noreferrer" id="undefined-522-262-720-929-1189" target="_self">
                                     <span class="elButtonMain">Login</span>
                                     <span class="elButtonSub mfs_12"></span>
                                 </a>
@@ -407,7 +443,7 @@
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
-                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false">
+                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -480,7 +516,7 @@
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
-                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false">
+                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -497,20 +533,20 @@
                                 <nav class="nodoNav elLinkBold elLinkSize1 slide elLinks5">
                                     <ul>
                                         <li class="nav1 nodoNavItem"><a href="#scroll-results"
-                                                class="nav1link nodoNavLink" target="_self"
+                                                class="nav1link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);" id="undefined-690">My Stats</a></li>
                                         <li class="nav2 nodoNavItem"><a href="#scroll-aboutme"
-                                                class="nav2link nodoNavLink" target="_self"
+                                                class="nav2link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);" id="undefined-67">About Me</a></li>
                                         <li class="nav3 nodoNavItem"><a href="#scroll-testimonials"
-                                                class="nav3link nodoNavLink" target="_self"
+                                                class="nav3link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);" id="undefined-171">Testimonials</a>
                                         </li>
                                         <li class="nav4 nodoNavItem"><a href="#scroll-faqs" class="nav4link nodoNavLink"
-                                                target="_self" style="color: rgb(255, 255, 255);"
+                                                target="_parent" style="color: rgb(255, 255, 255);"
                                                 id="undefined-547">FAQ's</a></li>
                                         <li class="nav5 nodoNavItem"><a href="#scroll-liveresults"
-                                                class="nav5link nodoNavLink" target="_self"
+                                                class="nav5link nodoNavLink" target="_parent"
                                                 style="color: rgb(255, 255, 255);" id="undefined-47">LIVE results</a>
                                         </li>
                                     </ul>
@@ -574,7 +610,7 @@
                                 data-delay="500" style="margin-top: 0px; outline: none; cursor: pointer;"
                                 aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
-                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false">
+                                    class="elIMG ximg" alt="" width="100" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -670,8 +706,7 @@
                                 style="margin-top: -20px; outline: none; cursor: pointer;" data-hide-on="mobile"
                                 aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/78/b4748779b04931a440fd659eac7163/d3topfoldmv3.png"
-                                    class="elIMG ximg" alt="" width="300" data-lazy-loading="false"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    class="elIMG ximg" alt="" width="300" data-lazy-loading="false" tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-42097"
                                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
@@ -853,16 +888,14 @@
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false"
                                 data-hide-on="desktop">
                                 <img src="https://images.clickfunnels.com/5b/454960457448b7841b941433e249e4/liveresutlsv3.png"
-                                    class="elIMG ximg" alt="" data-lazy-loading="false" width="150"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    class="elIMG ximg" alt="" data-lazy-loading="false" width="150" tabindex="0">
                             </div>
                             <div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable"
                                 id="img-22803" data-de-type="img" data-de-editing="false" data-title="image"
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <img src="https://images.clickfunnels.com/79/018a3f81a44cd2ae3bddf0001bf00e/realerst.jpg"
-                                    class="elIMG ximg" alt="" data-lazy-loading="false" data-xblocker="passed"
-                                    style="visibility: visible;">
+                                    class="elIMG ximg" alt="" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -882,7 +915,7 @@
                                 style="margin-top: 0px; cursor: pointer; position: relative; outline: none;"
                                 aria-disabled="false" data-fill-color="#000000">
                                 <img src="https://images.clickfunnels.com/d6/467b50ecac49b5982ba52f937de42b/transparent.png"
-                                    class="elIMG ximg" alt="" style="" data-lazy-loading="false">
+                                    class="elIMG ximg" alt="" style="" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -976,7 +1009,7 @@
                                 <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=641,quality=75/https://images.clickfunnels.com/00/5de3454ea84100ae9d0afe521fa0c1/Magzben3.png"
                                     class="elIMG ximg" alt=""
                                     data-src="https://images.clickfunnels.com/00/5de3454ea84100ae9d0afe521fa0c1/Magzben3.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-97309-126"
                                 data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true"
@@ -1040,8 +1073,7 @@
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false"
                                 data-hide-on="desktop">
                                 <img src="https://images.clickfunnels.com/00/5de3454ea84100ae9d0afe521fa0c1/Magzben3.png"
-                                    class="elIMG ximg" alt="" data-lazy-loading="false" width="1000"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    class="elIMG ximg" alt="" data-lazy-loading="false" width="1000" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -1667,7 +1699,7 @@
                                 <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=312,quality=75/https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
                                     class="elIMG ximg" alt="" width="120"
                                     data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-42979"
                                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
@@ -1711,7 +1743,7 @@
                                 <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=312,quality=75/https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
                                     class="elIMG ximg" alt="" width="120"
                                     data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-30838"
                                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
@@ -1755,7 +1787,7 @@
                                 <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=312,quality=75/https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
                                     class="elIMG ximg" alt="" width="120"
                                     data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-38058"
                                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
@@ -1804,14 +1836,15 @@
                                 <div class="elVideoplaceholder">
                                     <div class="elVideoplaceholder_inner"></div>
                                 </div>
-                                <div class="elVideo" style="display: none;"> <iframe
-                                        src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                        allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                        name="wistia_embed" allowfullscreen="allowfullscreen"
-                                        mozallowfullscreen="mozallowfullscreen"
-                                        webkitallowfullscreen="webkitallowfullscreen"
-                                        oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                        width="640" height="360"></iframe>
+                                <div class="elVideo" style="display: none;">
+                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
+                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
+                                            name="wistia_embed" allowfullscreen="allowfullscreen"
+                                            mozallowfullscreen="mozallowfullscreen"
+                                            webkitallowfullscreen="webkitallowfullscreen"
+                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
+                                            id="fitvid158507"></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -1829,14 +1862,15 @@
                                 <div class="elVideoplaceholder">
                                     <div class="elVideoplaceholder_inner"></div>
                                 </div>
-                                <div class="elVideo" style="display: none;"> <iframe
-                                        src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                        allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                        name="wistia_embed" allowfullscreen="allowfullscreen"
-                                        mozallowfullscreen="mozallowfullscreen"
-                                        webkitallowfullscreen="webkitallowfullscreen"
-                                        oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                        width="640" height="360"></iframe>
+                                <div class="elVideo" style="display: none;">
+                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
+                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
+                                            name="wistia_embed" allowfullscreen="allowfullscreen"
+                                            mozallowfullscreen="mozallowfullscreen"
+                                            webkitallowfullscreen="webkitallowfullscreen"
+                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
+                                            id="fitvid319774"></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -1859,14 +1893,15 @@
                                 <div class="elVideoplaceholder">
                                     <div class="elVideoplaceholder_inner"></div>
                                 </div>
-                                <div class="elVideo" style="display: none;"> <iframe
-                                        src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                        allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                        name="wistia_embed" allowfullscreen="allowfullscreen"
-                                        mozallowfullscreen="mozallowfullscreen"
-                                        webkitallowfullscreen="webkitallowfullscreen"
-                                        oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                        width="640" height="360"></iframe>
+                                <div class="elVideo" style="display: none;">
+                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
+                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
+                                            name="wistia_embed" allowfullscreen="allowfullscreen"
+                                            mozallowfullscreen="mozallowfullscreen"
+                                            webkitallowfullscreen="webkitallowfullscreen"
+                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
+                                            id="fitvid596470"></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -1884,14 +1919,15 @@
                                 <div class="elVideoplaceholder">
                                     <div class="elVideoplaceholder_inner"></div>
                                 </div>
-                                <div class="elVideo" style="display: none;"> <iframe
-                                        src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                        allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                        name="wistia_embed" allowfullscreen="allowfullscreen"
-                                        mozallowfullscreen="mozallowfullscreen"
-                                        webkitallowfullscreen="webkitallowfullscreen"
-                                        oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                        width="640" height="360"></iframe>
+                                <div class="elVideo" style="display: none;">
+                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
+                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
+                                            name="wistia_embed" allowfullscreen="allowfullscreen"
+                                            mozallowfullscreen="mozallowfullscreen"
+                                            webkitallowfullscreen="webkitallowfullscreen"
+                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
+                                            id="fitvid885920"></iframe></div>
                                 </div>
                             </div>
                         </div>
@@ -1997,7 +2033,68 @@
       trigger.addClass(&quot;faq-o&quot;);
     }
   });
-</script>" data-displaytype="htmlregular"></div>
+</script>" data-displaytype="htmlregular">
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Is it really free for 3 days?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>Yes. 95% of people who join MagzBet stay for over 6 months+. I'm so
+                                                confident that you'll stick around, Join for free for 3-days before your
+                                                automatic subscription comes out.<br><br>If you want to cancel within
+                                                this time, even if you've taken profit, you can do so.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How do i access your bet?</div>
+                                        <div class="faq-a">
+                                            <p>When you sign up, you'll receive a sign-up link where you can get access
+                                                to the LIVE BETS portal, along with our private community chat.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Why not just bet yourself?</div>
+                                        <div class="faq-a">
+                                            <p>I do, and I have for the past 7 years. <br><br> I'm already doing it on
+                                                my own, so if I can help you profit with me, and get paid to do so, we
+                                                both win.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Can I cancel my membership at
+                                            any time?</div>
+                                        <div class="faq-a">
+                                            <p>Yes! You can cancel before your subscription comes out, or you can cancel
+                                                anytime within the monthly period. <br><br> Cancel fast and easy by
+                                                simply clicking the 'cancel membership' button inside your members area.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Do you teach me how to do it?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>No, although, for special request, I do have a 60 day coaching programm
+                                                for $1,997 that will allow you to start seeing the things that I see.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How long until I see results?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>You could sign up for the free trial and receive a pick within the first
+                                                day, meaning you can profit the very first day. </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How do I know this is real?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>Check the endless proof on this page, if that isn't enough for you, then
+                                                maybe this isn't for you.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2102,7 +2199,68 @@
       trigger.addClass(&quot;faq-o&quot;);
     }
   });
-</script>" data-displaytype="htmlregular"></div>
+</script>" data-displaytype="htmlregular">
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Is it really free for 3 days?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>Yes. 95% of people who join MagzBet stay for over 6 months+. I'm so
+                                                confident that you'll stick around, Join for free for 3-days before your
+                                                automatic subscription comes out.<br><br>If you want to cancel within
+                                                this time, even if you've taken profit, you can do so.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How do i access your bet?</div>
+                                        <div class="faq-a">
+                                            <p>When you sign up, you'll receive a sign-up link where you can get access
+                                                to the LIVE BETS portal, along with our private community chat.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Why not just bet yourself?</div>
+                                        <div class="faq-a">
+                                            <p>I do, and I have for the past 7 years. <br><br> I'm already doing it on
+                                                my own, so if I can help you profit with me, and get paid to do so, we
+                                                both win.</p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Can I cancel my membership at
+                                            any time?</div>
+                                        <div class="faq-a">
+                                            <p>Yes! You can cancel before your subscription comes out, or you can cancel
+                                                anytime within the monthly period. <br><br> Cancel fast and easy by
+                                                simply clicking the 'cancel membership' button inside your members area.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> Do you teach me how to do it?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>No, although, for special request, I do have a 60 day coaching programm
+                                                for $1,997 that will allow you to start seeing the things that I see.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How long until I see results?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>You could sign up for the free trial and receive a pick within the first
+                                                day, meaning you can profit the very first day. </p>
+                                        </div>
+                                    </div>
+                                    <div class="faq-c">
+                                        <div class="faq-q"><span class="faq-t">+</span> How do I know this is real?
+                                        </div>
+                                        <div class="faq-a">
+                                            <p>Check the endless proof on this page, if that isn't enough for you, then
+                                                maybe this isn't for you.</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="de elBTN elMargin0 ui-droppable elAlign_left de-editable" id="button-16411"
                                 data-de-type="button" data-de-editing="false" data-title="button" data-ce="false"
@@ -2175,14 +2333,15 @@
                                 id="tmp_image-24883" data-de-type="img" data-de-editing="false" data-title="image"
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 30px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=691,quality=75/https://images.clickfunnels.com/b4/97c05d329b43778abc829feb806939/recentresultv34.jpg"
+                                <!-- <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=691,quality=75/https://images.clickfunnels.com/b4/97c05d329b43778abc829feb806939/recentresultv34.jpg"
                                     class="elIMG ximg" alt=""
                                     data-src="https://images.clickfunnels.com/b4/97c05d329b43778abc829feb806939/recentresultv34.jpg"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0"> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <iframe src="/bets/results/recent" class="" style="width:100%; height:1024px;margin:0 0 0 0;border:none;overflow:hidden"></iframe>
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--90361-168-143-117-103-116-141-146-188-134-110" data-trigger="none" data-animate="fade"
                     data-delay="500" data-title="1 column row - Clone - Clone - Clone - Clone - Clone - Clone"
@@ -2219,7 +2378,7 @@
                                 <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=1100,quality=75/https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
                                     class="elIMG ximg" alt="" width="120"
                                     data-src="https://images.clickfunnels.com/c3/b3e5d7486a43d2a94c35269310fdfd/magzlogo.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    tabindex="0">
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_subheadline-43334-158"
                                 data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true"
@@ -2228,10 +2387,10 @@
                                 <h2 class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 mfs_14"
                                     style="text-align: center; font-size: 16px; color: rgb(250, 250, 250);"
                                     data-bold="inherit" data-gramm="false" contenteditable="false">Copyright © 2024 |
-                                    MagzBet | <a href="https://www.magzbet.com/privacy" id="link-55848" class=""
+                                    MagzBet | <a href="/privacy" id="link-55848" class=""
                                         target="_blank" rel="noopener noreferrer"
                                         style="color: rgb(255, 187, 0);">Privacy Policy</a> | <a
-                                        href="https://www.magzbet.com/terms" id="link-46675" class="" target="_blank"
+                                        href="/terms" id="link-46675" class="" target="_blank"
                                         rel="noopener noreferrer" style="color: rgb(255, 187, 0);">Terms &amp;
                                         Conditions</a>
                                 </h2>
@@ -2243,8 +2402,7 @@
                                 data-imagelink="https://www.gambleaware.nsw.gov.au/">
                                 <img src="https://www.magzbet.com/assets/images/eeep_footer.png" class="elIMG ximg"
                                     alt="" width="600" data-imagelink="https://www.gambleaware.nsw.gov.au/"
-                                    data-src="https://www.magzbet.com/assets/images/eeep_footer.png"
-                                    data-xblocker="passed" style="visibility: visible;">
+                                    data-src="https://www.magzbet.com/assets/images/eeep_footer.png" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -2893,19 +3051,12 @@
         <input id="utm_term" name="utm_term" data-cf-form-field="utm_term" data-param="utm_term">
         <input id="utm_content" name="utm_content" data-cf-form-field="utm_content" data-param="utm_content">
         <input id="cf_uvid" name="cf_uvid" data-cf-form-field="cf_uvid">
-        <input type="text" name="webinar_delay" id="webinar_delay" placeholder="Webinar Delay">
+        <input type="text" name="webinar_delay" id="webinar_delay" placeholder="Webinar Delay" value="-63895608341126">
         <span data-cf-product-template="true">
             <input type="radio" name="purchase[product_id]" value="" data-storage="false">
             <input type="checkbox" name="purchase[product_ids][]" value="" data-storage="false">
         </span>
-        <span data-cf-product-variations-template="true">
-            <input type="checkbox" class="pvPurchaseProductName" name="purchase[product_variants][][product_id]"
-                value="" data-storage="false">
-            <input type="checkbox" class="pvPurchaseProductVariantName"
-                name="purchase[product_variants][][product_variant_id]" value="" data-storage="false">
-            <input type="input" class="pvPurchaseProductVariantQuantity" name="purchase[product_variants][][quantity]"
-                value="" data-storage="false">
-        </span>
+
         <input id="cf_contact_number" data-stripe="number" data-storage="false" data-recurly="number">
         <input id="cf_contact_month" data-stripe="exp-month" data-storage="" data-recurly="month">
         <input id="cf_contact_year" data-stripe="exp-year" data-storage="" data-recurly="year">
@@ -2914,7 +3065,7 @@
         <input type="hidden" name="purchase[payment_method_nonce]" data-storage="false">
         <input type="hidden" name="purchase[order_saas_url]" data-storage="false">
         <input type="submit">
-        <input name="contact[cart_affiliate_id]" value="" type="hidden" style="display:none;" data-param="affiliate">
+        <input name="contact[cart_affiliate_id]" type="hidden" style="display:none;" data-param="affiliate">
     </form>
     <span class="countdown-time" style="display:none;"></span>
     <span class="webinar-last-time" style="display:none;"></span>
@@ -3341,11 +3492,10 @@
     <script defer=""
         src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
         integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-        data-cf-beacon="{&quot;rayId&quot;:&quot;8ceedcdc3fba237a&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true}},&quot;version&quot;:&quot;2024.8.0&quot;,&quot;token&quot;:&quot;405b708a9b0242e88fda34dc27903686&quot;}"
+        data-cf-beacon="{&quot;rayId&quot;:&quot;8cf5564c79bfceaf&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true}},&quot;version&quot;:&quot;2024.8.0&quot;,&quot;token&quot;:&quot;405b708a9b0242e88fda34dc27903686&quot;}"
         crossorigin="anonymous"></script>
 
 
-    <div id="monica-content-root" class="monica-widget"></div>
 </body>
 
 </html>
