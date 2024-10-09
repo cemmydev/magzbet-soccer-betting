@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    @include('admin.texts.'.$index)
+    @include('admin.testimonial.'.$content)
 @endsection

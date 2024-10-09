@@ -111,6 +111,10 @@
                   class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                   User Defined Text
                 </a>
+                <a href="{{ route('admin.testimonial') }}" role="menuitem"
+                  class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                  Testimonial
+                </a>
               </div>
             </div>
 
@@ -482,6 +486,10 @@
                       class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
                       User Defined Text
                     </a>
+                    <a href="{{ route('admin.testimonial') }}" role="menuitem"
+                      class="block p-2 text-sm text-gray-600 transition-colors duration-200 rounded-md dark:hover:text-light hover:text-gray-800">
+                      Testimonial
+                    </a>
                   </div>
                 </div>
 
@@ -523,7 +531,7 @@
           <div>Magzbet Admin Panel &copy; 2024</div>
           <div>
             Made by
-            <a href="https://github.com/oleksandr010419" target="_blank" class="text-blue-500 hover:underline">Oleksandr</a>
+            <a href="https://github.com/cemmydev" target="_blank" class="text-blue-500 hover:underline">Cem</a>
           </div>
         </footer>
       </div>
