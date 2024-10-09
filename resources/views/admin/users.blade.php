@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
 
 @section('content')
-    @include('admin.users.'.$index);
+    @include('admin.users.'.$index)
 @endsection 
