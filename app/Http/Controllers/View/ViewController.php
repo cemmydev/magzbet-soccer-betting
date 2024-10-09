@@ -96,7 +96,7 @@ class ViewController
 	}
 
 	public function render_recent_results() {
-		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
+		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(5)->toArray();
 		return $this->viewFactory->make('microfrontend.recent', ['results' => $results]);
 	}
 
