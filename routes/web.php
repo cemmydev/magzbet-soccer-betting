@@ -39,6 +39,7 @@ Route::middleware(['web',])->group(function () {
 	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
 	Route::post('/contact', [ContactController::class, 'store']);
+	Route::get('bets/results/recent', [ViewController::class, 'render_recent_results'])->name('bets.recent');
 	Route::get('bets/results', [ViewController::class, 'render_results'])->name('bets.results');
 	// auth routes
 	Route::controller(Auth\AuthController::class)

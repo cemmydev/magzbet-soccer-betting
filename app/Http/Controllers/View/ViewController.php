@@ -95,6 +95,11 @@ class ViewController
 		return $this->viewFactory->make('bets.results', ['results' => $results]);
 	}
 
+	public function render_recent_results() {
+		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
+		return $this->viewFactory->make('bets.recent', ['results' => $results]);
+	}
+
 	public function render_abet($id) {
 		$bet=Bet::with('subscriptionPlan')->find($id);
 		if($bet == null) return $this->viewFactory->make('errors.404');
@@ -117,6 +122,9 @@ class ViewController
 		$stats30=Bet::with('subscriptionPlan')->where('status', '!=', 'pending')->where('created_at', '>=', date('Y-m-d', strtotime('-30 Day')))->get()->groupBy('subscriptionPlan.*.name')->toArray();
 		$stats7=Bet::with('subscriptionPlan')->where('status', '!=', 'pending')->where('created_at', '>=', date('Y-m-d', strtotime('-7 Day')))->get()->groupBy('subscriptionPlan.*.name')->toArray();
 		$subscrptions=subscriptionPlan::all()->toArray();
+		$data=[];
+		$data30=[];
+		$data7=[];
 		foreach($subscrptions as $sub){
 			if(!isset($stats[$sub['name']])) $single_stat = [];
 			else $single_stat = $stats[$sub['name']];
