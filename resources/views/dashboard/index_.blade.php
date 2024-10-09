@@ -705,7 +705,7 @@
                                 style="margin-top: 5px; outline: none; cursor: pointer; font-family: Roboto, Helvetica, sans-serif !important;"
                                 aria-disabled="false" data-google-font="Roboto" data-hide-on="desktop">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0 mfs_18 deUppercase de3pxLetterSpacing"
-                                    style="text-align: left; font-size: 14px; color: rgb(255, 21, 0); font-family: Montserrat, sans-serif;"
+                                    style="text-align: left; font-size: 14px; color: white; font-family: Montserrat, sans-serif;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false">
                                     <br>
                                     <div><br></div>
@@ -725,7 +725,7 @@
                                 style="margin-top: 5px; outline: none; cursor: pointer; font-family: Roboto, Helvetica, sans-serif !important;"
                                 aria-disabled="false" data-google-font="Roboto">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0 deUppercase de3pxLetterSpacing mfs_15"
-                                    style="text-align: left; font-size: 14px; color: rgb(255, 21, 0); font-family: Montserrat, sans-serif;"
+                                    style="text-align: left; font-size: 14px; color: white; font-family: Montserrat, sans-serif;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false"><i><b>Consistent
                                             79.5% Win Ratio | Double your money</b></i></h1>
                             </div>
@@ -811,22 +811,42 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div id="col-right-132" class="innerContent col_right ui-resizable col-md-5" data-col="right"
                         data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column"
                         style="outline: none;">
                         <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px"></div>
+                            style="padding: 0 10px">
+                        
+
+                        
+                        </div>
                     </div>
                 </div>
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--90361-168" data-trigger="none" data-animate="fade" data-delay="500"
                     data-title="1 column row - Clone"
-                    style="padding-top: 30px; padding-bottom: 30px; margin: 0px; outline: none;" data-hide-on="desktop">
+                    style="padding-top: 30px; padding-bottom: 30px; margin: 0px; outline: none;">
                     <div id="col-full-183-175" class="col-md-12 innerContent col_left" data-col="full"
                         data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column"
                         style="outline: none;">
                         <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px"></div>
+                            style="padding: 0 10px">
+                            <div style="display:flex; justify-content:center; gap: 16px;">
+                                <a target="_blank" class="hover:opacity-90" href="https://www.instagram.com/magzbet/"
+                                    previewlistener="true">
+                                    <img src="{{ asset('assets/images/social/instagram.png') }}" alt="instagram" class="h-12 shadow0" style="height:48px">
+                                </a>
+                                <a target="_blank" class="hover:opacity-90" href="https://t.me/magzbet"
+                                    previewlistener="true">
+                                    <img src="{{ asset('assets/images/social/telegram.png') }}" alt="telegram" class="h-12 shadow0" style="height:48px">
+                                </a>
+                                <a target="_blank" class="hover:opacity-90" href="https://www.tiktok.com/@magzbet"
+                                    previewlistener="true">
+                                    <img src="{{ asset('assets/images/social/tiktok.png') }}" alt="tiktok" class="h-12 shadow0" style="height:48px">
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -924,8 +944,6 @@
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; cursor: pointer; position: relative; outline: none;"
                                 aria-disabled="false" data-fill-color="#000000">
-                                <img src="https://images.clickfunnels.com/d6/467b50ecac49b5982ba52f937de42b/transparent.png"
-                                    class="elIMG ximg" alt="" style="" data-lazy-loading="false" tabindex="0">
                             </div>
                         </div>
                     </div>
@@ -1716,7 +1734,7 @@
                                 data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
-                                    style="text-align: center; font-size: 20px; color: rgb(255, 21, 0);"
+                                    style="text-align: center; font-size: 20px; color: white;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false"><b>"It's legit, I've
                                         been here for 7 months &amp; 20x'd my money"</b></h1>
                             </div>
@@ -1755,16 +1773,16 @@
                                     data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
                                     tabindex="0">
                             </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-30838"
+                            <div class="de elHeadlineWrapper ui-droppable de-editable"
                                 data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
                                 data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
-                                    style="text-align: center; font-size: 20px; color: rgb(255, 21, 0);"
+                                    style="text-align: center; font-size: 20px; color: white;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false"><b>"He's the real
                                         deal. One of the few out there that are"</b></h1>
                             </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-28746"
+                            <div class="de elHeadlineWrapper ui-droppable de-editable"
                                 data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true"
                                 data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 10px; outline: none; cursor: pointer;" aria-disabled="false">
@@ -1775,16 +1793,18 @@
                                     take your money, Magz was doing this for himself before inviting anyone else
                                     onboard, I respect it.</div>
                             </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-78159"
+                            <div class="de elHeadlineWrapper ui-droppable de-editable"
                                 data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true"
                                 data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false"
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h2 class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 deUppercase de2pxLetterSpacing"
-                                    style="text-align: center; font-size: 16px; color: rgb(255, 255, 255); font-family: Montserrat, sans-serif;"
+                                    style="text-align: center; font-size: 16px; color: rgb(255, 187, 0); font-family: Montserrat, sans-serif;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false"><b>Mark S.</b></h2>
                             </div>
                         </div>
                     </div>
+                    
+                    
                     <div id="col-right-145" class="col-md-4 innerContent col_right ui-resizable" data-col="right"
                         data-trigger="none" data-animate="fade" data-delay="500" data-title="3rd Column"
                         style="outline: none;">
@@ -1804,7 +1824,7 @@
                                 data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
-                                    style="text-align: center; font-size: 20px; color: rgb(255, 21, 0);"
+                                    style="text-align: center; font-size: 20px; color: white;"
                                     data-bold="inherit" data-gramm="false" contenteditable="false"><b>"Nothing to lose
                                         with the 3 day free trial, try it"</b></h1>
                             </div>
@@ -1951,7 +1971,9 @@
                         data-col="full" data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column"
                         style="outline: none;">
                         <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px"></div>
+                            style="padding: 0 10px">
+                        
+                        </div>
                     </div>
                 </div>
             </div>
