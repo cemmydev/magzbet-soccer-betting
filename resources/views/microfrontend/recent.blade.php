@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark" style="overflow:hidden">
 
 <head>
     <meta charset="utf-8">
@@ -33,16 +33,6 @@
         <main>
             <link rel="canonical" href="https://magzbet.com/dashboard" />
             <div class="container py-6" style="">
-                <div class="mb-4">
-                    <div class="mt-2 md:flex md:items-center md:justify-between">
-                        <div class="min-w-0 flex-1">
-                            <h2
-                                class="text-2xl font-bold leading-7 text-white sm:truncate sm:text-3xl sm:tracking-tight">
-                                Results
-                            </h2>
-                        </div>
-                    </div>
-                </div>
                 <div class="mb-6">
                     @foreach ($results['data'] as $result)
                     <a class="flex flex-col relative overflow-hidden height-auto text-foreground box-border bg-content1 outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 shadow-medium rounded-large transition-transform-background motion-reduce:transition-none mb-4"
