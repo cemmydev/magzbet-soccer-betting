@@ -31,6 +31,8 @@ Route::get('/td/getupdate', [TelegramController::class, 'getUpdate'])->name('td.
 Route::middleware(['web',])->group(function () {
 	// redirect
 	Route::redirect('/', '/dashboard', 301)->name('home');
+	Route::get('/microfrontend/recent', [ViewController::class, 'render_recent_results'])->name('microfrontend.recent');
+	Route::get('/microfrontend/stats', [ViewController::class, 'render_total_stats'])->name('microfrontend.stats');
 	Route::get('/dashboardtest', function(){ return view('dashboard.index_'); });
 	Route::get('/dashboard', [ViewController::class, 'render_dashboard'])->name('dashboard');
 	Route::get('/terms', [ViewController::class, 'builder'])->name('terms');
@@ -39,7 +41,6 @@ Route::middleware(['web',])->group(function () {
 	Route::get('/stats', [ViewController::class, 'render_stats'])->name('stats');
 	Route::get('/contact', [ViewController::class, 'builder'])->name('contact');
 	Route::post('/contact', [ContactController::class, 'store']);
-	Route::get('bets/results/recent', [ViewController::class, 'render_recent_results'])->name('bets.recent');
 	Route::get('bets/results', [ViewController::class, 'render_results'])->name('bets.results');
 	// auth routes
 	Route::controller(Auth\AuthController::class)

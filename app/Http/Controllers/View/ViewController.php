@@ -82,7 +82,7 @@ class ViewController
 		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
 		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
 		$text = UDText::select('text')->where('field', 'dashboard')->get();
-		return $this->viewFactory->make('dashboard.index', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
+		return $this->viewFactory->make('dashboard.index_', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
 	}
 
 	public function render_bets() {
@@ -97,7 +97,20 @@ class ViewController
 
 	public function render_recent_results() {
 		$results = Bet::with('subscriptionPlan')->where('status', "!=", 'pending')->orderBy('created_at', 'desc')->paginate(10)->toArray();
-		return $this->viewFactory->make('bets.recent', ['results' => $results]);
+		return $this->viewFactory->make('microfrontend.recent', ['results' => $results]);
+	}
+
+	public function render_total_stats() {
+		$total_bets = Bet::all()->count();
+		$total_num = Bet::where('status', '!=', 'pending')->count();
+		$win_num = Bet::where('status', 'won')->count();
+		$total_profit=Bet::where('status', 'won')->sum('profit');
+		$total_stake=Bet::where('status', '!=', 'pending')->sum('stake');
+		$win_ratio = $total_num == 0 ? 0 : round($win_num * 100 / $total_num);
+		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
+		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
+		$text = UDText::select('text')->where('field', 'dashboard')->get();
+		return $this->viewFactory->make('microfrontend.total_stats', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
 	}
 
 	public function render_abet($id) {

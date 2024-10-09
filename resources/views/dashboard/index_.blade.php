@@ -39,6 +39,17 @@
     <meta property="cf:time_zone" content="Eastern Time (US &amp; Canada)">
     <meta property="cf:app_domain" content="app.clickfunnels.com">
     <style>
+    #micro_stats {
+        width: 100%;
+        height: 440px;
+    }
+
+    @media only screen and (min-width: 670px) {
+        #micro_stats{
+            width: 100%;
+            height: 220px
+        }
+    }
     [data-timed-style='fade'] {
         display: none
     }
@@ -894,8 +905,7 @@
                                 id="img-22803" data-de-type="img" data-de-editing="false" data-title="image"
                                 data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
                                 style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <img src="https://images.clickfunnels.com/79/018a3f81a44cd2ae3bddf0001bf00e/realerst.jpg"
-                                    class="elIMG ximg" alt="" data-lazy-loading="false" tabindex="0">
+                                <iframe src="/microfrontend/stats" frameborder="0" style="width:100%" id="micro_stats"></iframe>
                             </div>
                         </div>
                     </div>
@@ -2341,7 +2351,7 @@
                             </div>
                         </div>
                     </div>
-                    <iframe src="/bets/results/recent" class="" style="width:100%; height:1024px;margin:0 0 0 0;border:none;overflow:hidden"></iframe>
+                    <iframe src="/microfrontend/recent" class="" style="width:100%; height:1024px;margin:0 0 0 0;border:none;overflow:hidden"></iframe>
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--90361-168-143-117-103-116-141-146-188-134-110" data-trigger="none" data-animate="fade"
                     data-delay="500" data-title="1 column row - Clone - Clone - Clone - Clone - Clone - Clone"
