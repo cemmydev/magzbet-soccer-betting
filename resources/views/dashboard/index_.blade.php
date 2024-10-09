@@ -41,14 +41,7 @@
     <style>
     #micro_stats {
         width: 100%;
-        height: 440px;
-    }
-
-    @media only screen and (min-width: 670px) {
-        #micro_stats{
-            width: 100%;
-            height: 220px
-        }
+        height: 220px;
     }
     [data-timed-style='fade'] {
         display: none
