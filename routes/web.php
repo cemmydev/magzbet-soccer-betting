@@ -237,6 +237,7 @@ Route::middleware(['web',])->group(function () {
 												Route::group(['prefix' => 'testimonial'], function() {
 													Route::get('/', [Admin\TestimonialController::class, 'index'])->name('testimonial');
 													Route::get('/create', [Admin\TestimonialController::class, 'create'])->name('testimonial.create');
+													Route::get('/{id}', [Admin\TestimonialController::class, 'edit'])->name('testimonial.edit');
 												});
 											});
 										});
