@@ -7,6 +7,7 @@ use App\Models\subscriptionPlan;
 use App\Models\UDText;
 use App\Models\User;
 use App\Models\UserLogin;
+use App\Models\Testimonial;
 use Auth;
 use Carbon\Carbon;
 use DB;
@@ -73,16 +74,10 @@ class ViewController
 	}
 
 	public function render_dashboard() {
-		$total_bets = Bet::all()->count();
-		$total_num = Bet::where('status', '!=', 'pending')->count();
-		$win_num = Bet::where('status', 'won')->count();
-		$total_profit=Bet::where('status', 'won')->sum('profit');
-		$total_stake=Bet::where('status', '!=', 'pending')->sum('stake');
-		$win_ratio = $total_num == 0 ? 0 : round($win_num * 100 / $total_num);
-		$ROI = $total_stake == 0 ? 0 : round($total_profit * 100 / $total_stake);
-		$latest_bets = Bet::with('subscriptionPlan')->where('status', 'pending')->limit(10)->get()->sortByDesc('created_at')->toArray();
+		$feedback = Testimonial::select('title', 'text', 'sign')->where('type', 'feedback')->get();
+		$youtube = Testimonial::select('link')->where('type', 'youtube')->get();
 		$text = UDText::select('text')->where('field', 'dashboard')->get();
-		return $this->viewFactory->make('dashboard.index_', ['latest_bets' => $latest_bets, 'total_bets' => $total_bets, 'win_ratio' => $win_ratio, 'ROI' => $ROI, 'text'=>$text]);
+		return $this->viewFactory->make('dashboard.index_', ['text'=>$text, 'feedback' => $feedback, 'youtube' => $youtube]);
 	}
 
 	public function render_bets() {

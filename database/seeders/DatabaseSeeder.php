@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
 			Partials\UserOptionSeeder::class,
 			Partials\TextSeeder::class,
 			Partials\TelOptionSeeder::class,
+			Partials\TestimonialSeeder::class,
 		]);
 	}
 }

@@ -1,7 +1,6 @@
 <html lang="en"
     class="clickfunnels-com bgCover wf-proximanova-i4-active wf-proximanova-i7-active wf-proximanova-n4-active wf-proximanova-n7-active wf-active wf-proximanova-i3-active wf-proximanova-n3-active elFont_helvectica wf-proximanovasoft-n4-active wf-proximanovasoft-n7-active wf-proximasoft-n4-active wf-proximasoft-i4-active wf-proximasoft-i6-active wf-proximasoft-n6-active wf-proximasoft-i7-active wf-proximasoft-n7-active avcHn2VQJenBvoR5hilPG "
     style="background-color: rgb(0, 0, 0); overflow: initial;">
-
 <head data-next-url="" data-this-url="https://rediscoverdigital.clickfunnels.com/optin1724079753078">
     <meta charset="UTF-8">
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
@@ -1708,6 +1707,7 @@
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--20869" data-trigger="none" data-animate="fade" data-delay="500" data-title="3 column row"
                     style="padding-top: 20px; padding-bottom: 20px; margin: 0px; outline: none;">
+                    @foreach ($feedback as $item)
                     <div id="col-left-184" class="col-md-4 innerContent col_left ui-resizable" data-col="left"
                         data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column"
                         style="outline: none;">
@@ -1728,8 +1728,7 @@
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
                                     style="text-align: center; font-size: 20px; color: white;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>"It's legit, I've
-                                        been here for 7 months &amp; 20x'd my money"</b></h1>
+                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>"{{$item->title}}"</b></h1>
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-51431"
                                 data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true"
@@ -1738,9 +1737,7 @@
                                 <div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0"
                                     data-bold="inherit"
                                     style="text-align: center; color: rgb(225, 225, 225); font-size: 18px;"
-                                    data-gramm="false" contenteditable="false">Most people out there are just out to
-                                    take your money, Magz was doing this for himself before inviting anyone else
-                                    onboard, I respect it.</div>
+                                    data-gramm="false" contenteditable="false">{{$item->text}}</div>
                             </div>
                             <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-18135"
                                 data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true"
@@ -1748,101 +1745,13 @@
                                 style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
                                 <h2 class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 deUppercase de2pxLetterSpacing"
                                     style="text-align: center; font-size: 16px; color: rgb(255, 255, 255); font-family: Montserrat, sans-serif;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>Jake G.</b></h2>
+                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>{{$item->sign}}</b></h2>
                             </div>
                         </div>
                     </div>
-                    <div id="col-center-102" class="col-md-4 innerContent col_right ui-resizable" data-col="center"
-                        data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column"
-                        style="outline: none;">
-                        <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px">
-                            <div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable"
-                                id="img-92193" data-de-type="img" data-de-editing="false" data-title="image"
-                                data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=312,quality=75/https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    class="elIMG ximg" alt="" width="120"
-                                    data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    tabindex="0">
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable"
-                                data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
-                                    style="text-align: center; font-size: 20px; color: white;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>"He's the real
-                                        deal. One of the few out there that are"</b></h1>
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable"
-                                data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 10px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0"
-                                    data-bold="inherit"
-                                    style="text-align: center; color: rgb(225, 225, 225); font-size: 18px;"
-                                    data-gramm="false" contenteditable="false">Most people out there are just out to
-                                    take your money, Magz was doing this for himself before inviting anyone else
-                                    onboard, I respect it.</div>
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable"
-                                data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false"
-                                style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <h2 class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 deUppercase de2pxLetterSpacing"
-                                    style="text-align: center; font-size: 16px; color: rgb(255, 187, 0); font-family: Montserrat, sans-serif;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>Mark S.</b></h2>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div id="col-right-145" class="col-md-4 innerContent col_right ui-resizable" data-col="right"
-                        data-trigger="none" data-animate="fade" data-delay="500" data-title="3rd Column"
-                        style="outline: none;">
-                        <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px">
-                            <div class="de elImageWrapper de-image-block elAlign_center elMargin0 ui-droppable de-editable"
-                                id="tmp_image-19980" data-de-type="img" data-de-editing="false" data-title="image"
-                                data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 0px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <img src="https://images.clickfunnels.com/cdn-cgi/image/fit=scale-down,width=312,quality=75/https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    class="elIMG ximg" alt="" width="120"
-                                    data-src="https://images.clickfunnels.com/9d/4a53fa47b942089f0a04b5ddc05e2d/star-rating.png"
-                                    tabindex="0">
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-38058"
-                                data-de-type="headline" data-de-editing="false" data-title="headline" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <h1 class="ne elHeadline hsSize3 lh4 elMargin0 elBGStyle0 hsTextShadow0"
-                                    style="text-align: center; font-size: 20px; color: white;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>"Nothing to lose
-                                        with the 3 day free trial, try it"</b></h1>
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="tmp_paragraph-71099"
-                                data-de-type="headline" data-de-editing="false" data-title="Paragraph" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500"
-                                style="margin-top: 10px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <div class="ne elHeadline hsSize1 lh5 elMargin0 elBGStyle0 hsTextShadow0"
-                                    data-bold="inherit"
-                                    style="text-align: center; color: rgb(225, 225, 225); font-size: 18px;"
-                                    data-gramm="false" contenteditable="false">Most people out there are just out to
-                                    take your money, Magz was doing this for himself before inviting anyone else
-                                    onboard, I respect it.</div>
-                            </div>
-                            <div class="de elHeadlineWrapper ui-droppable de-editable" id="headline-88421"
-                                data-de-type="headline" data-de-editing="false" data-title="sub-headline" data-ce="true"
-                                data-trigger="none" data-animate="fade" data-delay="500" data-gramm="false"
-                                style="margin-top: 15px; outline: none; cursor: pointer;" aria-disabled="false">
-                                <h2 class="ne elHeadline hsSize2 lh3 elMargin0 elBGStyle0 hsTextShadow0 deUppercase de2pxLetterSpacing"
-                                    style="text-align: center; font-size: 16px; color: rgb(255, 255, 255); font-family: Montserrat, sans-serif;"
-                                    data-bold="inherit" data-gramm="false" contenteditable="false"><b>Alex R.</b></h2>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
+                @foreach(range(0, ($youtube->count() + $youtube->count()%2)/2 - 1) as $rowindex)
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--17335" data-trigger="none" data-animate="fade" data-delay="500" data-title="2 column row"
                     style="padding-top: 20px; padding-bottom: 20px; margin: 0px; outline: none;">
@@ -1861,7 +1770,7 @@
                                 </div>
                                 <div class="elVideo" style="display: none;">
                                     <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
-                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            src="{{$youtube[$rowindex*2]->link}}"
                                             allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
                                             name="wistia_embed" allowfullscreen="allowfullscreen"
                                             mozallowfullscreen="mozallowfullscreen"
@@ -1872,6 +1781,7 @@
                             </div>
                         </div>
                     </div>
+                    @if($rowindex * 2 + 1 != $youtube -> count())
                     <div id="col-right-163" class="col-md-6 innerContent col_right ui-resizable" data-col="right"
                         data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column"
                         style="outline: none;">
@@ -1887,7 +1797,7 @@
                                 </div>
                                 <div class="elVideo" style="display: none;">
                                     <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
-                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
+                                            src="{{$youtube[$rowindex*2 + 1]->link}}"
                                             allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
                                             name="wistia_embed" allowfullscreen="allowfullscreen"
                                             mozallowfullscreen="mozallowfullscreen"
@@ -1898,64 +1808,9 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
-                <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                    id="row--17335-126" data-trigger="none" data-animate="fade" data-delay="500"
-                    data-title="2 column row - Clone"
-                    style="padding-top: 20px; padding-bottom: 20px; margin: 0px; outline: none;">
-                    <div id="col-left-104-185" class="col-md-6 innerContent col_left ui-resizable" data-col="left"
-                        data-trigger="none" data-animate="fade" data-delay="500" data-title="1st column"
-                        style="outline: none;">
-                        <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px">
-                            <div class="de elVideoWrapper de-video-block elVideoWidth100 elMargin0 ui-droppable de-editable"
-                                id="tmp_video-53845-150" data-de-type="video" data-de-editing="false" data-title="video"
-                                data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
-                                data-video-type="custom" style="margin-top: 0px; outline: none; cursor: pointer;"
-                                aria-disabled="false">
-                                <div class="elVideoplaceholder">
-                                    <div class="elVideoplaceholder_inner"></div>
-                                </div>
-                                <div class="elVideo" style="display: none;">
-                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
-                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                            name="wistia_embed" allowfullscreen="allowfullscreen"
-                                            mozallowfullscreen="mozallowfullscreen"
-                                            webkitallowfullscreen="webkitallowfullscreen"
-                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                            id="fitvid596470"></iframe></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="col-right-163-133" class="col-md-6 innerContent col_right ui-resizable" data-col="right"
-                        data-trigger="none" data-animate="fade" data-delay="500" data-title="2nd column"
-                        style="outline: none;">
-                        <div class="col-inner bgCover  noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
-                            style="padding: 0 10px">
-                            <div class="de elVideoWrapper de-video-block elVideoWidth100 elMargin0 ui-droppable de-editable"
-                                id="video-26265-156" data-de-type="video" data-de-editing="false" data-title="video"
-                                data-ce="false" data-trigger="none" data-animate="fade" data-delay="500"
-                                data-video-type="custom" style="margin-top: 0px; outline: none; cursor: pointer;"
-                                aria-disabled="false">
-                                <div class="elVideoplaceholder">
-                                    <div class="elVideoplaceholder_inner"></div>
-                                </div>
-                                <div class="elVideo" style="display: none;">
-                                    <div class="fluid-width-video-wrapper" style="padding-top: 56.25%;"><iframe
-                                            src="https://www.youtube.com/embed/tf88GFLtj18?autoplay=0&amp;controls=0&amp;showinfo=0&amp;title=0&amp;rel=0&amp;wmode=transparent"
-                                            allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed"
-                                            name="wistia_embed" allowfullscreen="allowfullscreen"
-                                            mozallowfullscreen="mozallowfullscreen"
-                                            webkitallowfullscreen="webkitallowfullscreen"
-                                            oallowfullscreen="oallowfullscreen" msallowfullscreen="msallowfullscreen"
-                                            id="fitvid885920"></iframe></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
                 <div class="row bgCover noBorder borderSolid border3px cornersAll radius0 shadow0 P0-top P0-bottom P0H noTopMargin"
                     id="row--90361-168-143-117-103-116-141-142-143" data-trigger="none" data-animate="fade"
                     data-delay="500" data-title="1 column row - Clone - Clone - Clone - Clone - Clone - Clone"
